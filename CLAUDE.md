@@ -8,10 +8,13 @@ HTML deck under `web/`. The deck system is adapted from
 ## Layout
 
 - `index.html` — landing page listing every topic.
-- `web/template.html` — **start here**: a 9-slide starter deck showing every
-  core layout (cover, quote, agenda cards, two-column, stat row, card grid,
-  process flow, section divider, closing). Copy it to `web/<topic>.html` and
-  replace the placeholder content.
+- `SETUP.md` — human-facing setup guide for this deck system.
+- `web/template.html` — **the canonical starting point for every new deck**:
+  the scaffold with only the title slide plus one blank content slide. Copy
+  it to `web/<topic>.html` and write your slides.
+- `web/layouts.html` — a 9-slide layout sampler (cover, quote, agenda cards,
+  two-column, stat row, card grid, process flow, section divider, closing).
+  Copy slide patterns (and their widget CSS) from here into new decks.
 - `web/python-data-foundations.html` — a full 34-slide example deck (from
   ocbccrayon) showing what a finished topic looks like.
 - `web/components.html` — bento gallery of the animated widgets available.
@@ -22,9 +25,12 @@ HTML deck under `web/`. The deck system is adapted from
 
 ## Adding a new topic (IMPORTANT — produce all three artifacts)
 
-1. **Deck**: copy `web/template.html` → `web/<topic>.html`, write the slides,
-   then build `web/<topic>.standalone.html` with `make_standalone.py`.
-2. **Speaker notes**: copy `speaker-notes-template.html` →
+1. **Deck**: copy `web/template.html` → `web/<topic>.html`, write the slides
+   (borrow patterns from `web/layouts.html` — note the layout sampler carries
+   the full widget CSS, the blank template only the scaffold CSS, so copy the
+   widget styles you use too), then build `web/<topic>.standalone.html` with
+   `make_standalone.py`.
+2. **Speaker notes**: copy `speaker-notes-layouts.html` →
    `speaker-notes-<topic>.html`, then regenerate it from the deck's
    `data-notes` with `make_speaker_notes.py` (also writes the `.txt`).
 3. **Landing page**: add a `.topic` block to `index.html` mirroring the
@@ -53,7 +59,8 @@ regenerate the speaker notes.
 
 ## Deck system
 
-All decks share one scaffold (see `web/template.html`): a fixed 1280×720
+All decks share one scaffold (see `web/template.html`, demonstrated across
+`web/layouts.html`): a fixed 1280×720
 `.deck` scaled to the viewport by `fit()` (uses `visualViewport`, re-fits on
 `orientationchange`); reveal-on-active animations via `[data-r]`/`data-d`;
 animated counters via `data-count`/`data-prefix`/`data-suffix`; a notebook

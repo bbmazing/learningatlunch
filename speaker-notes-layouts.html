@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Speaker notes · Deck Template · Learning at Lunch</title>
+<title>Speaker notes · Slide Layouts · Learning at Lunch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -65,7 +65,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <header class="bar">
   <div>
     <div class="ttl">Speaker notes</div>
-    <div class="sub">Deck Template · 9 slides</div>
+    <div class="sub">Slide Layouts · 9 slides</div>
   </div>
   <div class="right">
     <a class="btn ghost" href="index.html">&larr; Back</a>
@@ -74,7 +74,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       <span id="editLbl">Edit</span>
     </button>
     <button class="btn ghost" id="reset" type="button" style="display:none">Reset</button>
-    <a class="btn red" id="dl" href="speaker-notes-template.txt" download="learning-at-lunch-deck-template-speaker-notes.txt">
+    <a class="btn red" id="dl" href="speaker-notes-layouts.txt" download="learning-at-lunch-slide-layouts-speaker-notes.txt">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
       <span class="lbl-long">Download&nbsp;</span>.txt
     </a>
@@ -83,7 +83,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
 <main>
   <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
-  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Deck Template deck. 9 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Slide Layouts deck. 9 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
   <div id="notes">
     <article class="s">
       <div class="n">Slide 1</div>
@@ -212,7 +212,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 
   // download current (edited) content as .txt
   function buildTxt(){
-    var L = ['Learning at Lunch — Deck Template', 'Speaker notes · ' + arts.length + ' slides',
+    var L = ['Learning at Lunch — Slide Layouts', 'Speaker notes · ' + arts.length + ' slides',
              '================================================', ''];
     collect().forEach(function(r,i){
       L.push('Slide ' + (i+1) + ' — ' + r.t);
@@ -226,7 +226,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
     var blob = new Blob([buildTxt()], { type: 'text/plain;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'learning-at-lunch-deck-template-speaker-notes.txt';
+    a.download = 'learning-at-lunch-slide-layouts-speaker-notes.txt';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
   });

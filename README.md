@@ -10,7 +10,9 @@ fully offline. The deck system is adapted from
 | Path | What it is |
 |---|---|
 | `index.html` | Landing page listing every topic |
-| `web/template.html` | 9-slide starter template — copy this to make a new deck |
+| `SETUP.md` | Full setup guide for the deck system |
+| `web/template.html` | Blank deck template (title slide + one blank slide) — copy this to make a new deck |
+| `web/layouts.html` | 9 ready-made slide patterns to copy from |
 | `web/python-data-foundations.html` | Full 34-slide example deck |
 | `web/components.html` | Gallery of the animated widgets |
 | `web/assets/` | Shared images (logos, cover background, chart PNGs) |
@@ -20,7 +22,8 @@ fully offline. The deck system is adapted from
 ## Creating a new deck
 
 ```bash
-# 1. copy the template and write your slides
+# 1. copy the blank template and write your slides
+#    (borrow slide patterns + widget CSS from web/layouts.html)
 cp web/template.html web/my-topic.html
 
 # 2. build the self-contained standalone (needs internet for Google Fonts)
@@ -28,7 +31,7 @@ cd web
 python make_standalone.py my-topic.html my-topic.standalone.html
 
 # 3. generate the speaker-notes page from the deck's data-notes
-cp ../speaker-notes-template.html ../speaker-notes-my-topic.html
+cp ../speaker-notes-layouts.html ../speaker-notes-my-topic.html
 python make_speaker_notes.py my-topic.html ../speaker-notes-my-topic.html \
        ../speaker-notes-my-topic.txt "Learning at Lunch — My Topic"
 
