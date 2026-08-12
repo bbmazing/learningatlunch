@@ -65,7 +65,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <header class="bar">
   <div>
     <div class="ttl">Speaker notes</div>
-    <div class="sub">Beyond the Hype · 23 slides</div>
+    <div class="sub">Beyond the Hype · 25 slides</div>
   </div>
   <div class="right">
     <a class="btn ghost" href="index.html">&larr; Back</a>
@@ -83,7 +83,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
 <main>
   <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
-  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 23 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 25 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
   <div id="notes">
     <article class="s">
       <div class="n">Slide 1</div>
@@ -153,15 +153,36 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
     </article>
     <article class="s">
       <div class="n">Slide 8</div>
-      <h2>It read the internet and kept the patterns</h2>
+      <h2>It reads tokens, not words</h2>
       <ul>
-        <li>It learned by reading a huge slice of the internet.</li>
-        <li>No database inside. It rebuilds answers from patterns.</li>
-        <li>Like humming a song from memory: sometimes a note is wrong.</li>
+        <li>The model does not read words. It reads tokens, small pieces of text.</li>
+        <li>A short word is one token. A long word breaks into pieces.</li>
+        <li>Rule of thumb: 1,000 tokens is about 750 English words.</li>
+        <li>So next-word prediction is really next-token prediction. Same idea.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 9</div>
+      <h2>Tokens are the meter</h2>
+      <ul>
+        <li>Every token in and out gets counted. Tokens are the meter.</li>
+        <li>Bigger tasks and smarter models burn more tokens, and that compute costs money.</li>
+        <li>ChatGPT Plus is 20 US dollars a month for the stronger models. Companies pay per token.</li>
+        <li>Nothing to do about it today. Just know that AI has a price tag.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 10</div>
+      <h2>It read a lot, up to a date</h2>
+      <ul>
+        <li>It learned by reading books, articles, code and forums. A huge library.</li>
+        <li>Training stops at a date. After that date, the model has read nothing.</li>
+        <li>Ask about last week and it may guess. Fluent about the past, blind to the present.</li>
+        <li>Remember this. Part 2 shows how tools feed it fresh information.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 11</div>
       <h2>Brilliant and unreliable at the same time</h2>
       <ul>
         <li>Good at rewriting language: draft, summarise, translate, explain.</li>
@@ -171,7 +192,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 10</div>
+      <div class="n">Slide 12</div>
       <h2>Context in, quality out</h2>
       <ul>
         <li>Better input, better output.</li>
@@ -180,7 +201,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 11</div>
+      <div class="n">Slide 13</div>
       <h2>A plain chatbot hits three walls</h2>
       <ul>
         <li>Wall one, time: its knowledge stops at a cutoff date.</li>
@@ -190,7 +211,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 12</div>
+      <div class="n">Slide 14</div>
       <h2>Part 2 — From chatbot to coworker</h2>
       <ul>
         <li>Part two: how a text predictor starts doing real work.</li>
@@ -198,7 +219,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 13</div>
+      <div class="n">Slide 15</div>
       <h2>Tool calling: give the model hands</h2>
       <ul>
         <li>Give the model tools: search, calculator, database.</li>
@@ -208,7 +229,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 14</div>
+      <div class="n">Slide 16</div>
       <h2>An agent is a loop, not a chat</h2>
       <ul>
         <li>An agent is an LLM in a loop: plan, act, check, repeat until done.</li>
@@ -218,7 +239,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 15</div>
+      <div class="n">Slide 17</div>
       <h2>Ground it in your documents</h2>
       <ul>
         <li>Fix for wall two: hand it your documents when you ask.</li>
@@ -228,7 +249,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 16</div>
+      <div class="n">Slide 18</div>
       <h2>Part 3 — Built here</h2>
       <ul>
         <li>Now it gets concrete. Four tools, four videos, all built here.</li>
@@ -236,7 +257,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 17</div>
+      <div class="n">Slide 19</div>
       <h2>Bank Statement Analyzer</h2>
       <ul>
         <li>The pain: statements from other banks, every format different, retyped by hand.</li>
@@ -245,7 +266,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 18</div>
+      <div class="n">Slide 20</div>
       <h2>Adverse News Search · 1:45</h2>
       <ul>
         <li>The pain: screening by hand. One name, one source, one search at a time.</li>
@@ -256,7 +277,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 19</div>
+      <div class="n">Slide 21</div>
       <h2>MoM AI · 0:30</h2>
       <ul>
         <li>The pain: someone types notes all meeting, and the minutes still come late.</li>
@@ -267,7 +288,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 20</div>
+      <div class="n">Slide 22</div>
       <h2>LuminaLM · 0:50</h2>
       <ul>
         <li>The pain: 157 documents, and the truth scattered across all of them.</li>
@@ -278,7 +299,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 21</div>
+      <div class="n">Slide 23</div>
       <h2>Four tools, one pattern</h2>
       <ul>
         <li>Same pattern four times: one model, plus tools, plus our documents.</li>
@@ -287,7 +308,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 22</div>
+      <div class="n">Slide 24</div>
       <h2>Start this week, inside the rules</h2>
       <ul>
         <li>Start small: summarise, draft, translate, explain.</li>
@@ -297,7 +318,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 23</div>
+      <div class="n">Slide 25</div>
       <h2>Useful work, today. You just watched it</h2>
       <ul>
         <li>Recap in one breath: you saw how it works, and four tools that use it.</li>

@@ -9,7 +9,7 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (23 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (25 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
   Adverse News, MoM AI and LuminaLM videos are embedded and their
   scripts below are written against the actual footage. The Statement
@@ -26,10 +26,10 @@ using AI safely this week.
 | Act | Slides | Minutes |
 |---|---|---|
 | Opening (cover, LLM intro, on-premise, premise, agenda) | 1–5 | 8 |
-| Act 1 · What is an LLM, really? | 6–11 | 12 |
-| Act 2 · From chatbot to coworker | 12–15 | 8 |
-| Act 3 · Demo videos: AI use cases in the bank | 16–21 | 16 |
-| Close + Q&A | 22–23 | 5 + buffer |
+| Act 1 · What is an LLM, really? | 6–13 | 14 |
+| Act 2 · From chatbot to coworker | 14–17 | 8 |
+| Act 3 · Demo videos: AI use cases in the bank | 18–23 | 16 |
+| Close + Q&A | 24–25 | 5 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -160,25 +160,58 @@ patterns in text · every answer is built one word at a time.
 > prediction. Keep this picture, because it explains the failures we'll
 > see in a minute.
 
-## Slide 8 · How it learned — 2 min
+## Slide 8 · It reads tokens, not words — 2 min
 
-**Layout**: stat row with three counters, plus a caption.
-**On slide**: ~trillions of words read during training · months of
-training compute · 0 databases inside. Caption: it learned patterns, it
-did not memorise a lookup table.
+**Layout**: two-column; bullets left, right a tokenizer visual: the
+savings-account sentence split into 9 colored token chips, the word
+"menguntungkan" split into 3 pieces, and a ratio card (1,000 tokens ≈
+750 English words).
 
 **Say:**
 
-> Where do good predictions come from? Training. The model read a huge
-> slice of the public internet, books, articles, code, forums, and from
-> that it learned patterns: grammar, facts, styles, how an apology email
-> differs from a legal clause. One thing to hold on to: there is no
-> database inside. It does not look answers up. It reconstructs them from
-> patterns, the way you can hum a song you've heard many times without
-> owning the recording. That is why it sounds fluent, and why it can be
-> fluently wrong.
+> One word of vocabulary before we talk about cost. The model does not
+> read words. It reads tokens, small pieces of text. A short word is one
+> token. A long word breaks into pieces, like menguntungkan here in
+> three parts. Rule of thumb: a thousand tokens is about 750 English
+> words, and a page of text is roughly 500 tokens. So the next-word
+> prediction from the last slide is really next-token prediction. Same
+> idea, smaller pieces.
 
-## Slide 9 · Brilliant and unreliable — 3 min
+## Slide 9 · Tokens are the meter — 2 min
+
+**Layout**: two-column; bullets left, right two task cards with
+animated cost bars (short email ~300 tokens vs 40-page report ~30,000
+tokens) and three pricing chips (ChatGPT Free · ChatGPT Plus $20/mo ·
+companies pay per token).
+
+**Say:**
+
+> Why do tokens matter? They are the meter. Every token in and every
+> token out gets counted. A short email costs a few hundred tokens. A
+> forty-page report costs tens of thousands. More tokens means more
+> computing, and that costs money. That is why ChatGPT Plus charges 20
+> US dollars a month for the stronger models, and why companies pay per
+> token. Nothing you need to do about it today. Just be aware that AI
+> work has a price tag.
+
+## Slide 10 · It read a lot, up to a date — 2 min
+
+**Layout**: full-width timeline: a solid "what it read" panel with
+source chips (books, articles and news, code, forums, websites), a red
+"training stops here" flag, then a dashed empty "after that date"
+panel. Takeaway line beneath.
+
+**Say:**
+
+> Where do good predictions come from? Reading. During training the
+> model read a huge library: books, articles, code, forums, much of the
+> public internet. Here is the catch. Training stops at a date. After
+> that date the model has read nothing. This week&rsquo;s news, a new OJK
+> regulation, today&rsquo;s rates: not in its memory. So it is fluent about
+> the past and blind to the present. Keep that in mind, because in part
+> two we fix it by handing the model fresh information.
+
+## Slide 11 · Brilliant and unreliable — 3 min
 
 **Layout**: two-column comparison. Left card "Great at", right card
 "Trips on".
@@ -203,7 +236,7 @@ invents details with full confidence (hallucination).
 > looks like. Remember the rule from that: treat every fact it gives you
 > as a draft to verify, in banking above all.
 
-## Slide 10 · Context in, quality out — 2 min
+## Slide 12 · Context in, quality out — 2 min
 
 **Layout**: two-column, bad prompt vs. good prompt in code-style cards.
 **On slide**: Left: "tulis email ke nasabah". Right: role + situation +
@@ -221,7 +254,7 @@ underneath.
 > you eighty percent of prompting skill. The intern is brilliant, fast,
 > and knows nothing about your job until you tell it.
 
-## Slide 11 · The chatbot's three walls — 2 min
+## Slide 13 · The chatbot's three walls — 2 min
 
 **Layout**: three icon cards.
 **On slide**: Frozen in time (training cutoff) · Blind to your data (no
@@ -238,7 +271,7 @@ action).
 > because part two is about how engineers knock them down. That is the
 > difference between a toy and the tools you'll see in the demos.
 
-## Slide 12 · Divider — Act 2 — 30 sec
+## Slide 14 · Divider — Act 2 — 30 sec
 
 **Layout**: dark section divider.
 **On slide**: "Part 2 / From chatbot to coworker".
@@ -247,7 +280,7 @@ action).
 
 > Part two. How a text predictor becomes something that does work.
 
-## Slide 13 · Tool calling: give it hands — 3 min
+## Slide 15 · Tool calling: give it hands — 3 min
 
 **Layout**: process flow, four steps with a worked example underneath.
 **On slide**: You ask → model decides it needs a tool → tool runs (search,
@@ -266,7 +299,7 @@ kurs USD hari ini?" → calls a rate lookup → answers with today's number.
 > almost every serious AI product you will touch this year, including all
 > four demos coming up.
 
-## Slide 14 · Agents: the loop — 2 min
+## Slide 16 · Agents: the loop — 2 min
 
 **Layout**: circular loop diagram: Plan → Act → Check → repeat, exit
 arrow "Done".
@@ -284,7 +317,7 @@ finished.
 > search, check the directors too, then write up findings. An agent runs
 > that same loop. You will watch one do exactly this in demo two.
 
-## Slide 15 · Ground it in your documents — 2 min
+## Slide 17 · Ground it in your documents — 2 min
 
 **Layout**: simple flow: your documents → indexed → question → answer with
 citations.
@@ -302,7 +335,7 @@ from those pages. The fix for hallucination on document work.
 > call it RAG; the name matters less than the effect. Two of the four
 > demos are built on it.
 
-## Slide 16 · Divider — Act 3 — 1 min
+## Slide 18 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider, four small chips naming the demos.
 **On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
@@ -316,7 +349,7 @@ MoM AI · Lumina.
 > pain it removes, play the video, and connect it back to the concepts.
 > Questions in the chat after each.
 
-## Slide 17 · Demo 1 — Bank Statement Analyzer — 4 min
+## Slide 19 · Demo 1 — Bank Statement Analyzer — 4 min
 
 **Layout**: demo slide. Placeholder frame for video, side rail with
 "watch for" bullets.
@@ -342,7 +375,7 @@ balances for analysis.
 > is the model's home turf, and OCR is a tool in the loop. The analyst
 > still makes the credit judgment. The retyping is gone.
 
-## Slide 18 · Demo 2 — Adverse News — 5 min (video 1:45)
+## Slide 20 · Demo 2 — Adverse News — 5 min (video 1:45)
 
 **Layout**: video slide — embedded `adverse-news.mp4` with poster frame,
 side rail of four "watch for" chips.
@@ -390,7 +423,7 @@ appendix, audit log.
 > verifies in minutes instead of searching for an hour. The agent does
 > the legwork. Clearing the name stays a human decision.
 
-## Slide 19 · Demo 3 — MoM AI — 4 min (video 0:30)
+## Slide 21 · Demo 3 — MoM AI — 4 min (video 0:30)
 
 **Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -433,7 +466,7 @@ outro: "Minutes, minus the meeting after the meeting."
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
 
-## Slide 20 · Demo 4 — LuminaLM — 4 min (video 0:50)
+## Slide 22 · Demo 4 — LuminaLM — 4 min (video 0:50)
 
 **Layout**: video slide — embedded `lumina.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -474,7 +507,7 @@ template → (0:46) outro.
 > itself. When the answer is not in the documents, it says so. That is
 > the hallucination fix you met on slide 13, on camera.
 
-## Slide 21 · The pattern behind all four — 2 min
+## Slide 23 · The pattern behind all four — 2 min
 
 **Layout**: card grid or table mapping demo → concept → human's role.
 **On slide**: Statement Analyzer = model + OCR tool · Adverse News =
@@ -492,7 +525,7 @@ people keep the judgment.
 > formatting that sat between people and their judgment. That is what AI
 > can do today. Less magic than the headlines, and more useful.
 
-## Slide 22 · Using it well, starting this week — 3 min
+## Slide 24 · Using it well, starting this week — 3 min
 
 **Layout**: two-column: "Start here" and "Rules of the road".
 **On slide**: Start here: summarise long documents · draft and polish
@@ -512,7 +545,7 @@ every fact and number · you own what you send, AI output is a draft.
 > carries your name. Treat the output the way you treat an intern's
 > draft: useful, fast, and reviewed before it leaves your desk.
 
-## Slide 23 · Close + Q&A — 1 min, then open floor
+## Slide 25 · Close + Q&A — 1 min, then open floor
 
 **Layout**: dark closing slide, recap left, next steps right.
 **On slide**: Covered: how LLMs work · tools and agents · four working

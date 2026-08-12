@@ -850,6 +850,60 @@ body.static .lg{animation:none}
   color:#fff;font-weight:800;font-size:14px;flex:none}
 .vrow.bad .vi{background:var(--red)}
 .vrow.good .vi{background:#1E8E5A}
+/* tokens slide */
+.tokrow{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;
+  box-shadow:0 24px 48px -32px rgba(0,0,0,.25);width:100%}
+.tokrow .tlbl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.tstrip{display:flex;flex-wrap:wrap;gap:5px}
+.tk{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:14.5px;font-weight:600;color:var(--ink);
+  border-radius:7px;padding:6px 9px;border:1px solid transparent}
+.tk.a{background:#FCEEEF;border-color:#F7D2D4}
+.tk.b{background:var(--card);border-color:var(--line)}
+.tk.c{background:#FFF6DF;border-color:#F2E2AE}
+.tokratio{display:flex;align-items:center;gap:14px;margin-top:4px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:15px 20px}
+.tokratio .big2{font-family:var(--fHead);font-weight:800;font-size:26px;color:var(--red);white-space:nowrap}
+.tokratio span{font-size:13.5px;color:var(--muted);line-height:1.4}
+/* token cost slide */
+.costcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px 20px;width:100%;
+  box-shadow:0 24px 48px -32px rgba(0,0,0,.25)}
+.costcard .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.costcard .t b{font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink)}
+.costcard .t span{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:12px;color:var(--muted);white-space:nowrap}
+.cbar{height:14px;border-radius:99px;background:var(--card);overflow:hidden}
+.cbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--red),#ff6a6f);
+  width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
+.slide.active .cbar i{width:var(--w)}
+body.static .cbar i{width:var(--w);transition:none}
+.pricechips{display:flex;gap:10px;width:100%}
+.pchip{flex:1;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px;text-align:center}
+.pchip b{display:block;font-family:var(--fHead);font-weight:800;font-size:13.5px;color:var(--ink)}
+.pchip span{font-size:11.5px;color:var(--muted);display:block;margin-top:2px;line-height:1.35}
+.pchip.hero{border-color:#F7D2D4;background:#FCEEEF}
+.pchip.hero b{color:var(--red)}
+/* training cutoff timeline */
+.cutwrap{width:100%;display:flex;flex-direction:column;gap:16px}
+.cutline{position:relative;display:flex;align-items:stretch;width:100%;height:150px}
+.cut-past{flex:1.6;background:#fff;border:1px solid var(--line);border-radius:16px 0 0 16px;padding:14px 18px;
+  display:flex;flex-direction:column;gap:10px}
+.cut-past .zl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.srcchips{display:flex;gap:8px;flex-wrap:wrap}
+.srcchip{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);
+  border-radius:99px;padding:7px 13px;font-family:var(--fHead);font-weight:700;font-size:12.5px;color:var(--text)}
+.srcchip svg{width:15px;height:15px;stroke:var(--red);fill:none}
+.cut-flag{width:4px;background:var(--red);position:relative;flex:none}
+.cut-flag .fl{position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  background:var(--red);color:#fff;font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;border-radius:99px;padding:5px 13px;box-shadow:0 10px 22px -10px rgba(236,27,35,.6)}
+.cut-after{flex:1;border:2px dashed #d3d6db;border-left:none;border-radius:0 16px 16px 0;background:var(--card);
+  padding:14px 18px;display:flex;flex-direction:column;gap:10px}
+.cut-after .zl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.cut-after p{font-size:13.5px;color:var(--muted);line-height:1.5;margin:0}
+.cutfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink)}
+.cutfoot .red{color:var(--red)}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -1031,19 +1085,98 @@ body.static .lg{animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">05</span></div>
   </section>
 
-  <!-- ============================== SLIDE 6 · HOW IT LEARNED ============================== -->
-  <section class="slide" data-notes='["It learned by reading a huge slice of the internet.", "No database inside. It rebuilds answers from patterns.", "Like humming a song from memory: sometimes a note is wrong."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Training</div>
-    <h2 class="slide-title" data-r data-d="1">It read the internet and kept the patterns</h2>
-    <div class="body-area">
-      <div class="stat-row">
-        <div class="stat" data-r data-d="2"><div class="big" data-count="500" data-suffix="B+">0</div><div class="lab">Words read during training: books, articles, code, forums.</div><div class="sub">Indicative scale</div></div>
-        <div class="stat" data-r data-d="3"><div class="big" data-count="3" data-suffix="mo+">0</div><div class="lab">Months of non-stop computing to learn the patterns.</div><div class="sub">Thousands of processors at once</div></div>
-        <div class="stat" data-r data-d="4"><div class="big" data-count="0">0</div><div class="lab">Databases inside. It rebuilds answers from patterns.</div><div class="sub">This one matters most</div></div>
+  <!-- ============================== SLIDE · TOKENS ============================== -->
+  <section class="slide" data-notes='["The model does not read words. It reads tokens, small pieces of text.","A short word is one token. A long word breaks into pieces.","Rule of thumb: 1,000 tokens is about 750 English words.","So next-word prediction is really next-token prediction. Same idea."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Tokens</div>
+    <h2 class="slide-title" data-r data-d="1">It reads tokens, not words</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">A <b>token</b> is a small piece of text.</li>
+            <li data-r data-d="3">A short word is <b>one token</b>. A long word breaks into pieces.</li>
+            <li data-r data-d="4">The model reads and writes <b>one token at a time</b>.</li>
+            <li data-r data-d="5">So next-word prediction is really <b>next-token prediction</b>.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3" style="flex-direction:column;gap:14px">
+          <div class="tokrow">
+            <div class="tlbl">A sentence, as the model sees it · 9 tokens</div>
+            <div class="tstrip"><span class="tk a">The</span><span class="tk b">customer</span><span class="tk c">would</span><span class="tk a">like</span><span class="tk b">to</span><span class="tk c">open</span><span class="tk a">a</span><span class="tk b">savings</span><span class="tk c">account</span></div>
+          </div>
+          <div class="tokrow">
+            <div class="tlbl">A long word splits · 3 tokens</div>
+            <div class="tstrip"><span class="tk a">meng</span><span class="tk b">untung</span><span class="tk c">kan</span></div>
+          </div>
+          <div class="tokratio"><span class="big2">1,000 tokens</span><span>&asymp; 750 English words. A page of text is roughly 500 tokens.</span></div>
+        </div>
       </div>
-      <p class="flow-cap" data-r data-d="5">Like humming a song from memory: no recording inside, and sometimes a note is wrong.</p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">06</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">08</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · TOKEN COST ============================== -->
+  <section class="slide" data-notes='["Every token in and out gets counted. Tokens are the meter.","Bigger tasks and smarter models burn more tokens, and that compute costs money.","ChatGPT Plus is 20 US dollars a month for the stronger models. Companies pay per token.","Nothing to do about it today. Just know that AI has a price tag."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · What it costs</div>
+    <h2 class="slide-title" data-r data-d="1">Tokens are the meter</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">Every token in and out is <b>counted</b>.</li>
+            <li data-r data-d="3">Complex tasks and smarter models burn <b>more tokens</b>.</li>
+            <li data-r data-d="4">That compute costs money, so providers <b>charge for it</b>.</li>
+            <li data-r data-d="5">ChatGPT Plus: <b>20 USD a month</b> for the stronger models.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3" style="flex-direction:column;gap:12px">
+          <div class="costcard">
+            <div class="t"><b>Draft a short email</b><span>~300 tokens</span></div>
+            <div class="cbar"><i style="--w:6%"></i></div>
+          </div>
+          <div class="costcard">
+            <div class="t"><b>Summarise a 40-page report</b><span>~30,000 tokens</span></div>
+            <div class="cbar"><i style="--w:82%"></i></div>
+          </div>
+          <div class="pricechips">
+            <div class="pchip"><b>ChatGPT Free</b><span>standard model, daily limits</span></div>
+            <div class="pchip hero"><b>ChatGPT Plus · $20/mo</b><span>stronger models, higher limits</span></div>
+            <div class="pchip"><b>Companies</b><span>pay per token used</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">09</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · TRAINED UP TO A DATE ============================== -->
+  <section class="slide" data-notes='["It learned by reading books, articles, code and forums. A huge library.","Training stops at a date. After that date, the model has read nothing.","Ask about last week and it may guess. Fluent about the past, blind to the present.","Remember this. Part 2 shows how tools feed it fresh information."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Training</div>
+    <h2 class="slide-title" data-r data-d="1">It read a lot, up to a date</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="cutwrap">
+        <div class="cutline" data-r data-d="2">
+          <div class="cut-past">
+            <div class="zl">What it read during training</div>
+            <div class="srcchips">
+              <span class="srcchip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 19V5a2 2 0 012-2h13v16H6a2 2 0 00-2 2 2 2 0 002 2h13"/></svg>Books</span>
+              <span class="srcchip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Articles &amp; news</span>
+              <span class="srcchip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg>Code</span>
+              <span class="srcchip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/></svg>Forums</span>
+              <span class="srcchip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>Websites</span>
+            </div>
+            <div style="font-size:13px;color:var(--muted)">A huge library of human writing, learned as patterns.</div>
+          </div>
+          <div class="cut-flag"><span class="fl">Training stops here</span></div>
+          <div class="cut-after">
+            <div class="zl">After that date</div>
+            <p>It has read <b>nothing</b>. This week&rsquo;s news, new regulations, today&rsquo;s rates: not in its memory.</p>
+          </div>
+        </div>
+        <p class="cutfoot" data-r data-d="3">Fluent about the past. <span class="red">Blind to the present</span>, unless we hand it fresh information.</p>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">10</span></div>
   </section>
 
   <!-- ============================== SLIDE 7 · GREAT AT / TRIPS ON ============================== -->

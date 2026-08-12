@@ -1,5 +1,5 @@
 Learning at Lunch — Beyond the Hype: What AI Can Actually Do Today
-Speaker notes · 23 slides
+Speaker notes · 25 slides
 ================================================
 
 Slide 1 — Beyond the Hype What AI Can Do Today
@@ -40,92 +40,105 @@ Slide 7 — Autocomplete, on an enormous scale
   • It adds a word, then guesses again, until the answer is done.
   • Hold this picture. It explains the failures coming next.
 
-Slide 8 — It read the internet and kept the patterns
-  • It learned by reading a huge slice of the internet.
-  • No database inside. It rebuilds answers from patterns.
-  • Like humming a song from memory: sometimes a note is wrong.
+Slide 8 — It reads tokens, not words
+  • The model does not read words. It reads tokens, small pieces of text.
+  • A short word is one token. A long word breaks into pieces.
+  • Rule of thumb: 1,000 tokens is about 750 English words.
+  • So next-word prediction is really next-token prediction. Same idea.
 
-Slide 9 — Brilliant and unreliable at the same time
+Slide 9 — Tokens are the meter
+  • Every token in and out gets counted. Tokens are the meter.
+  • Bigger tasks and smarter models burn more tokens, and that compute costs money.
+  • ChatGPT Plus is 20 US dollars a month for the stronger models. Companies pay per token.
+  • Nothing to do about it today. Just know that AI has a price tag.
+
+Slide 10 — It read a lot, up to a date
+  • It learned by reading books, articles, code and forums. A huge library.
+  • Training stops at a date. After that date, the model has read nothing.
+  • Ask about last week and it may guess. Fluent about the past, blind to the present.
+  • Remember this. Part 2 shows how tools feed it fresh information.
+
+Slide 11 — Brilliant and unreliable at the same time
   • Good at rewriting language: draft, summarise, translate, explain.
   • Weak at fresh news, exact math, and anything about our customers.
   • Hallucination: it can invent a rule and cite it with full confidence.
   • Rule: every fact it gives is a draft. Check before it travels.
 
-Slide 10 — Context in, quality out
+Slide 12 — Context in, quality out
   • Better input, better output.
   • Left: one vague line, generic answer. Right: role, context, tone. Ready to edit.
   • Think of it as a smart intern on day one. Brief it like one.
 
-Slide 11 — A plain chatbot hits three walls
+Slide 13 — A plain chatbot hits three walls
   • Wall one, time: its knowledge stops at a cutoff date.
   • Wall two, access: it cannot see our data or systems.
   • Wall three, action: it writes text. It cannot do anything.
   • Part 2 is how we break all three.
 
-Slide 12 — Part 2 — From chatbot to coworker
+Slide 14 — Part 2 — From chatbot to coworker
   • Part two: how a text predictor starts doing real work.
   • Three ideas: tools, agents, grounding. Every demo uses them.
 
-Slide 13 — Tool calling: give the model hands
+Slide 15 — Tool calling: give the model hands
   • Give the model tools: search, calculator, database.
   • Ask for today’s rate: it calls the rate tool, then answers with the live number.
   • The model thinks and writes. Tools fetch facts and act.
   • This one idea powers all four demos.
 
-Slide 14 — An agent is a loop, not a chat
+Slide 16 — An agent is a loop, not a chat
   • An agent is an LLM in a loop: plan, act, check, repeat until done.
   • You give it a goal, not a question.
   • Screening a company for negative news is exactly this loop.
   • You will watch it live in Demo 2.
 
-Slide 15 — Ground it in your documents
+Slide 17 — Ground it in your documents
   • Fix for wall two: hand it your documents when you ask.
   • It answers only from those pages, and cites them.
   • If the answer is not there, it says so. No inventing.
   • Lumina, demo four, runs on this.
 
-Slide 16 — Part 3 — Built here
+Slide 18 — Part 3 — Built here
   • Now it gets concrete. Four tools, four videos, all built here.
   • For each: the pain, the video, the lesson. Questions after each.
 
-Slide 17 — Bank Statement Analyzer
+Slide 19 — Bank Statement Analyzer
   • The pain: statements from other banks, every format different, retyped by hand.
   • The tool: OCR reads the pages. The model builds clean tables.
   • The analyst still decides. The retyping is gone.
 
-Slide 18 — Adverse News Search · 1:45
+Slide 20 — Adverse News Search · 1:45
   • The pain: screening by hand. One name, one source, one search at a time.
   • Watch: it writes its own searches. Courts, negative news, sanction lists.
   • Verdict from credible sources only. Both names: high risk, same KPK case.
   • One click: a PDF report, ready for the KYC file.
   • The agent does the legwork. The officer makes the call.
 
-Slide 19 — MoM AI · 0:30
+Slide 21 — MoM AI · 0:30
   • The pain: someone types notes all meeting, and the minutes still come late.
   • Drop in the recording. It writes out who said what.
   • Out come minutes: summary, attendees, actions with names and dates.
   • English or Bahasa. Export to PDF or Word.
   • Thirty minutes of typing becomes five minutes of checking.
 
-Slide 20 — LuminaLM · 0:50
+Slide 22 — LuminaLM · 0:50
   • The pain: 157 documents, and the truth scattered across all of them.
   • All files become one wiki. Ask anything: the answer cites its source page.
   • If the answer is not in the files, it says so.
   • Studio drafts the weekly Word, Excel and PowerPoint packs.
   • A colleague who read every document and never forgets a page.
 
-Slide 21 — Four tools, one pattern
+Slide 23 — Four tools, one pattern
   • Same pattern four times: one model, plus tools, plus our documents.
   • The AI removes the reading, typing and searching.
   • The judgment stays human: approve, clear, sign, decide.
 
-Slide 22 — Start this week, inside the rules
+Slide 24 — Start this week, inside the rules
   • Start small: summarise, draft, translate, explain.
   • Rule one: no customer data in public AI tools. Use the bank’s own.
   • Rule two: check every fact and number.
   • Rule three: it is a draft. What you send carries your name.
 
-Slide 23 — Useful work, today. You just watched it
+Slide 25 — Useful work, today. You just watched it
   • Recap in one breath: you saw how it works, and four tools that use it.
   • Have an idea for your unit? Come talk to us.
   • Try one small task this week. Terima kasih. Questions, please.
