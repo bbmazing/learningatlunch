@@ -720,6 +720,27 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
 .vph .play svg{width:26px;height:26px;fill:var(--red);margin-left:4px}
 .vph b{font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink)}
 .vph span{font-size:13px;color:var(--muted)}
+/* S2 logo cloud */
+.logo-cloud{position:relative;width:100%;height:100%;min-height:380px}
+.lg{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+  border-radius:13px;padding:10px 16px;box-shadow:0 16px 34px -24px rgba(0,0,0,.35)}
+.lg img{width:26px;height:26px;flex:none}
+.lg b{font-family:var(--fHead);font-weight:800;font-size:14px;color:var(--ink);line-height:1.1;display:block}
+.lg span{font-size:10.5px;color:var(--muted);display:block;margin-top:1px}
+/* S3 on-premise diagram */
+.onprem{display:flex;flex-direction:column;gap:14px;width:100%;align-items:center}
+.perim{width:100%;border:2.5px solid var(--ink);border-radius:18px;padding:18px 20px 16px;position:relative;background:#fff}
+.perim .plabel{position:absolute;top:-11px;left:18px;background:var(--ink);color:#fff;font-family:var(--fHead);
+  font-weight:800;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;border-radius:99px;padding:4px 12px}
+.perim .prow{display:flex;gap:12px;margin-top:6px}
+.pbox{flex:1;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px 14px;
+  display:flex;align-items:center;gap:11px}
+.pbox img,.pbox svg{width:30px;height:30px;flex:none}
+.pbox b{font-family:var(--fHead);font-weight:800;font-size:13.5px;color:var(--ink);display:block;line-height:1.15}
+.pbox span{font-size:11px;color:var(--muted);display:block;margin-top:2px}
+.nocloud{display:flex;align-items:center;gap:9px;font-family:var(--fHead);font-weight:700;font-size:12.5px;color:var(--muted)}
+.nocloud .x{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;
+  background:#FCEEEF;color:var(--red);font-weight:800;font-size:12px}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -750,16 +771,79 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
       <div class="rule" data-r data-d="2"></div>
       <div class="meta" data-r data-d="3">
         <strong>Learning @ Lunch · AI, Digital &amp; Data Series</strong><br/>
-        From how ChatGPT works to four AI tools running in this bank<br/>
-        Kamis, 20 Agustus 2026 · 11.30–12.30 WIB · via Ms. Teams
+        From how LLMs work to four AI tools running in this bank<br/>
+        Kamis, 20 Agustus 2026 · 11.30–12.30 WIB
       </div>
       <div class="program" data-r data-d="4">Bryan Bernardi · Analytics &amp; Decision Making · OCBC Indonesia</div>
     </div>
     <div class="foot"><span class="pg">01</span></div>
   </section>
 
+  <!-- ============================== SLIDE 2 · WHAT IS AN LLM (LOGO CLOUD) ============================== -->
+  <section class="slide" data-notes='["Put a name on the technology first. LLM — Large Language Model. An AI model trained on mountains of text that reads, writes and reasons in human language.","Every logo on the right is an LLM or a product built on one: ChatGPT from OpenAI, Claude from Anthropic, Gemini from Google, DeepSeek, Qwen from Alibaba, Z.ai, Mistral, Llama from Meta, Grok.","Point to make: ChatGPT is a product, not the technology. The technology is the LLM underneath — and different companies make their own.","Most of the room has already used at least one of these, probably this week."]'>
+    <div class="kicker" data-r><span class="badge"></span>The technology</div>
+    <h2 class="slide-title" data-r data-d="1">LLM — Large Language Models</h2>
+    <div class="body-area">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">An <b>LLM</b> is an AI model trained on mountains of text — it reads, writes and reasons in human language.</li>
+            <li data-r data-d="3">Every name on the right is an LLM — <b>different makers, same core idea</b>.</li>
+            <li data-r data-d="4">ChatGPT is a <b>product</b>; the technology underneath is the LLM.</li>
+            <li data-r data-d="5">You have already used one — probably this week.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="logo-cloud">
+            <div class="lg" style="top:2%;left:6%;transform:rotate(-4deg)"><img src="assets/logos/openai.svg" alt=""/><span><b>ChatGPT</b><span>OpenAI</span></span></div>
+            <div class="lg" style="top:0%;right:8%;transform:rotate(3deg)"><img src="assets/logos/claude-color.svg" alt=""/><span><b>Claude</b><span>Anthropic</span></span></div>
+            <div class="lg" style="top:24%;left:30%;transform:rotate(2deg)"><img src="assets/logos/gemini-color.svg" alt=""/><span><b>Gemini</b><span>Google</span></span></div>
+            <div class="lg" style="top:36%;left:2%;transform:rotate(3deg)"><img src="assets/logos/deepseek-color.svg" alt=""/><span><b>DeepSeek</b><span>DeepSeek</span></span></div>
+            <div class="lg" style="top:33%;right:4%;transform:rotate(-3deg)"><img src="assets/logos/qwen-color.svg" alt=""/><span><b>Qwen</b><span>Alibaba</span></span></div>
+            <div class="lg" style="bottom:24%;left:16%;transform:rotate(-2deg)"><img src="assets/logos/zai.svg" alt=""/><span><b>Z.ai</b><span>Zhipu / GLM</span></span></div>
+            <div class="lg" style="bottom:22%;right:16%;transform:rotate(4deg)"><img src="assets/logos/mistral-color.svg" alt=""/><span><b>Mistral</b><span>Mistral AI</span></span></div>
+            <div class="lg" style="bottom:2%;left:32%;transform:rotate(-3deg)"><img src="assets/logos/meta-color.svg" alt=""/><span><b>Llama</b><span>Meta</span></span></div>
+            <div class="lg" style="bottom:4%;right:2%;transform:rotate(2deg)"><img src="assets/logos/grok.svg" alt=""/><span><b>Grok</b><span>xAI</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">02</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 3 · OCBC ON-PREMISE (QWEN) ============================== -->
+  <section class="slide" data-notes='["Important local point before anything else: those public tools run in someone else’s cloud, and bank data cannot go there.","So OCBC Indonesia went on-premise. We bought the hardware — GPU servers in our own data center — and we host our own model on it: Qwen 3.6, Alibaba’s open LLM family.","Same technology as the logos on the previous slide, but running entirely inside the bank. Prompts, documents and transcripts never leave our perimeter.","Everything you will see in the demos today runs on this setup."]'>
+    <div class="kicker" data-r><span class="badge"></span>Our setup</div>
+    <h2 class="slide-title" data-r data-d="1">Here at OCBC Indonesia: on-premise</h2>
+    <div class="body-area">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">Public AI tools run in <b>someone else’s cloud</b> — bank data cannot go there.</li>
+            <li data-r data-d="3">So we <b>bought the hardware</b>: GPU servers in our own data center.</li>
+            <li data-r data-d="4">And we <b>host our own LLM</b> on it: <b>Qwen 3.6</b>, Alibaba’s open model family.</li>
+            <li data-r data-d="5">Every demo today runs on this setup — <b>data never leaves the bank</b>.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="onprem">
+            <div class="perim">
+              <div class="plabel">OCBC Indonesia · our data center</div>
+              <div class="prow">
+                <div class="pbox"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span><b>Our hardware</b><span>GPU servers, bought &amp; run by the bank</span></span></div>
+                <div class="pbox"><img src="assets/logos/qwen-color.svg" alt=""/><span><b>Our model — Qwen 3.6</b><span>Alibaba’s open LLM, hosted by us</span></span></div>
+              </div>
+            </div>
+            <div class="nocloud"><span class="x">✕</span>No public cloud — prompts, documents and transcripts stay inside</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">03</span></div>
+  </section>
+
   <!-- ============================== SLIDE 2 · HYPE VS QUESTION ============================== -->
-  <section class="slide dark" data-notes='["You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.","Smaller question, answerable before lunch ends: can it do useful work at a bank, today?","By the end you will have seen four answers, each one running here, built by teams you know."]'>
+  <section class="slide dark" data-notes='["You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.","Different framing for today: this is not a question anymore. AI already does useful work in this bank — you just saw the model it runs on.","So the goal for the next 45 minutes: understand how it works, watch it work in four demos, and leave with ideas for your own desk. The best use cases will come from you, not from IT."]'>
     <div class="body-area">
       <div class="kicker" data-r data-d="1"><span class="badge"></span>The premise</div>
       <div class="hype-wrap">
@@ -768,8 +852,8 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
         <span class="hype-chip" style="top:26%;right:0%;transform:rotate(-3deg)" data-r data-d="4">“The AI bubble is bursting”</span>
         <span class="hype-chip" style="bottom:16%;left:2%;transform:rotate(3deg)" data-r data-d="5">“AI passes the bar exam”</span>
         <span class="hype-chip" style="bottom:4%;right:14%;transform:rotate(-4deg)" data-r data-d="6">“Your doctor is now an app”</span>
-        <div class="hype-q" data-r data-d="7">Can it do useful work at a bank, <span class="red">today?</span></div>
-        <div class="hype-sub" data-r data-d="8">45 minutes. Four working answers.</div>
+        <div class="hype-q" data-r data-d="7">AI already does useful work in this bank — <span class="red">now it needs your ideas.</span></div>
+        <div class="hype-sub" data-r data-d="8">Understand how it works · watch it work · leave with ideas for your own desk.</div>
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">02</span></div>
@@ -781,9 +865,9 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
     <h2 class="slide-title" data-r data-d="1">The next 45 minutes</h2>
     <div class="body-area">
       <div class="journey">
-        <div class="jcard" data-r data-d="1"><div class="pn">01</div><div class="ph">What an LLM is</div><p>How ChatGPT works, in plain language. Its talents, and its strange failures.</p></div>
+        <div class="jcard" data-r data-d="1"><div class="pn">01</div><div class="ph">What an LLM is</div><p>How LLMs work, in plain language. Their talents, and their strange failures.</p></div>
         <div class="jcard" data-r data-d="2"><div class="pn">02</div><div class="ph">Chatbot &rarr; coworker</div><p>Tools, agents, and grounding: how a text predictor starts doing work.</p></div>
-        <div class="jcard" data-r data-d="3"><div class="pn">03</div><div class="ph">Built here</div><p>Four projects running in the bank.</p><span class="demo">▶ 4 demo videos</span></div>
+        <div class="jcard" data-r data-d="3"><div class="pn">03</div><div class="ph">Demo videos</div><p>AI use cases in the bank, on video.</p><span class="demo">▶ 4 demo videos</span></div>
         <div class="jcard" data-r data-d="4"><div class="ph" style="margin-top:24px">Using it well</div><p>Where to start this week, and the rules that keep you safe.</p></div>
       </div>
     </div>
@@ -791,10 +875,10 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
   </section>
 
   <!-- ============================== SLIDE 4 · DIVIDER P1 ============================== -->
-  <section class="slide dark divider" data-notes='["Time to open the box. What sits behind ChatGPT, Gemini, Copilot, all of them?","No math ahead — one idea, and everything else follows from it."]'>
+  <section class="slide dark divider" data-notes='["Time to open the box. What actually sits behind all of these tools?","No math ahead — one idea, and everything else follows from it."]'>
     <div class="pillar-no">01</div>
     <div class="eyebrow"><span class="dot"></span>Part 1</div>
-    <h2>What is ChatGPT, really?</h2>
+    <h2>What is an LLM, really?</h2>
     <p class="lead">One idea explains the whole thing — the magic and the mistakes.</p>
     <div class="prog-rail"><span class="on">01 · LLM basics</span><span>02 · Tools &amp; agents</span><span>03 · Demos</span><span>04 · Using it well</span></div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">04</span></div>

@@ -9,7 +9,10 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (21 slides).
+- **Status**: deck built at `web/beyond-the-hype.html` (23 slides —
+  two slides were added after the cover: an LLM intro with maker logos,
+  and the OCBC on-premise/Qwen setup, so deck slide numbers from the
+  hype slide onward run two higher than the section numbers below).
   Adverse News, MoM AI and LuminaLM videos are embedded and their
   scripts below are written against the actual footage. The Statement
   Analyzer slide carries a placeholder frame until its video arrives.
@@ -51,13 +54,57 @@ Learning @ Lunch · AI, Digital & Data Series · 20 Agustus 2026.
 > can do today. Drop questions in the chat any time. I'll pause for them
 > after each demo.
 
-## Slide 2 · The hype vs. the question — 2 min
+## Slide 2 (new) · LLM — Large Language Models — 2 min
+
+**Layout**: two-column; left bullets, right a scattered cloud of logo
+cards: ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, DeepSeek,
+Qwen/Alibaba, Z.ai/Zhipu, Mistral, Llama/Meta, Grok/xAI.
+**On slide**: an LLM is an AI model trained on mountains of text — it
+reads, writes and reasons in human language · every name is an LLM,
+different makers, same core idea · ChatGPT is a product, the LLM is the
+technology underneath · you have already used one.
+
+**Say:**
+
+> Before anything else, a name. The technology behind this wave is the
+> LLM, the Large Language Model: an AI model trained on mountains of
+> text, which reads, writes and reasons in human language. Every logo
+> here is one — or a product built on one. ChatGPT from OpenAI, Claude,
+> Gemini, DeepSeek, Qwen from Alibaba, Z.ai, and more. One correction
+> worth making: ChatGPT is a product, the way an iPhone is a product.
+> The technology inside is the LLM, and many companies build their own.
+> Most of you have used at least one, probably this week.
+
+## Slide 3 (new) · Here at OCBC Indonesia: on-premise — 2 min
+
+**Layout**: two-column; left bullets, right a "data center perimeter"
+diagram: our hardware (GPU servers) + our model (Qwen 3.6, Alibaba's
+open LLM) inside the OCBC box, "no public cloud" strike line beneath.
+**On slide**: public AI tools run in someone else's cloud — bank data
+cannot go there · we bought the hardware: GPU servers in our own data
+center · we host our own LLM: Qwen 3.6 · every demo runs on this setup,
+data never leaves the bank.
+
+**Say:**
+
+> One thing makes our situation different from just using those apps.
+> Public AI tools run in someone else's cloud, and bank data cannot go
+> there. So OCBC Indonesia went on-premise. We bought the hardware, GPU
+> servers in our own data center, and we host our own model on it: Qwen
+> 3.6, Alibaba's open LLM family — same technology as the logos you
+> just saw, running entirely inside the bank. Every demo today runs on
+> this setup. Prompts, documents, transcripts: nothing leaves our
+> perimeter.
+
+## Slide 4 · The premise (reworded) — 2 min
 
 **Layout**: dark quote-style slide, or a two-column of headline chips vs.
 one plain question.
 **On slide**: a cluster of real headline fragments ("AI will take your
-job", "AGI by 2027", "AI bubble about to burst") fading behind one line:
-"Can it do useful work at a bank, today?"
+job", "AGI by 2027", "AI bubble about to burst") fading behind:
+"AI already does useful work in this bank — now it needs your ideas."
+Sub-line: understand how it works · watch it work · leave with ideas
+for your own desk.
 
 **Say:**
 

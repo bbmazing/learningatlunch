@@ -65,7 +65,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <header class="bar">
   <div>
     <div class="ttl">Speaker notes</div>
-    <div class="sub">Beyond the Hype · 21 slides</div>
+    <div class="sub">Beyond the Hype · 23 slides</div>
   </div>
   <div class="right">
     <a class="btn ghost" href="index.html">&larr; Back</a>
@@ -83,7 +83,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
 <main>
   <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
-  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 21 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 23 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
   <div id="notes">
     <article class="s">
       <div class="n">Slide 1</div>
@@ -96,15 +96,35 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
     </article>
     <article class="s">
       <div class="n">Slide 2</div>
-      <h2>The premise</h2>
+      <h2>LLM — Large Language Models</h2>
       <ul>
-        <li>You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.</li>
-        <li>Smaller question, answerable before lunch ends: can it do useful work at a bank, today?</li>
-        <li>By the end you will have seen four answers, each one running here, built by teams you know.</li>
+        <li>Put a name on the technology first. LLM — Large Language Model. An AI model trained on mountains of text that reads, writes and reasons in human language.</li>
+        <li>Every logo on the right is an LLM or a product built on one: ChatGPT from OpenAI, Claude from Anthropic, Gemini from Google, DeepSeek, Qwen from Alibaba, Z.ai, Mistral, Llama from Meta, Grok.</li>
+        <li>Point to make: ChatGPT is a product, not the technology. The technology is the LLM underneath — and different companies make their own.</li>
+        <li>Most of the room has already used at least one of these, probably this week.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 3</div>
+      <h2>Here at OCBC Indonesia: on-premise</h2>
+      <ul>
+        <li>Important local point before anything else: those public tools run in someone else’s cloud, and bank data cannot go there.</li>
+        <li>So OCBC Indonesia went on-premise. We bought the hardware — GPU servers in our own data center — and we host our own model on it: Qwen 3.6, Alibaba’s open LLM family.</li>
+        <li>Same technology as the logos on the previous slide, but running entirely inside the bank. Prompts, documents and transcripts never leave our perimeter.</li>
+        <li>Everything you will see in the demos today runs on this setup.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 4</div>
+      <h2>The premise</h2>
+      <ul>
+        <li>You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.</li>
+        <li>Different framing for today: this is not a question anymore. AI already does useful work in this bank — you just saw the model it runs on.</li>
+        <li>So the goal for the next 45 minutes: understand how it works, watch it work in four demos, and leave with ideas for your own desk. The best use cases will come from you, not from IT.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 5</div>
       <h2>The next 45 minutes</h2>
       <ul>
         <li>Part one: what a large language model is. Once you see how it works, its strengths and weird failures both make sense.</li>
@@ -113,15 +133,15 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 4</div>
-      <h2>Part 1 — What is ChatGPT, really?</h2>
+      <div class="n">Slide 6</div>
+      <h2>Part 1 — What is an LLM, really?</h2>
       <ul>
-        <li>Time to open the box. What sits behind ChatGPT, Gemini, Copilot, all of them?</li>
+        <li>Time to open the box. What actually sits behind all of these tools?</li>
         <li>No math ahead — one idea, and everything else follows from it.</li>
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 5</div>
+      <div class="n">Slide 7</div>
       <h2>Autocomplete, on an enormous scale</h2>
       <ul>
         <li>An LLM does one thing: given some text, predict the next word. Your phone keyboard does a tiny version of this.</li>
@@ -130,7 +150,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 6</div>
+      <div class="n">Slide 8</div>
       <h2>It read the internet — and kept the patterns</h2>
       <ul>
         <li>Where do good predictions come from? Training. The model read a huge slice of the public internet: books, articles, code, forums.</li>
@@ -139,7 +159,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 7</div>
+      <div class="n">Slide 9</div>
       <h2>Brilliant and unreliable — at the same time</h2>
       <ul>
         <li>Strengths: anything shaped like language transformation. Draft an email, rewrite it politely, summarise a forty-page circular, translate Bahasa–English.</li>
@@ -148,7 +168,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 8</div>
+      <div class="n">Slide 10</div>
       <h2>Context in, quality out</h2>
       <ul>
         <li>The quality of the answer tracks the quality of what you put in.</li>
@@ -157,7 +177,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 9</div>
+      <div class="n">Slide 11</div>
       <h2>A plain chatbot hits three walls</h2>
       <ul>
         <li>Put it together and a plain chatbot has three walls.</li>
@@ -166,7 +186,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 10</div>
+      <div class="n">Slide 12</div>
       <h2>Part 2 — From chatbot to coworker</h2>
       <ul>
         <li>Part two. How a text predictor becomes something that does work.</li>
@@ -174,7 +194,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 11</div>
+      <div class="n">Slide 13</div>
       <h2>Tool calling — give the model hands</h2>
       <ul>
         <li>Instead of asking the model to know everything, hand it tools: a web search, a calculator, a database query — and teach it to say: to answer this, I should use that tool.</li>
@@ -183,7 +203,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 12</div>
+      <div class="n">Slide 14</div>
       <h2>An agent is a loop, not a chat</h2>
       <ul>
         <li>Now let it use tools more than once. Give it a goal instead of a question and let it loop: plan, act, check, repeat until done. That loop is an AI agent.</li>
@@ -192,7 +212,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 13</div>
+      <div class="n">Slide 15</div>
       <h2>Ground it in your documents</h2>
       <ul>
         <li>Last concept, and it fixes wall two: the model being blind to your data. Give it your documents at question time.</li>
@@ -201,7 +221,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 14</div>
+      <div class="n">Slide 16</div>
       <h2>Part 3 — Built here</h2>
       <ul>
         <li>Everything so far becomes concrete now. Four projects, all built by teams here, all running on prompting, tools, agents and grounding.</li>
@@ -209,7 +229,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 15</div>
+      <div class="n">Slide 17</div>
       <h2>Bank Statement Analyzer</h2>
       <ul>
         <li>Pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, dozens of pages, every bank a different format. Someone retypes transactions line by line. Hours per application.</li>
@@ -218,7 +238,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 16</div>
+      <div class="n">Slide 18</div>
       <h2>Adverse News Search · 1:45</h2>
       <ul>
         <li>Setup: before we deal with a company or an individual we screen for adverse news. Done by hand: dozens of Google searches, per source, per entity — slow, unstandardized, easy to miss things. And the same-name problem.</li>
@@ -228,7 +248,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 17</div>
+      <div class="n">Slide 19</div>
       <h2>MoM AI · 0:30</h2>
       <ul>
         <li>Setup: this one touches everyone. Every meeting ends the same way — someone still has to write the minutes. So somebody half-listens to type notes, and the minutes still arrive two days late.</li>
@@ -238,7 +258,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 18</div>
+      <div class="n">Slide 20</div>
       <h2>LuminaLM · 0:50</h2>
       <ul>
         <li>Setup: a programme accumulates documents fast. The video opens with the honest picture: charters, playbooks, status packs, minutes — 157 documents, and the programme’s truth scattered across all of them.</li>
@@ -248,7 +268,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 19</div>
+      <div class="n">Slide 21</div>
       <h2>Four tools, one pattern</h2>
       <ul>
         <li>Four side by side, one pattern. Each is the same text predictor from part one, plus tools, plus your documents.</li>
@@ -257,7 +277,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 20</div>
+      <div class="n">Slide 22</div>
       <h2>Start this week — inside the rules</h2>
       <ul>
         <li>How to start, and how to stay safe. Start where a rough draft has value: summarise a circular, draft a reply, translate a document, ask it to explain a term from a meeting.</li>
@@ -266,7 +286,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 21</div>
+      <div class="n">Slide 23</div>
       <h2>Useful work, today — you just watched it</h2>
       <ul>
         <li>Fifty minutes ago the question was whether AI can do useful work at a bank today. You have now seen how the machine works, what its limits are, and four running answers built in this building.</li>
