@@ -49,7 +49,7 @@ def slide_heading(classes, body):
     m = re.search(r'<h2 class="slide-title"[^>]*>(.*?)</h2>', body, re.S)
     if m:
         return strip_tags(m.group(1))
-    m = re.search(r'<div class="kicker">(.*?)</div>', body, re.S)
+    m = re.search(r'<div class="kicker"[^>]*>(.*?)</div>', body, re.S)
     return strip_tags(m.group(1)) if m else ""
 
 

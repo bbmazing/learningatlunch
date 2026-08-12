@@ -7,7 +7,7 @@ Slide 1 — Beyond the Hype What AI Can Do Today
   • Two goals: explain this AI wave in plain language, and show four working tools built inside the bank, on video.
   • Questions in the Teams chat any time; I will pause after each demo.
 
-Slide 2 — 
+Slide 2 — The premise
   • You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.
   • Smaller question, answerable before lunch ends: can it do useful work at a bank, today?
   • By the end you will have seen four answers, each one running here, built by teams you know.
