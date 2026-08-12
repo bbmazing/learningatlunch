@@ -21,7 +21,7 @@ Slide 3 — OCBC Indonesia: On-premise
   • Every demo you will see today runs on this setup.
 
 Slide 4 — The premise
-  • The headlines are loud: AI replaces bankers, AI is a bubble. Ignore them for an hour.
+  • Everyone arrives with questions: will it replace us, can it help my work, where do I start?
   • For us this is not a question. AI already works in this bank.
   • Goal today: understand it, watch it work, leave with ideas for your desk.
 
