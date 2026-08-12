@@ -74,7 +74,7 @@ Slide 13 — Tool calling: give the model hands
 Slide 14 — An agent is a loop, not a chat
   • An agent is an LLM in a loop: plan, act, check, repeat until done.
   • You give it a goal, not a question.
-  • Screening a company for bad news is exactly this loop.
+  • Screening a company for negative news is exactly this loop.
   • You will watch it live in Demo 2.
 
 Slide 15 — Ground it in your documents
@@ -94,7 +94,7 @@ Slide 17 — Bank Statement Analyzer
 
 Slide 18 — Adverse News Search · 1:45
   • The pain: screening by hand. One name, one source, one search at a time.
-  • Watch: it writes its own searches. Courts, news, sanction lists.
+  • Watch: it writes its own searches. Courts, negative news, sanction lists.
   • Verdict from credible sources only. Both names: high risk, same KPK case.
   • One click: a PDF report, ready for the KYC file.
   • The agent does the legwork. The officer makes the call.
