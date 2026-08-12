@@ -148,18 +148,19 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
         <li>An LLM does one thing: guess the next word.</li>
         <li>Your phone keyboard is a tiny version of this.</li>
         <li>It adds a word, then guesses again, until the answer is done.</li>
-        <li>Hold this picture. It explains the failures coming next.</li>
+        <li>Small confession before we move on: word is not exactly the right unit.</li>
+        <li>Hold this picture. The next slide sharpens it.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 8</div>
-      <h2>It reads tokens, not words</h2>
+      <h2>The correction: tokens, not words</h2>
       <ul>
-        <li>The model does not read words. It reads tokens, small pieces of text.</li>
-        <li>Watch the sentence get cut into nine pieces. A short word is one token.</li>
-        <li>A long word breaks into pieces, like menguntungkan into three.</li>
+        <li>On the last slide I kept saying words. Here is the correction: the real unit is the token.</li>
+        <li>Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.</li>
+        <li>Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.</li>
         <li>Rule of thumb: 1,000 tokens is about 750 English words.</li>
-        <li>So next-word prediction is really next-token prediction. Same idea.</li>
+        <li>So next-word prediction is really next-token prediction. Same idea, exact unit.</li>
       </ul>
     </article>
     <article class="s">

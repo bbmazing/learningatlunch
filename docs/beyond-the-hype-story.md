@@ -157,10 +157,10 @@ patterns in text · every answer is built one word at a time.
 > word of a good answer, adds it, predicts the next word, and repeats
 > until the answer is done. That's the whole trick. Everything impressive
 > you have seen, essays, emails, code, comes from very good next-word
-> prediction. Keep this picture, because it explains the failures we'll
-> see in a minute.
+> prediction. One confession before we move on: "word" is not exactly
+> the right unit. The next slide sharpens it.
 
-## Slide 8 · It reads tokens, not words — 2 min
+## Slide 8 · The correction: tokens, not words — 2 min
 
 **Layout**: two-column; bullets left, right a tokenizer visual: the
 savings-account sentence split into 9 colored token chips, the word
@@ -169,13 +169,15 @@ savings-account sentence split into 9 colored token chips, the word
 
 **Say:**
 
-> One word of vocabulary before we talk about cost. The model does not
-> read words. It reads tokens, small pieces of text. A short word is one
-> token. A long word breaks into pieces, like menguntungkan here in
-> three parts. Rule of thumb: a thousand tokens is about 750 English
-> words, and a page of text is roughly 500 tokens. So the next-word
-> prediction from the last slide is really next-token prediction. Same
-> idea, smaller pieces.
+> Here is the correction. The model does not read words. It reads
+> tokens, small pieces of text. Same sentence, cut into nine tokens: a
+> short word is one token, and a long word like menguntungkan breaks
+> into three pieces. Now look under each token: a number. Inside the
+> model every token is a number, and predicting the next token is math
+> on those numbers. That is all AI is doing, very fast arithmetic on
+> numbered pieces of text. Rule of thumb: a thousand tokens is about
+> 750 English words. So the next-word prediction from the last slide
+> is really next-token prediction. Same idea, exact unit.
 
 ## Slide 9 · Tokens are the meter — 2 min
 

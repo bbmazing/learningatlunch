@@ -38,14 +38,15 @@ Slide 7 — Autocomplete, on an enormous scale
   • An LLM does one thing: guess the next word.
   • Your phone keyboard is a tiny version of this.
   • It adds a word, then guesses again, until the answer is done.
-  • Hold this picture. It explains the failures coming next.
+  • Small confession before we move on: word is not exactly the right unit.
+  • Hold this picture. The next slide sharpens it.
 
-Slide 8 — It reads tokens, not words
-  • The model does not read words. It reads tokens, small pieces of text.
-  • Watch the sentence get cut into nine pieces. A short word is one token.
-  • A long word breaks into pieces, like menguntungkan into three.
+Slide 8 — The correction: tokens, not words
+  • On the last slide I kept saying words. Here is the correction: the real unit is the token.
+  • Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.
+  • Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.
   • Rule of thumb: 1,000 tokens is about 750 English words.
-  • So next-word prediction is really next-token prediction. Same idea.
+  • So next-word prediction is really next-token prediction. Same idea, exact unit.
 
 Slide 9 — Tokens are the meter
   • Every token in and out gets counted. Tokens are the meter.

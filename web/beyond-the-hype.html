@@ -859,8 +859,10 @@ body.static .lg{animation:none}
 .tokhero .tlbl em{font-style:normal;color:var(--red)}
 .tstrip{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
 .tstrip .plus{font-family:var(--fMono,'JetBrains Mono',monospace);color:var(--faint);font-size:15px}
-.tk{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:20px;font-weight:600;color:var(--ink);
-  border-radius:9px;padding:9px 13px;border:1px solid transparent;opacity:0;transform:scale(.7)}
+.tk{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:19px;font-weight:600;color:var(--ink);
+  border-radius:9px;padding:7px 12px 5px;border:1px solid transparent;opacity:0;transform:scale(.7);
+  display:inline-flex;flex-direction:column;align-items:center;line-height:1.2}
+.tk .id{font-style:normal;font-size:9.5px;font-weight:500;color:var(--faint);letter-spacing:.02em}
 .tk.a{background:#FCEEEF;border-color:#F7D2D4}
 .tk.b{background:var(--card);border-color:var(--line)}
 .tk.c{background:#FFF6DF;border-color:#F2E2AE}
@@ -1181,7 +1183,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 5 · NEXT-WORD PREDICTION ============================== -->
-  <section class="slide" data-notes='["An LLM does one thing: guess the next word.", "Your phone keyboard is a tiny version of this.", "It adds a word, then guesses again, until the answer is done.", "Hold this picture. It explains the failures coming next."]'>
+  <section class="slide" data-notes='["An LLM does one thing: guess the next word.", "Your phone keyboard is a tiny version of this.", "It adds a word, then guesses again, until the answer is done.", "Small confession before we move on: word is not exactly the right unit.", "Hold this picture. The next slide sharpens it."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 1 · The one idea</div>
     <h2 class="slide-title" data-r data-d="1">Autocomplete, on an enormous scale</h2>
     <div class="body-area">
@@ -1192,6 +1194,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <li data-r data-d="3">Your phone keyboard does a tiny version of this.</li>
             <li data-r data-d="4">It picks a word, adds it, and guesses again, <b>one word at a time</b>.</li>
             <li data-r data-d="5">Every essay, email and answer is built this way.</li>
+            <li data-r data-d="6">One confession: <b>“word” is not exactly right</b>. Next slide.</li>
           </ul>
         </div>
         <div class="viz" data-r data-d="3">
@@ -1210,26 +1213,26 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · TOKENS ============================== -->
-  <section class="slide" data-notes='["The model does not read words. It reads tokens, small pieces of text.","Watch the sentence get cut into nine pieces. A short word is one token.","A long word breaks into pieces, like menguntungkan into three.","Rule of thumb: 1,000 tokens is about 750 English words.","So next-word prediction is really next-token prediction. Same idea."]'>
+  <section class="slide" data-notes='["On the last slide I kept saying words. Here is the correction: the real unit is the token.", "Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.", "Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.", "Rule of thumb: 1,000 tokens is about 750 English words.", "So next-word prediction is really next-token prediction. Same idea, exact unit."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Tokens</div></div>
-    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">It reads tokens, not words</h2>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">The correction: tokens, not words</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
       <div style="max-width:880px;width:100%">
         <div class="tokhero" data-r data-d="2">
-          <div class="tlbl"><span>A sentence, as the model sees it</span><em>9 tokens</em></div>
+          <div class="tlbl"><span>A sentence, as the model sees it: tokens, each with a number</span><em>9 tokens</em></div>
           <div class="tstrip">
-            <span class="tk a" style="--i:0">The</span><span class="tk b" style="--i:1">customer</span><span class="tk c" style="--i:2">would</span><span class="tk a" style="--i:3">like</span><span class="tk b" style="--i:4">to</span><span class="tk c" style="--i:5">open</span><span class="tk a" style="--i:6">a</span><span class="tk b" style="--i:7">savings</span><span class="tk c" style="--i:8">account</span>
+            <span class="tk a" style="--i:0">The<i class="id">#464</i></span><span class="tk b" style="--i:1">customer<i class="id">#8136</i></span><span class="tk c" style="--i:2">would<i class="id">#1053</i></span><span class="tk a" style="--i:3">like<i class="id">#588</i></span><span class="tk b" style="--i:4">to<i class="id">#316</i></span><span class="tk c" style="--i:5">open<i class="id">#2500</i></span><span class="tk a" style="--i:6">a<i class="id">#64</i></span><span class="tk b" style="--i:7">savings<i class="id">#17321</i></span><span class="tk c" style="--i:8">account<i class="id">#3157</i></span>
           </div>
           <div class="subrow">
             <span class="cap">A long word breaks into pieces:</span>
-            <span class="tstrip"><span class="tk a" style="--i:9">meng</span><span class="tk b" style="--i:10">untung</span><span class="tk c" style="--i:11">kan</span></span>
+            <span class="tstrip"><span class="tk a" style="--i:9">meng<i class="id">#28166</i></span><span class="tk b" style="--i:10">untung<i class="id">#91025</i></span><span class="tk c" style="--i:11">kan<i class="id">#1129</i></span></span>
             <span class="cap">3 tokens</span>
           </div>
         </div>
         <div class="factrow">
           <div class="fact" data-r data-d="4"><b>1 token</b><span>about ¾ of a word</span></div>
           <div class="fact" data-r data-d="5"><b>1,000 tokens</b><span>&asymp; 750 English words</span></div>
-          <div class="fact" data-r data-d="6"><b>Same trick</b><span>next-word prediction is next-token prediction</span></div>
+          <div class="fact" data-r data-d="6"><b>All math</b><span>each token becomes a number; predicting is math on numbers</span></div>
         </div>
       </div>
     </div>
