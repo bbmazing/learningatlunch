@@ -80,10 +80,11 @@ Slide 16 — Adverse News Search · 1:45
   • Then: results stream in parallel, a risk verdict computed from credible sources only — high, for both. The narrative names suspects and cites every source. The Combined tab cross-references the two entities: same KPK case. One click: PDF dossiers with evidence appendix and audit log, ready for the KYC file.
   • Landing: the agent loop from part two, live. The agent does the legwork; the officer makes the call — verification in minutes, not an hour of searching.
 
-Slide 17 — MoM AI — minutes that write themselves
-  • This one touches everyone: minutes of meeting. Somebody in every meeting half-listens because they are typing notes, and the minutes still arrive two days late.
-  • MoM AI takes the recording, transcribes it — speech-to-text is the tool here — and the model drafts the minutes: what was decided, who owes what, by when.
-  • A draft ready when the meeting ends. You review, fix what it misheard, send. Thirty minutes of typing becomes five minutes of checking — and nobody skips the discussion to take notes.
+Slide 17 — MoM AI · 0:30
+  • Setup: this one touches everyone. Every meeting ends the same way — someone still has to write the minutes. So somebody half-listens to type notes, and the minutes still arrive two days late.
+  • In the video: drop in the recording — a committee meeting .wav — plus optional PDFs the model uses as context, and the meeting details. Four steps in the sidebar: upload, speakers, transcript, minutes.
+  • Watch the speakers step: three speakers detected automatically, play a sample, name them, merge duplicates. Then the minutes: summary, attendees with roles, a five-item agenda with actions and PIC per item.
+  • Landing: speech-to-text is the tool, the model drafts the structure. Toggle English or Bahasa Indonesia, regenerate a section, export PDF or DOCX. Thirty minutes of typing becomes five minutes of review — and the sign-off stays yours.
 
 Slide 18 — LuminaLM · 0:50
   • Setup: a programme accumulates documents fast. The video opens with the honest picture: charters, playbooks, status packs, minutes — 157 documents, and the programme’s truth scattered across all of them.

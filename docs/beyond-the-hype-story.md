@@ -10,9 +10,9 @@ Working draft of the deck story and talk script.
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
 - **Status**: deck built at `web/beyond-the-hype.html` (21 slides).
-  Adverse News and LuminaLM videos are embedded and their scripts below
-  are written against the actual footage. Statement Analyzer and MoM AI
-  slides carry placeholder frames until those videos arrive.
+  Adverse News, MoM AI and LuminaLM videos are embedded and their
+  scripts below are written against the actual footage. The Statement
+  Analyzer slide carries a placeholder frame until its video arrives.
 
 ## Shape of the talk
 
@@ -344,28 +344,48 @@ appendix, audit log.
 > verifies in minutes instead of searching for an hour. The agent does
 > the legwork. Clearing the name stays a human decision.
 
-## Slide 17 · Demo 3 — MoM AI — 4 min
+## Slide 17 · Demo 3 — MoM AI — 4 min (video 0:30)
 
-**Layout**: demo slide, same pattern.
-**On slide**: transcribes meeting recordings, Bahasa and English ·
-drafts minutes: decisions, action items, owners, deadlines · minutes
-ready to review after the meeting ends.
-**TODO**: swap in video, rewrite walkthrough.
+**Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
+rail of four "watch for" chips.
+**On slide chips**: drop in the recording (plus optional context PDFs) ·
+speakers detected and named · structured minutes (summary, attendees,
+agenda with actions and PIC) · English/Bahasa toggle, PDF/DOCX export.
+**Video content, mapped**: (0:00) problem card "Every meeting ends the
+same way. Someone still has…" with note cards piling up → (0:05) MoM AI
+logo, the ghost-with-headphones mascot, "Minutes of Meetings" → (0:08)
+upload: New session in "Bob's meeting minutes" workspace — a
+Sustainability Committee Q3 Review .wav, optional supporting PDFs the
+model uses as context, meeting title/date/type/focus → (0:14) Speakers
+step: 3 speakers detected, play a sample, name them, merge duplicates,
+ignore noise; four-step sidebar Upload → Speakers → Transcript →
+Minutes → (0:18) generating: "Identifying decisions and action items…"
+→ (0:22) the Minutes: header with date, type, focus, next meeting;
+Summary; Attendees (3) with roles; Agenda (5) with topic, discussion,
+action needed and PIC per item; English / Bahasa Indonesia toggle,
+Regenerate per section, version history, Copy / PDF / DOCX → (0:28)
+outro: "Minutes, minus the meeting after the meeting."
 
-**Say (setup):**
+**Say (setup, before play):**
 
-> Demo three touches everyone: minutes of meeting. Somebody in every
-> meeting is half-listening because they are typing notes, and the
-> minutes still arrive two days late. MoM AI takes the recording,
-> transcribes it, speech-to-text is the tool here, and the model drafts
-> the minutes: what was decided, who owes what, by when. Notice in the
-> video how it separates decisions from discussion.
+> Demo three touches everyone. Every meeting ends the same way: someone
+> still has to write the minutes. So somebody half-listens while typing
+> notes, and the minutes arrive two days late anyway. Thirty seconds,
+> three things to watch. You drop in the recording and it gets
+> transcribed and diarized, meaning it works out who spoke. You name the
+> speakers from a short sample. And the minutes come out structured:
+> summary, attendees, agenda, with an action and a person-in-charge per
+> item. Sound on.
 
 **Say (after play):**
 
-> A draft, ready when the meeting ends. You review it, fix what it
-> misheard, and send. The half-hour of typing becomes five minutes of
-> checking, and nobody has to skip the discussion to take notes.
+> Speech-to-text is the tool in the loop; the model drafts the
+> structure. The draft is ready when the meeting ends, in English or
+> Bahasa, exportable to PDF or Word. You review it, fix what it
+> misheard, and send. Thirty minutes of typing becomes five minutes of
+> checking — and the sign-off stays yours. One note for the chat: it
+> handles a committee meeting recorded in one room as well as a Teams
+> call.
 
 ## Slide 18 · Demo 4 — LuminaLM — 4 min (video 0:50)
 
@@ -481,9 +501,9 @@ Decision Making about use cases in your unit.
 
 ## Open items
 
-1. Statement Analyzer and MoM AI videos to arrive; drop them into slides
-   15 and 17 (same pattern as the two embedded ones) and rewrite those
-   walkthroughs against the footage.
+1. Statement Analyzer video to arrive; drop it into slide 15 (same
+   pattern as the three embedded ones) and rewrite that walkthrough
+   against the footage.
 2. Confirm product names and owning teams for each demo slide.
 3. Check whether internal AI usage policy wording on slide 20 matches the
    bank's current guidance.
