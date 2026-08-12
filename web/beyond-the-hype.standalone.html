@@ -948,40 +948,49 @@ body.static .lg{animation:none}
   color:#fff;font-weight:800;font-size:14px;flex:none}
 .vrow.bad .vi{background:var(--red)}
 .vrow.good .vi{background:#1E8E5A}
-/* tokens slide: live tokenizer */
-.tokhero{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 30px 22px;width:100%;
-  box-shadow:0 30px 60px -36px rgba(0,0,0,.3)}
-.tokhero .tlbl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;font-weight:600;
-  letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-bottom:14px;display:flex;
-  justify-content:space-between;align-items:baseline}
-.tokhero .tlbl em{font-style:normal;color:var(--red)}
-.tstrip{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.tstrip .plus{font-family:var(--fMono,'JetBrains Mono',monospace);color:var(--faint);font-size:15px}
-.tk{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:19px;font-weight:600;color:var(--ink);
-  border-radius:9px;padding:7px 12px 5px;border:1px solid transparent;opacity:0;transform:scale(.7);
+/* tokens slide: the tokenizer pipeline */
+.pipe{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:24px 28px 22px;width:100%;box-shadow:0 30px 60px -36px rgba(0,0,0,.3)}
+.pipe::before{content:"";position:absolute;left:43px;top:38px;bottom:34px;width:2px;
+  background:repeating-linear-gradient(180deg,#F7D2D4 0 6px,transparent 6px 12px)}
+.pstage{display:grid;grid-template-columns:150px 1fr;gap:0 22px;align-items:center;position:relative;
+  padding:11px 0}
+.pstage + .pstage{border-top:1px dashed var(--line)}
+.plab{display:flex;align-items:center;gap:11px}
+.plab .pn2{width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center;font-family:var(--fHead);font-weight:800;
+  font-size:14px;box-shadow:0 0 0 5px #fff;position:relative;z-index:1}
+.plab span{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.ptype{font-family:var(--fHead);font-weight:700;font-size:20px;color:var(--ink);letter-spacing:-.01em}
+.ptype .cur{display:inline-block;width:2px;height:20px;background:var(--red);vertical-align:-3px;
+  margin-left:2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+body.static .ptype .cur{animation:none}
+.tstrip{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tk{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:16.5px;font-weight:600;color:var(--ink);
+  border-radius:8px;padding:6px 10px 4px;border:1px solid transparent;opacity:0;transform:scale(.7);
   display:inline-flex;flex-direction:column;align-items:center;line-height:1.2}
-.tk .id{font-style:normal;font-size:9.5px;font-weight:500;color:var(--faint);letter-spacing:.02em}
+.tk .id{font-style:normal;font-size:9px;font-weight:500;color:var(--faint);letter-spacing:.02em}
 .tk.a{background:#FCEEEF;border-color:#F7D2D4}
 .tk.b{background:var(--card);border-color:var(--line)}
 .tk.c{background:#FFF6DF;border-color:#F2E2AE}
-.slide.active .tk{animation:tkpop .34s cubic-bezier(.34,1.4,.64,1) forwards;animation-delay:calc(.5s + var(--i)*.12s)}
+.slide.active .tk{animation:tkpop .34s cubic-bezier(.34,1.4,.64,1) forwards;animation-delay:calc(.5s + var(--i)*.1s)}
 @keyframes tkpop{to{opacity:1;transform:scale(1)}}
 body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 @media (prefers-reduced-motion:reduce){.tk{opacity:1;transform:none;animation:none}}
-.tokhero .subrow{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;
-  align-items:center;gap:14px;flex-wrap:wrap}
-.machine{margin-top:14px;background:#1d1d22;border-radius:11px;padding:12px 16px;
+.psplit{margin-top:8px;font-size:12px;color:var(--muted)}
+.psplit b{color:var(--ink)}
+.machine{background:#1d1d22;border-radius:11px;padding:12px 16px;
   font-family:var(--fMono,'JetBrains Mono',monospace)}
 .machine .mlab{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a96;
   margin-bottom:6px}
 .machine .mline{font-size:12.5px;color:#e8e8ee;line-height:1.7;word-break:break-word}
 .machine .mline .num{color:#ff8a8e}
 .machine .mline .dim{color:#8a8a96}
-.tokhero .subrow .cap{font-size:13.5px;color:var(--muted)}
-.factrow{display:flex;gap:12px;width:100%;margin-top:16px}
-.fact{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:center}
-.fact b{display:block;font-family:var(--fHead);font-weight:800;font-size:20px;color:var(--red);letter-spacing:-.01em}
-.fact span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.4}
+.pipefacts{display:flex;justify-content:center;gap:26px;margin-top:16px;flex-wrap:wrap}
+.pipefacts span{font-family:var(--fHead);font-weight:700;font-size:14px;color:var(--muted)}
+.pipefacts b{color:var(--red)}
 /* token cost slide: the receipt */
 .costwrap{display:flex;gap:20px;width:100%;align-items:stretch}
 .receipt{flex:1.15;background:#fff;border:1px solid var(--line);border-radius:6px 6px 14px 14px;
@@ -1333,31 +1342,35 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · TOKENS ============================== -->
-  <section class="slide" data-notes='["On the last slide I kept saying words. Here is the correction: the real unit is the token.", "So what is a token? A numbered entry in the model’s dictionary of about 100,000 text pieces. Short word, one entry. Long word, several pieces.", "Look at the dark strip: this is what the model actually receives. No letters. The sentence arrives as a list of numbers.", "And inside, each number becomes a long list of numbers. That is the form math can work on. AI never sees letters, only numbers.", "Rule of thumb: 1,000 tokens is about 750 English words. And next-word prediction is really next-token prediction."]'>
+  <section class="slide" data-notes='["On the last slide I kept saying words. Here is the correction: the real unit is the token.","Follow the pipeline. Step one: the sentence you type.","Step two: it gets cut into tokens, numbered pieces from the model’s dictionary of about 100,000 entries. Short word, one piece. A long word like menguntungkan becomes three.","Step three: what the model actually receives. No letters. A list of numbers, and inside, each number becomes thousands of numbers. Predicting is math on those.","Rule of thumb: 1,000 tokens is about 750 English words. Next-word prediction is really next-token prediction."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Tokens</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">The correction: tokens, not words</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
-      <div style="max-width:880px;width:100%">
-        <div class="tokhero" data-r data-d="2">
-          <div class="tlbl"><span>A sentence, as the model sees it: tokens, each with a number</span><em>9 tokens</em></div>
-          <div class="tstrip">
-            <span class="tk a" style="--i:0">The<i class="id">#464</i></span><span class="tk b" style="--i:1">customer<i class="id">#8136</i></span><span class="tk c" style="--i:2">would<i class="id">#1053</i></span><span class="tk a" style="--i:3">like<i class="id">#588</i></span><span class="tk b" style="--i:4">to<i class="id">#316</i></span><span class="tk c" style="--i:5">open<i class="id">#2500</i></span><span class="tk a" style="--i:6">a<i class="id">#64</i></span><span class="tk b" style="--i:7">savings<i class="id">#17321</i></span><span class="tk c" style="--i:8">account<i class="id">#3157</i></span>
+      <div style="max-width:920px;width:100%">
+        <div class="pipe" data-r data-d="2">
+          <div class="pstage">
+            <div class="plab"><span class="pn2">1</span><span>You type</span></div>
+            <div class="ptype">The customer would like to open a savings account<span class="cur"></span></div>
           </div>
-          <div class="subrow">
-            <span class="cap">A long word breaks into pieces:</span>
-            <span class="tstrip"><span class="tk a" style="--i:9">meng<i class="id">#28166</i></span><span class="tk b" style="--i:10">untung<i class="id">#91025</i></span><span class="tk c" style="--i:11">kan<i class="id">#1129</i></span></span>
-            <span class="cap">3 tokens</span>
+          <div class="pstage">
+            <div class="plab"><span class="pn2">2</span><span>Cut into tokens<br/>each gets a number</span></div>
+            <div>
+              <div class="tstrip"><span class="tk a" style="--i:0">The<i class="id">#464</i></span><span class="tk b" style="--i:1">customer<i class="id">#8136</i></span><span class="tk c" style="--i:2">would<i class="id">#1053</i></span><span class="tk a" style="--i:3">like<i class="id">#588</i></span><span class="tk b" style="--i:4">to<i class="id">#316</i></span><span class="tk c" style="--i:5">open<i class="id">#2500</i></span><span class="tk a" style="--i:6">a<i class="id">#64</i></span><span class="tk b" style="--i:7">savings<i class="id">#17321</i></span><span class="tk c" style="--i:8">account<i class="id">#3157</i></span></div>
+              <div class="psplit">Long words split into pieces: <b>menguntungkan</b> → <b>meng · untung · kan</b>, 3 tokens</div>
+            </div>
           </div>
-          <div class="machine" data-r data-d="3">
-            <div class="mlab">What the model actually receives · no letters, only numbers</div>
-            <div class="mline"><span class="dim">sentence →</span> [<span class="num">464</span>, <span class="num">8136</span>, <span class="num">1053</span>, <span class="num">588</span>, <span class="num">316</span>, <span class="num">2500</span>, <span class="num">64</span>, <span class="num">17321</span>, <span class="num">3157</span>]</div>
-            <div class="mline"><span class="dim">“account” → #3157 →</span> [<span class="num">0.12</span>, <span class="num">−0.87</span>, <span class="num">0.44</span>, <span class="dim">… thousands more</span>] <span class="dim">· the numbers it does math on</span></div>
+          <div class="pstage">
+            <div class="plab"><span class="pn2">3</span><span>The model sees<br/>numbers only</span></div>
+            <div class="machine">
+              <div class="mline"><span class="dim">sentence →</span> [<span class="num">464</span>, <span class="num">8136</span>, <span class="num">1053</span>, <span class="num">588</span>, <span class="num">316</span>, <span class="num">2500</span>, <span class="num">64</span>, <span class="num">17321</span>, <span class="num">3157</span>]</div>
+              <div class="mline"><span class="dim">“account” → #3157 →</span> [<span class="num">0.12</span>, <span class="num">−0.87</span>, <span class="num">0.44</span>, <span class="dim">… thousands more</span>] <span class="dim">· the numbers it does math on</span></div>
+            </div>
           </div>
         </div>
-        <div class="factrow">
-          <div class="fact" data-r data-d="4"><b>A numbered piece</b><span>each token is an entry in the model’s dictionary, ~¾ of a word</span></div>
-          <div class="fact" data-r data-d="5"><b>1,000 tokens</b><span>&asymp; 750 English words</span></div>
-          <div class="fact" data-r data-d="6"><b>All math</b><span>each token becomes a number; predicting is math on numbers</span></div>
+        <div class="pipefacts" data-r data-d="4">
+          <span><b>1 token</b> ≈ ¾ of a word</span>
+          <span><b>1,000 tokens</b> ≈ 750 English words</span>
+          <span>predicting = <b>math on numbers</b></span>
         </div>
       </div>
     </div>
