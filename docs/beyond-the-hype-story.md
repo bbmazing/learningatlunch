@@ -9,7 +9,7 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (25 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (28 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
   Adverse News, MoM AI and LuminaLM videos are embedded and their
   scripts below are written against the actual footage. The Statement
@@ -26,10 +26,10 @@ using AI safely this week.
 | Act | Slides | Minutes |
 |---|---|---|
 | Opening (cover, LLM intro, on-premise, premise, agenda) | 1–5 | 8 |
-| Act 1 · What is an LLM, really? | 6–13 | 14 |
-| Act 2 · From chatbot to coworker | 14–17 | 8 |
-| Act 3 · Demo videos: AI use cases in the bank | 18–23 | 16 |
-| Close + Q&A | 24–25 | 5 + buffer |
+| Act 1 · What is an LLM, really? | 6–16 | 18 |
+| Act 2 · From chatbot to coworker | 17–20 | 8 |
+| Act 3 · Demo videos: AI use cases in the bank | 21–26 | 15 |
+| Close + Q&A | 27–28 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -211,67 +211,99 @@ panel. Takeaway line beneath.
 > the past and blind to the present. Keep that in mind, because in part
 > two we fix it by handing the model fresh information.
 
-## Slide 11 · Brilliant and unreliable — 3 min
+## Slide 11 · What it does brilliantly — 2 min
 
-**Layout**: two-column comparison. Left card "Great at", right card
-"Trips on".
-**On slide**: Great at: drafting and rewriting · summarising long
-documents · translation, English–Bahasa both ways · explaining concepts at
-any level. Trips on: fresh events after its training data · precise
-arithmetic · facts about your specific customers or systems · and it
-invents details with full confidence (hallucination).
+**Layout**: four strength cards (Drafting, Summarising, Translating,
+Explaining), caption beneath.
 
 **Say:**
 
-> So what falls out of next-word prediction? Strengths first. Anything
-> shaped like language transformation, it does well: draft an email,
-> rewrite it politely, summarise a forty-page circular into one page,
-> translate between Bahasa and English. Now the failures, and this part
-> matters more for us. Ask about last week's events and it may not know.
-> Ask it to multiply two large numbers and check it. Ask about a specific
-> nasabah and it knows nothing, your data was never in its training. And
-> the famous one: hallucination. Ask for a regulation that supports your
-> case and it may cite OJK regulation number such-and-such, well
-> formatted, confident, and nonexistent. It is predicting what a citation
-> looks like. Remember the rule from that: treat every fact it gives you
-> as a draft to verify, in banking above all.
+> Good news first. Anything shaped like language work, it does well.
+> Draft an email or rewrite one. Summarise a forty-page circular into a
+> page you can act on. Translate between Bahasa and English with the
+> tone kept intact. Explain any concept at any level, as many times as
+> you need, without getting impatient. If the task is language in,
+> language out, it is probably good at it. That covers a surprising
+> share of office work.
 
-## Slide 12 · Context in, quality out — 2 min
+## Slide 12 · The limits, and their fixes — 3 min
 
-**Layout**: two-column, bad prompt vs. good prompt in code-style cards.
-**On slide**: Left: "tulis email ke nasabah". Right: role + situation +
-what to include + tone + format, with the resulting difference noted
-underneath.
+**Layout**: four limit rows, each with an arrow to a green fix chip:
+no recent news → web search (Part 2) · sloppy arithmetic → calculator
+(Part 2) · blind to our data → our documents (Part 2) · invents facts
+→ citations plus your review.
 
 **Say:**
 
-> One practical skill before we move on: the quality of the answer tracks
-> the quality of what you put in. Compare these two. "Write an email to a
-> customer" gets you something generic. Now give it what you would give a
-> new team member on day one: who you are, the situation, the three points
-> to cover, the tone, the length. Same model, different result. That
-> mental model, brief it like a smart intern who joined this morning, gets
-> you eighty percent of prompting skill. The intern is brilliant, fast,
-> and knows nothing about your job until you tell it.
+> Now the honest part: the limits. Four big ones. Its knowledge stops
+> at the training date, so no recent news. It predicts numbers instead
+> of computing them, so check its arithmetic. Our customers and systems
+> were never in its training, so it is blind to our data. And the
+> famous one, hallucination: it can invent a fact, like an OJK rule
+> that does not exist, formatted well and stated with confidence.
+> Here is the key message of this slide: every limit on the left has a
+> fix on the right, and most of the fixes are tools. Web search for
+> fresh facts. A calculator for math. Our documents for our world. We
+> will see exactly how in part two. The last one, hallucination, has a
+> fix you own: ask for citations, and review before you send.
 
-## Slide 13 · The chatbot's three walls — 2 min
+## Slide 13 · Prompting: be clear — 2 min
 
-**Layout**: three icon cards.
-**On slide**: Frozen in time (training cutoff) · Blind to your data (no
-access to your files or systems) · All talk (writes text, takes no
-action).
+**Layout**: two-column; checklist bullets left, vague-vs-clear prompt
+cards right.
 
 **Say:**
 
-> Put it together and a plain chatbot has three walls. Wall one: time. Its
-> knowledge stops at its training cutoff. Wall two: access. It cannot see
-> your inbox, your core banking system, or that spreadsheet from this
-> morning. Wall three: action. It produces words, it cannot send, search,
-> or file anything. Keep these three walls in mind through the break,
-> because part two is about how engineers knock them down. That is the
-> difference between a toy and the tools you'll see in the demos.
+> Before the tools, the skill you can use today: asking well. Clarity
+> beats everything. Say the task exactly. Give the background the model
+> cannot know. Name the format, the tone, the length. Compare these
+> two: "tulis email ke nasabah" gets a generic answer. The clear
+> version gets something ready to edit. And if the answer is not right,
+> refine and ask again. It never gets tired.
 
-## Slide 14 · Divider — Act 2 — 30 sec
+## Slide 14 · Or use a framework: COSTAR — 2 min
+
+**Layout**: six tiles: Context, Objective, Style, Tone, Audience,
+Response.
+
+**Say:**
+
+> If you want a structure instead of remembering tips, use a framework.
+> The one I like is COSTAR. Context: the background. Objective: the
+> task, stated exactly. Style: how it should be written. Tone: how it
+> should feel. Audience: who will read it. Response: the format, length
+> and language of the answer. Six boxes to fill before you press enter.
+> Skip what you do not need.
+
+## Slide 15 · COSTAR, filled in — 2 min
+
+**Layout**: one annotated prompt card, each line tagged C/O/S/T/A/R,
+using the relationship-manager example.
+
+**Say:**
+
+> Here is COSTAR filled in for a real task. Context: I am an RM, my
+> customer runs a catering business, three years with us. Objective:
+> draft an email inviting her to review our working-capital facility.
+> Style: a trusted advisor, not a sales blast. Tone: warm and
+> confident. Audience: a busy owner reading on her phone. Response:
+> Bahasa Indonesia, under 120 words, one clear next step. Copy this
+> shape and fill in your own six boxes.
+
+## Slide 16 · Three walls, one fix: tools — 2 min
+
+**Layout**: three wall cards, each with a green fix chip: frozen in
+time → web search · blind to your data → your documents · all talk →
+tools that act.
+
+**Say:**
+
+> Put the limits together and a plain chatbot hits three walls. Frozen
+> in time. Blind to our data. All talk, no action. Notice each card
+> already carries its fix, and it is the same fix three times: give the
+> model tools. That is part two. Let us go.
+
+## Slide 17 · Divider — Act 2 — 30 sec
 
 **Layout**: dark section divider.
 **On slide**: "Part 2 / From chatbot to coworker".
@@ -280,7 +312,7 @@ action).
 
 > Part two. How a text predictor becomes something that does work.
 
-## Slide 15 · Tool calling: give it hands — 3 min
+## Slide 18 · Tool calling: give it hands — 3 min
 
 **Layout**: process flow, four steps with a worked example underneath.
 **On slide**: You ask → model decides it needs a tool → tool runs (search,
@@ -299,7 +331,7 @@ kurs USD hari ini?" → calls a rate lookup → answers with today's number.
 > almost every serious AI product you will touch this year, including all
 > four demos coming up.
 
-## Slide 16 · Agents: the loop — 2 min
+## Slide 19 · Agents: the loop — 2 min
 
 **Layout**: circular loop diagram: Plan → Act → Check → repeat, exit
 arrow "Done".
@@ -317,7 +349,7 @@ finished.
 > search, check the directors too, then write up findings. An agent runs
 > that same loop. You will watch one do exactly this in demo two.
 
-## Slide 17 · Ground it in your documents — 2 min
+## Slide 20 · Ground it in your documents — 2 min
 
 **Layout**: simple flow: your documents → indexed → question → answer with
 citations.
@@ -335,7 +367,7 @@ from those pages. The fix for hallucination on document work.
 > call it RAG; the name matters less than the effect. Two of the four
 > demos are built on it.
 
-## Slide 18 · Divider — Act 3 — 1 min
+## Slide 21 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider, four small chips naming the demos.
 **On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
@@ -349,7 +381,7 @@ MoM AI · Lumina.
 > pain it removes, play the video, and connect it back to the concepts.
 > Questions in the chat after each.
 
-## Slide 19 · Demo 1 — Bank Statement Analyzer — 4 min
+## Slide 22 · Demo 1 — Bank Statement Analyzer — 4 min
 
 **Layout**: demo slide. Placeholder frame for video, side rail with
 "watch for" bullets.
@@ -375,7 +407,7 @@ balances for analysis.
 > is the model's home turf, and OCR is a tool in the loop. The analyst
 > still makes the credit judgment. The retyping is gone.
 
-## Slide 20 · Demo 2 — Adverse News — 5 min (video 1:45)
+## Slide 23 · Demo 2 — Adverse News — 5 min (video 1:45)
 
 **Layout**: video slide — embedded `adverse-news.mp4` with poster frame,
 side rail of four "watch for" chips.
@@ -423,7 +455,7 @@ appendix, audit log.
 > verifies in minutes instead of searching for an hour. The agent does
 > the legwork. Clearing the name stays a human decision.
 
-## Slide 21 · Demo 3 — MoM AI — 4 min (video 0:30)
+## Slide 24 · Demo 3 — MoM AI — 4 min (video 0:30)
 
 **Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -466,7 +498,7 @@ outro: "Minutes, minus the meeting after the meeting."
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
 
-## Slide 22 · Demo 4 — LuminaLM — 4 min (video 0:50)
+## Slide 25 · Demo 4 — LuminaLM — 4 min (video 0:50)
 
 **Layout**: video slide — embedded `lumina.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -507,7 +539,7 @@ template → (0:46) outro.
 > itself. When the answer is not in the documents, it says so. That is
 > the hallucination fix you met on slide 13, on camera.
 
-## Slide 23 · The pattern behind all four — 2 min
+## Slide 26 · The pattern behind all four — 2 min
 
 **Layout**: card grid or table mapping demo → concept → human's role.
 **On slide**: Statement Analyzer = model + OCR tool · Adverse News =
@@ -525,7 +557,7 @@ people keep the judgment.
 > formatting that sat between people and their judgment. That is what AI
 > can do today. Less magic than the headlines, and more useful.
 
-## Slide 24 · Using it well, starting this week — 3 min
+## Slide 27 · Using it well, starting this week — 3 min
 
 **Layout**: two-column: "Start here" and "Rules of the road".
 **On slide**: Start here: summarise long documents · draft and polish
@@ -545,7 +577,7 @@ every fact and number · you own what you send, AI output is a draft.
 > carries your name. Treat the output the way you treat an intern's
 > draft: useful, fast, and reviewed before it leaves your desk.
 
-## Slide 25 · Close + Q&A — 1 min, then open floor
+## Slide 28 · Close + Q&A — 1 min, then open floor
 
 **Layout**: dark closing slide, recap left, next steps right.
 **On slide**: Covered: how LLMs work · tools and agents · four working

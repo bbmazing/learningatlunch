@@ -926,6 +926,58 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 .cut-after p{font-size:13.5px;color:var(--muted);line-height:1.5;margin:0}
 .cutfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink)}
 .cutfoot .red{color:var(--red)}
+/* strengths cards */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
+.skill{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
+  box-shadow:0 22px 44px -32px rgba(0,0,0,.28)}
+.skill .ic{width:40px;height:40px;border-radius:11px;background:#FCEEEF;color:var(--red);
+  display:flex;align-items:center;justify-content:center;margin-bottom:11px}
+.skill .ic svg{width:20px;height:20px}
+.skill b{display:block;font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink)}
+.skill span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+/* limits -> fixes rows */
+.lims{display:flex;flex-direction:column;gap:11px;width:100%}
+.limrow{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:13px 18px}
+.limrow .lim{flex:1.25;display:flex;align-items:center;gap:12px}
+.limrow .lim .w{width:26px;height:26px;border-radius:50%;background:#FCEEEF;color:var(--red);flex:none;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.limrow .lim b{font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink);display:block}
+.limrow .lim span{font-size:12px;color:var(--muted);display:block;margin-top:1px}
+.limrow .arr{color:var(--faint);font-size:17px;flex:none}
+.limrow .fix{flex:1;display:flex;align-items:center;gap:9px;background:#E9F7EE;border:1px solid #cdebd8;
+  border-radius:11px;padding:9px 13px}
+.limrow .fix svg{width:17px;height:17px;stroke:#1E8E5A;flex:none}
+.limrow .fix b{font-family:var(--fHead);font-weight:800;font-size:13px;color:#14663f}
+.limrow .fix .p2{margin-left:auto;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:9.5px;
+  font-weight:700;letter-spacing:.06em;color:#fff;background:#1E8E5A;border-radius:99px;padding:3px 9px;flex:none}
+.limfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink);margin-top:14px}
+.limfoot .red{color:var(--red)}
+/* COSTAR tiles */
+.costar{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;width:100%}
+.cst{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px 18px;display:flex;gap:13px;
+  align-items:flex-start;box-shadow:0 22px 44px -34px rgba(0,0,0,.3)}
+.cst .lt{width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center;font-family:var(--fHead);font-weight:800;font-size:18px}
+.cst b{display:block;font-family:var(--fHead);font-weight:800;font-size:15px;color:var(--ink)}
+.cst span{display:block;font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+/* COSTAR worked example */
+.cxp{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;width:100%;
+  box-shadow:0 26px 52px -34px rgba(0,0,0,.3)}
+.cxp .bar2{display:flex;align-items:center;gap:7px;margin-bottom:14px}
+.cxp .bar2 i{width:10px;height:10px;border-radius:50%;background:#e6e8ec}
+.cxp .bar2 i:first-child{background:var(--red)}
+.cxp .fn2{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;color:var(--faint);margin-left:6px}
+.cline{display:flex;gap:12px;align-items:flex-start;padding:6.5px 0}
+.cline .tag{width:24px;height:24px;border-radius:50%;background:#FCEEEF;color:var(--red);flex:none;
+  display:flex;align-items:center;justify-content:center;font-family:var(--fHead);font-weight:800;font-size:12px;
+  margin-top:1px}
+.cline p{margin:0;font-size:14.5px;color:var(--text);line-height:1.5}
+.cline p b{color:var(--ink)}
+/* wall fix chips */
+.fixchip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#E9F7EE;
+  border:1px solid #cdebd8;border-radius:99px;padding:5px 12px;font-family:var(--fHead);font-weight:800;
+  font-size:11px;color:#14663f}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -1195,81 +1247,138 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">10</span></div>
   </section>
 
-  <!-- ============================== SLIDE 7 · GREAT AT / TRIPS ON ============================== -->
-  <section class="slide" data-notes='["Good at rewriting language: draft, summarise, translate, explain.", "Weak at fresh news, exact math, and anything about our customers.", "Hallucination: it can invent a rule and cite it with full confidence.", "Rule: every fact it gives is a draft. Check before it travels."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Strengths &amp; limits</div>
-    <h2 class="slide-title" data-r data-d="1">Brilliant and unreliable at the same time</h2>
+  <!-- ============================== SLIDE · STRENGTHS ============================== -->
+  <section class="slide" data-notes='["Good news first. Anything shaped like language work, it does well.","Draft, summarise, translate, explain. That covers most office writing.","This is where you start using it this week."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Strengths</div>
+    <h2 class="slide-title" data-r data-d="1">What it does brilliantly</h2>
     <div class="body-area" style="justify-content:center">
-      <div class="compare">
-        <div class="comp good" data-r data-d="2">
-          <h4>Great at</h4>
-          <ul>
-            <li>Drafting and rewriting: emails, memos, reports</li>
-            <li>Summarising long documents into one page</li>
-            <li>Translation: Bahasa &harr; English, both ways</li>
-            <li>Explaining any concept at any level</li>
-          </ul>
-        </div>
-        <div class="comp warn" data-r data-d="3">
-          <h4>Trips on</h4>
-          <ul>
-            <li>News after its training cutoff</li>
-            <li>Precise arithmetic. Check every number</li>
-            <li>Your customers and systems. It has never seen them</li>
-            <li>Inventing details with full confidence</li>
-          </ul>
-        </div>
+      <div class="skills">
+        <div class="skill" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><b>Drafting</b><span>Emails, memos and reports, written or rewritten in seconds.</span></div>
+        <div class="skill" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg></div><b>Summarising</b><span>A 40-page circular into one page you can act on.</span></div>
+        <div class="skill" data-r data-d="4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div><b>Translating</b><span>Bahasa to English and back, tone kept intact.</span></div>
+        <div class="skill" data-r data-d="5"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><b>Explaining</b><span>Any concept, at any level, as many times as you need.</span></div>
       </div>
-      <div class="callout" data-r data-d="4"><b>Hallucination:</b> it can cite an OJK rule that does not exist, with full confidence. Check its facts every time.</div>
+      <p class="flow-cap" data-r data-d="6">If the task is language in, language out, it is probably good at it.</p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">07</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">11</span></div>
   </section>
 
-  <!-- ============================== SLIDE 8 · PROMPTING ============================== -->
-  <section class="slide" data-notes='["Better input, better output.", "Left: one vague line, generic answer. Right: role, context, tone. Ready to edit.", "Think of it as a smart intern on day one. Brief it like one."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Talking to it</div>
-    <h2 class="slide-title" data-r data-d="1">Context in, quality out</h2>
+  <!-- ============================== SLIDE · LIMITS AND FIXES ============================== -->
+  <section class="slide" data-notes='["Now the limits. Four big ones.","No news after its training date. Weak at exact math. Blind to our data. And it can invent facts with confidence, like citing an OJK rule that does not exist.","Key message: every limit has a fix, and most fixes are tools. Web search, a calculator, your documents.","Hold that thought. Part 2 is exactly this."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Limits</div>
+    <h2 class="slide-title" data-r data-d="1">The limits, and their fixes</h2>
     <div class="body-area" style="justify-content:center">
-      <div class="compare">
-        <div data-r data-d="2" style="flex:1">
-          <div class="codewrap">
-            <div class="bar"><i></i><i></i><i></i><span class="fn">prompt&#8209;v1.txt</span></div>
-            <pre><code><span class="code-line">Tulis email ke nasabah.</span>
-<span class="code-line"></span>
-<span class="code-line"><span class="tok-cm">→ generic. Could be any bank,</span></span>
-<span class="code-line"><span class="tok-cm">  any customer, any purpose.</span></span></code></pre>
-          </div>
+      <div class="lims">
+        <div class="limrow" data-r data-d="2">
+          <div class="lim"><span class="w">!</span><span><b>No recent news</b><span>its knowledge stops at the training date</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><b>Give it web search</b><span class="p2">PART 2</span></div>
         </div>
-        <div data-r data-d="3" style="flex:1.35">
+        <div class="limrow" data-r data-d="3">
+          <div class="lim"><span class="w">!</span><span><b>Sloppy arithmetic</b><span>it predicts numbers instead of computing them</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M13 12h.01M9 16h.01M13 16h.01"/></svg><b>Give it a calculator</b><span class="p2">PART 2</span></div>
+        </div>
+        <div class="limrow" data-r data-d="4">
+          <div class="lim"><span class="w">!</span><span><b>Blind to our data</b><span>customers, systems and files were never in training</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/></svg><b>Give it our documents</b><span class="p2">PART 2</span></div>
+        </div>
+        <div class="limrow" data-r data-d="5">
+          <div class="lim"><span class="w">!</span><span><b>Invents facts</b><span>hallucination: confident, well formatted, wrong</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><b>Citations, plus your review</b></div>
+        </div>
+      </div>
+      <p class="limfoot" data-r data-d="6">Every limit has a fix. <span class="red">Part 2 shows how.</span></p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">12</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · PROMPTING TECHNIQUES ============================== -->
+  <section class="slide" data-notes='["Before the tools: how to ask well. Clarity beats everything.","Say the task exactly. Give the background. Name the format, tone and length.","Compare the two prompts. Same model, different result.","Not happy with the answer? Refine and ask again. It never gets tired."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
+    <h2 class="slide-title" data-r data-d="1">Be clear about what you want</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">Say the <b>task</b> exactly.</li>
+            <li data-r data-d="3">Give the <b>background</b> the model cannot know.</li>
+            <li data-r data-d="4">Name the <b>format, tone and length</b> you want.</li>
+            <li data-r data-d="5">Not happy? <b>Refine and ask again.</b> It never gets tired.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3" style="flex-direction:column;gap:12px">
           <div class="codewrap">
-            <div class="bar"><i></i><i></i><i></i><span class="fn">prompt&#8209;v2.txt</span></div>
+            <div class="bar"><i></i><i></i><i></i><span class="fn">vague</span></div>
+            <pre><code><span class="code-line">Tulis email ke nasabah.</span>
+<span class="code-line"><span class="tok-cm">→ generic. Could be any bank, any customer.</span></span></code></pre>
+          </div>
+          <div class="codewrap">
+            <div class="bar"><i></i><i></i><i></i><span class="fn">clear</span></div>
             <pre><code><span class="code-line">Kamu RM di OCBC Indonesia.</span>
 <span class="code-line">Nasabah: pemilik usaha katering, 3 tahun bersama kita.</span>
-<span class="code-line">Tujuan: ajak review fasilitas modal kerja.</span>
+<span class="code-line">Tugas: ajak review fasilitas modal kerja.</span>
 <span class="code-line">Nada: hangat, ringkas. Maks 120 kata.</span>
-<span class="code-line"></span>
 <span class="code-line"><span class="tok-cm">→ specific, on-tone, ready to edit.</span></span></code></pre>
           </div>
         </div>
       </div>
-      <p class="flow-cap" data-r data-d="4">Brief it like a smart intern on day one: bright and fast, but it knows nothing until you tell it.</p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">08</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">13</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · COSTAR FRAMEWORK ============================== -->
+  <section class="slide" data-notes='["Or use a framework. The one I like is COSTAR.","Context, Objective, Style, Tone, Audience, Response.","Six boxes to fill before you press enter. Skip what you do not need.","Next slide: a real one, filled in."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
+    <h2 class="slide-title" data-r data-d="1">Or use a framework: COSTAR</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="costar">
+        <div class="cst" data-r data-d="2"><span class="lt">C</span><span><b>Context</b><span>the background the model needs to know</span></span></div>
+        <div class="cst" data-r data-d="3"><span class="lt">O</span><span><b>Objective</b><span>the task, stated exactly</span></span></div>
+        <div class="cst" data-r data-d="4"><span class="lt">S</span><span><b>Style</b><span>how it should be written</span></span></div>
+        <div class="cst" data-r data-d="5"><span class="lt">T</span><span><b>Tone</b><span>how it should feel to the reader</span></span></div>
+        <div class="cst" data-r data-d="6"><span class="lt">A</span><span><b>Audience</b><span>who will read it</span></span></div>
+        <div class="cst" data-r data-d="7"><span class="lt">R</span><span><b>Response</b><span>format, length and language of the answer</span></span></div>
+      </div>
+      <p class="flow-cap" data-r data-d="8">Six boxes to fill before you press enter. Skip what you do not need.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · COSTAR EXAMPLE ============================== -->
+  <section class="slide" data-notes='["COSTAR filled in, for a real task: an RM inviting a customer to review a facility.","Read the six parts. Each line answers a question the model would otherwise guess.","Copy this shape. Fill in your own six boxes."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
+    <h2 class="slide-title" data-r data-d="1">COSTAR, filled in</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="cxp" data-r data-d="2">
+        <div class="bar2"><i></i><i></i><i></i><span class="fn2">prompt · costar</span></div>
+        <div class="cline"><span class="tag">C</span><p>I am a relationship manager at OCBC Indonesia. My customer owns a catering business and has banked with us for 3 years.</p></div>
+        <div class="cline"><span class="tag">O</span><p>Draft an email inviting her to review our <b>working-capital facility</b>.</p></div>
+        <div class="cline"><span class="tag">S</span><p>Written like a <b>trusted advisor</b>, not a sales blast.</p></div>
+        <div class="cline"><span class="tag">T</span><p><b>Warm and confident</b>, never pushy.</p></div>
+        <div class="cline"><span class="tag">A</span><p>A busy small-business owner who reads email <b>on her phone</b>.</p></div>
+        <div class="cline"><span class="tag">R</span><p><b>Bahasa Indonesia</b>, under 120 words, one clear next step at the end.</p></div>
+      </div>
+      <p class="flow-cap" data-r data-d="3">Copy this shape. Fill in your own six boxes.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">15</span></div>
   </section>
 
   <!-- ============================== SLIDE 9 · THREE WALLS ============================== -->
-  <section class="slide" data-notes='["Wall one, time: its knowledge stops at a cutoff date.", "Wall two, access: it cannot see our data or systems.", "Wall three, action: it writes text. It cannot do anything.", "Part 2 is how we break all three."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · The catch</div>
-    <h2 class="slide-title" data-r data-d="1">A plain chatbot hits three walls</h2>
-    <div class="body-area">
+  <section class="slide" data-notes='["Put the limits together and a plain chatbot hits three walls.","Frozen in time. Blind to our data. All talk, no action.","Each wall falls the same way: give the model tools.","That is Part 2. Let us go."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · The bridge</div>
+    <h2 class="slide-title" data-r data-d="1">Three walls, one fix: tools</h2>
+    <div class="body-area" style="justify-content:center">
       <div class="cards c3" style="grid-template-rows:1fr">
-        <div class="card" data-r data-d="1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff. Ask about last week and it may guess.</p></div>
-        <div class="card" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div><h3>Blind to your data</h3><p>It cannot see your inbox, files or systems. Your world is invisible to it.</p></div>
-        <div class="card" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>All talk</h3><p>It writes text. It cannot search, send or do anything on its own.</p></div>
+        <div class="card" data-r data-d="1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff.</p><span class="fixchip">✓ fix: web search</span></div>
+        <div class="card" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div><h3>Blind to your data</h3><p>Your files and systems are invisible to it.</p><span class="fixchip">✓ fix: your documents</span></div>
+        <div class="card" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>All talk</h3><p>It writes text. It cannot act on its own.</p><span class="fixchip">✓ fix: tools that act</span></div>
       </div>
-      <p class="flow-cap" data-r data-d="4">Part 2: how we knock these walls down.</p>
+      <p class="flow-cap" data-r data-d="4">Tool calling breaks all three. That is Part 2.</p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">09</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">16</span></div>
   </section>
 
   <!-- ============================== SLIDE 10 · DIVIDER P2 ============================== -->
