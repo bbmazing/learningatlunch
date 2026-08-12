@@ -51,9 +51,9 @@ Slide 8 — The correction: tokens, not words
 Slide 9 — Tokens are the meter
   • Every token in and out gets counted. Tokens are the meter.
   • Read the receipt: a short email is a few hundred tokens. A 40-page report is tens of thousands.
-  • A stronger model multiplies the price of every token.
-  • That is why ChatGPT Plus costs 20 US dollars a month, and why companies pay per token.
-  • Nothing to do about it today. Just know that AI work has a price tag.
+  • For consumers it is a subscription: free, or 20 dollars a month for ChatGPT Plus.
+  • For companies it is per token. Our self-hosted Qwen 3.6 works out around 3 dollars per million tokens, mostly the GPU hosting cost. Frontier cloud models run 5 to 50 dollars per million.
+  • That is why the bank sizes the model to the task. Nothing for you to do. Just know AI has a price tag.
 
 Slide 10 — It read a lot, up to a date
   • It learned by reading books, articles, code and forums. A huge library.
@@ -86,10 +86,10 @@ Slide 14 — Or use a framework: COSTAR
   • Next slide: a real one, filled in.
 
 Slide 15 — COSTAR, filled in
-  • New scenario, and a very Indonesian one: the APK scam on WhatsApp. Fake invitations and package receipts that steal OTP codes. OJK and every bank warn about it.
-  • Notice: the prompt itself is in Bahasa. COSTAR works in any language.
-  • Left, the six boxes. Right, the broadcast it produced: under 100 words, three rules at the end, calm not scary.
-  • Copy this shape. Fill in your own six boxes.
+  • New scenario: generating a report. This is where unwanted extras and hallucination hurt, so we fence them in.
+  • The R box does the heavy work: exact columns, only from my notes, N/A for missing data. No adding, no inventing.
+  • Right: the table it produced. Five columns as ordered, and look at the last row: N/A instead of a made-up answer.
+  • Specify the shape and the rules, and you get the report you wanted. Copy this shape.
 
 Slide 16 — Three walls, one fix: tools
   • Put the limits together and a plain chatbot hits three walls.

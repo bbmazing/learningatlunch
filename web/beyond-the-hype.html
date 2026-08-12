@@ -997,6 +997,21 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   margin-top:1px}
 .cline p{margin:0;font-size:14.5px;color:var(--text);line-height:1.5}
 .cline p b{color:var(--ink)}
+/* report result preview */
+.repprev{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 26px 52px -34px rgba(0,0,0,.35)}
+.repprev .rh{background:var(--card);border-bottom:1px solid var(--line);padding:10px 15px}
+.repprev .rh b{font-family:var(--fHead);font-weight:800;font-size:12.5px;color:var(--ink);display:block}
+.repprev table{border-collapse:collapse;width:100%;font-size:11px}
+.repprev th{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:9px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--red);background:#FCEEEF;
+  padding:7px 9px;text-align:left;border-bottom:1px solid #F7D2D4}
+.repprev td{padding:8px 9px;border-bottom:1px solid var(--line);color:var(--text);vertical-align:top}
+.repprev tr:last-child td{border-bottom:none}
+.repprev td.na{color:#14663f;font-weight:700;background:#E9F7EE;border-radius:6px}
+.repnote{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:var(--fHead);
+  font-weight:700;font-size:11.5px;color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;
+  border-radius:99px;padding:5px 12px}
 /* whatsapp result preview */
 .waprev{border-radius:16px;overflow:hidden;box-shadow:0 26px 52px -34px rgba(0,0,0,.4);border:1px solid var(--line)}
 .waprev .wh{background:#0B5C50;color:#fff;padding:10px 15px;display:flex;align-items:center;gap:10px}
@@ -1240,7 +1255,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · TOKEN COST ============================== -->
-  <section class="slide" data-notes='["Every token in and out gets counted. Tokens are the meter.","Read the receipt: a short email is a few hundred tokens. A 40-page report is tens of thousands.","A stronger model multiplies the price of every token.","That is why ChatGPT Plus costs 20 US dollars a month, and why companies pay per token.","Nothing to do about it today. Just know that AI work has a price tag."]'>
+  <section class="slide" data-notes='["Every token in and out gets counted. Tokens are the meter.", "Read the receipt: a short email is a few hundred tokens. A 40-page report is tens of thousands.", "For consumers it is a subscription: free, or 20 dollars a month for ChatGPT Plus.", "For companies it is per token. Our self-hosted Qwen 3.6 works out around 3 dollars per million tokens, mostly the GPU hosting cost. Frontier cloud models run 5 to 50 dollars per million.", "That is why the bank sizes the model to the task. Nothing for you to do. Just know AI has a price tag."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · What it costs</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Tokens are the meter</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
@@ -1260,8 +1275,8 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
           <div class="tiers" data-r data-d="3">
             <div class="tlab2">Who pays what</div>
             <div class="tier"><b>ChatGPT Free</b><span>standard model,<br/>daily limits</span></div>
-            <div class="tier hero"><b>ChatGPT Plus</b><span><b style="color:var(--red)">$20 / month</b> for<br/>the stronger models</span></div>
-            <div class="tier"><b>Companies</b><span>pay per<br/>token used</span></div>
+            <div class="tier"><b>ChatGPT Plus</b><span>$20 / month for<br/>the stronger models</span></div>
+            <div class="tier hero"><b>Companies<br/><span style="font-size:11px;font-weight:700;color:var(--red)">pay per token</span></b><span>our Qwen 3.6 &asymp; <b style="color:var(--red)">$3 / 1M tokens</b><br/>frontier cloud models <b style="color:var(--red)">$5–50 / 1M</b></span></div>
           </div>
         </div>
         <p class="costfoot" data-r data-d="4">Bigger task + smarter model = more tokens = <span class="red">more cost.</span></p>
@@ -1396,41 +1411,34 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · COSTAR EXAMPLE ============================== -->
-  <section class="slide" data-notes='["New scenario, and a very Indonesian one: the APK scam on WhatsApp. Fake invitations and package receipts that steal OTP codes. OJK and every bank warn about it.","Notice: the prompt itself is in Bahasa. COSTAR works in any language.","Left, the six boxes. Right, the broadcast it produced: under 100 words, three rules at the end, calm not scary.","Copy this shape. Fill in your own six boxes."]'>
+  <section class="slide" data-notes='["New scenario: generating a report. This is where unwanted extras and hallucination hurt, so we fence them in.","The R box does the heavy work: exact columns, only from my notes, N/A for missing data. No adding, no inventing.","Right: the table it produced. Five columns as ordered, and look at the last row: N/A instead of a made-up answer.","Specify the shape and the rules, and you get the report you wanted. Copy this shape."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
     <h2 class="slide-title" data-r data-d="1">COSTAR, filled in</h2>
     <div class="body-area" style="justify-content:center">
       <div class="two wide-r" style="align-items:center">
-        <div class="txt" style="flex:1.2">
+        <div class="txt" style="flex:1.15">
           <div class="cxp" data-r data-d="2">
             <div class="bar2"><i></i><i></i><i></i><span class="fn2">prompt · costar · bahasa</span></div>
-            <div class="cline"><span class="tag">C</span><p>Saya staf komunikasi cabang OCBC Indonesia. Sedang marak <b>penipuan file APK</b> lewat WhatsApp yang mencuri kode OTP nasabah.</p></div>
-            <div class="cline"><span class="tag">O</span><p>Buat <b>pesan peringatan WhatsApp</b> untuk nasabah kami tentang modus ini.</p></div>
-            <div class="cline"><span class="tag">S</span><p><b>Bahasa sederhana</b>, tanpa istilah teknis.</p></div>
-            <div class="cline"><span class="tag">T</span><p><b>Melindungi dan menenangkan</b>, bukan menakut-nakuti.</p></div>
-            <div class="cline"><span class="tag">A</span><p>Nasabah <b>segala usia</b>, termasuk orang tua.</p></div>
-            <div class="cline"><span class="tag">R</span><p>Maksimal <b>100 kata</b>, tutup dengan <b>3 aturan</b> yang mudah diingat.</p></div>
+            <div class="cline"><span class="tag">C</span><p>Saya team leader operasional cabang. Di bawah saya tempel <b>catatan komplain nasabah</b> minggu ini.</p></div>
+            <div class="cline"><span class="tag">O</span><p>Buat <b>laporan rekap komplain</b> berbentuk tabel.</p></div>
+            <div class="cline"><span class="tag">S</span><p><b>Ringkas dan rapi</b>, siap tempel ke email.</p></div>
+            <div class="cline"><span class="tag">T</span><p><b>Netral dan faktual.</b></p></div>
+            <div class="cline"><span class="tag">A</span><p>Kepala cabang, membaca dalam <b>1 menit</b>.</p></div>
+            <div class="cline"><span class="tag">R</span><p>Kolom persis: <b>Tanggal, Kanal, Jenis Komplain, Status, Tindak Lanjut</b>. Hanya dari catatan saya; data yang tidak ada tulis <b>N/A</b>. Jangan menambah atau mengarang.</p></div>
           </div>
         </div>
         <div class="viz" data-r data-d="3" style="flex-direction:column;align-items:flex-start">
           <span class="resultlbl">✓ the result</span>
-          <div class="waprev">
-            <div class="wh"><span class="av"><img src="assets/ocbc-icon.png" alt=""/></span><span><b>OCBC Info</b><span>Broadcast · draft</span></span></div>
-            <div class="wb">
-              <div class="bub">
-                <p>Bapak/Ibu Nasabah yang kami hormati,</p>
-                <p>Sedang marak penipuan lewat WhatsApp: file <b>undangan</b> atau <b>resi paket</b> berbentuk APK yang diam-diam mencuri kode OTP Anda.</p>
-                <p><b>Ingat 3 aturan ini:</b></p>
-                <ol>
-                  <li>Jangan buka file APK dari nomor tak dikenal.</li>
-                  <li>Jangan bagikan OTP atau PIN, walau mengaku petugas bank.</li>
-                  <li>Ragu? Hubungi call center resmi OCBC.</li>
-                </ol>
-                <p>Bank tidak pernah meminta OTP Anda.</p>
-                <div class="meta2">11.30 <span class="ck">✓✓</span></div>
-              </div>
-            </div>
+          <div class="repprev">
+            <div class="rh"><b>Rekap Komplain Nasabah · Minggu ke-2 Agustus</b></div>
+            <table>
+              <tr><th>Tanggal</th><th>Kanal</th><th>Jenis Komplain</th><th>Status</th><th>Tindak Lanjut</th></tr>
+              <tr><td>02/08</td><td>Mobile banking</td><td>Transfer gagal</td><td>Selesai</td><td>Dana dikembalikan</td></tr>
+              <tr><td>04/08</td><td>Cabang</td><td>Antrean lama</td><td>Proses</td><td>Tambah teller jam sibuk</td></tr>
+              <tr><td>05/08</td><td>Call center</td><td>Kartu tertelan ATM</td><td>Selesai</td><td class="na">N/A</td></tr>
+            </table>
           </div>
+          <span class="repnote">✓ data kosong ditulis N/A, tidak dikarang</span>
         </div>
       </div>
     </div>

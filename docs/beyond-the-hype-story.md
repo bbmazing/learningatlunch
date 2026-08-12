@@ -191,10 +191,14 @@ companies pay per token).
 > Why do tokens matter? They are the meter. Every token in and every
 > token out gets counted. A short email costs a few hundred tokens. A
 > forty-page report costs tens of thousands. More tokens means more
-> computing, and that costs money. That is why ChatGPT Plus charges 20
-> US dollars a month for the stronger models, and why companies pay per
-> token. Nothing you need to do about it today. Just be aware that AI
-> work has a price tag.
+> computing, and that costs money. For consumers it is a subscription:
+> free with limits, or 20 US dollars a month for ChatGPT Plus. For
+> companies like us it is per token, and this is the row that matters.
+> Our self-hosted Qwen 3.6 works out around 3 dollars per million
+> tokens, mostly the cost of running our own GPUs. The frontier cloud
+> models run about 5 to 50 dollars per million. That is why the bank
+> sizes the model to the task. Nothing you need to do about it today.
+> Just be aware that AI work has a price tag.
 
 ## Slide 10 · It read a lot, up to a date — 2 min
 
@@ -279,29 +283,23 @@ Response.
 
 ## Slide 15 · COSTAR, filled in — 2 min
 
-**Layout**: the annotated prompt card (lines tagged C/O/S/T/A/R,
-written in Bahasa) beside the result: a WhatsApp broadcast draft
-warning customers about the APK/OTP scam, in a WhatsApp-style frame.
-**Scenario grounding**: the APK-file scam (fake wedding invitations and
-package receipts sent by WhatsApp that steal OTP codes) is a real,
-widely-warned modus in Indonesia; OJK and banks such as BSI run public
-awareness campaigns about it, with the standard advice: never open APK
-files from unknown numbers, never share OTP/PIN, contact the official
-call center when in doubt.
+**Layout**: the annotated prompt card (lines tagged C/O/S/T/A/R, in
+Bahasa) beside the result: a complaint-recap report table with the
+exact ordered columns, one cell showing N/A, and a green note "data
+kosong ditulis N/A, tidak dikarang".
 
 **Say:**
 
 > Here is COSTAR filled in, and notice the prompt is in Bahasa. The
-> framework works in any language. The scenario: the APK scam on
-> WhatsApp, the fake wedding invitation or package receipt that steals
-> OTP codes. Context: I am branch comms staff, and this modus is
-> everywhere. Objective: a WhatsApp warning for our customers. Style:
-> simple Bahasa, no technical terms. Tone: protective and calming, not
-> scary. Audience: all ages, including our parents. Response: under 100
-> words, ending with three rules that stick. And on the right, the
-> broadcast it produced: calm, clear, three rules, and the line that
-> matters most, the bank never asks for your OTP. Copy this shape.
-> Fill in your own six boxes.
+> framework works in any language. The scenario: generating a report,
+> which is exactly where unwanted extras and hallucination hurt. So the
+> R box does the heavy work. Kolom persis: Tanggal, Kanal, Jenis
+> Komplain, Status, Tindak Lanjut. Hanya dari catatan saya. Data yang
+> tidak ada tulis N/A. Jangan menambah atau mengarang. And on the
+> right, the table it produced: five columns as ordered, and look at
+> the last row. Where the notes had no follow-up, it wrote N/A instead
+> of inventing one. Specify the shape and the rules, and you get the
+> report you wanted. Copy this shape for your own reports.
 
 ## Slide 16 · Three walls, one fix: tools — 2 min
 
