@@ -926,19 +926,22 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 .cut-after p{font-size:13.5px;color:var(--muted);line-height:1.5;margin:0}
 .cutfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink)}
 .cutfoot .red{color:var(--red)}
-/* strengths cards */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%}
-.skill{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;
-  box-shadow:0 22px 44px -32px rgba(0,0,0,.28)}
-.skill .ic{width:40px;height:40px;border-radius:11px;background:#FCEEEF;color:var(--red);
-  display:flex;align-items:center;justify-content:center;margin-bottom:11px}
-.skill .ic svg{width:20px;height:20px}
-.skill b{display:block;font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink)}
-.skill span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+/* strengths: starter cards */
+.skills2{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:940px}
+.sk2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px 20px;
+  box-shadow:0 24px 48px -34px rgba(0,0,0,.32);display:flex;gap:15px;align-items:flex-start}
+.sk2 .ic{width:44px;height:44px;border-radius:12px;background:#FCEEEF;color:var(--red);flex:none;
+  display:flex;align-items:center;justify-content:center}
+.sk2 .ic svg{width:21px;height:21px}
+.sk2 .tx2{min-width:0;flex:1}
+.sk2 b{display:block;font-family:var(--fHead);font-weight:800;font-size:16.5px;color:var(--ink)}
+.sk2 .d{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.4}
+.sk2 .try{display:block;margin-top:9px;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11.5px;
+  color:var(--red);background:#FCEEEF;border:1px dashed #F7D2D4;border-radius:8px;padding:7px 11px;line-height:1.45}
 /* limits -> fixes rows */
 .lims{display:flex;flex-direction:column;gap:11px;width:100%}
 .limrow{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);
-  border-radius:14px;padding:13px 18px}
+  border-radius:14px;padding:13px 18px;box-shadow:0 18px 38px -30px rgba(0,0,0,.3)}
 .limrow .lim{flex:1.25;display:flex;align-items:center;gap:12px}
 .limrow .lim .w{width:26px;height:26px;border-radius:50%;background:#FCEEEF;color:var(--red);flex:none;
   display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
@@ -953,14 +956,32 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   font-weight:700;letter-spacing:.06em;color:#fff;background:#1E8E5A;border-radius:99px;padding:3px 9px;flex:none}
 .limfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink);margin-top:14px}
 .limfoot .red{color:var(--red)}
-/* COSTAR tiles */
-.costar{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;width:100%}
-.cst{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px 18px;display:flex;gap:13px;
-  align-items:flex-start;box-shadow:0 22px 44px -34px rgba(0,0,0,.3)}
-.cst .lt{width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;flex:none;
-  display:flex;align-items:center;justify-content:center;font-family:var(--fHead);font-weight:800;font-size:18px}
-.cst b{display:block;font-family:var(--fHead);font-weight:800;font-size:15px;color:var(--ink)}
-.cst span{display:block;font-size:12px;color:var(--muted);margin-top:3px;line-height:1.45}
+/* prompting: the transformation */
+.pflow{display:flex;align-items:center;gap:0;width:100%}
+.pcard{border-radius:14px;overflow:hidden;box-shadow:0 24px 48px -32px rgba(0,0,0,.4);flex:none}
+.pcard .ph2{background:#26262b;color:#9a9aa6;font-family:var(--fMono,'JetBrains Mono',monospace);
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding:8px 14px;display:flex;gap:6px;align-items:center}
+.pcard .ph2 i{width:8px;height:8px;border-radius:50%;background:#4b4b55}
+.pcard .ph2 i.r{background:var(--red)}
+.pcard .pb2{background:#1d1d22;color:#e8e8ee;font-family:var(--fMono,'JetBrains Mono',monospace);
+  font-size:12.5px;line-height:1.65;padding:14px 16px}
+.pcard .pb2 .cm2{color:#8a8a96}
+.pcard.vague{width:280px}
+.pcard.clear{width:430px}
+.padds{flex:1;display:flex;flex-direction:column;gap:9px;padding:0 18px;min-width:0}
+.padd{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:99px;
+  padding:8px 15px;font-family:var(--fHead);font-weight:700;font-size:12.5px;color:var(--ink);
+  box-shadow:0 14px 28px -22px rgba(0,0,0,.3)}
+.padd .pl{color:var(--red);font-weight:800;flex:none}
+.parrow{text-align:center;color:var(--faint);font-size:18px;margin:2px 0}
+/* COSTAR acrostic */
+.acro{display:flex;flex-direction:column;gap:9px;width:100%;max-width:780px}
+.arow{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);
+  border-radius:13px;padding:10px 20px;box-shadow:0 16px 34px -28px rgba(0,0,0,.3)}
+.arow .al{font-family:var(--fHead);font-weight:800;font-size:30px;color:var(--red);width:34px;flex:none;
+  text-align:center;line-height:1}
+.arow b{font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink);width:110px;flex:none}
+.arow span{font-size:13.5px;color:var(--muted);line-height:1.4}
 /* COSTAR worked example */
 .cxp{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;width:100%;
   box-shadow:0 26px 52px -34px rgba(0,0,0,.3)}
@@ -974,6 +995,18 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   margin-top:1px}
 .cline p{margin:0;font-size:14.5px;color:var(--text);line-height:1.5}
 .cline p b{color:var(--ink)}
+/* email result preview */
+.mailprev{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 26px 52px -34px rgba(0,0,0,.35)}
+.mailprev .mh{background:var(--card);border-bottom:1px solid var(--line);padding:11px 16px}
+.mailprev .mh b{font-family:var(--fHead);font-weight:800;font-size:12.5px;color:var(--ink);display:block}
+.mailprev .mh span{font-size:11px;color:var(--muted)}
+.mailprev .mb{padding:14px 16px;font-size:12.5px;color:var(--text);line-height:1.65}
+.mailprev .mb p{margin:0 0 9px}
+.mailprev .mb p:last-child{margin:0}
+.resultlbl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;
+  border-radius:99px;padding:5px 12px;display:inline-flex;align-items:center;gap:6px;margin-bottom:9px}
 /* wall fix chips */
 .fixchip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#E9F7EE;
   border:1px solid #cdebd8;border-radius:99px;padding:5px 12px;font-family:var(--fHead);font-weight:800;
@@ -1248,15 +1281,15 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · STRENGTHS ============================== -->
-  <section class="slide" data-notes='["Good news first. Anything shaped like language work, it does well.","Draft, summarise, translate, explain. That covers most office writing.","This is where you start using it this week."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Strengths</div>
-    <h2 class="slide-title" data-r data-d="1">What it does brilliantly</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="skills">
-        <div class="skill" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><b>Drafting</b><span>Emails, memos and reports, written or rewritten in seconds.</span></div>
-        <div class="skill" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg></div><b>Summarising</b><span>A 40-page circular into one page you can act on.</span></div>
-        <div class="skill" data-r data-d="4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div><b>Translating</b><span>Bahasa to English and back, tone kept intact.</span></div>
-        <div class="skill" data-r data-d="5"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><b>Explaining</b><span>Any concept, at any level, as many times as you need.</span></div>
+  <section class="slide" data-notes='["Good news first. Anything shaped like language work, it does well.","Four everyday wins: draft, summarise, translate, explain.","Each card carries a starter prompt you can copy this afternoon.","If the task is language in, language out, it is probably good at it."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Strengths</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">What it does brilliantly</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div class="skills2">
+        <div class="sk2" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div><div class="tx2"><b>Drafting</b><span class="d">Emails, memos and reports, written or rewritten in seconds.</span><span class="try">“Buatkan draf balasan yang empatik untuk komplain kartu ini.”</span></div></div>
+        <div class="sk2" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg></div><div class="tx2"><b>Summarising</b><span class="d">A 40-page circular into one page you can act on.</span><span class="try">“Ringkas edaran ini jadi 1 halaman: poin utama dan dampaknya.”</span></div></div>
+        <div class="sk2" data-r data-d="4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div><div class="tx2"><b>Translating</b><span class="d">Bahasa to English and back, tone kept intact.</span><span class="try">“Terjemahkan memo ini ke English, nada formal, tetap ringkas.”</span></div></div>
+        <div class="sk2" data-r data-d="5"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><div class="tx2"><b>Explaining</b><span class="d">Any concept, at any level, as many times as you need.</span><span class="try">“Jelaskan apa itu tokenisasi, dengan bahasa sederhana.”</span></div></div>
       </div>
       <p class="flow-cap" data-r data-d="6">If the task is language in, language out, it is probably good at it.</p>
     </div>
@@ -1296,51 +1329,46 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · PROMPTING TECHNIQUES ============================== -->
-  <section class="slide" data-notes='["Before the tools: how to ask well. Clarity beats everything.","Say the task exactly. Give the background. Name the format, tone and length.","Compare the two prompts. Same model, different result.","Not happy with the answer? Refine and ask again. It never gets tired."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
-    <h2 class="slide-title" data-r data-d="1">Be clear about what you want</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="two wide-r">
-        <div class="txt">
-          <ul class="bullets">
-            <li class="strong" data-r data-d="2">Say the <b>task</b> exactly.</li>
-            <li data-r data-d="3">Give the <b>background</b> the model cannot know.</li>
-            <li data-r data-d="4">Name the <b>format, tone and length</b> you want.</li>
-            <li data-r data-d="5">Not happy? <b>Refine and ask again.</b> It never gets tired.</li>
-          </ul>
-        </div>
-        <div class="viz" data-r data-d="3" style="flex-direction:column;gap:12px">
-          <div class="codewrap">
-            <div class="bar"><i></i><i></i><i></i><span class="fn">vague</span></div>
-            <pre><code><span class="code-line">Tulis email ke nasabah.</span>
-<span class="code-line"><span class="tok-cm">→ generic. Could be any bank, any customer.</span></span></code></pre>
+  <section class="slide" data-notes='["Before the tools: how to ask well. Clarity beats everything.","Watch the transformation. The vague prompt becomes a clear one by adding three things.","The task, exactly. The background it cannot know. The format, tone and length.","Not happy with the answer? Refine and ask again. It never gets tired."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Be clear about what you want</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1080px;width:100%">
+        <div class="pflow">
+          <div class="pcard vague" data-r data-d="2">
+            <div class="ph2"><i class="r"></i><i></i><i></i>vague</div>
+            <div class="pb2">Tulis email ke nasabah.<br/><span class="cm2">→ generic. Could be any bank, any customer.</span></div>
           </div>
-          <div class="codewrap">
-            <div class="bar"><i></i><i></i><i></i><span class="fn">clear</span></div>
-            <pre><code><span class="code-line">Kamu RM di OCBC Indonesia.</span>
-<span class="code-line">Nasabah: pemilik usaha katering, 3 tahun bersama kita.</span>
-<span class="code-line">Tugas: ajak review fasilitas modal kerja.</span>
-<span class="code-line">Nada: hangat, ringkas. Maks 120 kata.</span>
-<span class="code-line"><span class="tok-cm">→ specific, on-tone, ready to edit.</span></span></code></pre>
+          <div class="padds" data-r data-d="3">
+            <div class="padd"><span class="pl">+</span>the task, exactly</div>
+            <div class="parrow">↓</div>
+            <div class="padd"><span class="pl">+</span>background it cannot know</div>
+            <div class="parrow">↓</div>
+            <div class="padd"><span class="pl">+</span>format, tone, length</div>
+          </div>
+          <div class="pcard clear" data-r data-d="4">
+            <div class="ph2"><i class="r"></i><i></i><i></i>clear</div>
+            <div class="pb2">Kamu RM di OCBC Indonesia.<br/>Nasabah: pemilik usaha katering, 3 tahun bersama kita.<br/>Tugas: ajak review fasilitas modal kerja.<br/>Nada: hangat, ringkas. Maks 120 kata.<br/><span class="cm2">→ specific, on-tone, ready to edit.</span></div>
           </div>
         </div>
+        <p class="flow-cap" data-r data-d="5">Not happy with the answer? Refine and ask again. It never gets tired.</p>
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">13</span></div>
   </section>
 
   <!-- ============================== SLIDE · COSTAR FRAMEWORK ============================== -->
-  <section class="slide" data-notes='["Or use a framework. The one I like is COSTAR.","Context, Objective, Style, Tone, Audience, Response.","Six boxes to fill before you press enter. Skip what you do not need.","Next slide: a real one, filled in."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
-    <h2 class="slide-title" data-r data-d="1">Or use a framework: COSTAR</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="costar">
-        <div class="cst" data-r data-d="2"><span class="lt">C</span><span><b>Context</b><span>the background the model needs to know</span></span></div>
-        <div class="cst" data-r data-d="3"><span class="lt">O</span><span><b>Objective</b><span>the task, stated exactly</span></span></div>
-        <div class="cst" data-r data-d="4"><span class="lt">S</span><span><b>Style</b><span>how it should be written</span></span></div>
-        <div class="cst" data-r data-d="5"><span class="lt">T</span><span><b>Tone</b><span>how it should feel to the reader</span></span></div>
-        <div class="cst" data-r data-d="6"><span class="lt">A</span><span><b>Audience</b><span>who will read it</span></span></div>
-        <div class="cst" data-r data-d="7"><span class="lt">R</span><span><b>Response</b><span>format, length and language of the answer</span></span></div>
+  <section class="slide" data-notes='["Or use a framework. The one I like is COSTAR.","Read it down the left edge: Context, Objective, Style, Tone, Audience, Response.","Six boxes to fill before you press enter. Skip what you do not need.","Next slide: a real one, filled in."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Or use a framework: COSTAR</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div class="acro">
+        <div class="arow" data-r data-d="2"><span class="al">C</span><b>Context</b><span>the background the model needs to know</span></div>
+        <div class="arow" data-r data-d="3"><span class="al">O</span><b>Objective</b><span>the task, stated exactly</span></div>
+        <div class="arow" data-r data-d="4"><span class="al">S</span><b>Style</b><span>how it should be written</span></div>
+        <div class="arow" data-r data-d="5"><span class="al">T</span><b>Tone</b><span>how it should feel to the reader</span></div>
+        <div class="arow" data-r data-d="6"><span class="al">A</span><b>Audience</b><span>who will read it</span></div>
+        <div class="arow" data-r data-d="7"><span class="al">R</span><b>Response</b><span>format, length and language of the answer</span></div>
       </div>
       <p class="flow-cap" data-r data-d="8">Six boxes to fill before you press enter. Skip what you do not need.</p>
     </div>
@@ -1348,20 +1376,35 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · COSTAR EXAMPLE ============================== -->
-  <section class="slide" data-notes='["COSTAR filled in, for a real task: an RM inviting a customer to review a facility.","Read the six parts. Each line answers a question the model would otherwise guess.","Copy this shape. Fill in your own six boxes."]'>
+  <section class="slide" data-notes='["COSTAR filled in, for a real task: an RM inviting a customer to review a facility.","Left: the six boxes. Each line answers a question the model would otherwise guess.","Right: the email it produced. Bahasa, warm, under 120 words, one clear next step.","Copy this shape. Fill in your own six boxes."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 1 · Prompting</div>
     <h2 class="slide-title" data-r data-d="1">COSTAR, filled in</h2>
     <div class="body-area" style="justify-content:center">
-      <div class="cxp" data-r data-d="2">
-        <div class="bar2"><i></i><i></i><i></i><span class="fn2">prompt · costar</span></div>
-        <div class="cline"><span class="tag">C</span><p>I am a relationship manager at OCBC Indonesia. My customer owns a catering business and has banked with us for 3 years.</p></div>
-        <div class="cline"><span class="tag">O</span><p>Draft an email inviting her to review our <b>working-capital facility</b>.</p></div>
-        <div class="cline"><span class="tag">S</span><p>Written like a <b>trusted advisor</b>, not a sales blast.</p></div>
-        <div class="cline"><span class="tag">T</span><p><b>Warm and confident</b>, never pushy.</p></div>
-        <div class="cline"><span class="tag">A</span><p>A busy small-business owner who reads email <b>on her phone</b>.</p></div>
-        <div class="cline"><span class="tag">R</span><p><b>Bahasa Indonesia</b>, under 120 words, one clear next step at the end.</p></div>
+      <div class="two wide-r" style="align-items:center">
+        <div class="txt" style="flex:1.25">
+          <div class="cxp" data-r data-d="2">
+            <div class="bar2"><i></i><i></i><i></i><span class="fn2">prompt · costar</span></div>
+            <div class="cline"><span class="tag">C</span><p>I am an RM at OCBC Indonesia. My customer owns a catering business, 3 years with us.</p></div>
+            <div class="cline"><span class="tag">O</span><p>Draft an email inviting her to review our <b>working-capital facility</b>.</p></div>
+            <div class="cline"><span class="tag">S</span><p>Written like a <b>trusted advisor</b>, not a sales blast.</p></div>
+            <div class="cline"><span class="tag">T</span><p><b>Warm and confident</b>, never pushy.</p></div>
+            <div class="cline"><span class="tag">A</span><p>A busy owner who reads email <b>on her phone</b>.</p></div>
+            <div class="cline"><span class="tag">R</span><p><b>Bahasa Indonesia</b>, under 120 words, one clear next step.</p></div>
+          </div>
+        </div>
+        <div class="viz" data-r data-d="3" style="flex-direction:column;align-items:flex-start">
+          <span class="resultlbl">✓ the result</span>
+          <div class="mailprev">
+            <div class="mh"><b>Review Fasilitas Modal Kerja Ibu</b><span>Kepada: Ibu Sari · dari: RM OCBC</span></div>
+            <div class="mb">
+              <p>Selamat siang Ibu Sari, semoga usaha katering Ibu semakin lancar.</p>
+              <p>Sudah tiga tahun Ibu bersama OCBC. Kami ingin memastikan fasilitas modal kerja Ibu masih yang paling pas untuk kebutuhan hari ini.</p>
+              <p>Boleh kami jadwalkan 20 menit minggu ini untuk review singkat? Balas dengan hari yang cocok, sisanya saya siapkan.</p>
+              <p>Terima kasih,<br/>Bryan · Relationship Manager</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="flow-cap" data-r data-d="3">Copy this shape. Fill in your own six boxes.</p>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">15</span></div>
   </section>

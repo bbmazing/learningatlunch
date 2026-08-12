@@ -213,8 +213,8 @@ panel. Takeaway line beneath.
 
 ## Slide 11 · What it does brilliantly — 2 min
 
-**Layout**: four strength cards (Drafting, Summarising, Translating,
-Explaining), caption beneath.
+**Layout**: 2×2 strength cards (Drafting, Summarising, Translating,
+Explaining), each carrying a copy-able Bahasa starter prompt.
 
 **Say:**
 
@@ -249,8 +249,8 @@ no recent news → web search (Part 2) · sloppy arithmetic → calculator
 
 ## Slide 13 · Prompting: be clear — 2 min
 
-**Layout**: two-column; checklist bullets left, vague-vs-clear prompt
-cards right.
+**Layout**: transformation flow: vague prompt card → three "+" chips
+(task, background, format/tone/length) → clear prompt card.
 
 **Say:**
 
@@ -277,8 +277,8 @@ Response.
 
 ## Slide 15 · COSTAR, filled in — 2 min
 
-**Layout**: one annotated prompt card, each line tagged C/O/S/T/A/R,
-using the relationship-manager example.
+**Layout**: the annotated prompt card (lines tagged C/O/S/T/A/R) side
+by side with the result: the drafted Bahasa email, under 120 words.
 
 **Say:**
 

@@ -62,8 +62,9 @@ Slide 10 — It read a lot, up to a date
 
 Slide 11 — What it does brilliantly
   • Good news first. Anything shaped like language work, it does well.
-  • Draft, summarise, translate, explain. That covers most office writing.
-  • This is where you start using it this week.
+  • Four everyday wins: draft, summarise, translate, explain.
+  • Each card carries a starter prompt you can copy this afternoon.
+  • If the task is language in, language out, it is probably good at it.
 
 Slide 12 — The limits, and their fixes
   • Now the limits. Four big ones.
@@ -73,19 +74,20 @@ Slide 12 — The limits, and their fixes
 
 Slide 13 — Be clear about what you want
   • Before the tools: how to ask well. Clarity beats everything.
-  • Say the task exactly. Give the background. Name the format, tone and length.
-  • Compare the two prompts. Same model, different result.
+  • Watch the transformation. The vague prompt becomes a clear one by adding three things.
+  • The task, exactly. The background it cannot know. The format, tone and length.
   • Not happy with the answer? Refine and ask again. It never gets tired.
 
 Slide 14 — Or use a framework: COSTAR
   • Or use a framework. The one I like is COSTAR.
-  • Context, Objective, Style, Tone, Audience, Response.
+  • Read it down the left edge: Context, Objective, Style, Tone, Audience, Response.
   • Six boxes to fill before you press enter. Skip what you do not need.
   • Next slide: a real one, filled in.
 
 Slide 15 — COSTAR, filled in
   • COSTAR filled in, for a real task: an RM inviting a customer to review a facility.
-  • Read the six parts. Each line answers a question the model would otherwise guess.
+  • Left: the six boxes. Each line answers a question the model would otherwise guess.
+  • Right: the email it produced. Bahasa, warm, under 120 words, one clear next step.
   • Copy this shape. Fill in your own six boxes.
 
 Slide 16 — Three walls, one fix: tools
