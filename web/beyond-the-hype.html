@@ -722,11 +722,15 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
 .vph span{font-size:13px;color:var(--muted)}
 /* S2 logo cloud */
 .logo-cloud{position:relative;width:100%;height:100%;min-height:380px}
-.lg{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
-  border-radius:13px;padding:10px 16px;box-shadow:0 16px 34px -24px rgba(0,0,0,.35)}
-.lg img{width:26px;height:26px;flex:none}
-.lg b{font-family:var(--fHead);font-weight:800;font-size:14px;color:var(--ink);line-height:1.1;display:block}
-.lg span{font-size:10.5px;color:var(--muted);display:block;margin-top:1px}
+.lg{position:absolute;display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);
+  border-radius:15px;padding:13px 20px;box-shadow:0 24px 44px -22px rgba(0,0,0,.4);
+  transform:rotate(var(--rot,0deg));animation:lgfloat 5.2s ease-in-out infinite;animation-delay:var(--fd,0s)}
+.lg img{width:40px;height:40px;flex:none}
+.lg b{font-family:var(--fHead);font-weight:800;font-size:16.5px;color:var(--ink);line-height:1.1;display:block}
+.lg span{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+@keyframes lgfloat{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-10px) rotate(var(--rot,0deg))}}
+body.static .lg{animation:none}
+@media (prefers-reduced-motion:reduce){.lg{animation:none}}
 /* S3 on-premise diagram */
 .onprem{display:flex;flex-direction:column;gap:14px;width:100%;align-items:center}
 .perim{width:100%;border:2.5px solid var(--ink);border-radius:18px;padding:18px 20px 16px;position:relative;background:#fff}
@@ -795,15 +799,15 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
         </div>
         <div class="viz" data-r data-d="3">
           <div class="logo-cloud">
-            <div class="lg" style="top:2%;left:6%;transform:rotate(-4deg)"><img src="assets/logos/openai.svg" alt=""/><span><b>ChatGPT</b><span>OpenAI</span></span></div>
-            <div class="lg" style="top:0%;right:8%;transform:rotate(3deg)"><img src="assets/logos/claude-color.svg" alt=""/><span><b>Claude</b><span>Anthropic</span></span></div>
-            <div class="lg" style="top:24%;left:30%;transform:rotate(2deg)"><img src="assets/logos/gemini-color.svg" alt=""/><span><b>Gemini</b><span>Google</span></span></div>
-            <div class="lg" style="top:36%;left:2%;transform:rotate(3deg)"><img src="assets/logos/deepseek-color.svg" alt=""/><span><b>DeepSeek</b><span>DeepSeek</span></span></div>
-            <div class="lg" style="top:33%;right:4%;transform:rotate(-3deg)"><img src="assets/logos/qwen-color.svg" alt=""/><span><b>Qwen</b><span>Alibaba</span></span></div>
-            <div class="lg" style="bottom:24%;left:16%;transform:rotate(-2deg)"><img src="assets/logos/zai.svg" alt=""/><span><b>Z.ai</b><span>Zhipu / GLM</span></span></div>
-            <div class="lg" style="bottom:22%;right:16%;transform:rotate(4deg)"><img src="assets/logos/mistral-color.svg" alt=""/><span><b>Mistral</b><span>Mistral AI</span></span></div>
-            <div class="lg" style="bottom:2%;left:32%;transform:rotate(-3deg)"><img src="assets/logos/meta-color.svg" alt=""/><span><b>Llama</b><span>Meta</span></span></div>
-            <div class="lg" style="bottom:4%;right:2%;transform:rotate(2deg)"><img src="assets/logos/grok.svg" alt=""/><span><b>Grok</b><span>xAI</span></span></div>
+            <div class="lg" style="top:1%;left:4%;--rot:-4deg;--fd:0s"><img src="assets/logos/openai.svg" alt=""/><span><b>ChatGPT</b><span>OpenAI</span></span></div>
+            <div class="lg" style="top:0%;right:6%;--rot:3deg;--fd:-1.3s"><img src="assets/logos/claude-color.svg" alt=""/><span><b>Claude</b><span>Anthropic</span></span></div>
+            <div class="lg" style="top:23%;left:29%;--rot:2deg;--fd:-2.6s"><img src="assets/logos/gemini-color.svg" alt=""/><span><b>Gemini</b><span>Google</span></span></div>
+            <div class="lg" style="top:38%;left:0%;--rot:3deg;--fd:-3.9s"><img src="assets/logos/deepseek-color.svg" alt=""/><span><b>DeepSeek</b><span>DeepSeek</span></span></div>
+            <div class="lg" style="top:34%;right:2%;--rot:-3deg;--fd:-0.7s"><img src="assets/logos/qwen-color.svg" alt=""/><span><b>Qwen</b><span>Alibaba</span></span></div>
+            <div class="lg" style="bottom:25%;left:14%;--rot:-2deg;--fd:-2s"><img src="assets/logos/zai.svg" alt=""/><span><b>Z.ai</b><span>Zhipu / GLM</span></span></div>
+            <div class="lg" style="bottom:23%;right:14%;--rot:4deg;--fd:-3.2s"><img src="assets/logos/mistral-color.svg" alt=""/><span><b>Mistral</b><span>Mistral AI</span></span></div>
+            <div class="lg" style="bottom:1%;left:31%;--rot:-3deg;--fd:-4.5s"><img src="assets/logos/meta-color.svg" alt=""/><span><b>Llama</b><span>Meta</span></span></div>
+            <div class="lg" style="bottom:3%;right:0%;--rot:2deg;--fd:-1.8s"><img src="assets/logos/grok.svg" alt=""/><span><b>Grok</b><span>xAI</span></span></div>
           </div>
         </div>
       </div>
