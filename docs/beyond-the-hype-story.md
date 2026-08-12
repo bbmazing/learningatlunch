@@ -198,8 +198,9 @@ companies pay per token).
 > free with limits, or 20 US dollars a month for ChatGPT Plus. For
 > companies like us it is per token, and this is the row that matters.
 > Our self-hosted Qwen 3.6 works out around 3 dollars per million
-> tokens, mostly the cost of running our own GPUs. The frontier cloud
-> models run about 5 to 50 dollars per million. That is why the bank
+> tokens, mostly the cost of running our own GPUs. Compare that with
+> GPT-5.5, the best GPT today: 30 dollars per million output tokens.
+> Ten times ours. That is why the bank
 > sizes the model to the task. Nothing you need to do about it today.
 > Just be aware that AI work has a price tag.
 
