@@ -7,7 +7,7 @@ Slide 1 — Beyond the Hype What AI Can Do Today
   • Today: how AI works, plus four AI tools built in this bank.
   • Questions in the chat any time. I pause after each demo.
 
-Slide 2 — LLM — Large Language Models
+Slide 2 — LLM: Large Language Models
   • LLM = Large Language Model. AI trained on huge amounts of text.
   • Every logo here is an LLM, or a product built on one.
   • Key point: ChatGPT is a product. The LLM is the engine inside.
@@ -29,7 +29,7 @@ Slide 5 — The next 45 minutes
   • Part 2: how a chatbot becomes a coworker. Tools and agents.
   • Part 3: four demo videos, all built here. Then how to start, safely.
 
-Slide 6 — Part 1 — What is an LLM, really?
+Slide 6 — Part 1 — What is inside an LLM?
   • Time to open the box.
   • One idea explains everything: the magic and the mistakes.
 
@@ -39,12 +39,12 @@ Slide 7 — Autocomplete, on an enormous scale
   • It adds a word, then guesses again, until the answer is done.
   • Hold this picture. It explains the failures coming next.
 
-Slide 8 — It read the internet — and kept the patterns
+Slide 8 — It read the internet and kept the patterns
   • It learned by reading a huge slice of the internet.
   • No database inside. It rebuilds answers from patterns.
   • Like humming a song from memory: sometimes a note is wrong.
 
-Slide 9 — Brilliant and unreliable — at the same time
+Slide 9 — Brilliant and unreliable at the same time
   • Good at rewriting language: draft, summarise, translate, explain.
   • Weak at fresh news, exact math, and anything about our customers.
   • Hallucination: it can invent a rule and cite it with full confidence.
@@ -65,7 +65,7 @@ Slide 12 — Part 2 — From chatbot to coworker
   • Part two: how a text predictor starts doing real work.
   • Three ideas: tools, agents, grounding. Every demo uses them.
 
-Slide 13 — Tool calling — give the model hands
+Slide 13 — Tool calling: give the model hands
   • Give the model tools: search, calculator, database.
   • Ask for today’s rate: it calls the rate tool, then answers with the live number.
   • The model thinks and writes. Tools fetch facts and act.
@@ -118,13 +118,13 @@ Slide 21 — Four tools, one pattern
   • The AI removes the reading, typing and searching.
   • The judgment stays human: approve, clear, sign, decide.
 
-Slide 22 — Start this week — inside the rules
+Slide 22 — Start this week, inside the rules
   • Start small: summarise, draft, translate, explain.
   • Rule one: no customer data in public AI tools. Use the bank’s own.
   • Rule two: check every fact and number.
   • Rule three: it is a draft. What you send carries your name.
 
-Slide 23 — Useful work, today — you just watched it
+Slide 23 — Useful work, today. You just watched it
   • Recap in one breath: you saw how it works, and four tools that use it.
   • Have an idea for your unit? Come talk to us.
   • Try one small task this week. Terima kasih. Questions, please.
