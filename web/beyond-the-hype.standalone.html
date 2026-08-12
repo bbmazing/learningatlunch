@@ -968,8 +968,15 @@ body.static .lg{animation:none}
 @keyframes tkpop{to{opacity:1;transform:scale(1)}}
 body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 @media (prefers-reduced-motion:reduce){.tk{opacity:1;transform:none;animation:none}}
-.tokhero .subrow{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);display:flex;
+.tokhero .subrow{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);display:flex;
   align-items:center;gap:14px;flex-wrap:wrap}
+.machine{margin-top:14px;background:#1d1d22;border-radius:11px;padding:12px 16px;
+  font-family:var(--fMono,'JetBrains Mono',monospace)}
+.machine .mlab{font-size:9.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a96;
+  margin-bottom:6px}
+.machine .mline{font-size:12.5px;color:#e8e8ee;line-height:1.7;word-break:break-word}
+.machine .mline .num{color:#ff8a8e}
+.machine .mline .dim{color:#8a8a96}
 .tokhero .subrow .cap{font-size:13.5px;color:var(--muted)}
 .factrow{display:flex;gap:12px;width:100%;margin-top:16px}
 .fact{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:center}
@@ -1326,7 +1333,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · TOKENS ============================== -->
-  <section class="slide" data-notes='["On the last slide I kept saying words. Here is the correction: the real unit is the token.", "Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.", "Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.", "Rule of thumb: 1,000 tokens is about 750 English words.", "So next-word prediction is really next-token prediction. Same idea, exact unit."]'>
+  <section class="slide" data-notes='["On the last slide I kept saying words. Here is the correction: the real unit is the token.", "So what is a token? A numbered entry in the model’s dictionary of about 100,000 text pieces. Short word, one entry. Long word, several pieces.", "Look at the dark strip: this is what the model actually receives. No letters. The sentence arrives as a list of numbers.", "And inside, each number becomes a long list of numbers. That is the form math can work on. AI never sees letters, only numbers.", "Rule of thumb: 1,000 tokens is about 750 English words. And next-word prediction is really next-token prediction."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Tokens</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">The correction: tokens, not words</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
@@ -1341,9 +1348,14 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <span class="tstrip"><span class="tk a" style="--i:9">meng<i class="id">#28166</i></span><span class="tk b" style="--i:10">untung<i class="id">#91025</i></span><span class="tk c" style="--i:11">kan<i class="id">#1129</i></span></span>
             <span class="cap">3 tokens</span>
           </div>
+          <div class="machine" data-r data-d="3">
+            <div class="mlab">What the model actually receives · no letters, only numbers</div>
+            <div class="mline"><span class="dim">sentence →</span> [<span class="num">464</span>, <span class="num">8136</span>, <span class="num">1053</span>, <span class="num">588</span>, <span class="num">316</span>, <span class="num">2500</span>, <span class="num">64</span>, <span class="num">17321</span>, <span class="num">3157</span>]</div>
+            <div class="mline"><span class="dim">“account” → #3157 →</span> [<span class="num">0.12</span>, <span class="num">−0.87</span>, <span class="num">0.44</span>, <span class="dim">… thousands more</span>] <span class="dim">· the numbers it does math on</span></div>
+          </div>
         </div>
         <div class="factrow">
-          <div class="fact" data-r data-d="4"><b>1 token</b><span>about ¾ of a word</span></div>
+          <div class="fact" data-r data-d="4"><b>A numbered piece</b><span>each token is an entry in the model’s dictionary, ~¾ of a word</span></div>
           <div class="fact" data-r data-d="5"><b>1,000 tokens</b><span>&asymp; 750 English words</span></div>
           <div class="fact" data-r data-d="6"><b>All math</b><span>each token becomes a number; predicting is math on numbers</span></div>
         </div>

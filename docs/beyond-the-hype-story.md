@@ -170,14 +170,17 @@ savings-account sentence split into 9 colored token chips, the word
 **Say:**
 
 > Here is the correction. The model does not read words. It reads
-> tokens, small pieces of text. Same sentence, cut into nine tokens: a
-> short word is one token, and a long word like menguntungkan breaks
-> into three pieces. Now look under each token: a number. Inside the
-> model every token is a number, and predicting the next token is math
-> on those numbers. That is all AI is doing, very fast arithmetic on
-> numbered pieces of text. Rule of thumb: a thousand tokens is about
-> 750 English words. So the next-word prediction from the last slide
-> is really next-token prediction. Same idea, exact unit.
+> tokens, small pieces of text. So what is a token? A numbered entry
+> in the model's dictionary of about 100,000 pieces. A short word is
+> one entry, and a long word like menguntungkan breaks into three.
+> Now the dark strip: this is what the model actually receives. No
+> letters. The sentence arrives as a list of numbers, and the word
+> "account" is just number 3157. Inside, that number becomes a long
+> list of numbers, thousands of them, and predicting the next token is
+> math on those lists. AI never sees letters. It does very fast
+> arithmetic on numbers. Rule of thumb: a thousand tokens is about 750
+> English words. So next-word prediction is really next-token
+> prediction. Same idea, exact unit.
 
 ## Slide 9 · Tokens are the meter — 2 min
 

@@ -43,10 +43,10 @@ Slide 7 — Autocomplete, on an enormous scale
 
 Slide 8 — The correction: tokens, not words
   • On the last slide I kept saying words. Here is the correction: the real unit is the token.
-  • Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.
-  • Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.
-  • Rule of thumb: 1,000 tokens is about 750 English words.
-  • So next-word prediction is really next-token prediction. Same idea, exact unit.
+  • So what is a token? A numbered entry in the model’s dictionary of about 100,000 text pieces. Short word, one entry. Long word, several pieces.
+  • Look at the dark strip: this is what the model actually receives. No letters. The sentence arrives as a list of numbers.
+  • And inside, each number becomes a long list of numbers. That is the form math can work on. AI never sees letters, only numbers.
+  • Rule of thumb: 1,000 tokens is about 750 English words. And next-word prediction is really next-token prediction.
 
 Slide 9 — Tokens are the meter
   • Every token in and out gets counted. Tokens are the meter.

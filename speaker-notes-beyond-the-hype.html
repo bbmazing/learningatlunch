@@ -157,10 +157,10 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       <h2>The correction: tokens, not words</h2>
       <ul>
         <li>On the last slide I kept saying words. Here is the correction: the real unit is the token.</li>
-        <li>Same sentence, cut into nine tokens. A short word is one token. A long word breaks into pieces.</li>
-        <li>Look under each token: a number. Inside the model, every token is a number, and predicting is math on those numbers.</li>
-        <li>Rule of thumb: 1,000 tokens is about 750 English words.</li>
-        <li>So next-word prediction is really next-token prediction. Same idea, exact unit.</li>
+        <li>So what is a token? A numbered entry in the model’s dictionary of about 100,000 text pieces. Short word, one entry. Long word, several pieces.</li>
+        <li>Look at the dark strip: this is what the model actually receives. No letters. The sentence arrives as a list of numbers.</li>
+        <li>And inside, each number becomes a long list of numbers. That is the form math can work on. AI never sees letters, only numbers.</li>
+        <li>Rule of thumb: 1,000 tokens is about 750 English words. And next-word prediction is really next-token prediction.</li>
       </ul>
     </article>
     <article class="s">
