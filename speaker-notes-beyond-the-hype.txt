@@ -42,15 +42,17 @@ Slide 7 — Autocomplete, on an enormous scale
 
 Slide 8 — It reads tokens, not words
   • The model does not read words. It reads tokens, small pieces of text.
-  • A short word is one token. A long word breaks into pieces.
+  • Watch the sentence get cut into nine pieces. A short word is one token.
+  • A long word breaks into pieces, like menguntungkan into three.
   • Rule of thumb: 1,000 tokens is about 750 English words.
   • So next-word prediction is really next-token prediction. Same idea.
 
 Slide 9 — Tokens are the meter
   • Every token in and out gets counted. Tokens are the meter.
-  • Bigger tasks and smarter models burn more tokens, and that compute costs money.
-  • ChatGPT Plus is 20 US dollars a month for the stronger models. Companies pay per token.
-  • Nothing to do about it today. Just know that AI has a price tag.
+  • Read the receipt: a short email is a few hundred tokens. A 40-page report is tens of thousands.
+  • A stronger model multiplies the price of every token.
+  • That is why ChatGPT Plus costs 20 US dollars a month, and why companies pay per token.
+  • Nothing to do about it today. Just know that AI work has a price tag.
 
 Slide 10 — It read a lot, up to a date
   • It learned by reading books, articles, code and forums. A huge library.
