@@ -16,9 +16,9 @@ Slide 2 — LLM: Large Language Models
 
 Slide 3 — OCBC Indonesia: On-premise
   • Public AI runs in someone else’s cloud. Confidential bank data must not go there.
-  • So we bought GPUs and host open-source models ourselves. One of them is Qwen 3.6, from Alibaba.
-  • Use the in-house apps. Your prompts and documents stay inside the bank.
-  • Every demo today runs on this setup.
+  • So OCBC Indonesia went on-premise. We bought GPUs to host multiple open-source models. One of them is Qwen 3.6.
+  • Use the in-house built applications. Your prompts and documents stay inside the bank.
+  • Every demo you will see today runs on this setup.
 
 Slide 4 — The premise
   • The headlines are loud: AI takes every job, AI is a bubble. Ignore them for an hour.

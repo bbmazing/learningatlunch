@@ -731,6 +731,81 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
 @keyframes lgfloat{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-4px) rotate(var(--rot,0deg))}}
 body.static .lg{animation:none}
 @media (prefers-reduced-motion:reduce){.lg{animation:none}}
+/* S3 on-premise: two territories */
+.op2{display:flex;gap:18px;width:100%;align-items:stretch}
+.terr{flex:1;border-radius:18px;padding:22px 24px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+.terr.out{background:var(--card);border:2px dashed #d3d6db}
+.terr.in{background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);
+  box-shadow:0 26px 52px -34px rgba(0,0,0,.35)}
+.terr .tlab{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:8px}
+.terr.in .tlab{color:var(--red)}
+.terr.in .tlab::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+/* ghost cloud with public logos */
+.cloudwrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;width:100%}
+.cloudwrap svg.cloud{width:240px;height:158px;stroke:#c6cad1;fill:none;stroke-width:2.2;stroke-dasharray:7 6}
+.ghosts{position:absolute;display:flex;gap:16px;align-items:center}
+.ghosts img{width:34px;height:34px;opacity:.32;filter:grayscale(1)}
+.stamp{position:absolute;top:16%;right:24%;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;
+  box-shadow:0 10px 24px -10px rgba(236,27,35,.55)}
+/* server rack */
+.rack{width:230px;border-radius:12px;background:#1d1d22;padding:10px 10px 8px;box-shadow:0 20px 40px -24px rgba(0,0,0,.5)}
+.ru{display:flex;align-items:center;gap:8px;background:#2a2a31;border-radius:6px;padding:8px 11px;margin-bottom:6px}
+.ru:last-child{margin-bottom:0}
+.ru .leds{display:flex;gap:4px}
+.ru .leds i{width:6px;height:6px;border-radius:50%;background:#4b4b55}
+.ru .leds i.on{background:var(--red)}
+.ru .vents{flex:1;height:8px;background:repeating-linear-gradient(90deg,#3a3a44 0 3px,transparent 3px 7px);border-radius:2px}
+.ru .gpu{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:9px;font-weight:600;letter-spacing:.06em;color:#9a9aa6}
+/* model chips */
+.mchips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mchip{display:flex;align-items:center;gap:8px;border-radius:99px;padding:7px 14px;font-family:var(--fHead);
+  font-weight:800;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.mchip img{width:20px;height:20px}
+.mchip.hero{border-color:#F7D2D4;background:#FCEEEF}
+.mchip.more{color:var(--muted);font-weight:600;border-style:dashed}
+/* verdict lines inside panels */
+.tline{display:flex;align-items:flex-start;gap:10px;font-family:var(--fHead);font-weight:700;font-size:13.5px;
+  line-height:1.4;text-align:left}
+.tline .ic2{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:11px;font-weight:800;margin-top:1px}
+.tline.no{color:#8f1216}.tline.no .ic2{background:var(--red)}
+.tline.yes{color:#14663f}.tline.yes .ic2{background:#1E8E5A}
+.opfoot{text-align:center;font-family:var(--fHead);font-weight:700;font-size:16px;color:var(--ink);margin-top:14px}
+.opfoot .red{color:var(--red)}
+/* video demo slides */
+.vwrap{display:flex;gap:20px;flex:1;align-items:center;min-height:0}
+.vframe{flex:none;border-radius:14px;overflow:hidden;background:#000;border:1px solid #2a2a30;
+  box-shadow:0 34px 68px -34px rgba(0,0,0,.55)}
+.vframe video{display:block;width:846px;height:476px;object-fit:contain;background:#000}
+.vrail{flex:1;display:flex;flex-direction:column;gap:10px;min-width:0}
+.vchip{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 14px;font-size:12.5px;
+  color:var(--muted);line-height:1.45}
+.vchip b{display:block;font-family:var(--fHead);font-weight:800;font-size:12.5px;color:var(--ink);margin-bottom:2px}
+.vchip .no{display:inline-flex;width:18px;height:18px;border-radius:50%;background:#FCEEEF;color:var(--red);
+  align-items:center;justify-content:center;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;
+  font-weight:700;margin-right:6px}
+.vmeta{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;color:var(--faint);text-align:right}
+/* placeholder demo frame */
+.vph{flex:none;width:846px;height:476px;border-radius:14px;border:2px dashed var(--line);background:var(--card);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.vph .play{width:74px;height:74px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;
+  align-items:center;justify-content:center;box-shadow:0 18px 36px -22px rgba(0,0,0,.3)}
+.vph .play svg{width:26px;height:26px;fill:var(--red);margin-left:4px}
+.vph b{font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink)}
+.vph span{font-size:13px;color:var(--muted)}
+/* S2 logo cloud */
+.logo-cloud{position:relative;width:100%;height:100%;min-height:380px}
+.lg{position:absolute;display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);
+  border-radius:15px;padding:13px 20px;box-shadow:0 24px 44px -22px rgba(0,0,0,.4);
+  transform:rotate(var(--rot,0deg));animation:lgfloat 6.5s ease-in-out infinite;animation-delay:var(--fd,0s)}
+.lg img{width:40px;height:40px;flex:none}
+.lg b{font-family:var(--fHead);font-weight:800;font-size:16.5px;color:var(--ink);line-height:1.1;display:block}
+.lg span{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+@keyframes lgfloat{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-4px) rotate(var(--rot,0deg))}}
+body.static .lg{animation:none}
+@media (prefers-reduced-motion:reduce){.lg{animation:none}}
 /* S3 on-premise diagram */
 .onprem{display:flex;flex-direction:column;gap:14px;width:100%;align-items:center}
 .perim{width:100%;border:2.5px solid var(--ink);border-radius:18px;padding:18px 20px 16px;position:relative;background:#fff}
@@ -825,24 +900,40 @@ body.static .lg{animation:none}
   </section>
 
   <!-- ============================== SLIDE 3 · OCBC ON-PREMISE (QWEN) ============================== -->
-  <section class="slide" data-notes='["Public AI runs in someone else’s cloud. Confidential bank data must not go there.","So we bought GPUs and host open-source models ourselves. One of them is Qwen 3.6, from Alibaba.","Use the in-house apps. Your prompts and documents stay inside the bank.","Every demo today runs on this setup."]'>
+  <section class="slide" data-notes='["Public AI runs in someone else’s cloud. Confidential bank data must not go there.","So OCBC Indonesia went on-premise. We bought GPUs to host multiple open-source models. One of them is Qwen 3.6.","Use the in-house built applications. Your prompts and documents stay inside the bank.","Every demo you will see today runs on this setup."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Our setup</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">OCBC Indonesia: On-premise</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
-      <div class="onprem" style="max-width:780px">
-        <div class="perim" data-r data-d="2">
-          <div class="plabel">OCBC Indonesia · our data center</div>
-          <div class="prow">
-            <div class="pbox"><svg viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.8"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span><b>Our GPUs</b><span>bought to run open-source models</span></span></div>
-            <div class="pbox"><img src="assets/logos/qwen-color.svg" alt=""/><span><b>Qwen 3.6</b><span>one of the models we host</span></span></div>
+      <div class="op2" style="max-width:980px">
+        <div class="terr out" data-r data-d="2">
+          <div class="tlab">Public AI · someone else’s cloud</div>
+          <div class="cloudwrap">
+            <svg class="cloud" viewBox="0 0 120 76"><path d="M92 60H30a16 16 0 1 1 3-31.7A24 24 0 0 1 79 22a18 18 0 0 1 13 38z"/></svg>
+            <div class="ghosts">
+              <img src="assets/logos/openai.svg" alt=""/>
+              <img src="assets/logos/gemini-color.svg" alt=""/>
+              <img src="assets/logos/claude-color.svg" alt=""/>
+            </div>
+            <div class="stamp">✕</div>
           </div>
+          <div class="tline no"><span class="ic2">✕</span>Confidential bank data must not go there.</div>
         </div>
-        <p class="opcap" data-r data-d="3">We bought GPUs to host multiple open-source models. One of them is <b>Qwen 3.6</b>.</p>
-        <div class="verdicts">
-          <div class="vrow bad" data-r data-d="4"><span class="vi">✕</span>Public AI runs in someone else’s cloud. Confidential bank data must not go there.</div>
-          <div class="vrow good" data-r data-d="5"><span class="vi">✓</span>Use in-house built applications. Your prompts and documents stay inside the bank.</div>
+        <div class="terr in" data-r data-d="3">
+          <div class="tlab">OCBC Indonesia · our data center</div>
+          <div class="rack">
+            <div class="ru"><div class="leds"><i class="on"></i><i></i></div><div class="vents"></div><span class="gpu">GPU·01</span></div>
+            <div class="ru"><div class="leds"><i class="on"></i><i></i></div><div class="vents"></div><span class="gpu">GPU·02</span></div>
+            <div class="ru"><div class="leds"><i class="on"></i><i></i></div><div class="vents"></div><span class="gpu">GPU·03</span></div>
+            <div class="ru"><div class="leds"><i class="on"></i><i></i></div><div class="vents"></div><span class="gpu">GPU·04</span></div>
+          </div>
+          <div class="mchips">
+            <span class="mchip hero"><img src="assets/logos/qwen-color.svg" alt=""/>Qwen 3.6</span>
+            <span class="mchip more">+ other open-source models</span>
+          </div>
+          <div class="tline yes"><span class="ic2">✓</span>In-house apps: your prompts and documents stay inside the bank.</div>
         </div>
       </div>
+      <p class="opfoot" data-r data-d="4">We bought the GPUs and host the models ourselves. <span class="red">The data never leaves.</span></p>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">03</span></div>
   </section>
