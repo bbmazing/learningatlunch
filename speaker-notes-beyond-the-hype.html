@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Speaker notes · Beyond the Hype · Learning at Lunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--red:#EC1B23;--ink:#1A1A1A;--text:#1F2937;--muted:#5b626d;--faint:#9AA1AC;
+  --line:#E7E8EB;--tint:#FCEEEF;--tint2:#FBE2E3;
+  --fHead:'Manrope',system-ui,sans-serif;--fBody:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fBody);color:var(--text);background:
+    radial-gradient(900px 500px at 100% -10%, rgba(236,27,35,.10), transparent 60%), #fbfbfc;
+  -webkit-font-smoothing:antialiased;padding-bottom:60px}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:14px 22px;background:rgba(251,251,252,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.bar .ttl{font-family:var(--fHead);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
+.bar .sub{font-size:12px;color:var(--faint);margin-top:2px}
+.bar .right{display:flex;align-items:center;gap:8px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--fHead);font-weight:700;
+  font-size:12.5px;text-decoration:none;border-radius:99px;padding:8px 14px;white-space:nowrap;
+  cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.btn svg{width:14px;height:14px}
+.btn.ghost{color:var(--muted);border:1px solid var(--line);background:#fff}
+.btn.ghost:hover{border-color:var(--tint2);color:var(--ink)}
+.btn.red{color:var(--red);background:var(--tint);border:1px solid var(--tint2)}
+.btn.red:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.on{background:var(--red);color:#fff;border-color:var(--red)}
+.banner{display:none;align-items:center;gap:8px;font-size:13px;color:#8a1015;
+  background:var(--tint);border-bottom:1px solid var(--tint2);padding:10px 22px}
+.banner b{color:var(--red)}
+body.editing .banner{display:flex}
+main{max-width:820px;margin:0 auto;padding:8px 22px}
+.lead{font-family:var(--fHead);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.7rem,5vw,2.4rem);
+  color:var(--ink);margin:26px 0 6px}
+.lead .red{color:var(--red)}
+.intro{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:14px;max-width:60ch}
+.s{padding:20px 0;border-bottom:1px solid var(--line)}
+.s:last-child{border-bottom:none}
+.s .n{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+.s h2{font-family:var(--fHead);font-weight:700;font-size:18px;letter-spacing:-.015em;color:var(--ink);margin:4px 0 11px}
+.s ul{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:9px}
+.s li{font-size:14.5px;line-height:1.6;color:var(--text)}
+/* edit affordances */
+body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:1px dashed var(--tint2);
+  outline-offset:4px;border-radius:4px}
+.s h2[contenteditable]:focus,.s li[contenteditable]:focus{outline:2px solid var(--red);
+  outline-offset:4px;background:#fff}
+@media(max-width:560px){
+  .bar{padding:11px 14px}
+  .bar .sub{display:none}
+  .btn{padding:7px 10px;font-size:11.5px}
+  .btn .lbl-long{display:none}
+  .banner{padding:9px 14px;font-size:12px}
+  main{padding:6px 16px}
+  .s li{font-size:14px}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div>
+    <div class="ttl">Speaker notes</div>
+    <div class="sub">Beyond the Hype · 21 slides</div>
+  </div>
+  <div class="right">
+    <a class="btn ghost" href="index.html">&larr; Back</a>
+    <button class="btn ghost" id="edit" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+      <span id="editLbl">Edit</span>
+    </button>
+    <button class="btn ghost" id="reset" type="button" style="display:none">Reset</button>
+    <a class="btn red" id="dl" href="speaker-notes-beyond-the-hype.txt" download="learning-at-lunch-beyond-the-hype-speaker-notes.txt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+      <span class="lbl-long">Download&nbsp;</span>.txt
+    </a>
+  </div>
+</header>
+<div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
+<main>
+  <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 21 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <div id="notes">
+    <article class="s">
+      <div class="n">Slide 1</div>
+      <h2>Beyond the Hype What AI Can Do Today</h2>
+      <ul>
+        <li>Selamat siang — thanks for spending lunch here. Bryan, Analytics &amp; Decision Making.</li>
+        <li>Two goals: explain this AI wave in plain language, and show four working tools built inside the bank, on video.</li>
+        <li>Questions in the Teams chat any time; I will pause after each demo.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 2</div>
+      <h2></h2>
+      <ul>
+        <li>You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.</li>
+        <li>Smaller question, answerable before lunch ends: can it do useful work at a bank, today?</li>
+        <li>By the end you will have seen four answers, each one running here, built by teams you know.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 3</div>
+      <h2>The next 45 minutes</h2>
+      <ul>
+        <li>Part one: what a large language model is. Once you see how it works, its strengths and weird failures both make sense.</li>
+        <li>Part two: how a chatbot becomes a coworker, through tools and agents. Those two words will make sense by then.</li>
+        <li>Part three: four demos, all built here. Then how to start using AI in your own work, safely.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 4</div>
+      <h2>Part 1 — What is ChatGPT, really?</h2>
+      <ul>
+        <li>Time to open the box. What sits behind ChatGPT, Gemini, Copilot, all of them?</li>
+        <li>No math ahead — one idea, and everything else follows from it.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 5</div>
+      <h2>Autocomplete, on an enormous scale</h2>
+      <ul>
+        <li>An LLM does one thing: given some text, predict the next word. Your phone keyboard does a tiny version of this.</li>
+        <li>When you ask a question it predicts the first word of a good answer, appends it, predicts the next, and repeats until done.</li>
+        <li>Everything impressive you have seen — essays, emails, code — comes from very good next-word prediction. Hold this picture; it explains the failures coming next.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 6</div>
+      <h2>It read the internet — and kept the patterns</h2>
+      <ul>
+        <li>Where do good predictions come from? Training. The model read a huge slice of the public internet: books, articles, code, forums.</li>
+        <li>From that it learned patterns: grammar, facts, styles, how an apology email differs from a legal clause.</li>
+        <li>No database inside. It does not look answers up; it reconstructs them from patterns — like humming a song you have heard many times without owning the recording. Fluent, and sometimes fluently wrong.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 7</div>
+      <h2>Brilliant and unreliable — at the same time</h2>
+      <ul>
+        <li>Strengths: anything shaped like language transformation. Draft an email, rewrite it politely, summarise a forty-page circular, translate Bahasa–English.</li>
+        <li>Failures: fresh events after training, precise arithmetic, and anything about your specific customers — your data was never in the training.</li>
+        <li>Hallucination: ask for a supporting regulation and it may cite one that does not exist. Well formatted, confident, wrong. It is predicting what a citation looks like. Rule: every fact is a draft to verify.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 8</div>
+      <h2>Context in, quality out</h2>
+      <ul>
+        <li>The quality of the answer tracks the quality of what you put in.</li>
+        <li>Left: a one-line request gets a generic answer. Right: role, situation, points to cover, tone, length — same model, different result.</li>
+        <li>Mental model: brief it like a smart intern who joined this morning. Brilliant, fast, and knows nothing about your job until you tell it. That is 80% of prompting skill.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 9</div>
+      <h2>A plain chatbot hits three walls</h2>
+      <ul>
+        <li>Put it together and a plain chatbot has three walls.</li>
+        <li>Wall one, time: knowledge stops at the training cutoff. Wall two, access: it cannot see your inbox, your core banking system, or that spreadsheet from this morning. Wall three, action: it writes words; it cannot send, search or file anything.</li>
+        <li>Keep these three in mind — part two is how engineers knock them down. That is the difference between a toy and the demos coming up.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 10</div>
+      <h2>Part 2 — From chatbot to coworker</h2>
+      <ul>
+        <li>Part two. How a text predictor becomes something that does work.</li>
+        <li>Three ideas: tools, agents, grounding. Each demo uses at least one.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 11</div>
+      <h2>Tool calling — give the model hands</h2>
+      <ul>
+        <li>Instead of asking the model to know everything, hand it tools: a web search, a calculator, a database query — and teach it to say: to answer this, I should use that tool.</li>
+        <li>Ask for the dollar rate today. The model knows its training data is stale, calls the rate lookup, gets the live number, writes the answer around it.</li>
+        <li>The model supplies judgment and language; the tool supplies facts and action. This one idea powers every serious AI product this year, including all four demos.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 12</div>
+      <h2>An agent is a loop, not a chat</h2>
+      <ul>
+        <li>Now let it use tools more than once. Give it a goal instead of a question and let it loop: plan, act, check, repeat until done. That loop is an AI agent.</li>
+        <li>Real task from our world: screen this company for negative news. One search is never enough — you search, read, notice a same-name mismatch, refine, check the directors, then write it up.</li>
+        <li>An agent runs that same loop. You will watch one do exactly this in the Adverse News demo.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 13</div>
+      <h2>Ground it in your documents</h2>
+      <ul>
+        <li>Last concept, and it fixes wall two: the model being blind to your data. Give it your documents at question time.</li>
+        <li>Upload files. When you ask, the system finds the relevant pages and instructs the model: answer from these pages, cite where you found it, say so if the answer is not there.</li>
+        <li>Turns a confident guesser into a fast reader of your files. Engineers call it RAG; the name matters less than the effect. Lumina, demo four, runs on this.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 14</div>
+      <h2>Part 3 — Built here</h2>
+      <ul>
+        <li>Everything so far becomes concrete now. Four projects, all built by teams here, all running on prompting, tools, agents and grounding.</li>
+        <li>For each: the pain it removes, the video, then the connection back to the concepts. Questions in the chat after each one.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 15</div>
+      <h2>Bank Statement Analyzer</h2>
+      <ul>
+        <li>Pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, dozens of pages, every bank a different format. Someone retypes transactions line by line. Hours per application.</li>
+        <li>The tool: upload, OCR reads the pages, the model structures every transaction, then summarises account behaviour.</li>
+        <li>Concepts at work: reading and restructuring text is the model’s home turf; OCR is a tool in the loop. The analyst still makes the credit judgment — the retyping is gone.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 16</div>
+      <h2>Adverse News Search · 1:45</h2>
+      <ul>
+        <li>Setup: before we deal with a company or an individual we screen for adverse news. Done by hand: dozens of Google searches, per source, per entity — slow, unstandardized, easy to miss things. And the same-name problem.</li>
+        <li>In the video: two entities entered — Maktour, and a related party, Fuad Hasan Masyhur. Watch the queries preview: ten queries auto-generated across five source categories: SIPP district courts, Mahkamah Agung, negative-news keywords, sanctions and PEP lists, general news.</li>
+        <li>Then: results stream in parallel, a risk verdict computed from credible sources only — high, for both. The narrative names suspects and cites every source. The Combined tab cross-references the two entities: same KPK case. One click: PDF dossiers with evidence appendix and audit log, ready for the KYC file.</li>
+        <li>Landing: the agent loop from part two, live. The agent does the legwork; the officer makes the call — verification in minutes, not an hour of searching.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 17</div>
+      <h2>MoM AI — minutes that write themselves</h2>
+      <ul>
+        <li>This one touches everyone: minutes of meeting. Somebody in every meeting half-listens because they are typing notes, and the minutes still arrive two days late.</li>
+        <li>MoM AI takes the recording, transcribes it — speech-to-text is the tool here — and the model drafts the minutes: what was decided, who owes what, by when.</li>
+        <li>A draft ready when the meeting ends. You review, fix what it misheard, send. Thirty minutes of typing becomes five minutes of checking — and nobody skips the discussion to take notes.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 18</div>
+      <h2>LuminaLM · 0:50</h2>
+      <ul>
+        <li>Setup: a programme accumulates documents fast. The video opens with the honest picture: charters, playbooks, status packs, minutes — 157 documents, and the programme’s truth scattered across all of them.</li>
+        <li>In the video, project Hampton — a banking M&amp;A integration. Sources compile into a living wiki: cross-linked pages, a knowledge graph, always current. Then grounded chat: ask for the strategic imperatives and the answer cites its sources, one chip per claim.</li>
+        <li>Also on screen: the programme timeline with every workstream, dependency and tollgate; and Studio — pick a template and it drafts the Word, Excel or PowerPoint pack from the wiki.</li>
+        <li>Landing: grounding from part two, in production. It answers from the documents and cites the page — and when the answer is not there, it says so instead of inventing one. A colleague who has read every project document and never forgets a page number.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 19</div>
+      <h2>Four tools, one pattern</h2>
+      <ul>
+        <li>Four side by side, one pattern. Each is the same text predictor from part one, plus tools, plus your documents.</li>
+        <li>In each one the person keeps the judgment: the analyst approves the credit, the officer clears the name, you sign the minutes, the team makes the decisions.</li>
+        <li>What the AI removed is the reading, retyping, searching and formatting that sat between people and their judgment. Less magic than the headlines — and more useful.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 20</div>
+      <h2>Start this week — inside the rules</h2>
+      <ul>
+        <li>How to start, and how to stay safe. Start where a rough draft has value: summarise a circular, draft a reply, translate a document, ask it to explain a term from a meeting.</li>
+        <li>Rule one: customer data and confidential material never go into public AI tools. Use what the bank provides and follow our data policy. Rule two: verify facts, numbers and citations before they travel — you saw why in part one.</li>
+        <li>Rule three: whatever you send still carries your name. Treat AI output like an intern’s draft: useful, fast, and reviewed before it leaves your desk.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 21</div>
+      <h2>Useful work, today — you just watched it</h2>
+      <ul>
+        <li>Fifty minutes ago the question was whether AI can do useful work at a bank today. You have now seen how the machine works, what its limits are, and four running answers built in this building.</li>
+        <li>If a task in your unit looks like the pattern — lots of reading, retyping, searching, summarising — come talk to Analytics &amp; Decision Making.</li>
+        <li>Try one small task this week. Terima kasih — questions, please.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+<script>
+(function(){
+  var KEY = 'ocbc-crayon-speaker-notes-v1';
+  var arts = [].slice.call(document.querySelectorAll('#notes .s'));
+  var fields = [].slice.call(document.querySelectorAll('#notes h2, #notes li'));
+  var resetBtn = document.getElementById('reset');
+
+  function collect(){
+    return arts.map(function(s){
+      return { t: (s.querySelector('h2')||{}).textContent || '',
+               n: [].slice.call(s.querySelectorAll('li')).map(function(li){ return li.textContent; }) };
+    });
+  }
+  function showReset(on){ resetBtn.style.display = on ? '' : 'none'; }
+
+  // apply any saved edits
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var data = JSON.parse(raw);
+      arts.forEach(function(s,i){
+        var rec = data[i]; if(!rec) return;
+        var h = s.querySelector('h2'); if(h && rec.t != null) h.textContent = rec.t;
+        var lis = [].slice.call(s.querySelectorAll('li'));
+        (rec.n||[]).forEach(function(t,k){ if(lis[k]) lis[k].textContent = t; });
+      });
+      showReset(true);
+    }
+  }catch(e){}
+
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(collect())); showReset(true); }catch(e){} }
+
+  // edit toggle
+  var editing = false, editBtn = document.getElementById('edit'), editLbl = document.getElementById('editLbl');
+  editBtn.addEventListener('click', function(){
+    editing = !editing;
+    document.body.classList.toggle('editing', editing);
+    editBtn.classList.toggle('on', editing);
+    editLbl.textContent = editing ? 'Done' : 'Edit';
+    fields.forEach(function(el){ el.contentEditable = editing ? 'true' : 'false'; });
+    if(editing){ if(fields[0]) fields[0].focus(); } else { save(); }
+  });
+  document.addEventListener('input', function(){ if(editing) save(); });
+
+  // download current (edited) content as .txt
+  function buildTxt(){
+    var L = ['Learning at Lunch — Beyond the Hype', 'Speaker notes · ' + arts.length + ' slides',
+             '================================================', ''];
+    collect().forEach(function(r,i){
+      L.push('Slide ' + (i+1) + ' — ' + r.t);
+      r.n.forEach(function(n){ L.push('  \u2022 ' + n); });
+      L.push('');
+    });
+    return L.join('\n').replace(/\s+$/, '') + '\n';
+  }
+  document.getElementById('dl').addEventListener('click', function(ev){
+    ev.preventDefault();
+    var blob = new Blob([buildTxt()], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'learning-at-lunch-beyond-the-hype-speaker-notes.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  resetBtn.addEventListener('click', function(){
+    if(!confirm('Discard your edits and restore the original notes?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

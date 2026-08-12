@@ -9,9 +9,10 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: rough cut. Demo slides carry placeholders until the four
-  videos arrive; the per-demo scripts below get rewritten against the
-  actual footage.
+- **Status**: deck built at `web/beyond-the-hype.html` (21 slides).
+  Adverse News and LuminaLM videos are embedded and their scripts below
+  are written against the actual footage. Statement Analyzer and MoM AI
+  slides carry placeholder frames until those videos arrive.
 
 ## Shape of the talk
 
@@ -295,30 +296,53 @@ balances for analysis.
 > is the model's home turf, and OCR is a tool in the loop. The analyst
 > still makes the credit judgment. The retyping is gone.
 
-## Slide 16 · Demo 2 — Adverse News — 4 min
+## Slide 16 · Demo 2 — Adverse News — 5 min (video 1:45)
 
-**Layout**: demo slide, same pattern.
-**On slide**: screens companies (PT) and individuals for negative news ·
-agent searches, reads, and filters same-name false matches · returns a
-sourced summary.
-**TODO**: swap in video, rewrite walkthrough.
+**Layout**: video slide — embedded `adverse-news.mp4` with poster frame,
+side rail of four "watch for" chips.
+**On slide chips**: queries write themselves (10 queries across courts,
+negative news, sanctions, general news) · verdict from credible sources
+only · Combined tab links entities to the same case · one-click PDF
+dossiers.
+**Video content, mapped**: (0:00) problem card "Manual. Per source. Per
+entity. Easy to miss things." → (0:10) product card: auto-generates
+queries, classifies severity, writes the risk narrative → (0:16) two
+entities entered: Maktour + related party Fuad Hasan Masyhur → (0:25)
+Search Queries Preview: 10 AI-generated queries across five categories:
+SIPP district courts, Mahkamah Agung, negative-news keywords, FCC
+sanctions/PEP lists, general news → (0:45) results stream in parallel;
+overall risk verdict HIGH for Maktour; severity + source-credibility
+donuts → (1:00) AI Risk Analysis: executive summary of the KPK
+hajj-quota corruption case, every item dated and linked → (1:12) switch
+to Fuad Hasan Masyhur: same case, also HIGH → (1:25) Combined tab
+cross-references both entities: shared case, witnesses, money trail →
+(1:36) one click, three PDF reports: cover, narrative, evidence
+appendix, audit log.
 
-**Say (setup):**
+**Say (setup, before play):**
 
-> Demo two, compliance and onboarding territory. Before we deal with a
-> company or an individual, we screen for adverse news: fraud cases,
-> sanctions, court records. Done by hand this means dozens of searches
-> and a same-name problem; search a common name and most hits are about
-> somebody else. This is the agent loop from part two, live. It plans
-> searches, reads the results, discards articles about the wrong entity,
-> digs further where the signal is bad, and writes a summary with links
-> to every source. Watch the steps it takes; you can audit each one.
+> Demo two, compliance territory. Before we deal with a company or an
+> individual, we screen for adverse news: fraud, corruption, sanctions,
+> court records. By hand that means Google, one name, one keyword, one
+> source at a time, and a same-name problem on top. This tool takes the
+> names and runs the whole loop from part two. Two things to watch. The
+> tool writes its own search queries, ten of them, across court
+> databases, negative news, sanction lists. And at the end, one click
+> produces a PDF dossier ready for the file. Sound on.
+
+**Say (during, optional pause points):**
+
+> Pause at the queries preview if the chat asks: this is the agent
+> planning. Pause at the risk verdict: computed from credible sources
+> only, the rest filtered but kept in the appendix.
 
 **Say (after play):**
 
-> The output arrives with sources, so a human verifies in minutes instead
-> of searching for an hour. The agent does the legwork, the officer makes
-> the call.
+> That was the agent loop from part two, live: plan the searches, run
+> them, check credibility, dig into both entities, connect them, write
+> the narrative. Every claim carried a source link, so the officer
+> verifies in minutes instead of searching for an hour. The agent does
+> the legwork. Clearing the name stays a human decision.
 
 ## Slide 17 · Demo 3 — MoM AI — 4 min
 
@@ -343,30 +367,46 @@ ready to review after the meeting ends.
 > misheard, and send. The half-hour of typing becomes five minutes of
 > checking, and nobody has to skip the discussion to take notes.
 
-## Slide 18 · Demo 4 — Lumina — 4 min
+## Slide 18 · Demo 4 — LuminaLM — 4 min (video 0:50)
 
-**Layout**: demo slide, same pattern.
-**On slide**: a notebook for your project: upload BRDs, timelines,
-vendor docs · ask anything, get answers with citations to the page ·
-answers only from your documents, or it says it cannot find one.
-**TODO**: swap in video, rewrite walkthrough.
+**Layout**: video slide — embedded `lumina.mp4` with poster frame, side
+rail of four "watch for" chips.
+**On slide chips**: 157 documents → one living wiki · grounded chat with
+citation chips · one programme timeline · Studio drafts Word/Excel/PPT
+packs.
+**Video content, mapped**: (0:00) montage: charters, playbooks, status
+packs, minutes piling up — "42 documents… 157 documents. Your
+programme's truth is scattered across all of them." → (0:10) LuminaLM
+title: "AI powered project management, without the headache" → (0:13)
+notebook "Banking M&A Integration — Project Hampton": Living Wiki,
+sources compiled into cross-linked always-current pages, knowledge graph
+(21 pages, 103 links) → (0:22) Grounded Chat: "What are the strategic
+imperatives for this programme?" → four imperatives, each with numbered
+citation chips back to source documents → (0:31) Programme Timeline:
+every workstream, dependency and tollgate in one Gantt view → (0:40)
+Studio: format catalog — Workstream Charter (Word), Risk Register
+(Excel), JESC Pack (PowerPoint), drafted from the wiki in the house
+template → (0:46) outro.
 
-**Say (setup):**
+**Say (setup, before play):**
 
-> Last demo, Lumina, and it is grounding from part two in production. A
-> project accumulates hundreds of documents: requirements, decision
-> memos, vendor contracts, meeting notes. Six months in, someone asks why
-> a decision was made, and the answer lives in a file nobody can find.
-> With Lumina you upload the project documents and ask in plain language.
-> It answers from those documents with a citation to the exact page, and
-> tells you when the answer is not in there instead of inventing one.
-> That last behaviour is the hallucination fix, on camera.
+> Last demo, and it is grounding from part two in production. A
+> programme accumulates documents fast: charters, playbooks, status
+> packs, minutes. The video opens with the honest number: 157 documents,
+> and the programme's truth scattered across all of them. Watch three
+> things. The documents compile into a living wiki. The chat answers
+> with citation chips, one per claim, pointing at the exact source. And
+> Studio at the end drafts the weekly Word, Excel and PowerPoint packs
+> straight from the wiki. Fifty seconds.
 
 **Say (after play):**
 
-> Think of it as a colleague who has read every project document and
-> never forgets a page number. New joiners ramp up in days, and old
-> decisions stop getting relitigated from memory.
+> A colleague who has read every project document and never forgets a
+> page number. Ask for the strategic imperatives and you get the answer
+> plus the receipts. New joiners ramp up in days, old decisions stop
+> getting relitigated from memory, and the Friday status pack drafts
+> itself. When the answer is not in the documents, it says so. That is
+> the hallucination fix you met on slide 13, on camera.
 
 ## Slide 19 · The pattern behind all four — 2 min
 
@@ -441,10 +481,14 @@ Decision Making about use cases in your unit.
 
 ## Open items
 
-1. Four demo videos to arrive; then rewrite each demo walkthrough against
-   the footage (what is on screen, where to pause, what to point at).
+1. Statement Analyzer and MoM AI videos to arrive; drop them into slides
+   15 and 17 (same pattern as the two embedded ones) and rewrite those
+   walkthroughs against the footage.
 2. Confirm product names and owning teams for each demo slide.
 3. Check whether internal AI usage policy wording on slide 20 matches the
    bank's current guidance.
-4. Build the deck at `web/beyond-the-hype.html` from `web/template.html`
-   once this story is approved.
+4. In the deck, videos play with native controls; `R` restarts the video
+   on the current slide. Videos stay as separate files under
+   `web/assets/videos/` — the standalone build inlines fonts and images
+   but references the videos relatively, so keep the folder next to the
+   HTML (or serve via GitHub Pages).

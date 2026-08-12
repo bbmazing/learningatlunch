@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Beyond the Hype · Learning at Lunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================================
+   OCBC CRAYON · Python Data Foundations
+   Self-contained animated deck. Fixed 16:9 stage, one slide at a time.
+   ========================================================================= */
+:root{
+  /* OCBC brand */
+  --red:#EC1B23; --red-dark:#B3141A; --red-deep:#7A0E12;
+  --ink:#1A1A1A; --charcoal:#202024; --charcoal-2:#2A2A2F;
+  --text:#1F2937; --muted:#6B7280; --faint:#9AA1AC;
+  --surface:#FFFFFF; --card:#F5F5F6; --card-2:#EFEFF1;
+  --line:#E4E7EB; --line-strong:#D6D9DE;
+  --tint-red:#FCEEEF; --tint-red-2:#FBE2E3;
+  --code-bg:#1A1C22; --code-ink:#E7E9EE;
+  /* supporting diagram hues (used sparingly) */
+  --blue:#1C6E9C; --teal:#0E7C6B; --amber:#C9851A; --green:#1E8E5A; --violet:#6C4FB3;
+  /* stage geometry */
+  --stageW:1280px; --stageH:720px;
+  --fHead:'Manrope',system-ui,sans-serif;
+  --fBody:'Inter',system-ui,sans-serif;
+  --fMono:'JetBrains Mono',ui-monospace,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:#0c0c0e;
+  font-family:var(--fBody);
+  color:var(--text);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* ---- Stage: scale a fixed 1280x720 deck to fit the viewport ---- */
+.stage{
+  position:fixed; inset:0; height:100dvh; display:grid; place-items:center;
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(236,27,35,.10), transparent 60%),
+    #0a0a0c;
+}
+.deck{
+  position:absolute; left:0; top:0;
+  width:var(--stageW); height:var(--stageH);
+  transform-origin:top left;
+  box-shadow:0 40px 120px -30px rgba(0,0,0,.8);
+  border-radius:4px; overflow:hidden;
+  background:#fff;
+}
+
+/* ---- Slides ---- */
+.slide{
+  position:absolute; inset:0;
+  width:var(--stageW); height:var(--stageH);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .5s ease;
+  display:flex; flex-direction:column;
+  padding:62px 76px 58px;
+  background:var(--surface);
+}
+.slide.active{opacity:1; visibility:visible; pointer-events:auto; z-index:2}
+.slide.prev{z-index:1}
+
+/* dark slides (cover, dividers, close) */
+.slide.dark{
+  color:#fff;
+  background:
+    radial-gradient(900px 600px at 78% -8%, rgba(236,27,35,.30), transparent 55%),
+    radial-gradient(700px 500px at -5% 110%, rgba(236,27,35,.12), transparent 60%),
+    linear-gradient(160deg,#202024 0%,#161618 60%,#121214 100%);
+}
+.slide.dark::after{ /* fine grain texture */
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:3px 3px; mix-blend-mode:screen;
+}
+
+/* =========================================================================
+   Shared chrome: kicker, badge, footer, titles
+   ========================================================================= */
+.kicker{
+  display:inline-flex; align-items:center; gap:11px;
+  font-family:var(--fHead); font-weight:700; font-size:13px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--red); margin-bottom:16px;
+}
+.kicker .badge{
+  width:24px; height:24px; border-radius:50%;
+  background:var(--red); position:relative; flex:none;
+  box-shadow:0 0 0 4px var(--tint-red);
+  overflow:hidden;
+}
+.kicker .badge::before{ /* rising-sun rays motif */
+  content:""; position:absolute; left:50%; bottom:5px; width:0; height:0;
+  border-left:7px solid transparent; border-right:7px solid transparent;
+  border-bottom:9px solid #fff; transform:translateX(-50%); opacity:.95;
+}
+.kicker .badge::after{
+  content:""; position:absolute; left:0; right:0; bottom:6px; height:1.5px;
+  background:rgba(255,255,255,.85);
+}
+.dark .kicker{color:#ff6a6f}
+.dark .kicker .badge{box-shadow:0 0 0 4px rgba(236,27,35,.25)}
+
+.slide-title{
+  font-family:var(--fHead); font-weight:800; color:var(--ink);
+  font-size:38px; line-height:1.08; letter-spacing:-.02em; max-width:24ch;
+}
+.dark .slide-title{color:#fff}
+.slide-sub{font-size:17px; color:var(--muted); margin-top:12px; max-width:60ch; line-height:1.5}
+
+.foot{
+  position:absolute; left:76px; right:76px; bottom:26px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12px; color:var(--faint); letter-spacing:.02em;
+}
+.foot .mark{display:flex; align-items:center; gap:9px; font-weight:600; color:var(--muted)}
+.foot .mark img{height:18px; width:auto; display:block}
+.foot .pg{font-family:var(--fMono); font-weight:500}
+.dark .foot{color:rgba(255,255,255,.5)}
+.dark .foot .mark{color:rgba(255,255,255,.7)}
+
+.body-area{flex:1; min-height:0; display:flex; flex-direction:column; margin-top:8px}
+
+/* =========================================================================
+   Reveal system — children animate in when slide becomes active
+   ========================================================================= */
+[data-r]{opacity:0; transform:translateY(16px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);}
+.slide.active [data-r]{opacity:1; transform:none}
+[data-r][data-d="1"]{transition-delay:.08s}[data-r][data-d="2"]{transition-delay:.16s}
+[data-r][data-d="3"]{transition-delay:.24s}[data-r][data-d="4"]{transition-delay:.32s}
+[data-r][data-d="5"]{transition-delay:.40s}[data-r][data-d="6"]{transition-delay:.48s}
+[data-r][data-d="7"]{transition-delay:.56s}[data-r][data-d="8"]{transition-delay:.64s}
+[data-r][data-d="9"]{transition-delay:.72s}[data-r][data-d="10"]{transition-delay:.80s}
+[data-r][data-d="11"]{transition-delay:.88s}[data-r][data-d="12"]{transition-delay:.96s}
+
+/* =========================================================================
+   COVER (slide 1)
+   ========================================================================= */
+.cover{padding:0}
+.cover .bg{
+  position:absolute; inset:0;
+  background:url('assets/bg_title_skyline.png') center/cover no-repeat;
+}
+.cover .scrim{position:absolute; inset:0; background:linear-gradient(100deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.82) 34%, rgba(255,255,255,0) 56%);}
+.cover .inner{position:relative; height:100%; display:flex; flex-direction:column; justify-content:center; padding:0 76px;}
+.cover .logo{height:34px; width:auto; position:absolute; top:48px; left:76px}
+.cover h1{font-family:var(--fHead); font-weight:800; letter-spacing:-.025em; line-height:1.02; font-size:66px; color:var(--ink)}
+.cover h1 .red{color:var(--red); display:block}
+.cover .rule{width:64px; height:5px; background:var(--red); border-radius:3px; margin:26px 0 22px}
+.cover .meta{font-size:15px; color:var(--muted); line-height:1.7}
+.cover .meta strong{color:var(--text); font-weight:600}
+.cover .program{position:absolute; bottom:46px; left:76px; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); font-weight:600}
+
+/* =========================================================================
+   QUOTE (slide 2)
+   ========================================================================= */
+.quote-wrap{flex:1; display:flex; flex-direction:column; justify-content:center; max-width:70ch}
+.quote-mark{font-family:var(--fHead); font-size:120px; line-height:.6; color:var(--red); font-weight:800; height:54px}
+.quote-wrap blockquote{font-family:var(--fHead); font-weight:600; font-size:46px; line-height:1.18; letter-spacing:-.02em; color:#fff; margin:18px 0 26px}
+.quote-wrap blockquote em{color:#ff6a6f; font-style:normal}
+.quote-wrap cite{font-style:normal; font-size:16px; color:rgba(255,255,255,.65); letter-spacing:.04em}
+.quote-wrap cite b{color:#fff; font-weight:600}
+
+/* =========================================================================
+   DIVIDER (section openers)
+   ========================================================================= */
+.divider{justify-content:center}
+.divider .pillar-no{font-family:var(--fHead); font-weight:800; font-size:200px; line-height:.8; color:rgba(255,255,255,.06); position:absolute; right:60px; top:50%; transform:translateY(-50%); letter-spacing:-.04em}
+.divider .eyebrow{font-family:var(--fHead); font-weight:700; letter-spacing:.18em; text-transform:uppercase; font-size:14px; color:#ff6a6f; display:flex; align-items:center; gap:12px}
+.divider .eyebrow .dot{width:26px;height:26px;border-radius:50%;background:var(--red);position:relative;overflow:hidden}
+.divider .eyebrow .dot::before{content:"";position:absolute;left:50%;bottom:5px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:9px solid #fff;transform:translateX(-50%)}
+.divider h2{font-family:var(--fHead); font-weight:800; font-size:64px; letter-spacing:-.025em; color:#fff; margin:20px 0 18px; line-height:1.02; max-width:18ch}
+.divider .lead{font-size:18px; color:rgba(255,255,255,.7); max-width:54ch; line-height:1.55}
+.divider .prog-rail{display:flex; gap:10px; margin-top:34px}
+.divider .prog-rail span{font-size:12.5px; font-weight:600; letter-spacing:.04em; color:rgba(255,255,255,.4); padding:7px 14px; border:1px solid rgba(255,255,255,.14); border-radius:99px}
+.divider .prog-rail span.on{color:#fff; border-color:var(--red); background:rgba(236,27,35,.18)}
+
+/* =========================================================================
+   Generic building blocks
+   ========================================================================= */
+.cards{display:grid; gap:16px; flex:1; min-height:0}
+.cards.c3{grid-template-columns:repeat(3,1fr)}
+.cards.c2{grid-template-columns:repeat(2,1fr)}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px;
+  padding:20px 22px; display:flex; flex-direction:column; gap:8px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{transform:translateY(-3px); box-shadow:0 18px 36px -22px rgba(0,0,0,.3); border-color:var(--line-strong)}
+.card .ic{width:40px; height:40px; border-radius:11px; background:var(--tint-red); color:var(--red); display:grid; place-items:center; flex:none}
+.card .ic svg{width:22px; height:22px}
+.card .num{font-family:var(--fHead); font-weight:800; font-size:15px; color:var(--red); width:30px; height:30px; border-radius:8px; background:var(--tint-red); display:grid; place-items:center}
+.card h3{font-family:var(--fHead); font-weight:700; font-size:18px; color:var(--ink); letter-spacing:-.01em}
+.card p{font-size:14px; color:var(--muted); line-height:1.5}
+.card .tag{font-family:var(--fMono); font-size:12px; color:var(--red); font-weight:500}
+
+/* two-column: text + visual */
+.two{display:grid; grid-template-columns:1fr 1fr; gap:40px; flex:1; min-height:0; align-items:center}
+.two.wide-r{grid-template-columns:0.86fr 1.14fr}
+.two .txt{display:flex; flex-direction:column; justify-content:center}
+.bullets{list-style:none; display:flex; flex-direction:column; gap:14px; margin-top:6px}
+.bullets li{position:relative; padding-left:28px; font-size:16.5px; line-height:1.5; color:var(--text)}
+.bullets li::before{content:""; position:absolute; left:0; top:9px; width:9px; height:9px; border-radius:3px; background:var(--red)}
+.bullets li.strong{font-weight:600; color:var(--ink)}
+.bullets li b{color:var(--ink); font-weight:600}
+.viz{position:relative; height:100%; display:flex; flex-direction:column; justify-content:center}
+
+/* rail (side panel) */
+.rail{background:var(--ink); color:#fff; border-radius:16px; padding:24px 26px; align-self:stretch; display:flex; flex-direction:column; justify-content:center}
+.rail h4{font-family:var(--fHead); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:#ff6a6f; margin-bottom:16px}
+.rail ul{list-style:none; display:flex; flex-direction:column; gap:13px}
+.rail li{font-size:15px; color:rgba(255,255,255,.86); padding-left:22px; position:relative; line-height:1.4}
+.rail li::before{content:""; position:absolute; left:0; top:7px; width:7px; height:7px; border-radius:50%; background:var(--red)}
+
+.bullets-rail{display:grid; grid-template-columns:1.55fr 1fr; gap:32px; flex:1; min-height:0; align-items:stretch}
+.bullets-rail .txt{display:flex; flex-direction:column; justify-content:center}
+
+/* =========================================================================
+   Code block (typing reveal + syntax tint)
+   ========================================================================= */
+.codewrap{background:var(--code-bg); border-radius:14px; overflow:hidden; box-shadow:0 24px 50px -28px rgba(0,0,0,.5); border:1px solid #2a2d36; display:flex; flex-direction:column}
+.codewrap .bar{display:flex; align-items:center; gap:7px; padding:12px 16px; border-bottom:1px solid #272a33; background:#15171c}
+.codewrap .bar i{width:11px; height:11px; border-radius:50%; display:block}
+.codewrap .bar i:nth-child(1){background:#ff5f57}.codewrap .bar i:nth-child(2){background:#febc2e}.codewrap .bar i:nth-child(3){background:#28c840}
+.codewrap .bar .fn{margin-left:10px; font-family:var(--fMono); font-size:12.5px; color:#8b909c}
+.codewrap pre{margin:0; padding:20px 22px; overflow:hidden; flex:1}
+.codewrap code{font-family:var(--fMono); font-size:14.5px; line-height:1.65; color:var(--code-ink); white-space:pre; display:block}
+.tok-kw{color:#ff7b72}.tok-fn{color:#d2a8ff}.tok-str{color:#a5d6ff}.tok-num{color:#79c0ff}.tok-com{color:#7d8590; font-style:italic}.tok-op{color:#ff7b72}.tok-var{color:#ffa657}
+.code-line{display:block}
+.slide.active .code-line{animation:codeLine .42s both}
+.slide.active .code-line:nth-child(1){animation-delay:.15s}.slide.active .code-line:nth-child(2){animation-delay:.22s}
+.slide.active .code-line:nth-child(3){animation-delay:.29s}.slide.active .code-line:nth-child(4){animation-delay:.36s}
+.slide.active .code-line:nth-child(5){animation-delay:.43s}.slide.active .code-line:nth-child(6){animation-delay:.50s}
+.slide.active .code-line:nth-child(7){animation-delay:.57s}.slide.active .code-line:nth-child(8){animation-delay:.64s}
+.slide.active .code-line:nth-child(9){animation-delay:.71s}.slide.active .code-line:nth-child(10){animation-delay:.78s}
+.slide.active .code-line:nth-child(11){animation-delay:.85s}.slide.active .code-line:nth-child(12){animation-delay:.92s}
+.slide.active .code-line:nth-child(13){animation-delay:.99s}.slide.active .code-line:nth-child(14){animation-delay:1.06s}
+@keyframes codeLine{from{opacity:0; transform:translateX(-8px)}to{opacity:1; transform:none}}
+.code-note{font-size:14px; color:var(--muted); margin-top:14px; line-height:1.5; font-style:italic}
+.code-points{list-style:none; display:flex; flex-direction:column; gap:12px}
+.code-points li{position:relative; padding-left:24px; font-size:15.5px; line-height:1.45; color:var(--text)}
+.code-points li::before{content:"›"; position:absolute; left:0; top:-1px; color:var(--red); font-weight:800; font-size:18px}
+
+/* =========================================================================
+   Conway Venn (slide 4)
+   ========================================================================= */
+.venn{position:relative; width:430px; height:380px; margin:auto}
+.venn .circ{position:absolute; width:250px; height:250px; border-radius:50%; mix-blend-mode:multiply; display:grid; place-items:center; opacity:0; transform:scale(.6); transition:opacity .7s ease, transform .7s cubic-bezier(.34,1.56,.64,1)}
+.venn .c1{background:rgba(236,27,35,.40); left:0; top:0}
+.venn .c2{background:rgba(28,110,156,.40); right:0; top:0}
+.venn .c3{background:rgba(30,142,90,.42); left:50%; bottom:0; transform:translateX(-50%) scale(.6)}
+.slide.active .venn .c1{opacity:1; transform:scale(1); transition-delay:.2s}
+.slide.active .venn .c2{opacity:1; transform:scale(1); transition-delay:.45s}
+.slide.active .venn .c3{opacity:1; transform:translateX(-50%) scale(1); transition-delay:.7s}
+.venn .lbl{font-family:var(--fHead); font-weight:700; font-size:14px; color:var(--ink); text-align:center; line-height:1.2; pointer-events:none; padding:0 30px}
+.venn .center{position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); z-index:5; background:var(--ink); color:#fff; font-family:var(--fHead); font-weight:800; font-size:13px; padding:8px 14px; border-radius:99px; white-space:nowrap; opacity:0; transition:opacity .5s ease .95s; box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+.slide.active .venn .center{opacity:1}
+.venn .danger{position:absolute; left:14%; bottom:30%; z-index:6; font-family:var(--fHead); font-weight:800; font-size:11px; color:#fff; background:var(--red); padding:5px 10px; border-radius:6px; transform:rotate(-8deg); opacity:0; transition:opacity .5s ease 1.2s; box-shadow:0 6px 16px -6px rgba(236,27,35,.7)}
+.slide.active .venn .danger{opacity:1}
+
+/* =========================================================================
+   Stat counters (slide 5 + others)
+   ========================================================================= */
+.stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin:auto 0}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:30px 26px; text-align:left; position:relative; overflow:hidden}
+.stat .big{font-family:var(--fHead); font-weight:800; font-size:62px; line-height:1; color:var(--red); letter-spacing:-.03em}
+.stat .big .unit{font-size:32px; vertical-align:super; margin-left:2px}
+.stat .lab{font-size:15px; color:var(--text); margin-top:12px; line-height:1.45; font-weight:500}
+.stat .sub{font-size:12.5px; color:var(--faint); margin-top:8px}
+.stat::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:var(--red)}
+
+/* progress ring (80% stat) */
+.ring-wrap{display:flex; align-items:center; gap:40px; margin:auto 0}
+.ring{position:relative; width:230px; height:230px; flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .pct{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--fHead); font-weight:800; font-size:56px; color:var(--ink)}
+.ring-copy{max-width:46ch}
+.ring-copy h3{font-family:var(--fHead); font-weight:800; font-size:28px; color:var(--ink); letter-spacing:-.02em; line-height:1.1; margin-bottom:14px}
+.ring-copy p{font-size:16px; color:var(--muted); line-height:1.55}
+
+/* =========================================================================
+   Step strip (5 facets / workflow)
+   ========================================================================= */
+.flow{display:flex; align-items:stretch; gap:0; margin:auto 0; width:100%}
+.flow .step{flex:1; position:relative; display:flex; flex-direction:column; gap:8px; padding:0 6px}
+.flow .step .node{width:54px; height:54px; border-radius:14px; background:var(--ink); color:#fff; font-family:var(--fHead); font-weight:800; font-size:20px; display:grid; place-items:center; position:relative; z-index:2}
+.flow .step:nth-child(odd) .node{background:var(--red)}
+.flow .step h4{font-family:var(--fHead); font-weight:700; font-size:16.5px; color:var(--ink); margin-top:10px}
+.flow .step p{font-size:13.5px; color:var(--muted); line-height:1.45}
+.flow .arrow{position:absolute; top:27px; left:46px; right:-8px; height:2px; background:var(--line-strong); z-index:1}
+.flow .arrow::after{content:""; position:absolute; right:0; top:-4px; border-left:8px solid var(--line-strong); border-top:5px solid transparent; border-bottom:5px solid transparent}
+.flow .step:last-child .arrow{display:none}
+/* sequential build for flow */
+.flow .step{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.slide.active .flow .step{opacity:1; transform:none}
+.slide.active .flow .step:nth-child(1){transition-delay:.15s}.slide.active .flow .step:nth-child(2){transition-delay:.35s}
+.slide.active .flow .step:nth-child(3){transition-delay:.55s}.slide.active .flow .step:nth-child(4){transition-delay:.75s}
+.slide.active .flow .step:nth-child(5){transition-delay:.95s}.slide.active .flow .step:nth-child(6){transition-delay:1.15s}
+.flow.compact .node{width:46px;height:46px;border-radius:12px;font-size:17px}
+.flow-cap{font-size:14px; color:var(--muted); font-style:italic; text-align:center; margin-top:26px}
+
+/* journey / agenda */
+.journey{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; flex:1; min-height:0; align-items:stretch}
+.jcard{border:1px solid var(--line); border-radius:16px; padding:24px 22px; display:flex; flex-direction:column; position:relative; background:var(--surface); overflow:hidden}
+.jcard .pn{font-family:var(--fHead); font-weight:800; font-size:46px; color:var(--card-2); line-height:1; letter-spacing:-.03em}
+.jcard .ph{font-family:var(--fHead); font-weight:700; font-size:18.5px; color:var(--ink); margin:14px 0 8px; letter-spacing:-.01em}
+.jcard p{font-size:13.5px; color:var(--muted); line-height:1.5; flex:1}
+.jcard .demo{margin-top:14px; font-family:var(--fMono); font-size:11px; font-weight:600; color:var(--red); background:var(--tint-red); padding:5px 10px; border-radius:6px; align-self:flex-start; display:inline-flex; gap:6px; align-items:center}
+.jcard::after{content:""; position:absolute; left:0; right:0; bottom:0; height:4px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .5s ease}
+.slide.active .jcard::after{transform:scaleX(1)}
+.slide.active .jcard:nth-child(1)::after{transition-delay:.3s}.slide.active .jcard:nth-child(2)::after{transition-delay:.45s}
+.slide.active .jcard:nth-child(3)::after{transition-delay:.6s}.slide.active .jcard:nth-child(4)::after{transition-delay:.75s}
+
+/* =========================================================================
+   Layered stack diagram (Python data stack)
+   ========================================================================= */
+.stack{display:flex; flex-direction:column; gap:12px; margin:auto 0; width:100%}
+.layer{display:grid; grid-template-columns:200px 1fr; align-items:center; gap:22px; border-radius:14px; padding:18px 24px; color:#fff; position:relative; overflow:hidden; opacity:0; transform:translateX(-18px); transition:opacity .55s ease, transform .55s cubic-bezier(.16,1,.3,1)}
+.slide.active .layer{opacity:1; transform:none}
+.slide.active .layer:nth-child(1){transition-delay:.5s}.slide.active .layer:nth-child(2){transition-delay:.38s}
+.slide.active .layer:nth-child(3){transition-delay:.26s}.slide.active .layer:nth-child(4){transition-delay:.14s}
+.layer .lname{font-family:var(--fHead); font-weight:800; font-size:21px; letter-spacing:-.01em; display:flex; align-items:baseline; gap:9px}
+.layer .lname code{font-family:var(--fMono); font-size:13px; opacity:.7; font-weight:500}
+.layer .ldesc{font-size:14.5px; line-height:1.4; opacity:.95}
+.layer.l1{background:linear-gradient(100deg,#2A2A2F,#1c1c20)}
+.layer.l2{background:linear-gradient(100deg,var(--red-dark),var(--red))}
+.layer.l3{background:linear-gradient(100deg,#1C6E9C,#2487bf)}
+.layer.l4{background:linear-gradient(100deg,#0E7C6B,#13a08a)}
+.stack .scaffold{font-size:12.5px; color:var(--muted); text-align:center; font-style:italic}
+
+/* container / building-block cards */
+.mini-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+.mini{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 18px}
+.mini .mh{font-family:var(--fMono); font-size:14px; font-weight:700; color:var(--red)}
+.mini .md{font-size:13.5px; color:var(--muted); margin-top:4px; line-height:1.4}
+.mini code{font-family:var(--fMono); font-size:12.5px; color:var(--ink); background:var(--card-2); padding:1px 5px; border-radius:4px}
+
+/* before / after code columns */
+.ba{display:grid; grid-template-columns:1fr 1fr; gap:22px; flex:1; min-height:0; align-items:stretch}
+.ba .col{display:flex; flex-direction:column}
+.ba .ba-h{font-family:var(--fHead); font-weight:700; font-size:14px; margin-bottom:10px; display:flex; align-items:center; gap:9px}
+.ba .ba-h .tagx{font-size:11px; padding:3px 9px; border-radius:99px; font-weight:700; letter-spacing:.04em}
+.ba .before .tagx{background:var(--card-2); color:var(--muted)}
+.ba .after .tagx{background:var(--tint-red); color:var(--red)}
+.ba .codewrap{flex:1}
+/* optimisation pushdown strip (eager vs lazy slide) */
+.pushdown{display:flex; gap:12px; margin-top:16px; justify-content:center; flex-wrap:wrap}
+.pushdown .pd{display:flex; align-items:center; gap:9px; background:var(--tint-red); border:1px solid var(--tint-red-2); border-radius:99px; padding:8px 16px; font-size:13px; color:var(--ink); opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease}
+.slide.active .pushdown .pd{opacity:1; transform:none}
+.slide.active .pushdown .pd:nth-child(1){transition-delay:.5s}.slide.active .pushdown .pd:nth-child(2){transition-delay:.66s}.slide.active .pushdown .pd:nth-child(3){transition-delay:.82s}
+.pushdown .pd b{color:var(--red); font-weight:700}
+.pushdown .pd .ck{width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:11px;flex:none}
+
+/* =========================================================================
+   Notebook-playback demo component
+   ========================================================================= */
+.demo-stage{flex:1; min-height:0; display:grid; grid-template-columns:1.62fr 1fr; gap:26px; align-items:stretch}
+.nb{background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 24px 50px -30px rgba(0,0,0,.35); display:flex; flex-direction:column; overflow:hidden}
+.nb-top{display:flex; align-items:center; gap:8px; padding:11px 16px; border-bottom:1px solid var(--line); background:var(--card)}
+.nb-top .t-ic{width:9px;height:9px;border-radius:50%;background:#e0a800}
+.nb-top .t-ic.r{background:var(--red)} .nb-top .t-ic.g{background:#28a745}
+.nb-top .nb-name{font-family:var(--fMono); font-size:12.5px; color:var(--muted); margin-left:8px}
+.nb-top .nb-kernel{margin-left:auto; font-size:11.5px; color:var(--faint); display:flex; align-items:center; gap:6px}
+.nb-top .nb-kernel::after{content:"";width:8px;height:8px;border-radius:50%;background:#28a745}
+.nb-body{flex:1; overflow:hidden; padding:6px 0; scroll-behavior:smooth}
+.nb-cell{padding:5px 16px; opacity:0; transform:translateY(8px); transition:opacity .4s ease, transform .4s ease}
+.nb-cell.shown{opacity:1; transform:none}
+.nb-in{display:grid; grid-template-columns:54px 1fr; gap:10px; align-items:start}
+.nb-prompt{font-family:var(--fMono); font-size:12.5px; color:#3b6fb0; text-align:right; padding-top:9px; user-select:none}
+.nb-prompt.busy{color:var(--red)}
+.nb-code{position:relative; background:#f6f7f9; border:1px solid #eceef1; border-left:3px solid var(--red); border-radius:6px; padding:9px 12px; font-family:var(--fMono); font-size:13px; line-height:1.55; color:#1f2430; white-space:pre; overflow:hidden; transition:box-shadow .3s ease, border-left-color .3s ease}
+.nb-cell.running .nb-code{box-shadow:0 0 0 2px var(--tint-red-2), 0 8px 22px -12px rgba(236,27,35,.5); border-left-color:var(--red-dark)}
+.nb-cell.running .nb-code::after{content:"▋"; color:var(--red); animation:caret .7s steps(1) infinite; margin-left:1px}
+@keyframes caret{50%{opacity:0}}
+.nb-out{margin:6px 0 0 64px; font-family:var(--fMono); font-size:12px; line-height:1.5; color:#333; max-height:0; opacity:0; overflow:hidden; transition:max-height .5s ease, opacity .4s ease}
+.nb-out.shown{max-height:240px; opacity:1}
+.nb-out .otable{border-collapse:collapse; font-size:11px}
+.nb-out .otable th{background:var(--ink); color:#fff; font-weight:600; padding:2px 9px; text-align:right; font-family:var(--fMono)}
+.nb-out .otable td{padding:2px 9px; border-bottom:1px solid #eee; text-align:right; color:#444}
+.nb-out .otable tr:nth-child(even) td{background:#fafafa}
+.nb-out .muted{color:#8a9099}
+.nb-out .ok{color:#1E8E5A}
+.demo-side{display:flex; flex-direction:column; gap:16px; justify-content:center}
+.demo-card{border-radius:16px; padding:22px 24px; background:var(--ink); color:#fff}
+.demo-card .dk{font-family:var(--fHead); font-weight:700; font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:#ff6a6f; margin-bottom:10px}
+.demo-card h3{font-family:var(--fHead); font-weight:800; font-size:22px; line-height:1.12; letter-spacing:-.01em; margin-bottom:10px}
+.demo-card p{font-size:14px; line-height:1.5; color:rgba(255,255,255,.82)}
+.demo-steps{list-style:none; display:flex; flex-direction:column; gap:11px}
+.demo-steps li{display:flex; gap:11px; align-items:flex-start; font-size:14px; color:var(--text); line-height:1.4}
+.demo-steps li .sn{flex:none; width:24px; height:24px; border-radius:7px; background:var(--tint-red); color:var(--red); font-family:var(--fHead); font-weight:800; font-size:12px; display:grid; place-items:center}
+.demo-steps li.on .sn{background:var(--red); color:#fff}
+.replay{align-self:flex-start; display:inline-flex; align-items:center; gap:8px; background:var(--tint-red); color:var(--red); border:1px solid var(--tint-red-2); font-family:var(--fHead); font-weight:700; font-size:13px; padding:9px 16px; border-radius:99px; cursor:pointer; transition:all .2s ease}
+.replay:hover{background:var(--red); color:#fff}
+.replay svg{width:14px;height:14px}
+.demo-take{background:var(--tint-red); border:1px solid var(--tint-red-2); border-radius:12px; padding:14px 18px; font-size:13.5px; color:var(--ink); line-height:1.45}
+.demo-take b{color:var(--red)}
+
+/* =========================================================================
+   VS compare panels (structured vs unstructured, good vs bad)
+   ========================================================================= */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:24px; flex:1; min-height:0}
+.vs .panel{border:1px solid var(--line); border-radius:16px; padding:24px 26px; display:flex; flex-direction:column; background:var(--surface); position:relative; overflow:hidden}
+.vs .panel.accent{background:linear-gradient(180deg,var(--tint-red),#fff); border-color:var(--tint-red-2)}
+.vs .panel .ph{font-family:var(--fHead); font-weight:800; font-size:21px; color:var(--ink); letter-spacing:-.01em; display:flex; align-items:center; gap:12px}
+.vs .panel .ph .glyph{width:42px; height:42px; border-radius:11px; display:grid; place-items:center; flex:none}
+.vs .panel.accent .ph .glyph{background:var(--red); color:#fff}
+.vs .panel:not(.accent) .ph .glyph{background:var(--ink); color:#fff}
+.vs .panel .ps{font-size:14px; color:var(--muted); margin:8px 0 16px; line-height:1.45}
+.vs .chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px}
+.vs .chip{font-family:var(--fMono); font-size:12px; padding:6px 11px; border-radius:8px; background:var(--card); border:1px solid var(--line); color:var(--text)}
+.vs .panel.accent .chip{background:#fff; border-color:var(--tint-red-2)}
+.vs .where{margin-top:auto; font-size:13.5px; color:var(--text); line-height:1.45; padding-top:14px; border-top:1px dashed var(--line-strong)}
+.vs .where b{color:var(--red)}
+
+/* annotated "shape of data" table */
+.shape-tbl{display:grid; grid-template-columns:auto 1fr; gap:0 18px; align-items:center; margin:auto 0}
+.dtable{border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; box-shadow:0 18px 40px -28px rgba(0,0,0,.3); width:100%}
+.dtable th{background:var(--ink); color:#fff; font-family:var(--fMono); font-size:13px; font-weight:600; padding:11px 16px; text-align:left}
+.dtable th.target{background:var(--red)}
+.dtable td{padding:10px 16px; font-family:var(--fMono); font-size:13.5px; color:var(--text); background:#fff; border-bottom:1px solid var(--line)}
+.dtable td.target{background:var(--tint-red); color:var(--red-dark); font-weight:600}
+.dtable tr:nth-child(even) td{background:#fafafb}
+.dtable tr:nth-child(even) td.target{background:var(--tint-red-2)}
+.annot{font-family:var(--fHead); font-weight:700; font-size:14px; color:var(--red); display:flex; align-items:center; gap:8px}
+.annot.muted{color:var(--muted)}
+.shape-legend{display:flex; gap:26px; justify-content:center; margin-top:22px; flex-wrap:wrap}
+.shape-legend .item{display:flex; align-items:center; gap:9px; font-size:14px; color:var(--text)}
+.shape-legend .sw{width:16px; height:16px; border-radius:5px}
+
+/* analytics staircase (ascending) */
+.stair{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:end; flex:1; min-height:0; padding-top:8px}
+.rung{display:flex; flex-direction:column; justify-content:flex-end}
+.rung .box{border-radius:14px 14px 0 0; padding:20px 20px 22px; color:#fff; position:relative; transform-origin:bottom; transform:scaleY(0); opacity:0; transition:transform .6s cubic-bezier(.16,1,.3,1), opacity .4s ease}
+.slide.active .rung .box{transform:scaleY(1); opacity:1}
+.slide.active .rung:nth-child(1) .box{transition-delay:.2s}.slide.active .rung:nth-child(2) .box{transition-delay:.42s}
+.slide.active .rung:nth-child(3) .box{transition-delay:.64s}.slide.active .rung:nth-child(4) .box{transition-delay:.86s}
+.rung:nth-child(1) .box{background:#3a3a40; min-height:150px}
+.rung:nth-child(2) .box{background:#8a1419; min-height:215px}
+.rung:nth-child(3) .box{background:var(--red-dark); min-height:280px}
+.rung:nth-child(4) .box{background:var(--red); min-height:345px}
+.rung .q{font-family:var(--fMono); font-size:12px; opacity:.85; margin-bottom:6px}
+.rung .box h4{font-family:var(--fHead); font-weight:800; font-size:21px; letter-spacing:-.01em}
+.rung .box p{font-size:13px; line-height:1.4; opacity:.92; margin-top:8px}
+.rung .box .step-i{position:absolute; top:14px; right:16px; font-family:var(--fHead); font-weight:800; font-size:14px; opacity:.35}
+.stair-axis{display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-top:14px; font-style:italic}
+.stair-axis b{color:var(--red); font-style:normal; font-weight:700}
+
+/* animated SVG charts (scatter, dual-line) */
+.svg-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 22px; height:100%; display:flex; flex-direction:column}
+.svg-card .ct{font-family:var(--fHead); font-weight:700; font-size:15px; color:var(--ink); margin-bottom:6px}
+.chart-svg{width:100%; flex:1}
+.chart-svg .dot{opacity:0; transition:opacity .5s ease}
+.slide.active .chart-svg .dot{opacity:.78}
+.chart-svg .trend{stroke:var(--red); stroke-width:3; fill:none; stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.3s ease .6s}
+.slide.active .chart-svg .trend{stroke-dashoffset:0}
+.chart-svg .band{opacity:0; transition:opacity .9s ease .5s}
+.slide.active .chart-svg .band{opacity:1}
+.chart-svg .tlab{fill:var(--red); font-weight:700}
+.chart-svg .ln{fill:none; stroke-width:3; stroke-dasharray:900; stroke-dashoffset:900; transition:stroke-dashoffset 1.5s ease}
+.slide.active .chart-svg .ln1{stroke-dashoffset:0; transition-delay:.3s}
+.slide.active .chart-svg .ln2{stroke-dashoffset:0; transition-delay:.7s}
+.chart-svg .axis{stroke:var(--line-strong); stroke-width:1.5}
+.chart-svg .glab{font-family:var(--fBody); font-size:11px; fill:var(--muted)}
+
+/* problem -> fix table */
+.pf-table{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:14px; overflow:hidden; flex:1; min-height:0}
+.pf-row{display:grid; grid-template-columns:1.1fr 1fr 1.25fr; align-items:center; padding:0; border-bottom:1px solid var(--line); opacity:0; transform:translateX(-12px); transition:opacity .45s ease, transform .45s ease}
+.slide.active .pf-row{opacity:1; transform:none}
+.slide.active .pf-row:nth-child(1){transition-delay:.1s}.slide.active .pf-row:nth-child(2){transition-delay:.2s}
+.slide.active .pf-row:nth-child(3){transition-delay:.3s}.slide.active .pf-row:nth-child(4){transition-delay:.4s}
+.slide.active .pf-row:nth-child(5){transition-delay:.5s}.slide.active .pf-row:nth-child(6){transition-delay:.6s}
+.slide.active .pf-row:nth-child(7){transition-delay:.7s}
+.pf-row:last-child{border-bottom:none}
+.pf-row.head{background:var(--ink); color:#fff; opacity:1; transform:none}
+.pf-row.head>div{font-family:var(--fHead); font-weight:700; font-size:13px; letter-spacing:.04em; text-transform:uppercase; padding:12px 20px; color:rgba(255,255,255,.85)}
+.pf-row>div{padding:13px 20px; font-size:14.5px}
+.pf-row .prob{font-weight:600; color:var(--ink); display:flex; align-items:center; gap:10px}
+.pf-row .prob .d{width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.pf-row .fix code{font-family:var(--fMono); font-size:13px; background:var(--tint-red); color:var(--red-dark); padding:3px 9px; border-radius:6px; font-weight:500}
+.pf-row .desc{color:var(--muted); font-size:13.5px; line-height:1.4}
+.pf-row:nth-child(even):not(.head){background:#fafafb}
+
+/* tidy before/after tables */
+.tidy{display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center; flex:1; min-height:0}
+.tidy .tcol{display:flex; flex-direction:column}
+.tidy .tlabel{font-family:var(--fHead); font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:9px}
+.tidy .messy .tlabel{color:var(--muted)} .tidy .clean .tlabel{color:var(--red)}
+.tidy .arrow-mid{font-size:34px; color:var(--red); font-weight:800}
+.tidy .note{font-size:12.5px; color:var(--muted); margin-top:10px; font-style:italic; line-height:1.4}
+
+/* histogram (EDA) */
+.hist{display:flex; align-items:flex-end; gap:7px; height:230px; padding:0 4px; border-bottom:2px solid var(--line-strong)}
+.hist .bar{flex:1; background:linear-gradient(180deg,var(--red),var(--red-dark)); border-radius:5px 5px 0 0; height:0; transition:height .8s cubic-bezier(.16,1,.3,1); position:relative}
+.hist .bar.med{background:linear-gradient(180deg,#3a3a40,#222)}
+.slide.active .hist .bar{height:var(--h)}
+.slide.active .hist .bar:nth-child(1){transition-delay:.1s}.slide.active .hist .bar:nth-child(2){transition-delay:.16s}
+.slide.active .hist .bar:nth-child(3){transition-delay:.22s}.slide.active .hist .bar:nth-child(4){transition-delay:.28s}
+.slide.active .hist .bar:nth-child(5){transition-delay:.34s}.slide.active .hist .bar:nth-child(6){transition-delay:.40s}
+.slide.active .hist .bar:nth-child(7){transition-delay:.46s}.slide.active .hist .bar:nth-child(8){transition-delay:.52s}
+.slide.active .hist .bar:nth-child(9){transition-delay:.58s}.slide.active .hist .bar:nth-child(10){transition-delay:.64s}
+.slide.active .hist .bar:nth-child(11){transition-delay:.70s}.slide.active .hist .bar:nth-child(12){transition-delay:.76s}
+.stat-chips{display:flex; flex-direction:column; gap:12px}
+.stat-chips .sc{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center}
+.stat-chips .sc .k{font-size:13.5px; color:var(--muted)}
+.stat-chips .sc .v{font-family:var(--fHead); font-weight:800; font-size:22px; color:var(--red)}
+
+/* chart-picker glyph grid */
+.picker{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; flex:1; min-height:0}
+.pick{border:1px solid var(--line); border-radius:14px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; background:var(--surface); transition:transform .25s ease, box-shadow .25s ease, border-color .25s}
+.pick:hover{transform:translateY(-3px); box-shadow:0 18px 34px -22px rgba(0,0,0,.3); border-color:var(--tint-red-2)}
+.pick .pg-glyph{height:46px; display:flex; align-items:flex-end; gap:4px}
+.pick .q{font-family:var(--fMono); font-size:12px; color:var(--red); font-weight:500}
+.pick h4{font-family:var(--fHead); font-weight:700; font-size:16px; color:var(--ink)}
+.pick p{font-size:13px; color:var(--muted); line-height:1.4}
+.pick svg{width:100%; height:46px}
+
+/* insight callout */
+.insight{display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1; min-height:0; align-items:center}
+.insight .lead-card{background:var(--ink); color:#fff; border-radius:18px; padding:30px 32px; position:relative; overflow:hidden}
+.insight .lead-card::before{content:""; position:absolute; right:-40px; top:-40px; width:160px; height:160px; border-radius:50%; background:radial-gradient(circle,rgba(236,27,35,.4),transparent 70%)}
+.insight .lead-card .so{font-family:var(--fHead); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#ff6a6f; margin-bottom:14px}
+.insight .lead-card .big-line{font-family:var(--fHead); font-weight:800; font-size:28px; line-height:1.15; letter-spacing:-.01em}
+.insight .lead-card .big-line em{color:#ff8e91; font-style:normal}
+.layer-list{list-style:none; display:flex; flex-direction:column; gap:16px}
+.layer-list li{display:flex; gap:14px; align-items:flex-start}
+.layer-list li .n{flex:none; width:30px; height:30px; border-radius:9px; background:var(--tint-red); color:var(--red); font-family:var(--fHead); font-weight:800; display:grid; place-items:center; font-size:14px}
+.layer-list li b{font-family:var(--fHead); color:var(--ink); font-size:16px}
+.layer-list li p{font-size:14px; color:var(--muted); line-height:1.4; margin-top:2px}
+
+/* closing recap */
+.recap-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1; min-height:0; align-items:center}
+.recap-col h4{font-family:var(--fHead); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px}
+.recap-col.recap h4{color:#ff6a6f}.recap-col.next h4{color:#fff}
+.recap-col ul{list-style:none; display:flex; flex-direction:column; gap:14px}
+.recap-col li{font-size:16px; line-height:1.45; padding-left:26px; position:relative; color:rgba(255,255,255,.88)}
+.recap-col.recap li::before{content:"✓"; position:absolute; left:0; color:var(--red); font-weight:800}
+.recap-col.next li::before{content:"→"; position:absolute; left:0; color:#ff6a6f; font-weight:800}
+.recap-col.next{background:rgba(236,27,35,.1); border:1px solid rgba(236,27,35,.25); border-radius:18px; padding:26px 28px}
+
+/* big single stat (80%) */
+.megastat{display:flex; align-items:center; gap:60px; margin:auto 0}
+.megastat .num{font-family:var(--fHead); font-weight:800; font-size:200px; line-height:.85; color:var(--red); letter-spacing:-.05em}
+.megastat .num .u{font-size:90px}
+.megastat .copy{max-width:42ch}
+.megastat .copy h3{font-family:var(--fHead); font-weight:800; font-size:30px; color:var(--ink); line-height:1.1; letter-spacing:-.02em; margin-bottom:14px}
+.megastat .copy p{font-size:16px; color:var(--muted); line-height:1.55}
+.megastat .copy .src{font-size:12.5px; color:var(--faint); margin-top:14px}
+
+/* =========================================================================
+   Navigation chrome
+   ========================================================================= */
+.progress{position:fixed; top:0; left:0; height:3px; background:var(--red); z-index:50; transition:width .4s ease; box-shadow:0 0 12px rgba(236,27,35,.6)}
+.hud{position:fixed; bottom:18px; right:22px; z-index:50; display:flex; align-items:center; gap:14px; font-family:var(--fMono); font-size:12px; color:rgba(255,255,255,.55)}
+.hud .dots{display:flex; gap:6px}
+.hud .dot{width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.22); cursor:pointer; transition:all .25s ease}
+.hud .dot.on{background:var(--red); transform:scale(1.35)}
+.hud .dot.sec{background:rgba(255,255,255,.4)}
+.hud .count b{color:#fff}
+.hint{position:fixed; bottom:20px; left:22px; z-index:50; font-size:11.5px; color:rgba(255,255,255,.4); font-family:var(--fMono)}
+.hint kbd{background:rgba(255,255,255,.1); border-radius:4px; padding:1px 6px; color:rgba(255,255,255,.7)}
+/* auto-hide nav chrome when idle or when deck fills the viewport */
+.hud,.hint{transition:opacity .4s ease}
+body.idle .hud, body.idle .hint{opacity:0; pointer-events:none}
+body.static .hud, body.static .hint{display:none}
+
+/* speaker notes drawer */
+.notes{position:fixed; left:0; right:0; bottom:0; z-index:60; transform:translateY(100%); transition:transform .35s cubic-bezier(.16,1,.3,1); background:#16161a; color:#e7e7ea; border-top:3px solid var(--red); max-height:42vh; overflow:auto; padding:22px 30px; box-shadow:0 -20px 50px -20px rgba(0,0,0,.7)}
+.notes.show{transform:none}
+.notes h5{font-family:var(--fHead); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#ff6a6f; margin-bottom:12px; display:flex; align-items:center; gap:10px}
+.notes ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px}
+.notes li{font-size:14.5px; line-height:1.55; color:#cfd0d6}
+.notes .close{position:absolute; top:16px; right:22px; color:#888; cursor:pointer; font-size:18px; background:none; border:none}
+
+/* mobile: the deck is a fixed 16:9 stage — prompt rotation when held upright */
+.rotate-cue{position:fixed; inset:0; height:100dvh; z-index:120; display:none;
+  place-items:center; text-align:center; padding:42px;
+  background:radial-gradient(700px 460px at 50% 0%, rgba(236,27,35,.14), transparent 62%), #0a0a0c;
+  color:#e7e7ea; font-family:var(--fHead)}
+.rotate-cue .ic{width:58px; height:58px; margin:0 auto 24px; color:var(--red);
+  animation:rot-tilt 2.2s ease-in-out infinite}
+.rotate-cue h4{font-size:21px; font-weight:800; letter-spacing:-.01em; color:#fff; margin-bottom:10px}
+.rotate-cue p{font-size:14px; line-height:1.55; color:rgba(255,255,255,.6); max-width:34ch; margin:0 auto}
+@keyframes rot-tilt{0%,100%{transform:rotate(-12deg)} 50%{transform:rotate(78deg)}}
+/* show only on small screens held in portrait */
+@media (orientation:portrait) and (max-width:860px){
+  .rotate-cue{display:grid}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; transition-duration:.2s !important}
+  [data-r]{opacity:1 !important; transform:none !important}
+  .rotate-cue .ic{animation:none; transform:rotate(78deg)}
+}
+/* static mode (QA captures / no-motion): snap everything to final */
+body.static [data-r]{opacity:1 !important; transform:none !important; transition:none !important}
+body.static .code-line{animation:none !important}
+body.static .flow .step,
+body.static .venn .circ,
+body.static .venn .center,
+body.static .venn .danger,
+body.static .jcard::after{opacity:1 !important; transform:none !important; transition:none !important}
+body.static .venn .c3{transform:translateX(-50%) !important}
+body.static .jcard::after{transform:scaleX(1) !important}
+body.static .nb-cell, body.static .nb-out{transition:none !important; transform:none !important; opacity:1 !important}
+body.static .nb-out.shown{max-height:320px !important}
+body.static .pushdown .pd{opacity:1 !important; transform:none !important; transition:none !important}
+</style>
+
+<style>
+/* ============ Beyond the Hype — deck-specific widgets ============ */
+/* S2 hype chips */
+.hype-wrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.hype-chip{position:absolute;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:13.5px;font-weight:600;
+  padding:10px 18px;border-radius:99px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.05);white-space:nowrap}
+.hype-q{font-family:var(--fHead);font-weight:800;font-size:46px;letter-spacing:-.02em;color:#fff;text-align:center;
+  line-height:1.15;max-width:820px}
+.hype-q .red{color:#ff6a6f}
+.hype-sub{margin-top:18px;font-size:16px;color:rgba(255,255,255,.55)}
+/* S5 next-word predictor */
+.predict{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;width:100%;
+  box-shadow:0 24px 48px -32px rgba(0,0,0,.25)}
+.predict .ptxt{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:16.5px;color:var(--ink);margin-bottom:18px}
+.predict .ptxt .gap{display:inline-block;min-width:110px;border-bottom:2px solid var(--red);color:var(--red);
+  font-weight:700;text-align:center}
+.pcand{display:flex;align-items:center;gap:12px;margin:9px 0}
+.pcand .tok{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:13.5px;font-weight:600;color:var(--text);
+  width:92px;flex:none}
+.pcand .pbar{flex:1;height:12px;border-radius:99px;background:var(--card);overflow:hidden}
+.pcand .pbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--red),#ff6a6f);
+  width:0;transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.pcand.win .pbar i{background:linear-gradient(90deg,var(--red),var(--red-dark,#B3141A))}
+.pcand .pct{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:12.5px;color:var(--muted);width:44px;
+  text-align:right;flex:none}
+.slide.active .pcand .pbar i{width:var(--w)}
+body.static .pcand .pbar i{width:var(--w);transition:none}
+.predict .pnote{margin-top:16px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:13px}
+/* S7 compare panels */
+.compare{display:flex;gap:18px;width:100%}
+.comp{flex:1;border-radius:16px;padding:20px 24px;background:#fff;border:1px solid var(--line)}
+.comp.good{border-top:4px solid #1E8E5A}
+.comp.warn{border-top:4px solid var(--red)}
+.comp h4{font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink);margin-bottom:12px;
+  display:flex;align-items:center;gap:9px}
+.comp ul{list-style:none;margin:0;padding:0}
+.comp li{position:relative;padding:6.5px 0 6.5px 26px;font-size:14.5px;color:var(--text);line-height:1.45}
+.comp.good li::before{content:"✓";position:absolute;left:0;color:#1E8E5A;font-weight:800}
+.comp.warn li::before{content:"!";position:absolute;left:2px;color:var(--red);font-weight:800}
+.callout{margin-top:16px;background:#FCEEEF;border:1px solid #F7D2D4;border-radius:12px;padding:13px 18px;
+  font-size:14px;color:var(--ink)}
+.callout b{color:var(--red)}
+/* S11 chat mock */
+.chatmock{display:flex;flex-direction:column;gap:10px;width:100%}
+.cm{max-width:86%;border-radius:14px;padding:12px 16px;font-size:14px;line-height:1.45;
+  box-shadow:0 14px 30px -22px rgba(0,0,0,.3)}
+.cm.u{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
+.cm.t{align-self:flex-start;background:#FFF7ED;border:1px dashed #F1C08A;color:#8a5a17;
+  font-family:var(--fMono,'JetBrains Mono',monospace);font-size:12.5px}
+.cm.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.cm .who{display:block;font-family:var(--fHead);font-weight:800;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;margin-bottom:4px;opacity:.55}
+/* S12 agent loop ring */
+.loop{position:relative;width:330px;height:330px;margin:0 auto}
+.loop .track{position:absolute;inset:26px;border:2.5px dashed rgba(236,27,35,.35);border-radius:50%}
+.loop .ln{position:absolute;width:104px;height:104px;border-radius:50%;background:#fff;border:1px solid var(--line);
+  box-shadow:0 18px 36px -24px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px}
+.loop .ln b{font-family:var(--fHead);font-weight:800;font-size:15px;color:var(--ink)}
+.loop .ln span{font-size:10.5px;color:var(--muted);text-align:center;line-height:1.25;padding:0 8px}
+.loop .n1{top:-6px;left:50%;transform:translateX(-50%)}
+.loop .n2{bottom:22px;right:-14px}
+.loop .n3{bottom:22px;left:-14px}
+.loop .lc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;
+  background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--fHead);font-weight:800;font-size:14.5px;box-shadow:0 0 0 8px #FCEEEF}
+.loop .larr{position:absolute;font-size:20px;color:var(--red);font-weight:800}
+.loop .a1{top:50%;right:6px;transform:translateY(-160%)}
+.loop .a2{bottom:24px;left:50%;transform:translateX(-50%)}
+.loop .a3{top:50%;left:6px;transform:translateY(-160%)}
+.loop .done{position:absolute;top:50%;right:-118px;transform:translateY(-50%);font-family:var(--fHead);
+  font-weight:800;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#1E8E5A;background:#E9F7EE;
+  border:1px solid #cdebd8;border-radius:99px;padding:7px 14px}
+/* S13 grounding flow */
+.ground{display:flex;align-items:stretch;gap:0;width:100%}
+.gbox{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;text-align:center}
+.gbox b{display:block;font-family:var(--fHead);font-weight:800;font-size:15px;color:var(--ink);margin-bottom:5px}
+.gbox span{font-size:12.5px;color:var(--muted);line-height:1.4;display:block}
+.garr{display:flex;align-items:center;padding:0 12px;color:var(--red);font-size:22px;font-weight:800;flex:none}
+.gcite{margin-top:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);
+  border-radius:12px;padding:14px 18px;font-size:14px;color:var(--text);line-height:1.5}
+.gcite sup{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;
+  border-radius:5px;background:#FCEEEF;color:var(--red);font-weight:700;font-size:10.5px;margin:0 2px;
+  font-family:var(--fMono,'JetBrains Mono',monospace)}
+/* video demo slides */
+.vwrap{display:flex;gap:20px;flex:1;align-items:center;min-height:0}
+.vframe{flex:none;border-radius:14px;overflow:hidden;background:#000;border:1px solid #2a2a30;
+  box-shadow:0 34px 68px -34px rgba(0,0,0,.55)}
+.vframe video{display:block;width:846px;height:476px;object-fit:contain;background:#000}
+.vrail{flex:1;display:flex;flex-direction:column;gap:10px;min-width:0}
+.vchip{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 14px;font-size:12.5px;
+  color:var(--muted);line-height:1.45}
+.vchip b{display:block;font-family:var(--fHead);font-weight:800;font-size:12.5px;color:var(--ink);margin-bottom:2px}
+.vchip .no{display:inline-flex;width:18px;height:18px;border-radius:50%;background:#FCEEEF;color:var(--red);
+  align-items:center;justify-content:center;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;
+  font-weight:700;margin-right:6px}
+.vmeta{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;color:var(--faint);text-align:right}
+/* placeholder demo frame */
+.vph{flex:none;width:846px;height:476px;border-radius:14px;border:2px dashed var(--line);background:var(--card);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.vph .play{width:74px;height:74px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;
+  align-items:center;justify-content:center;box-shadow:0 18px 36px -22px rgba(0,0,0,.3)}
+.vph .play svg{width:26px;height:26px;fill:var(--red);margin-left:4px}
+.vph b{font-family:var(--fHead);font-weight:800;font-size:16px;color:var(--ink)}
+.vph span{font-size:13px;color:var(--muted)}
+/* S19 pattern table */
+.ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
+.ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);text-align:left;padding:0 16px 2px}
+.ptable td{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:13px 16px;font-size:13.5px;color:var(--text);line-height:1.4}
+.ptable td:first-child{border-left:1px solid var(--line);border-radius:12px 0 0 12px;
+  font-family:var(--fHead);font-weight:800;color:var(--ink)}
+.ptable td:last-child{border-right:1px solid var(--line);border-radius:0 12px 12px 0}
+.ptable td .tool{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:12px;color:var(--red);
+  background:#FCEEEF;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.pline{margin-top:14px;text-align:center;font-family:var(--fHead);font-weight:700;font-size:16.5px;color:var(--ink)}
+.pline .red{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="stage">
+  <main class="deck" id="deck">
+
+  <!-- ============================== SLIDE 1 · COVER ============================== -->
+  <section class="slide dark cover active" data-notes='["Selamat siang — thanks for spending lunch here. Bryan, Analytics & Decision Making.","Two goals: explain this AI wave in plain language, and show four working tools built inside the bank, on video.","Questions in the Teams chat any time; I will pause after each demo."]'>
+    <div class="bg"></div><div class="scrim"></div>
+    <div class="inner">
+      <img class="logo" src="assets/ocbc-logo.png" alt="OCBC" />
+      <h1 data-r data-d="1">Beyond the Hype<span class="red">What AI Can Do Today</span></h1>
+      <div class="rule" data-r data-d="2"></div>
+      <div class="meta" data-r data-d="3">
+        <strong>Learning @ Lunch · AI, Digital &amp; Data Series</strong><br/>
+        From how ChatGPT works to four AI tools running in this bank<br/>
+        Kamis, 20 Agustus 2026 · 11.30–12.30 WIB · via Ms. Teams
+      </div>
+      <div class="program" data-r data-d="4">Bryan Bernardi · Analytics &amp; Decision Making · OCBC Indonesia</div>
+    </div>
+    <div class="foot"><span class="pg">01</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 2 · HYPE VS QUESTION ============================== -->
+  <section class="slide dark" data-notes='["You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.","Smaller question, answerable before lunch ends: can it do useful work at a bank, today?","By the end you will have seen four answers, each one running here, built by teams you know."]'>
+    <div class="body-area">
+      <div class="kicker" data-r data-d="1"><span class="badge"></span>The premise</div>
+      <div class="hype-wrap">
+        <span class="hype-chip" style="top:4%;left:6%;transform:rotate(-5deg)" data-r data-d="2">“AI will take every job”</span>
+        <span class="hype-chip" style="top:0%;right:10%;transform:rotate(4deg)" data-r data-d="3">“AGI by 2027”</span>
+        <span class="hype-chip" style="top:26%;right:0%;transform:rotate(-3deg)" data-r data-d="4">“The AI bubble is bursting”</span>
+        <span class="hype-chip" style="bottom:16%;left:2%;transform:rotate(3deg)" data-r data-d="5">“AI passes the bar exam”</span>
+        <span class="hype-chip" style="bottom:4%;right:14%;transform:rotate(-4deg)" data-r data-d="6">“Your doctor is now an app”</span>
+        <div class="hype-q" data-r data-d="7">Can it do useful work at a bank, <span class="red">today?</span></div>
+        <div class="hype-sub" data-r data-d="8">45 minutes. Four working answers.</div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">02</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 3 · AGENDA ============================== -->
+  <section class="slide" data-notes='["Part one: what a large language model is. Once you see how it works, its strengths and weird failures both make sense.","Part two: how a chatbot becomes a coworker, through tools and agents. Those two words will make sense by then.","Part three: four demos, all built here. Then how to start using AI in your own work, safely."]'>
+    <div class="kicker" data-r><span class="badge"></span>Roadmap</div>
+    <h2 class="slide-title" data-r data-d="1">The next 45 minutes</h2>
+    <div class="body-area">
+      <div class="journey">
+        <div class="jcard" data-r data-d="1"><div class="pn">01</div><div class="ph">What an LLM is</div><p>How ChatGPT works, in plain language. Its talents, and its strange failures.</p></div>
+        <div class="jcard" data-r data-d="2"><div class="pn">02</div><div class="ph">Chatbot &rarr; coworker</div><p>Tools, agents, and grounding: how a text predictor starts doing work.</p></div>
+        <div class="jcard" data-r data-d="3"><div class="pn">03</div><div class="ph">Built here</div><p>Four projects running in the bank.</p><span class="demo">▶ 4 demo videos</span></div>
+        <div class="jcard" data-r data-d="4"><div class="ph" style="margin-top:24px">Using it well</div><p>Where to start this week, and the rules that keep you safe.</p></div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">03</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 4 · DIVIDER P1 ============================== -->
+  <section class="slide dark divider" data-notes='["Time to open the box. What sits behind ChatGPT, Gemini, Copilot, all of them?","No math ahead — one idea, and everything else follows from it."]'>
+    <div class="pillar-no">01</div>
+    <div class="eyebrow"><span class="dot"></span>Part 1</div>
+    <h2>What is ChatGPT, really?</h2>
+    <p class="lead">One idea explains the whole thing — the magic and the mistakes.</p>
+    <div class="prog-rail"><span class="on">01 · LLM basics</span><span>02 · Tools &amp; agents</span><span>03 · Demos</span><span>04 · Using it well</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">04</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 5 · NEXT-WORD PREDICTION ============================== -->
+  <section class="slide" data-notes='["An LLM does one thing: given some text, predict the next word. Your phone keyboard does a tiny version of this.","When you ask a question it predicts the first word of a good answer, appends it, predicts the next, and repeats until done.","Everything impressive you have seen — essays, emails, code — comes from very good next-word prediction. Hold this picture; it explains the failures coming next."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · The one idea</div>
+    <h2 class="slide-title" data-r data-d="1">Autocomplete, on an enormous scale</h2>
+    <div class="body-area">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">One job: predict the <b>next word</b>.</li>
+            <li data-r data-d="3">Your phone keyboard does a tiny version of this.</li>
+            <li data-r data-d="4">It picks a word, appends it, predicts again — <b>one word at a time</b> until the answer is done.</li>
+            <li data-r data-d="5">Essays, emails, code: all of it is next-word prediction, done very well.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="predict">
+            <div class="ptxt">The customer would like to open a savings <span class="gap">?</span></div>
+            <div class="pcand win"><span class="tok">account</span><div class="pbar"><i style="--w:82%"></i></div><span class="pct">82%</span></div>
+            <div class="pcand"><span class="tok">plan</span><div class="pbar"><i style="--w:9%"></i></div><span class="pct">9%</span></div>
+            <div class="pcand"><span class="tok">deposit</span><div class="pbar"><i style="--w:6%"></i></div><span class="pct">6%</span></div>
+            <div class="pcand"><span class="tok">branch</span><div class="pbar"><i style="--w:3%"></i></div><span class="pct">3%</span></div>
+            <div class="pnote">Pick “account” → append it → predict the next word. Repeat.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">05</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 6 · HOW IT LEARNED ============================== -->
+  <section class="slide" data-notes='["Where do good predictions come from? Training. The model read a huge slice of the public internet: books, articles, code, forums.","From that it learned patterns: grammar, facts, styles, how an apology email differs from a legal clause.","No database inside. It does not look answers up; it reconstructs them from patterns — like humming a song you have heard many times without owning the recording. Fluent, and sometimes fluently wrong."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Training</div>
+    <h2 class="slide-title" data-r data-d="1">It read the internet — and kept the patterns</h2>
+    <div class="body-area">
+      <div class="stat-row">
+        <div class="stat" data-r data-d="2"><div class="big" data-count="500" data-suffix="B+">0</div><div class="lab">Words read during training — books, articles, code, forums.</div><div class="sub">Indicative scale</div></div>
+        <div class="stat" data-r data-d="3"><div class="big" data-count="3" data-suffix="mo+">0</div><div class="lab">Of round-the-clock computing to learn the patterns.</div><div class="sub">Thousands of processors in parallel</div></div>
+        <div class="stat" data-r data-d="4"><div class="big" data-count="0">0</div><div class="lab">Databases inside. It reconstructs answers from patterns — no lookup table.</div><div class="sub">This one matters most</div></div>
+      </div>
+      <p class="flow-cap" data-r data-d="5">Like humming a song you have heard a hundred times: no recording inside, yet the tune comes out — and sometimes a note is wrong.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">06</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 7 · GREAT AT / TRIPS ON ============================== -->
+  <section class="slide" data-notes='["Strengths: anything shaped like language transformation. Draft an email, rewrite it politely, summarise a forty-page circular, translate Bahasa–English.","Failures: fresh events after training, precise arithmetic, and anything about your specific customers — your data was never in the training.","Hallucination: ask for a supporting regulation and it may cite one that does not exist. Well formatted, confident, wrong. It is predicting what a citation looks like. Rule: every fact is a draft to verify."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Strengths &amp; limits</div>
+    <h2 class="slide-title" data-r data-d="1">Brilliant and unreliable — at the same time</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="compare">
+        <div class="comp good" data-r data-d="2">
+          <h4>Great at</h4>
+          <ul>
+            <li>Drafting and rewriting — emails, memos, reports</li>
+            <li>Summarising long documents into one page</li>
+            <li>Translation — Bahasa &harr; English, both directions</li>
+            <li>Explaining any concept at any level</li>
+          </ul>
+        </div>
+        <div class="comp warn" data-r data-d="3">
+          <h4>Trips on</h4>
+          <ul>
+            <li>Events after its training data ends</li>
+            <li>Precise arithmetic — check every number</li>
+            <li>Your customers and systems — it has never seen them</li>
+            <li>Inventing details with full confidence</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" data-r data-d="4"><b>Hallucination:</b> ask for a supporting rule and it may cite “OJK Regulation No. 12/POJK.03/…” — well formatted, confident, and nonexistent. It is predicting what a citation <i>looks like</i>. Verify before it travels.</div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">07</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 8 · PROMPTING ============================== -->
+  <section class="slide" data-notes='["The quality of the answer tracks the quality of what you put in.","Left: a one-line request gets a generic answer. Right: role, situation, points to cover, tone, length — same model, different result.","Mental model: brief it like a smart intern who joined this morning. Brilliant, fast, and knows nothing about your job until you tell it. That is 80% of prompting skill."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Talking to it</div>
+    <h2 class="slide-title" data-r data-d="1">Context in, quality out</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="compare">
+        <div data-r data-d="2" style="flex:1">
+          <div class="codewrap">
+            <div class="bar"><i></i><i></i><i></i><span class="fn">prompt&#8209;v1.txt</span></div>
+            <pre><code><span class="code-line">Tulis email ke nasabah.</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="tok-cm">→ generic. Could be any bank,</span></span>
+<span class="code-line"><span class="tok-cm">  any customer, any purpose.</span></span></code></pre>
+          </div>
+        </div>
+        <div data-r data-d="3" style="flex:1.35">
+          <div class="codewrap">
+            <div class="bar"><i></i><i></i><i></i><span class="fn">prompt&#8209;v2.txt</span></div>
+            <pre><code><span class="code-line">Kamu RM di OCBC Indonesia.</span>
+<span class="code-line">Nasabah: pemilik usaha katering, 3 tahun bersama kita.</span>
+<span class="code-line">Tujuan: ajak review fasilitas modal kerja.</span>
+<span class="code-line">Nada: hangat, ringkas. Maks 120 kata.</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="tok-cm">→ specific, on-tone, ready to edit.</span></span></code></pre>
+          </div>
+        </div>
+      </div>
+      <p class="flow-cap" data-r data-d="4">Brief it like a smart intern on day one: bright, fast, and blank about your job until you fill it in.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">08</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 9 · THREE WALLS ============================== -->
+  <section class="slide" data-notes='["Put it together and a plain chatbot has three walls.","Wall one, time: knowledge stops at the training cutoff. Wall two, access: it cannot see your inbox, your core banking system, or that spreadsheet from this morning. Wall three, action: it writes words; it cannot send, search or file anything.","Keep these three in mind — part two is how engineers knock them down. That is the difference between a toy and the demos coming up."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · The catch</div>
+    <h2 class="slide-title" data-r data-d="1">A plain chatbot hits three walls</h2>
+    <div class="body-area">
+      <div class="cards c3" style="grid-template-rows:1fr">
+        <div class="card" data-r data-d="1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff. Ask about last week and it may guess.</p></div>
+        <div class="card" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div><h3>Blind to your data</h3><p>No access to your inbox, your files, or the core banking system. Your world is invisible to it.</p></div>
+        <div class="card" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>All talk</h3><p>It produces text. It cannot search, send, calculate with tools, or file anything on its own.</p></div>
+      </div>
+      <p class="flow-cap" data-r data-d="4">Part 2 is how engineers knock these walls down — and that is where the demos live.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">09</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 10 · DIVIDER P2 ============================== -->
+  <section class="slide dark divider" data-notes='["Part two. How a text predictor becomes something that does work.","Three ideas: tools, agents, grounding. Each demo uses at least one."]'>
+    <div class="pillar-no">02</div>
+    <div class="eyebrow"><span class="dot"></span>Part 2</div>
+    <h2>From chatbot to coworker</h2>
+    <p class="lead">Three ideas — tools, agents, grounding — turn text prediction into work.</p>
+    <div class="prog-rail"><span>01 · LLM basics</span><span class="on">02 · Tools &amp; agents</span><span>03 · Demos</span><span>04 · Using it well</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">10</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 11 · TOOL CALLING ============================== -->
+  <section class="slide" data-notes='["Instead of asking the model to know everything, hand it tools: a web search, a calculator, a database query — and teach it to say: to answer this, I should use that tool.","Ask for the dollar rate today. The model knows its training data is stale, calls the rate lookup, gets the live number, writes the answer around it.","The model supplies judgment and language; the tool supplies facts and action. This one idea powers every serious AI product this year, including all four demos."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Tools</div>
+    <h2 class="slide-title" data-r data-d="1">Tool calling — give the model hands</h2>
+    <div class="body-area">
+      <div class="two wide-r">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">The model does not need to <b>know</b> — it needs to know <b>which tool to use</b>.</li>
+            <li data-r data-d="3">A tool = search, calculator, database, OCR, anything with an API.</li>
+            <li data-r data-d="4">Model supplies <b>judgment and language</b>; tools supply <b>facts and action</b>.</li>
+            <li data-r data-d="5">Walls one and three: down.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="chatmock">
+            <div class="cm u"><span class="who">You</span>Berapa kurs USD hari ini?</div>
+            <div class="cm t">⚙ calling tool: <b>rate_lookup("USD/IDR")</b> → 16,240</div>
+            <div class="cm a"><span class="who">AI</span>Kurs USD/IDR hari ini ada di sekitar <b>Rp 16.240</b>. Ada jumlah yang mau Anda konversi?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">11</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 12 · AGENTS ============================== -->
+  <section class="slide" data-notes='["Now let it use tools more than once. Give it a goal instead of a question and let it loop: plan, act, check, repeat until done. That loop is an AI agent.","Real task from our world: screen this company for negative news. One search is never enough — you search, read, notice a same-name mismatch, refine, check the directors, then write it up.","An agent runs that same loop. You will watch one do exactly this in the Adverse News demo."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Agents</div>
+    <h2 class="slide-title" data-r data-d="1">An agent is a loop, not a chat</h2>
+    <div class="body-area">
+      <div class="two">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">Give it a <b>goal</b>, not a question.</li>
+            <li data-r data-d="3">It <b>plans</b> the next step, <b>acts</b> with a tool, <b>checks</b> the result.</li>
+            <li data-r data-d="4">Then it decides: loop again, or done.</li>
+            <li data-r data-d="5">Example goal: <b>“screen this company for negative news”</b> — many searches, reading, filtering, then a write-up.</li>
+            <li data-r data-d="6">You will watch an agent run this exact loop in Demo 2.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="loop">
+            <div class="track"></div>
+            <div class="lc">Goal</div>
+            <div class="ln n1"><b>Plan</b><span>what is the next step?</span></div>
+            <div class="ln n2"><b>Act</b><span>use a tool</span></div>
+            <div class="ln n3"><b>Check</b><span>did it work?</span></div>
+            <div class="larr a1">↓</div>
+            <div class="larr a2">←</div>
+            <div class="larr a3">↑</div>
+            <div class="done">✓ Done → report</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">12</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 13 · GROUNDING ============================== -->
+  <section class="slide" data-notes='["Last concept, and it fixes wall two: the model being blind to your data. Give it your documents at question time.","Upload files. When you ask, the system finds the relevant pages and instructs the model: answer from these pages, cite where you found it, say so if the answer is not there.","Turns a confident guesser into a fast reader of your files. Engineers call it RAG; the name matters less than the effect. Lumina, demo four, runs on this."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Grounding</div>
+    <h2 class="slide-title" data-r data-d="1">Ground it in your documents</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="ground" data-r data-d="2">
+        <div class="gbox"><b>Your documents</b><span>contracts, memos, minutes, policies — uploaded once</span></div>
+        <div class="garr">→</div>
+        <div class="gbox"><b>Find the pages</b><span>the system pulls only the parts relevant to your question</span></div>
+        <div class="garr">→</div>
+        <div class="gbox"><b>Answer + citations</b><span>written from those pages — with a pointer to each source</span></div>
+      </div>
+      <div class="gcite" data-r data-d="3"><b>Q:</b> What did we agree with the vendor on penalties? &nbsp;<b>A:</b> Late delivery incurs 0.5% per day, capped at 10%<sup>1</sup>, waived for force majeure<sup>2</sup>. &nbsp;Sources: <sup>1</sup>&nbsp;Contract v2, p. 14 · <sup>2</sup>&nbsp;Addendum, p. 3</div>
+      <p class="flow-cap" data-r data-d="4">The fix for hallucination on document work: answer from the pages, cite the pages, admit when the answer is not there. Engineers call it RAG — Lumina runs on it.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">13</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 14 · DIVIDER P3 ============================== -->
+  <section class="slide dark divider" data-notes='["Everything so far becomes concrete now. Four projects, all built by teams here, all running on prompting, tools, agents and grounding.","For each: the pain it removes, the video, then the connection back to the concepts. Questions in the chat after each one."]'>
+    <div class="pillar-no">03</div>
+    <div class="eyebrow"><span class="dot"></span>Part 3</div>
+    <h2>Built here</h2>
+    <p class="lead">Four working projects — Statement Analyzer, Adverse News, MoM AI, LuminaLM.</p>
+    <div class="prog-rail"><span>01 · LLM basics</span><span>02 · Tools &amp; agents</span><span class="on">03 · Demos</span><span>04 · Using it well</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 15 · DEMO 1 · STATEMENT ANALYZER ============================== -->
+  <section class="slide" data-notes='["Pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, dozens of pages, every bank a different format. Someone retypes transactions line by line. Hours per application.","The tool: upload, OCR reads the pages, the model structures every transaction, then summarises account behaviour.","Concepts at work: reading and restructuring text is the model’s home turf; OCR is a tool in the loop. The analyst still makes the credit judgment — the retyping is gone."]'>
+    <div class="kicker" data-r><span class="badge"></span>Demo 1 · Credit &amp; operations</div>
+    <h2 class="slide-title" data-r data-d="1">Bank Statement Analyzer</h2>
+    <div class="body-area">
+      <div class="vwrap">
+        <div class="vph" data-r data-d="2">
+          <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <b>Demo video — drops in here</b>
+          <span>OCR on real statements · transactions → clean tables · behaviour summary</span>
+        </div>
+        <div class="vrail">
+          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>The pain</b>Other banks’ statements arrive as PDFs and phone scans — every format different, retyped by hand for hours.</div>
+          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>What it does</b>OCR reads every page; the model turns messy text into structured transactions.</div>
+          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>The output</b>Inflow, outflow and balance behaviour, summarised and ready for credit analysis.</div>
+          <div class="vmeta" data-r data-d="6">video coming · placeholder</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">15</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 16 · DEMO 2 · ADVERSE NEWS ============================== -->
+  <section class="slide" data-notes='["Setup: before we deal with a company or an individual we screen for adverse news. Done by hand: dozens of Google searches, per source, per entity — slow, unstandardized, easy to miss things. And the same-name problem.","In the video: two entities entered — Maktour, and a related party, Fuad Hasan Masyhur. Watch the queries preview: ten queries auto-generated across five source categories: SIPP district courts, Mahkamah Agung, negative-news keywords, sanctions and PEP lists, general news.","Then: results stream in parallel, a risk verdict computed from credible sources only — high, for both. The narrative names suspects and cites every source. The Combined tab cross-references the two entities: same KPK case. One click: PDF dossiers with evidence appendix and audit log, ready for the KYC file.","Landing: the agent loop from part two, live. The agent does the legwork; the officer makes the call — verification in minutes, not an hour of searching."]'>
+    <div class="kicker" data-r><span class="badge"></span>Demo 2 · Screening &amp; compliance</div>
+    <h2 class="slide-title" data-r data-d="1">Adverse News Search <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 1:45</span></h2>
+    <div class="body-area">
+      <div class="vwrap">
+        <div class="vframe" data-r data-d="2">
+          <video src="assets/videos/adverse-news.mp4" poster="assets/videos/adverse-news-poster.png" controls preload="metadata"></video>
+        </div>
+        <div class="vrail">
+          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>Queries write themselves</b>Two names in → 10 queries out, across courts (SIPP, Mahkamah Agung), negative news, sanctions &amp; PEP lists, general news.</div>
+          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>Verdict, not links</b>Sources checked in parallel; risk verdict computed from credible sources only.</div>
+          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>Connected entities</b>The Combined tab links both names to the same KPK case — shared evidence, one narrative.</div>
+          <div class="vchip" data-r data-d="6"><b><span class="no">4</span>Audit-ready</b>One click → PDF dossiers: narrative, evidence appendix, audit log. Ready for the KYC file.</div>
+          <div class="vmeta" data-r data-d="7">press R to restart · sound on</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">16</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 17 · DEMO 3 · MoM AI ============================== -->
+  <section class="slide" data-notes='["This one touches everyone: minutes of meeting. Somebody in every meeting half-listens because they are typing notes, and the minutes still arrive two days late.","MoM AI takes the recording, transcribes it — speech-to-text is the tool here — and the model drafts the minutes: what was decided, who owes what, by when.","A draft ready when the meeting ends. You review, fix what it misheard, send. Thirty minutes of typing becomes five minutes of checking — and nobody skips the discussion to take notes."]'>
+    <div class="kicker" data-r><span class="badge"></span>Demo 3 · Everyone</div>
+    <h2 class="slide-title" data-r data-d="1">MoM AI — minutes that write themselves</h2>
+    <div class="body-area">
+      <div class="vwrap">
+        <div class="vph" data-r data-d="2">
+          <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <b>Demo video — drops in here</b>
+          <span>recording → transcript → decisions, action items, owners</span>
+        </div>
+        <div class="vrail">
+          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>The pain</b>Someone half-listens to type notes; the minutes still arrive two days late.</div>
+          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>What it does</b>Transcribes the recording — Bahasa and English — and drafts the minutes.</div>
+          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>The output</b>Decisions, action items, owners, deadlines — ready to review when the meeting ends.</div>
+          <div class="vmeta" data-r data-d="6">video coming · placeholder</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 18 · DEMO 4 · LUMINA ============================== -->
+  <section class="slide" data-notes='["Setup: a programme accumulates documents fast. The video opens with the honest picture: charters, playbooks, status packs, minutes — 157 documents, and the programme’s truth scattered across all of them.","In the video, project Hampton — a banking M&amp;A integration. Sources compile into a living wiki: cross-linked pages, a knowledge graph, always current. Then grounded chat: ask for the strategic imperatives and the answer cites its sources, one chip per claim.","Also on screen: the programme timeline with every workstream, dependency and tollgate; and Studio — pick a template and it drafts the Word, Excel or PowerPoint pack from the wiki.","Landing: grounding from part two, in production. It answers from the documents and cites the page — and when the answer is not there, it says so instead of inventing one. A colleague who has read every project document and never forgets a page number."]'>
+    <div class="kicker" data-r><span class="badge"></span>Demo 4 · Ask your project anything</div>
+    <h2 class="slide-title" data-r data-d="1">LuminaLM <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 0:50</span></h2>
+    <div class="body-area">
+      <div class="vwrap">
+        <div class="vframe" data-r data-d="2">
+          <video src="assets/videos/lumina.mp4" poster="assets/videos/lumina-poster.png" controls preload="metadata"></video>
+        </div>
+        <div class="vrail">
+          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>157 documents → one wiki</b>Charters, playbooks, minutes compile into cross-linked, always-current pages.</div>
+          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>Grounded chat</b>Every claim carries a citation chip back to the exact source page.</div>
+          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>One timeline</b>Every workstream, dependency and tollgate in a single view.</div>
+          <div class="vchip" data-r data-d="6"><b><span class="no">4</span>Studio</b>Word, Excel or PowerPoint packs — drafted from the wiki, in your template.</div>
+          <div class="vmeta" data-r data-d="7">press R to restart · sound on</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">18</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 19 · THE PATTERN ============================== -->
+  <section class="slide" data-notes='["Four side by side, one pattern. Each is the same text predictor from part one, plus tools, plus your documents.","In each one the person keeps the judgment: the analyst approves the credit, the officer clears the name, you sign the minutes, the team makes the decisions.","What the AI removed is the reading, retyping, searching and formatting that sat between people and their judgment. Less magic than the headlines — and more useful."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 3 · What they share</div>
+    <h2 class="slide-title" data-r data-d="1">Four tools, one pattern</h2>
+    <div class="body-area" style="justify-content:center">
+      <table class="ptable" data-r data-d="2">
+        <tr><th>Project</th><th>The AI does</th><th>Tool in the loop</th><th>The human keeps</th></tr>
+        <tr><td>Statement Analyzer</td><td>reads &amp; structures messy documents</td><td><span class="tool">OCR</span></td><td>the credit judgment</td></tr>
+        <tr><td>Adverse News</td><td>searches, filters, writes the risk narrative</td><td><span class="tool">search · courts · lists</span></td><td>clearing the name</td></tr>
+        <tr><td>MoM AI</td><td>transcribes &amp; drafts the minutes</td><td><span class="tool">speech-to-text</span></td><td>the sign-off</td></tr>
+        <tr><td>LuminaLM</td><td>answers from project docs, with citations</td><td><span class="tool">document index</span></td><td>the decisions</td></tr>
+      </table>
+      <div class="pline" data-r data-d="3">Same model underneath. Tools plus your documents. <span class="red">Judgment stays human.</span></div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">19</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 20 · START SAFELY ============================== -->
+  <section class="slide" data-notes='["How to start, and how to stay safe. Start where a rough draft has value: summarise a circular, draft a reply, translate a document, ask it to explain a term from a meeting.","Rule one: customer data and confidential material never go into public AI tools. Use what the bank provides and follow our data policy. Rule two: verify facts, numbers and citations before they travel — you saw why in part one.","Rule three: whatever you send still carries your name. Treat AI output like an intern’s draft: useful, fast, and reviewed before it leaves your desk."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 4 · Using it well</div>
+    <h2 class="slide-title" data-r data-d="1">Start this week — inside the rules</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="compare">
+        <div class="comp good" data-r data-d="2">
+          <h4>Start here</h4>
+          <ul>
+            <li>Summarise a long circular or report into one page</li>
+            <li>Draft and polish emails — then edit in your voice</li>
+            <li>Translate documents, Bahasa &harr; English</li>
+            <li>Have it explain an unfamiliar term from a meeting</li>
+          </ul>
+        </div>
+        <div class="comp warn" data-r data-d="3">
+          <h4>Rules of the road</h4>
+          <ul>
+            <li>Customer &amp; confidential data never enter public AI tools — use what the bank provides</li>
+            <li>Verify every fact, number and citation before it travels</li>
+            <li>AI output is a draft. What you send carries your name</li>
+          </ul>
+        </div>
+      </div>
+      <p class="flow-cap" data-r data-d="4">The intern rule, one last time: brilliant, fast — and reviewed before it leaves your desk.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">20</span></div>
+  </section>
+
+  <!-- ============================== SLIDE 21 · CLOSING ============================== -->
+  <section class="slide dark" data-notes='["Fifty minutes ago the question was whether AI can do useful work at a bank today. You have now seen how the machine works, what its limits are, and four running answers built in this building.","If a task in your unit looks like the pattern — lots of reading, retyping, searching, summarising — come talk to Analytics &amp; Decision Making.","Try one small task this week. Terima kasih — questions, please."]'>
+    <div class="body-area" style="justify-content:center">
+      <div class="kicker" data-r><span class="badge"></span>Wrap &amp; Q&amp;A</div>
+      <h2 class="slide-title" data-r data-d="1" style="font-size:44px;margin-bottom:6px">Useful work, today — you just watched it</h2>
+      <p class="slide-sub" data-r data-d="2" style="color:rgba(255,255,255,.65);margin-bottom:26px">Terima kasih. The floor is open — and the chat too.</p>
+      <div class="recap-grid" style="flex:none">
+        <div class="recap-col recap" data-r data-d="3">
+          <h4><span style="width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block"></span>What we covered</h4>
+          <ul>
+            <li>An LLM predicts the next word — talents and failures both follow</li>
+            <li>Tools, agents and grounding turn prediction into work</li>
+            <li>Four projects running in the bank, on video</li>
+            <li>Safe first steps for your own desk</li>
+          </ul>
+        </div>
+        <div class="recap-col next" data-r data-d="4">
+          <h4><span style="width:8px;height:8px;border-radius:50%;background:#ff6a6f;display:inline-block"></span>What happens next</h4>
+          <ul>
+            <li><b style="color:#fff">Try one task this week</b> — a summary, a draft, a translation</li>
+            <li>Spot the pattern in your unit? Bring it to <b style="color:#fff">Analytics &amp; Decision Making</b></li>
+            <li>Slides &amp; demo videos shared after the session</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon-white.png" alt=""/>Learning at Lunch · Beyond the Hype</div><span class="pg">21</span></div>
+  </section>
+
+  <!-- SLIDE-INSERT -->
+  </main>
+</div>
+
+<style>
+.home-btn{position:fixed; top:16px; left:18px; z-index:55; display:flex; align-items:center; gap:7px;
+  font-family:var(--fMono,'JetBrains Mono',monospace); font-size:12px; font-weight:600; letter-spacing:.01em; text-decoration:none;
+  color:#fff; background:rgba(18,18,22,.6); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.2); padding:7px 13px 7px 11px; border-radius:99px;
+  transition:background .2s ease, transform .2s ease, opacity .2s ease; opacity:.82}
+.home-btn:hover{background:var(--red,#EC1B23); border-color:transparent; opacity:1; transform:translateY(-1px)}
+.home-btn:active{transform:translateY(0)}
+.home-btn svg{width:15px; height:15px}
+@media print{.home-btn{display:none}}
+</style>
+<a class="home-btn" href="../index.html" aria-label="Back to home" title="Back to home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9h5v-5h4v5h5v-9"/></svg>Home</a>
+<div class="hud">
+  <div class="dots" id="dots"></div>
+  <div class="count">slide <b id="cur">1</b> / <span id="tot">34</span></div>
+</div>
+<div class="hint"><kbd>→</kbd> next &nbsp; <kbd>←</kbd> back &nbsp; <kbd>N</kbd> notes &nbsp; <kbd>F</kbd> full</div>
+
+<div class="rotate-cue" aria-hidden="true">
+  <div>
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="7" y="2" width="10" height="20" rx="2.2"/><path d="M11 18.5h2"/></svg>
+    <h4>Rotate your device</h4>
+    <p>This deck is built for a wide 16:9 stage — turn your phone to landscape for the full view.</p>
+  </div>
+</div>
+
+<div class="notes" id="notes">
+  <button class="close" id="notesClose">&times;</button>
+  <h5><span style="width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block"></span>Speaker notes</h5>
+  <ul id="notesBody"></ul>
+</div>
+
+<script>
+/* ---- fit fixed 1280x720 stage to viewport ---- */
+const STATIC = location.search.includes('static');
+if(STATIC) document.body.classList.add('static');
+const deck = document.getElementById('deck');
+function fit(){
+  const vv = window.visualViewport;
+  const w = (vv && vv.width)  || innerWidth  || document.documentElement.clientWidth  || 1280;
+  const h = (vv && vv.height) || innerHeight || document.documentElement.clientHeight || 720;
+  const s = Math.min(w/1280, h/720) || 1;
+  // anchor top-left and centre with an explicit pixel offset — robust even when
+  // the deck is larger than the viewport (small mobile-landscape screens)
+  const x = (w - 1280*s) / 2, y = (h - 720*s) / 2;
+  deck.style.transform = `translate(${x}px, ${y}px) scale(${s>0?s:1})`;
+}
+addEventListener('resize', fit);
+addEventListener('load', fit);
+// mobile: re-fit when rotating or when the browser chrome resizes the visible area
+addEventListener('orientationchange', ()=>{ fit(); setTimeout(fit,200); setTimeout(fit,500); });
+if(window.visualViewport){ visualViewport.addEventListener('resize', fit); }
+fit(); requestAnimationFrame(fit); setTimeout(fit,120);
+
+/* ---- presentation controller ---- */
+const slides = [...document.querySelectorAll('.slide')];
+const TOT = slides.length;
+let i = 0;
+document.getElementById('tot').textContent = TOT;
+
+const dotsEl = document.getElementById('dots');
+slides.forEach((sl,idx)=>{
+  const d = document.createElement('span');
+  d.className='dot'+(sl.classList.contains('dark')?' sec':'');
+  d.addEventListener('click',()=>go(idx));
+  dotsEl.appendChild(d);
+});
+const dots=[...dotsEl.children];
+// page numbers follow slide order (so slides can be inserted freely)
+slides.forEach((s,idx)=>{const pg=s.querySelector('.foot .pg'); if(pg)pg.textContent=String(idx+1).padStart(2,'0');});
+
+const notesEl=document.getElementById('notes');
+const notesBody=document.getElementById('notesBody');
+function renderNotes(){
+  let data=[]; try{data=JSON.parse(slides[i].dataset.notes||'[]')}catch(e){}
+  notesBody.innerHTML='';
+  if(!data.length){notesBody.innerHTML='<li style="color:#777">No notes for this slide.</li>';}
+  data.forEach(t=>{const li=document.createElement('li');li.textContent=t;notesBody.appendChild(li);});
+}
+function go(n){
+  n=Math.max(0,Math.min(TOT-1,n));
+  if(n===i) return;
+  slides[i].classList.remove('active'); slides[i].classList.add('prev');
+  slides[n].classList.remove('prev'); slides[n].classList.add('active');
+  i=n; sync();
+}
+function sync(){
+  document.getElementById('progress').style.width=((i+1)/TOT*100)+'%';
+  document.getElementById('cur').textContent=i+1;
+  dots.forEach((d,x)=>d.classList.toggle('on',x===i));
+  location.hash=i+1;
+  if(notesEl.classList.contains('show')) renderNotes();
+  // (re)trigger counters on the active slide
+  triggerCounters(slides[i]);
+  playDemo(slides[i]);
+}
+function next(){go(i+1)} function prev(){go(i-1)}
+
+/* keyboard */
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();}
+  else if(e.key==='Home'){go(0)} else if(e.key==='End'){go(TOT-1)}
+  else if(e.key.toLowerCase()==='n'){notesEl.classList.toggle('show'); renderNotes();}
+  else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+});
+document.getElementById('notesClose').addEventListener('click',()=>notesEl.classList.remove('show'));
+
+/* wheel (debounced) */
+let wlock=false;
+addEventListener('wheel',e=>{
+  if(wlock) return; if(Math.abs(e.deltaY)<18) return;
+  wlock=true; e.deltaY>0?next():prev();
+  setTimeout(()=>wlock=false,650);
+},{passive:true});
+
+/* touch */
+let tx=0,ty=0;
+addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)) dx<0?next():prev();
+},{passive:true});
+
+/* counters */
+function triggerCounters(slide){
+  slide.querySelectorAll('[data-count]').forEach(el=>{
+    if(el.dataset.done) return; el.dataset.done='1';
+    const end=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+    if(STATIC){el.innerHTML=pre+end+(suf?'<span class="unit">'+suf+'</span>':'');return;}
+    const dur=1100, t0=performance.now();
+    function tick(t){
+      const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
+      const v=Math.round(end*e);
+      el.innerHTML=pre+v+(suf?'<span class="unit">'+suf+'</span>':'');
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+  // progress rings
+  slide.querySelectorAll('[data-ring]').forEach(el=>{
+    if(el.dataset.done) return; el.dataset.done='1';
+    const circle=el.querySelector('.fg'); if(!circle)return;
+    const pct=+el.dataset.ring, len=circle.getTotalLength();
+    if(STATIC){circle.style.strokeDasharray=len;circle.style.strokeDashoffset=len*(1-pct/100);const o=el.querySelector('.pct');if(o)o.textContent=pct+'%';return;}
+    circle.style.strokeDasharray=len; circle.style.strokeDashoffset=len;
+    requestAnimationFrame(()=>{circle.style.transition='stroke-dashoffset 1.3s cubic-bezier(.16,1,.3,1)';circle.style.strokeDashoffset=len*(1-pct/100);});
+    const out=el.querySelector('.pct'); if(out){const t0=performance.now();(function tk(t){const p=Math.min(1,(t-t0)/1300);out.textContent=Math.round(pct*(1-Math.pow(1-p,3)))+'%';if(p<1)requestAnimationFrame(tk);})(performance.now());}
+  });
+}
+
+/* notebook demo player */
+const demoTimers=[];
+function clearDemo(){demoTimers.forEach(clearTimeout); demoTimers.length=0;}
+function playDemo(slide){
+  if(!slide.classList.contains('demo-slide')) return;
+  clearDemo();
+  const cells=[...slide.querySelectorAll('.nb-cell')];
+  const steps=[...slide.querySelectorAll('.demo-steps li')];
+  cells.forEach(c=>{c.classList.remove('shown','running'); const o=c.querySelector('.nb-out'); if(o)o.classList.remove('shown'); const p=c.querySelector('.nb-prompt'); if(p){p.classList.remove('busy'); p.textContent='['+(cells.indexOf(c)+1)+']';}});
+  steps.forEach(s=>s.classList.remove('on'));
+  if(STATIC){cells.forEach(c=>{c.classList.add('shown'); const o=c.querySelector('.nb-out'); if(o)o.classList.add('shown');}); steps.forEach(s=>s.classList.add('on')); const body=slide.querySelector('.nb-body'); if(body){body.style.scrollBehavior='auto'; const snap=()=>body.scrollTop=body.scrollHeight; snap(); requestAnimationFrame(snap); setTimeout(snap,80);} return;}
+  let t=420;
+  cells.forEach((cell,idx)=>{
+    const prompt=cell.querySelector('.nb-prompt');
+    const out=cell.querySelector('.nb-out');
+    demoTimers.push(setTimeout(()=>{cell.classList.add('shown','running'); if(prompt){prompt.classList.add('busy'); prompt.textContent='[*]';} const body=cell.parentElement; body.scrollTop=Math.max(0,cell.offsetTop-90);},t));
+    t+=720;
+    demoTimers.push(setTimeout(()=>{
+      cell.classList.remove('running');
+      if(prompt){prompt.classList.remove('busy'); prompt.textContent='['+(idx+1)+']';}
+      if(out)out.classList.add('shown');
+      if(steps[idx])steps[idx].classList.add('on');
+    },t));
+    t+=820;
+  });
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-replay]'); if(!b) return;
+  playDemo(b.closest('.slide'));
+});
+addEventListener('keydown',e=>{if(e.key.toLowerCase()==='r'){const s=slides[i]; if(s.classList.contains('demo-slide'))playDemo(s);}});
+
+/* auto-hide chrome when idle */
+let idleT; function poke(){document.body.classList.remove('idle'); clearTimeout(idleT); idleT=setTimeout(()=>document.body.classList.add('idle'),3200);}
+['mousemove','keydown','touchstart','wheel','click'].forEach(ev=>addEventListener(ev,poke,{passive:true})); poke();
+
+/* deep link */
+if(location.hash){const n=parseInt(location.hash.slice(1));if(n>=1&&n<=TOT){slides[0].classList.remove('active');i=n-1;slides[i].classList.add('active');}}
+sync();
+</script>
+<script>
+/* ---- demo video handling: pause on slide change, R restarts ---- */
+const _origGo = go;
+go = function(n){ document.querySelectorAll('.slide video').forEach(v=>v.pause()); _origGo(n); };
+addEventListener('keydown', e=>{
+  if(e.key.toLowerCase()==='r'){
+    const v = slides[i] && slides[i].querySelector('video');
+    if(v){ v.currentTime = 0; v.play(); }
+  }
+});
+</script>
+</body>
+</html>
