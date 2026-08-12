@@ -85,9 +85,9 @@ Slide 14 — Or use a framework: COSTAR
   • Next slide: a real one, filled in.
 
 Slide 15 — COSTAR, filled in
-  • COSTAR filled in, for a real task: an RM inviting a customer to review a facility.
-  • Left: the six boxes. Each line answers a question the model would otherwise guess.
-  • Right: the email it produced. Bahasa, warm, under 120 words, one clear next step.
+  • New scenario, and a very Indonesian one: the APK scam on WhatsApp. Fake invitations and package receipts that steal OTP codes. OJK and every bank warn about it.
+  • Notice: the prompt itself is in Bahasa. COSTAR works in any language.
+  • Left, the six boxes. Right, the broadcast it produced: under 100 words, three rules at the end, calm not scary.
   • Copy this shape. Fill in your own six boxes.
 
 Slide 16 — Three walls, one fix: tools

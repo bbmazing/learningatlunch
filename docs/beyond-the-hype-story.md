@@ -277,18 +277,29 @@ Response.
 
 ## Slide 15 · COSTAR, filled in — 2 min
 
-**Layout**: the annotated prompt card (lines tagged C/O/S/T/A/R) side
-by side with the result: the drafted Bahasa email, under 120 words.
+**Layout**: the annotated prompt card (lines tagged C/O/S/T/A/R,
+written in Bahasa) beside the result: a WhatsApp broadcast draft
+warning customers about the APK/OTP scam, in a WhatsApp-style frame.
+**Scenario grounding**: the APK-file scam (fake wedding invitations and
+package receipts sent by WhatsApp that steal OTP codes) is a real,
+widely-warned modus in Indonesia; OJK and banks such as BSI run public
+awareness campaigns about it, with the standard advice: never open APK
+files from unknown numbers, never share OTP/PIN, contact the official
+call center when in doubt.
 
 **Say:**
 
-> Here is COSTAR filled in for a real task. Context: I am an RM, my
-> customer runs a catering business, three years with us. Objective:
-> draft an email inviting her to review our working-capital facility.
-> Style: a trusted advisor, not a sales blast. Tone: warm and
-> confident. Audience: a busy owner reading on her phone. Response:
-> Bahasa Indonesia, under 120 words, one clear next step. Copy this
-> shape and fill in your own six boxes.
+> Here is COSTAR filled in, and notice the prompt is in Bahasa. The
+> framework works in any language. The scenario: the APK scam on
+> WhatsApp, the fake wedding invitation or package receipt that steals
+> OTP codes. Context: I am branch comms staff, and this modus is
+> everywhere. Objective: a WhatsApp warning for our customers. Style:
+> simple Bahasa, no technical terms. Tone: protective and calming, not
+> scary. Audience: all ages, including our parents. Response: under 100
+> words, ending with three rules that stick. And on the right, the
+> broadcast it produced: calm, clear, three rules, and the line that
+> matters most, the bank never asks for your OTP. Copy this shape.
+> Fill in your own six boxes.
 
 ## Slide 16 · Three walls, one fix: tools — 2 min
 
