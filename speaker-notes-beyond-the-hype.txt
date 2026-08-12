@@ -4,7 +4,7 @@ Speaker notes · 23 slides
 
 Slide 1 — Beyond the Hype What AI Can Do Today
   • Welcome. I am Bryan, from Analytics & Decision Making.
-  • Today: how AI works, plus four AI tools built in this bank.
+  • Today: practical ways to use AI in your work, shown with four tools built in this bank.
   • Questions in the chat any time. I pause after each demo.
 
 Slide 2 — LLM: Large Language Models
