@@ -1,0 +1,46 @@
+Learning at Lunch — Deck Template
+Speaker notes · 9 slides
+================================================
+
+Slide 1 — Your Topic Accent Line
+  • Cover slide. Replace the h1, meta block and program line with your topic.
+  • The two-line h1 uses a <span class="red"> for the accent line.
+  • Every element with data-r animates in when the slide becomes active; data-d staggers the delay.
+
+Slide 2 — 
+  • Quote slide — a dark slide with a big pull-quote. Use it to set the thesis of the session.
+  • Swap the blockquote and cite. Keep it to one sentence.
+
+Slide 3 — What we will cover today
+  • Agenda slide — one .jcard per section of the talk.
+  • The optional <span class="demo"> chip flags where a live demo lands.
+  • Keep it to 3–5 cards so the row stays readable.
+
+Slide 4 — Bullets on the left, visual on the right
+  • The workhorse layout: bullets on the left, a visual on the right.
+  • The .two.wide-r variant gives the visual more room; plain .two splits evenly.
+  • The visual here is the CSS-only Venn — swap in any widget, chart image or diagram.
+
+Slide 5 — Three numbers that tell the story
+  • Stat row — three big animated counters.
+  • data-count is the target number; data-prefix / data-suffix wrap it ($, %, M, T…).
+  • Counters animate once per slide visit; ?static in the URL snaps them to final.
+
+Slide 6 — Six ideas, one card each
+  • Card grid — .cards.c3 is a 3-across grid (6 cards = 2 rows).
+  • Each card: inline SVG icon + h3 + one-sentence p.
+  • Icons are 24×24 stroke SVGs — swap the paths for anything.
+
+Slide 7 — A five-step process, left to right
+  • Process flow — numbered steps with arrows, for any pipeline or loop.
+  • .flow.compact fits five steps; drop .compact for four or fewer.
+  • Close with a .flow-cap one-liner under the flow.
+
+Slide 8 — Section 1 — Section Title
+  • Section divider — a dark interstitial that opens each major section.
+  • The .prog-rail shows where we are; mark the current section with class="on".
+  • Keep the lead line to one sentence.
+
+Slide 9 — The one-line takeaway
+  • Closing slide — recap on the left, what comes next on the right.
+  • End with a thank-you and open the floor for questions.

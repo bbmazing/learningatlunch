@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Speaker notes · Deck Template · Learning at Lunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--red:#EC1B23;--ink:#1A1A1A;--text:#1F2937;--muted:#5b626d;--faint:#9AA1AC;
+  --line:#E7E8EB;--tint:#FCEEEF;--tint2:#FBE2E3;
+  --fHead:'Manrope',system-ui,sans-serif;--fBody:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fBody);color:var(--text);background:
+    radial-gradient(900px 500px at 100% -10%, rgba(236,27,35,.10), transparent 60%), #fbfbfc;
+  -webkit-font-smoothing:antialiased;padding-bottom:60px}
+.bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:14px 22px;background:rgba(251,251,252,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.bar .ttl{font-family:var(--fHead);font-weight:800;font-size:16px;letter-spacing:-.01em;color:var(--ink)}
+.bar .sub{font-size:12px;color:var(--faint);margin-top:2px}
+.bar .right{display:flex;align-items:center;gap:8px;flex:none;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--fHead);font-weight:700;
+  font-size:12.5px;text-decoration:none;border-radius:99px;padding:8px 14px;white-space:nowrap;
+  cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.btn svg{width:14px;height:14px}
+.btn.ghost{color:var(--muted);border:1px solid var(--line);background:#fff}
+.btn.ghost:hover{border-color:var(--tint2);color:var(--ink)}
+.btn.red{color:var(--red);background:var(--tint);border:1px solid var(--tint2)}
+.btn.red:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.on{background:var(--red);color:#fff;border-color:var(--red)}
+.banner{display:none;align-items:center;gap:8px;font-size:13px;color:#8a1015;
+  background:var(--tint);border-bottom:1px solid var(--tint2);padding:10px 22px}
+.banner b{color:var(--red)}
+body.editing .banner{display:flex}
+main{max-width:820px;margin:0 auto;padding:8px 22px}
+.lead{font-family:var(--fHead);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.7rem,5vw,2.4rem);
+  color:var(--ink);margin:26px 0 6px}
+.lead .red{color:var(--red)}
+.intro{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:14px;max-width:60ch}
+.s{padding:20px 0;border-bottom:1px solid var(--line)}
+.s:last-child{border-bottom:none}
+.s .n{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+.s h2{font-family:var(--fHead);font-weight:700;font-size:18px;letter-spacing:-.015em;color:var(--ink);margin:4px 0 11px}
+.s ul{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:9px}
+.s li{font-size:14.5px;line-height:1.6;color:var(--text)}
+/* edit affordances */
+body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:1px dashed var(--tint2);
+  outline-offset:4px;border-radius:4px}
+.s h2[contenteditable]:focus,.s li[contenteditable]:focus{outline:2px solid var(--red);
+  outline-offset:4px;background:#fff}
+@media(max-width:560px){
+  .bar{padding:11px 14px}
+  .bar .sub{display:none}
+  .btn{padding:7px 10px;font-size:11.5px}
+  .btn .lbl-long{display:none}
+  .banner{padding:9px 14px;font-size:12px}
+  main{padding:6px 16px}
+  .s li{font-size:14px}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div>
+    <div class="ttl">Speaker notes</div>
+    <div class="sub">Deck Template · 9 slides</div>
+  </div>
+  <div class="right">
+    <a class="btn ghost" href="index.html">&larr; Back</a>
+    <button class="btn ghost" id="edit" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+      <span id="editLbl">Edit</span>
+    </button>
+    <button class="btn ghost" id="reset" type="button" style="display:none">Reset</button>
+    <a class="btn red" id="dl" href="speaker-notes-template.txt" download="learning-at-lunch-deck-template-speaker-notes.txt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+      <span class="lbl-long">Download&nbsp;</span>.txt
+    </a>
+  </div>
+</header>
+<div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
+<main>
+  <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Deck Template deck. 9 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <div id="notes">
+    <article class="s">
+      <div class="n">Slide 1</div>
+      <h2>Your Topic Accent Line</h2>
+      <ul>
+        <li>Cover slide. Replace the h1, meta block and program line with your topic.</li>
+        <li>The two-line h1 uses a &lt;span class="red"&gt; for the accent line.</li>
+        <li>Every element with data-r animates in when the slide becomes active; data-d staggers the delay.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 2</div>
+      <h2></h2>
+      <ul>
+        <li>Quote slide — a dark slide with a big pull-quote. Use it to set the thesis of the session.</li>
+        <li>Swap the blockquote and cite. Keep it to one sentence.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 3</div>
+      <h2>What we will cover today</h2>
+      <ul>
+        <li>Agenda slide — one .jcard per section of the talk.</li>
+        <li>The optional &lt;span class="demo"&gt; chip flags where a live demo lands.</li>
+        <li>Keep it to 3–5 cards so the row stays readable.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 4</div>
+      <h2>Bullets on the left, visual on the right</h2>
+      <ul>
+        <li>The workhorse layout: bullets on the left, a visual on the right.</li>
+        <li>The .two.wide-r variant gives the visual more room; plain .two splits evenly.</li>
+        <li>The visual here is the CSS-only Venn — swap in any widget, chart image or diagram.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 5</div>
+      <h2>Three numbers that tell the story</h2>
+      <ul>
+        <li>Stat row — three big animated counters.</li>
+        <li>data-count is the target number; data-prefix / data-suffix wrap it ($, %, M, T…).</li>
+        <li>Counters animate once per slide visit; ?static in the URL snaps them to final.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 6</div>
+      <h2>Six ideas, one card each</h2>
+      <ul>
+        <li>Card grid — .cards.c3 is a 3-across grid (6 cards = 2 rows).</li>
+        <li>Each card: inline SVG icon + h3 + one-sentence p.</li>
+        <li>Icons are 24×24 stroke SVGs — swap the paths for anything.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 7</div>
+      <h2>A five-step process, left to right</h2>
+      <ul>
+        <li>Process flow — numbered steps with arrows, for any pipeline or loop.</li>
+        <li>.flow.compact fits five steps; drop .compact for four or fewer.</li>
+        <li>Close with a .flow-cap one-liner under the flow.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 8</div>
+      <h2>Section 1 — Section Title</h2>
+      <ul>
+        <li>Section divider — a dark interstitial that opens each major section.</li>
+        <li>The .prog-rail shows where we are; mark the current section with class="on".</li>
+        <li>Keep the lead line to one sentence.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 9</div>
+      <h2>The one-line takeaway</h2>
+      <ul>
+        <li>Closing slide — recap on the left, what comes next on the right.</li>
+        <li>End with a thank-you and open the floor for questions.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+<script>
+(function(){
+  var KEY = 'ocbc-crayon-speaker-notes-v1';
+  var arts = [].slice.call(document.querySelectorAll('#notes .s'));
+  var fields = [].slice.call(document.querySelectorAll('#notes h2, #notes li'));
+  var resetBtn = document.getElementById('reset');
+
+  function collect(){
+    return arts.map(function(s){
+      return { t: (s.querySelector('h2')||{}).textContent || '',
+               n: [].slice.call(s.querySelectorAll('li')).map(function(li){ return li.textContent; }) };
+    });
+  }
+  function showReset(on){ resetBtn.style.display = on ? '' : 'none'; }
+
+  // apply any saved edits
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){
+      var data = JSON.parse(raw);
+      arts.forEach(function(s,i){
+        var rec = data[i]; if(!rec) return;
+        var h = s.querySelector('h2'); if(h && rec.t != null) h.textContent = rec.t;
+        var lis = [].slice.call(s.querySelectorAll('li'));
+        (rec.n||[]).forEach(function(t,k){ if(lis[k]) lis[k].textContent = t; });
+      });
+      showReset(true);
+    }
+  }catch(e){}
+
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(collect())); showReset(true); }catch(e){} }
+
+  // edit toggle
+  var editing = false, editBtn = document.getElementById('edit'), editLbl = document.getElementById('editLbl');
+  editBtn.addEventListener('click', function(){
+    editing = !editing;
+    document.body.classList.toggle('editing', editing);
+    editBtn.classList.toggle('on', editing);
+    editLbl.textContent = editing ? 'Done' : 'Edit';
+    fields.forEach(function(el){ el.contentEditable = editing ? 'true' : 'false'; });
+    if(editing){ if(fields[0]) fields[0].focus(); } else { save(); }
+  });
+  document.addEventListener('input', function(){ if(editing) save(); });
+
+  // download current (edited) content as .txt
+  function buildTxt(){
+    var L = ['Learning at Lunch — Deck Template', 'Speaker notes · ' + arts.length + ' slides',
+             '================================================', ''];
+    collect().forEach(function(r,i){
+      L.push('Slide ' + (i+1) + ' — ' + r.t);
+      r.n.forEach(function(n){ L.push('  \u2022 ' + n); });
+      L.push('');
+    });
+    return L.join('\n').replace(/\s+$/, '') + '\n';
+  }
+  document.getElementById('dl').addEventListener('click', function(ev){
+    ev.preventDefault();
+    var blob = new Blob([buildTxt()], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'learning-at-lunch-deck-template-speaker-notes.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  resetBtn.addEventListener('click', function(){
+    if(!confirm('Discard your edits and restore the original notes?')) return;
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    location.reload();
+  });
+})();
+</script>
+</body>
+</html>

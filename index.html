@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learning at Lunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --red:#EC1B23;--red-dark:#B3141A;--ink:#1A1A1A;--text:#1F2937;
+  --muted:#6B7280;--faint:#9AA1AC;--line:#E7E8EB;--card:#F5F5F6;
+  --fHead:'Manrope',system-ui,sans-serif;--fBody:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--fBody);color:var(--text);min-height:100vh;
+  background:
+    radial-gradient(1000px 560px at 92% -8%, rgba(236,27,35,.12), transparent 58%),
+    radial-gradient(700px 500px at -8% 108%, rgba(236,27,35,.06), transparent 60%),
+    #fbfbfc;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:1080px;margin:0 auto;padding:30px 40px 70px}
+
+/* top bar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:46px}
+.topbar .wordmark{font-family:var(--fHead);font-weight:800;font-size:17px;letter-spacing:-.02em;color:var(--ink)}
+.topbar .wordmark .red{color:var(--red)}
+.topbar .tag{font-family:var(--fHead);font-weight:700;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:10px}
+.topbar .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+
+/* hero */
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-family:var(--fHead);font-weight:700;
+  font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.eyebrow .badge{width:24px;height:24px;border-radius:50%;background:var(--red);position:relative;
+  overflow:hidden;box-shadow:0 0 0 4px #FCEEEF;flex:none}
+.eyebrow .badge::before{content:"";position:absolute;left:50%;bottom:5px;border-left:7px solid transparent;
+  border-right:7px solid transparent;border-bottom:9px solid #fff;transform:translateX(-50%)}
+h1{font-family:var(--fHead);font-weight:800;letter-spacing:-.03em;line-height:.98;
+  font-size:clamp(2.6rem,8vw,5.4rem);color:var(--ink)}
+h1 .red{color:var(--red)}
+.lede{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--muted);max-width:62ch;line-height:1.6;margin:22px 0 42px}
+.lede b{color:var(--text);font-weight:600}
+
+/* action buttons — small, all side by side (desktop + mobile) */
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.act{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit;
+  border:1px solid var(--line);background:#fff;border-radius:14px;padding:15px 18px;
+  transition:transform .26s cubic-bezier(.16,1,.3,1),box-shadow .26s ease,border-color .26s ease}
+.act:hover{transform:translateY(-3px);box-shadow:0 22px 44px -28px rgba(0,0,0,.32);border-color:#FBE2E3}
+.act .ic{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;
+  background:#FCEEEF;color:var(--red)}
+.act .ic svg{width:19px;height:19px}
+.act .tx{min-width:0}
+.act .tx b{display:block;font-family:var(--fHead);font-weight:800;font-size:14.5px;
+  letter-spacing:-.01em;color:var(--ink);line-height:1.15}
+.act .tx span{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.act.primary{background:linear-gradient(155deg,#26262b,#161618);border-color:#26262b}
+.act.primary .tx b{color:#fff}
+.act.primary .tx span{color:rgba(255,255,255,.66)}
+.act.primary .ic{background:rgba(255,122,126,.18);color:#ff7a7e}
+@media(max-width:560px){
+  .actions{gap:8px}
+  .act{flex-direction:column;text-align:center;gap:7px;padding:13px 7px}
+  .act .ic{width:32px;height:32px}
+  .act .ic svg{width:17px;height:17px}
+  .act .tx b{font-size:11.5px;letter-spacing:-.02em}
+  .act .tx span{display:none}
+  /* keep the topic identifier on the deck button */
+  .act.primary .tx span{display:block;font-size:10px;margin-top:3px}
+}
+
+/* per-topic blocks */
+.topic{margin-top:24px}
+.topic.first{margin-top:14px}
+.t-head{display:flex;align-items:center;gap:11px;margin-bottom:13px;flex-wrap:wrap}
+.t-no{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 11px}
+.t-title{font-family:var(--fHead);font-weight:800;font-size:19px;letter-spacing:-.015em;color:var(--ink)}
+.t-badge{font-family:var(--fHead);font-weight:700;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  color:#1E8E5A;background:#E9F7EE;border:1px solid #cdebd8;border-radius:99px;padding:4px 10px}
+@media(max-width:560px){.t-title{font-size:16px}.t-no{font-size:10px}}
+
+/* footer */
+.foot{margin-top:46px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  font-size:12.5px;color:var(--faint)}
+.foot .keys kbd{font-family:var(--fHead);font-weight:700;background:#fff;border:1px solid var(--line);
+  border-radius:6px;padding:2px 8px;color:var(--ink);font-size:11.5px;margin:0 1px}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <div class="wordmark">Learning <span class="red">at Lunch</span></div>
+    <div class="tag">Session Series</div>
+  </header>
+
+  <div class="eyebrow"><span class="badge"></span>Learning at Lunch</div>
+  <h1>Learning <span class="red">at Lunch</span></h1>
+  <p class="lede">Short, hands-on lunchtime sessions — each topic is a <b>self-contained animated 16:9 HTML deck</b>
+    that runs in any browser, works offline, and comes with editable <b>speaker notes</b>.
+    New topics are added as the series grows.</p>
+
+  <section class="topic first">
+    <div class="t-head"><span class="t-no">Start here</span><span class="t-title">Deck Template</span><span class="t-badge">Available</span></div>
+    <div class="actions">
+      <a class="act primary" href="web/template.standalone.html">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="tx"><b>Open the deck</b><span>9 starter slide layouts</span></span>
+      </a>
+      <a class="act" href="web/components.standalone.html">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        <span class="tx"><b>Components</b><span>Animated widgets</span></span>
+      </a>
+      <a class="act" href="speaker-notes-template.html" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 10h16M4 15h10"/></svg></span>
+        <span class="tx"><b>Speaker notes</b><span>Preview &amp; download</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="topic">
+    <div class="t-head"><span class="t-no">Example</span><span class="t-title">Python Data Foundations</span><span class="t-badge">Available</span></div>
+    <div class="actions">
+      <a class="act primary" href="web/python-data-foundations.standalone.html">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="tx"><b>Open the deck</b><span>34 animated slides</span></span>
+      </a>
+      <a class="act" href="web/components.standalone.html">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+        <span class="tx"><b>Components</b><span>Animated widgets</span></span>
+      </a>
+      <a class="act" href="speaker-notes-python-data-foundations.html" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 10h16M4 15h10"/></svg></span>
+        <span class="tx"><b>Speaker notes</b><span>Preview &amp; download</span></span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="keys">In any deck: <kbd>→</kbd> <kbd>←</kbd> navigate · <kbd>N</kbd> notes · <kbd>R</kbd> replay demo · <kbd>F</kbd> fullscreen</div>
+    <div>Built in HTML/CSS/JS · no libraries</div>
+  </footer>
+</main>
+</body>
+</html>
