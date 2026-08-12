@@ -3,118 +3,128 @@ Speaker notes · 23 slides
 ================================================
 
 Slide 1 — Beyond the Hype What AI Can Do Today
-  • Selamat siang — thanks for spending lunch here. Bryan, Analytics & Decision Making.
-  • Two goals: explain this AI wave in plain language, and show four working tools built inside the bank, on video.
-  • Questions in the Teams chat any time; I will pause after each demo.
+  • Welcome. I am Bryan, from Analytics & Decision Making.
+  • Today: how AI works, plus four AI tools built in this bank.
+  • Questions in the chat any time. I pause after each demo.
 
 Slide 2 — LLM — Large Language Models
-  • Put a name on the technology first. LLM — Large Language Model. An AI model trained on mountains of text that reads, writes and reasons in human language.
-  • Every logo on the right is an LLM or a product built on one: ChatGPT from OpenAI, Claude from Anthropic, Gemini from Google, DeepSeek, Qwen from Alibaba, Z.ai, Mistral, Llama from Meta, Grok.
-  • Point to make: ChatGPT is a product, not the technology. The technology is the LLM underneath — and different companies make their own.
-  • Most of the room has already used at least one of these, probably this week.
+  • LLM = Large Language Model. AI trained on huge amounts of text.
+  • Every logo here is an LLM, or a product built on one.
+  • Key point: ChatGPT is a product. The LLM is the engine inside.
+  • Ask: who used one this week? Most hands go up.
 
 Slide 3 — Here at OCBC Indonesia: on-premise
-  • Important local point before anything else: those public tools run in someone else’s cloud, and bank data cannot go there.
-  • So OCBC Indonesia went on-premise. We bought the hardware — GPU servers in our own data center — and we host our own model on it: Qwen 3.6, Alibaba’s open LLM family.
-  • Same technology as the logos on the previous slide, but running entirely inside the bank. Prompts, documents and transcripts never leave our perimeter.
-  • Everything you will see in the demos today runs on this setup.
+  • Public AI tools live in someone else’s cloud. Bank data cannot go there.
+  • So we went on-premise: our own GPU servers, in our own data center.
+  • On them we run our own LLM: Qwen 3.6, Alibaba’s open model.
+  • Every demo today runs on this. Nothing leaves the bank.
 
 Slide 4 — The premise
-  • You have seen the headlines: AI takes every job, AI saves the world, AI is a bubble. Loud, and mostly about a future nobody can verify.
-  • Different framing for today: this is not a question anymore. AI already does useful work in this bank — you just saw the model it runs on.
-  • So the goal for the next 45 minutes: understand how it works, watch it work in four demos, and leave with ideas for your own desk. The best use cases will come from you, not from IT.
+  • The headlines are loud: AI takes every job, AI is a bubble. Ignore them for an hour.
+  • For us this is not a question. AI already works in this bank.
+  • Goal today: understand it, watch it work, leave with ideas for your desk.
 
 Slide 5 — The next 45 minutes
-  • Part one: what a large language model is. Once you see how it works, its strengths and weird failures both make sense.
-  • Part two: how a chatbot becomes a coworker, through tools and agents. Those two words will make sense by then.
-  • Part three: four demos, all built here. Then how to start using AI in your own work, safely.
+  • Part 1: how an LLM works. Then its strengths and failures make sense.
+  • Part 2: how a chatbot becomes a coworker. Tools and agents.
+  • Part 3: four demo videos, all built here. Then how to start, safely.
 
 Slide 6 — Part 1 — What is an LLM, really?
-  • Time to open the box. What actually sits behind all of these tools?
-  • No math ahead — one idea, and everything else follows from it.
+  • Time to open the box.
+  • One idea explains everything: the magic and the mistakes.
 
 Slide 7 — Autocomplete, on an enormous scale
-  • An LLM does one thing: given some text, predict the next word. Your phone keyboard does a tiny version of this.
-  • When you ask a question it predicts the first word of a good answer, appends it, predicts the next, and repeats until done.
-  • Everything impressive you have seen — essays, emails, code — comes from very good next-word prediction. Hold this picture; it explains the failures coming next.
+  • An LLM does one thing: guess the next word.
+  • Your phone keyboard is a tiny version of this.
+  • It adds a word, then guesses again, until the answer is done.
+  • Hold this picture. It explains the failures coming next.
 
 Slide 8 — It read the internet — and kept the patterns
-  • Where do good predictions come from? Training. The model read a huge slice of the public internet: books, articles, code, forums.
-  • From that it learned patterns: grammar, facts, styles, how an apology email differs from a legal clause.
-  • No database inside. It does not look answers up; it reconstructs them from patterns — like humming a song you have heard many times without owning the recording. Fluent, and sometimes fluently wrong.
+  • It learned by reading a huge slice of the internet.
+  • No database inside. It rebuilds answers from patterns.
+  • Like humming a song from memory: sometimes a note is wrong.
 
 Slide 9 — Brilliant and unreliable — at the same time
-  • Strengths: anything shaped like language transformation. Draft an email, rewrite it politely, summarise a forty-page circular, translate Bahasa–English.
-  • Failures: fresh events after training, precise arithmetic, and anything about your specific customers — your data was never in the training.
-  • Hallucination: ask for a supporting regulation and it may cite one that does not exist. Well formatted, confident, wrong. It is predicting what a citation looks like. Rule: every fact is a draft to verify.
+  • Good at rewriting language: draft, summarise, translate, explain.
+  • Weak at fresh news, exact math, and anything about our customers.
+  • Hallucination: it can invent a rule and cite it with full confidence.
+  • Rule: every fact it gives is a draft. Check before it travels.
 
 Slide 10 — Context in, quality out
-  • The quality of the answer tracks the quality of what you put in.
-  • Left: a one-line request gets a generic answer. Right: role, situation, points to cover, tone, length — same model, different result.
-  • Mental model: brief it like a smart intern who joined this morning. Brilliant, fast, and knows nothing about your job until you tell it. That is 80% of prompting skill.
+  • Better input, better output.
+  • Left: one vague line, generic answer. Right: role, context, tone. Ready to edit.
+  • Think of it as a smart intern on day one. Brief it like one.
 
 Slide 11 — A plain chatbot hits three walls
-  • Put it together and a plain chatbot has three walls.
-  • Wall one, time: knowledge stops at the training cutoff. Wall two, access: it cannot see your inbox, your core banking system, or that spreadsheet from this morning. Wall three, action: it writes words; it cannot send, search or file anything.
-  • Keep these three in mind — part two is how engineers knock them down. That is the difference between a toy and the demos coming up.
+  • Wall one, time: its knowledge stops at a cutoff date.
+  • Wall two, access: it cannot see our data or systems.
+  • Wall three, action: it writes text. It cannot do anything.
+  • Part 2 is how we break all three.
 
 Slide 12 — Part 2 — From chatbot to coworker
-  • Part two. How a text predictor becomes something that does work.
-  • Three ideas: tools, agents, grounding. Each demo uses at least one.
+  • Part two: how a text predictor starts doing real work.
+  • Three ideas: tools, agents, grounding. Every demo uses them.
 
 Slide 13 — Tool calling — give the model hands
-  • Instead of asking the model to know everything, hand it tools: a web search, a calculator, a database query — and teach it to say: to answer this, I should use that tool.
-  • Ask for the dollar rate today. The model knows its training data is stale, calls the rate lookup, gets the live number, writes the answer around it.
-  • The model supplies judgment and language; the tool supplies facts and action. This one idea powers every serious AI product this year, including all four demos.
+  • Give the model tools: search, calculator, database.
+  • Ask for today’s rate: it calls the rate tool, then answers with the live number.
+  • The model thinks and writes. Tools fetch facts and act.
+  • This one idea powers all four demos.
 
 Slide 14 — An agent is a loop, not a chat
-  • Now let it use tools more than once. Give it a goal instead of a question and let it loop: plan, act, check, repeat until done. That loop is an AI agent.
-  • Real task from our world: screen this company for negative news. One search is never enough — you search, read, notice a same-name mismatch, refine, check the directors, then write it up.
-  • An agent runs that same loop. You will watch one do exactly this in the Adverse News demo.
+  • An agent is an LLM in a loop: plan, act, check, repeat until done.
+  • You give it a goal, not a question.
+  • Screening a company for bad news is exactly this loop.
+  • You will watch it live in Demo 2.
 
 Slide 15 — Ground it in your documents
-  • Last concept, and it fixes wall two: the model being blind to your data. Give it your documents at question time.
-  • Upload files. When you ask, the system finds the relevant pages and instructs the model: answer from these pages, cite where you found it, say so if the answer is not there.
-  • Turns a confident guesser into a fast reader of your files. Engineers call it RAG; the name matters less than the effect. Lumina, demo four, runs on this.
+  • Fix for wall two: hand it your documents when you ask.
+  • It answers only from those pages, and cites them.
+  • If the answer is not there, it says so. No inventing.
+  • Lumina, demo four, runs on this.
 
 Slide 16 — Part 3 — Built here
-  • Everything so far becomes concrete now. Four projects, all built by teams here, all running on prompting, tools, agents and grounding.
-  • For each: the pain it removes, the video, then the connection back to the concepts. Questions in the chat after each one.
+  • Now it gets concrete. Four tools, four videos, all built here.
+  • For each: the pain, the video, the lesson. Questions after each.
 
 Slide 17 — Bank Statement Analyzer
-  • Pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, dozens of pages, every bank a different format. Someone retypes transactions line by line. Hours per application.
-  • The tool: upload, OCR reads the pages, the model structures every transaction, then summarises account behaviour.
-  • Concepts at work: reading and restructuring text is the model’s home turf; OCR is a tool in the loop. The analyst still makes the credit judgment — the retyping is gone.
+  • The pain: statements from other banks, every format different, retyped by hand.
+  • The tool: OCR reads the pages. The model builds clean tables.
+  • The analyst still decides. The retyping is gone.
 
 Slide 18 — Adverse News Search · 1:45
-  • Setup: before we deal with a company or an individual we screen for adverse news. Done by hand: dozens of Google searches, per source, per entity — slow, unstandardized, easy to miss things. And the same-name problem.
-  • In the video: two entities entered — Maktour, and a related party, Fuad Hasan Masyhur. Watch the queries preview: ten queries auto-generated across five source categories: SIPP district courts, Mahkamah Agung, negative-news keywords, sanctions and PEP lists, general news.
-  • Then: results stream in parallel, a risk verdict computed from credible sources only — high, for both. The narrative names suspects and cites every source. The Combined tab cross-references the two entities: same KPK case. One click: PDF dossiers with evidence appendix and audit log, ready for the KYC file.
-  • Landing: the agent loop from part two, live. The agent does the legwork; the officer makes the call — verification in minutes, not an hour of searching.
+  • The pain: screening by hand. One name, one source, one search at a time.
+  • Watch: it writes its own searches. Courts, news, sanction lists.
+  • Verdict from credible sources only. Both names: high risk, same KPK case.
+  • One click: a PDF report, ready for the KYC file.
+  • The agent does the legwork. The officer makes the call.
 
 Slide 19 — MoM AI · 0:30
-  • Setup: this one touches everyone. Every meeting ends the same way — someone still has to write the minutes. So somebody half-listens to type notes, and the minutes still arrive two days late.
-  • In the video: drop in the recording — a committee meeting .wav — plus optional PDFs the model uses as context, and the meeting details. Four steps in the sidebar: upload, speakers, transcript, minutes.
-  • Watch the speakers step: three speakers detected automatically, play a sample, name them, merge duplicates. Then the minutes: summary, attendees with roles, a five-item agenda with actions and PIC per item.
-  • Landing: speech-to-text is the tool, the model drafts the structure. Toggle English or Bahasa Indonesia, regenerate a section, export PDF or DOCX. Thirty minutes of typing becomes five minutes of review — and the sign-off stays yours.
+  • The pain: someone types notes all meeting, and the minutes still come late.
+  • Drop in the recording. It writes out who said what.
+  • Out come minutes: summary, attendees, actions with names and dates.
+  • English or Bahasa. Export to PDF or Word.
+  • Thirty minutes of typing becomes five minutes of checking.
 
 Slide 20 — LuminaLM · 0:50
-  • Setup: a programme accumulates documents fast. The video opens with the honest picture: charters, playbooks, status packs, minutes — 157 documents, and the programme’s truth scattered across all of them.
-  • In the video, project Hampton — a banking M&A integration. Sources compile into a living wiki: cross-linked pages, a knowledge graph, always current. Then grounded chat: ask for the strategic imperatives and the answer cites its sources, one chip per claim.
-  • Also on screen: the programme timeline with every workstream, dependency and tollgate; and Studio — pick a template and it drafts the Word, Excel or PowerPoint pack from the wiki.
-  • Landing: grounding from part two, in production. It answers from the documents and cites the page — and when the answer is not there, it says so instead of inventing one. A colleague who has read every project document and never forgets a page number.
+  • The pain: 157 documents, and the truth scattered across all of them.
+  • All files become one wiki. Ask anything: the answer cites its source page.
+  • If the answer is not in the files, it says so.
+  • Studio drafts the weekly Word, Excel and PowerPoint packs.
+  • A colleague who read every document and never forgets a page.
 
 Slide 21 — Four tools, one pattern
-  • Four side by side, one pattern. Each is the same text predictor from part one, plus tools, plus your documents.
-  • In each one the person keeps the judgment: the analyst approves the credit, the officer clears the name, you sign the minutes, the team makes the decisions.
-  • What the AI removed is the reading, retyping, searching and formatting that sat between people and their judgment. Less magic than the headlines — and more useful.
+  • Same pattern four times: one model, plus tools, plus our documents.
+  • The AI removes the reading, typing and searching.
+  • The judgment stays human: approve, clear, sign, decide.
 
 Slide 22 — Start this week — inside the rules
-  • How to start, and how to stay safe. Start where a rough draft has value: summarise a circular, draft a reply, translate a document, ask it to explain a term from a meeting.
-  • Rule one: customer data and confidential material never go into public AI tools. Use what the bank provides and follow our data policy. Rule two: verify facts, numbers and citations before they travel — you saw why in part one.
-  • Rule three: whatever you send still carries your name. Treat AI output like an intern’s draft: useful, fast, and reviewed before it leaves your desk.
+  • Start small: summarise, draft, translate, explain.
+  • Rule one: no customer data in public AI tools. Use the bank’s own.
+  • Rule two: check every fact and number.
+  • Rule three: it is a draft. What you send carries your name.
 
 Slide 23 — Useful work, today — you just watched it
-  • Fifty minutes ago the question was whether AI can do useful work at a bank today. You have now seen how the machine works, what its limits are, and four running answers built in this building.
-  • If a task in your unit looks like the pattern — lots of reading, retyping, searching, summarising — come talk to Analytics & Decision Making.
-  • Try one small task this week. Terima kasih — questions, please.
+  • Recap in one breath: you saw how it works, and four tools that use it.
+  • Have an idea for your unit? Come talk to us.
+  • Try one small task this week. Terima kasih. Questions, please.
