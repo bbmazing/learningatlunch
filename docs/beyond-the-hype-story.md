@@ -307,11 +307,10 @@ kosong ditulis N/A, tidak dikarang".
 
 ## Slide 16 · You will never be good at it unless you try — 2 min
 
-**Layout**: centered CTA. Hero browser mock of Chat OCBC (dark Open
-WebUI body, Qwen/Qwen3.6-27B-FP8 model header, "Hello Bryan Bernardi"
-greeting, starter prompt in the input), then a bookmark strip with the
-URL and a red "Bookmark it" button, and three why-chips: inside the
-bank · enough for daily work · start today.
+**Layout**: two-column; bullets and two check-chips left, right a
+browser mock of Chat OCBC: padlock URL bar, dark chat body with the
+greeting bubble beside the Qwen logo ("Hello Bryan Bernardi. How can I
+help you today?"), starter prompt in the input.
 
 **Say:**
 
