@@ -1070,6 +1070,14 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 .browser .url svg{width:12px;height:12px;stroke:#1E8E5A;flex:none}
 .browser .url span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .browser .bchat{padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;background:#FBFAF8}
+.browser .bchat.dk{background:#101014;gap:14px;padding:22px 20px 18px}
+.browser .dk .bmodel{display:flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--fMono,'JetBrains Mono',monospace);font-size:13px;font-weight:600;color:#fff}
+.browser .dk .bmodel img{width:22px;height:22px}
+.browser .dk .bgreet{text-align:center;font-family:var(--fHead);font-weight:700;font-size:15px;
+  color:rgba(255,255,255,.92)}
+.browser .dk .binput{background:#1b1b21;border-color:#2c2c34}
+.browser .dk .binput span{color:#7a7a86}
 .browser .bmsg{display:flex;gap:10px;align-items:flex-start}
 .browser .bmsg img{width:28px;height:28px;flex:none;margin-top:2px}
 .browser .bmsg .bb{background:#fff;border:1px solid var(--line);border-radius:12px;
@@ -1534,8 +1542,9 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <div class="bbar"><i></i><i></i><i></i>
               <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span>chat-ocbc.wssdx.apps.cml.ocbcnisp.com</span></div>
             </div>
-            <div class="bchat">
-              <div class="bmsg"><img src="assets/ocbc-icon.png" alt=""/><div class="bb">Halo! Saya asisten AI internal OCBC. Ada yang bisa saya bantu hari ini?</div></div>
+            <div class="bchat dk">
+              <div class="bmodel"><img src="assets/logos/qwen-color.svg" alt=""/>Qwen/Qwen3.6-27B-FP8</div>
+              <div class="bgreet">Hello Bryan Bernardi. How can I help you today?</div>
               <div class="binput"><span>Ringkas edaran ini jadi 1 halaman…</span><span class="send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2.5-7.5z"/></svg></span></div>
             </div>
           </div>
