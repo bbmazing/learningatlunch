@@ -1088,10 +1088,21 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 .browser .binput .send{width:30px;height:30px;border-radius:9px;background:var(--red);color:#fff;flex:none;
   display:flex;align-items:center;justify-content:center}
 .browser .binput .send svg{width:15px;height:15px;fill:#fff}
-.ctachips{display:flex;flex-direction:column;gap:9px;margin-top:14px}
-.ctachip{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4}
-.ctachip .ck2{width:20px;height:20px;border-radius:50%;background:#E9F7EE;color:#1E8E5A;flex:none;
-  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
+.urlstrip{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.urlpill{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);
+  border-radius:99px;padding:11px 22px;font-family:var(--fMono,'JetBrains Mono',monospace);
+  font-size:15px;font-weight:600;color:var(--ink);box-shadow:0 18px 36px -26px rgba(0,0,0,.35)}
+.urlpill svg{width:16px;height:16px;stroke:var(--red);flex:none}
+.bmark{font-family:var(--fHead);font-weight:800;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+  color:#fff;background:var(--red);border-radius:99px;padding:9px 16px;
+  box-shadow:0 12px 26px -12px rgba(236,27,35,.6)}
+.whyrow{display:flex;gap:12px;margin-top:16px;width:100%;max-width:880px;margin-left:auto;margin-right:auto}
+.why{flex:1;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);
+  border-radius:13px;padding:12px 15px;font-size:12.5px;color:var(--text);line-height:1.4}
+.why .wi{width:32px;height:32px;border-radius:9px;background:#FCEEEF;color:var(--red);flex:none;
+  display:flex;align-items:center;justify-content:center}
+.why .wi svg{width:16px;height:16px}
+.why b{color:var(--ink)}
 /* dark bridge: three walls */
 .walls3{display:flex;gap:16px;width:100%}
 .wallb{flex:1;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:16px;
@@ -1520,34 +1531,29 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · TRY IT YOURSELF ============================== -->
-  <section class="slide" data-notes='["One more thing before the tools: practice. You will never be good at this unless you try.","We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our own setup.","For daily work it is already enough: summaries, drafts, translations, explanations, ideas.","Open it after this session. Try the starter prompts from today. Bookmark it: this is your training ground."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Your turn</div>
-    <h2 class="slide-title" data-r data-d="1">You will never be good at it unless you try</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="two wide-r" style="align-items:center">
-        <div class="txt">
-          <ul class="bullets">
-            <li class="strong" data-r data-d="2">We have an <b>internal ChatGPT</b>: Chat OCBC.</li>
-            <li data-r data-d="3">Runs <b>inside the bank</b>, on our own setup.</li>
-            <li data-r data-d="4">Already <b>enough for daily work</b>: summaries, drafts, translations, ideas.</li>
-            <li data-r data-d="5">Open it after this session. <b>Bookmark it.</b></li>
-          </ul>
-          <div class="ctachips" data-r data-d="6">
-            <div class="ctachip"><span class="ck2">✓</span>Try the starter prompts from today’s slides</div>
-            <div class="ctachip"><span class="ck2">✓</span>Use COSTAR when the answer matters</div>
+  <section class="slide" data-notes='["One more thing before the tools: practice. You will never be good at this unless you try.","We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our Qwen.","For daily work it is already enough: summaries, drafts, translations, explanations, ideas.","The address is on screen. Bookmark it. Open it after this session and try today’s starter prompts. Your first ten prompts will be clumsy. Prompt fifty will not be."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 1 · Your turn</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">You will never be good at it unless you try</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:820px;width:100%">
+        <div class="browser" data-r data-d="2">
+          <div class="bbar"><i></i><i></i><i></i>
+            <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span>chat-ocbc.wssdx.apps.cml.ocbcnisp.com</span></div>
+          </div>
+          <div class="bchat dk">
+            <div class="bmodel"><img src="assets/logos/qwen-color.svg" alt=""/>Qwen/Qwen3.6-27B-FP8</div>
+            <div class="bgreet">Hello Bryan Bernardi. How can I help you today?</div>
+            <div class="binput"><span>Ringkas edaran ini jadi 1 halaman…</span><span class="send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2.5-7.5z"/></svg></span></div>
           </div>
         </div>
-        <div class="viz" data-r data-d="3">
-          <div class="browser">
-            <div class="bbar"><i></i><i></i><i></i>
-              <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span>chat-ocbc.wssdx.apps.cml.ocbcnisp.com</span></div>
-            </div>
-            <div class="bchat dk">
-              <div class="bmodel"><img src="assets/logos/qwen-color.svg" alt=""/>Qwen/Qwen3.6-27B-FP8</div>
-              <div class="bgreet">Hello Bryan Bernardi. How can I help you today?</div>
-              <div class="binput"><span>Ringkas edaran ini jadi 1 halaman…</span><span class="send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2.5-7.5z"/></svg></span></div>
-            </div>
-          </div>
+        <div class="urlstrip" data-r data-d="3">
+          <span class="urlpill"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>chat-ocbc.wssdx.apps.cml.ocbcnisp.com</span>
+          <span class="bmark">Bookmark it</span>
+        </div>
+        <div class="whyrow">
+          <div class="why" data-r data-d="4"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></span><span><b>Inside the bank</b>, on our own Qwen. Safe for work.</span></div>
+          <div class="why" data-r data-d="5"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Enough for daily work</b>: summaries, drafts, translations, ideas.</span></div>
+          <div class="why" data-r data-d="6"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5v14l11-7z"/></svg></span><span><b>Start today</b>: the starter prompts, then COSTAR when it matters.</span></div>
         </div>
       </div>
     </div>

@@ -93,9 +93,9 @@ Slide 15 — COSTAR, filled in
 
 Slide 16 — You will never be good at it unless you try
   • One more thing before the tools: practice. You will never be good at this unless you try.
-  • We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our own setup.
+  • We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our Qwen.
   • For daily work it is already enough: summaries, drafts, translations, explanations, ideas.
-  • Open it after this session. Try the starter prompts from today. Bookmark it: this is your training ground.
+  • The address is on screen. Bookmark it. Open it after this session and try today’s starter prompts. Your first ten prompts will be clumsy. Prompt fifty will not be.
 
 Slide 17 — Three walls still stand between chat and real work
   • Before part two, look at where we stand. Language work: strong, and you have a place to practise.
