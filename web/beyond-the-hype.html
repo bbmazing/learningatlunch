@@ -1057,6 +1057,47 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 .resultlbl{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
   letter-spacing:.09em;text-transform:uppercase;color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;
   border-radius:99px;padding:5px 12px;display:inline-flex;align-items:center;gap:6px;margin-bottom:9px}
+/* try-it CTA: browser mock */
+.browser{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.4);width:100%}
+.browser .bbar{background:var(--card);border-bottom:1px solid var(--line);padding:10px 14px;
+  display:flex;align-items:center;gap:10px}
+.browser .bbar i{width:10px;height:10px;border-radius:50%;background:#e2e4e8}
+.browser .bbar i:first-child{background:var(--red)}
+.browser .url{flex:1;background:#fff;border:1px solid var(--line);border-radius:99px;padding:7px 15px;
+  font-family:var(--fMono,'JetBrains Mono',monospace);font-size:12px;color:var(--ink);
+  display:flex;align-items:center;gap:8px;min-width:0}
+.browser .url svg{width:12px;height:12px;stroke:#1E8E5A;flex:none}
+.browser .url span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser .bchat{padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;background:#FBFAF8}
+.browser .bmsg{display:flex;gap:10px;align-items:flex-start}
+.browser .bmsg img{width:28px;height:28px;flex:none;margin-top:2px}
+.browser .bmsg .bb{background:#fff;border:1px solid var(--line);border-radius:12px;
+  border-top-left-radius:3px;padding:10px 14px;font-size:13px;color:var(--text);line-height:1.5}
+.browser .binput{display:flex;gap:9px;align-items:center;background:#fff;border:1.5px solid var(--line);
+  border-radius:12px;padding:10px 14px}
+.browser .binput span{flex:1;font-size:13px;color:var(--faint)}
+.browser .binput .send{width:30px;height:30px;border-radius:9px;background:var(--red);color:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center}
+.browser .binput .send svg{width:15px;height:15px;fill:#fff}
+.ctachips{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.ctachip{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text);line-height:1.4}
+.ctachip .ck2{width:20px;height:20px;border-radius:50%;background:#E9F7EE;color:#1E8E5A;flex:none;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
+/* dark bridge: three walls */
+.walls3{display:flex;gap:16px;width:100%}
+.wallb{flex:1;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:16px;
+  padding:20px 20px 18px;display:flex;flex-direction:column;gap:8px}
+.wallb .wic{width:40px;height:40px;border-radius:11px;background:rgba(236,27,35,.16);color:#ff6a6f;
+  display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.wallb .wic svg{width:20px;height:20px}
+.wallb h3{font-family:var(--fHead);font-weight:800;font-size:17px;color:#fff;margin:0}
+.wallb p{font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;flex:1}
+.wallb .wfix{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;
+  background:rgba(30,142,90,.18);border:1px solid rgba(70,190,120,.35);border-radius:99px;
+  padding:6px 13px;font-family:var(--fHead);font-weight:800;font-size:11.5px;color:#7fe0a8}
+.bridgefoot{text-align:center;margin-top:22px;font-family:var(--fHead);font-weight:800;font-size:21px;color:#fff}
+.bridgefoot .red2{color:#ff6a6f}
 /* wall fix chips */
 .fixchip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#E9F7EE;
   border:1px solid #cdebd8;border-radius:99px;padding:5px 12px;font-family:var(--fHead);font-weight:800;
@@ -1470,19 +1511,65 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">15</span></div>
   </section>
 
-  <!-- ============================== SLIDE 9 · THREE WALLS ============================== -->
-  <section class="slide" data-notes='["Put the limits together and a plain chatbot hits three walls.","Frozen in time. Blind to our data. All talk, no action.","Each wall falls the same way: give the model tools.","That is Part 2. Let us go."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · The bridge</div>
-    <h2 class="slide-title" data-r data-d="1">Three walls, one fix: tools</h2>
+  <!-- ============================== SLIDE · TRY IT YOURSELF ============================== -->
+  <section class="slide" data-notes='["One more thing before the tools: practice. You will never be good at this unless you try.","We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our own setup.","For daily work it is already enough: summaries, drafts, translations, explanations, ideas.","Open it after this session. Try the starter prompts from today. Bookmark it: this is your training ground."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Your turn</div>
+    <h2 class="slide-title" data-r data-d="1">You will never be good at it unless you try</h2>
     <div class="body-area" style="justify-content:center">
-      <div class="cards c3" style="grid-template-rows:1fr">
-        <div class="card" data-r data-d="1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff.</p><span class="fixchip">✓ fix: web search</span></div>
-        <div class="card" data-r data-d="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div><h3>Blind to your data</h3><p>Your files and systems are invisible to it.</p><span class="fixchip">✓ fix: your documents</span></div>
-        <div class="card" data-r data-d="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div><h3>All talk</h3><p>It writes text. It cannot act on its own.</p><span class="fixchip">✓ fix: tools that act</span></div>
+      <div class="two wide-r" style="align-items:center">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">We have an <b>internal ChatGPT</b>: Chat OCBC.</li>
+            <li data-r data-d="3">Runs <b>inside the bank</b>, on our own setup.</li>
+            <li data-r data-d="4">Already <b>enough for daily work</b>: summaries, drafts, translations, ideas.</li>
+            <li data-r data-d="5">Open it after this session. <b>Bookmark it.</b></li>
+          </ul>
+          <div class="ctachips" data-r data-d="6">
+            <div class="ctachip"><span class="ck2">✓</span>Try the starter prompts from today’s slides</div>
+            <div class="ctachip"><span class="ck2">✓</span>Use COSTAR when the answer matters</div>
+          </div>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="browser">
+            <div class="bbar"><i></i><i></i><i></i>
+              <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><span>chat-ocbc.wssdx.apps.cml.ocbcnisp.com</span></div>
+            </div>
+            <div class="bchat">
+              <div class="bmsg"><img src="assets/ocbc-icon.png" alt=""/><div class="bb">Halo! Saya asisten AI internal OCBC. Ada yang bisa saya bantu hari ini?</div></div>
+              <div class="binput"><span>Ringkas edaran ini jadi 1 halaman…</span><span class="send"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2.5-7.5z"/></svg></span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="flow-cap" data-r data-d="4">Tool calling breaks all three. That is Part 2.</p>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">16</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · BRIDGE: THREE WALLS ============================== -->
+  <section class="slide dark" data-notes='["Before part two, look at where we stand. Language work: strong, and you have a place to practise.","But three walls keep a chatbot from real bank work. Frozen in time. Blind to our data. All talk.","One fix breaks all three: give the model tools.","That is Part 2. Let us go."]'>
+    <div class="body-area" style="justify-content:center">
+      <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>End of Part 1</div></div>
+      <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none;color:#fff;margin:0 auto 26px">Three walls still stand between chat and real work</h2>
+      <div class="walls3">
+        <div class="wallb" data-r data-d="2">
+          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff.</p>
+          <span class="wfix">✓ fix: web search</span>
+        </div>
+        <div class="wallb" data-r data-d="3">
+          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div>
+          <h3>Blind to your data</h3><p>Your files and systems are invisible to it.</p>
+          <span class="wfix">✓ fix: your documents</span>
+        </div>
+        <div class="wallb" data-r data-d="4">
+          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <h3>All talk</h3><p>It writes text. It cannot act on its own.</p>
+          <span class="wfix">✓ fix: tools that act</span>
+        </div>
+      </div>
+      <p class="bridgefoot" data-r data-d="5">One fix breaks all three: <span class="red2">tools</span>. That is Part 2 →</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
   </section>
 
   <!-- ============================== SLIDE 10 · DIVIDER P2 ============================== -->

@@ -1,5 +1,5 @@
 Learning at Lunch — Beyond the Hype: What AI Can Actually Do Today
-Speaker notes · 28 slides
+Speaker notes · 29 slides
 ================================================
 
 Slide 1 — Beyond the Hype What AI Can Do Today
@@ -91,76 +91,82 @@ Slide 15 — COSTAR, filled in
   • Right: the table it produced. Five columns as ordered, and look at the last row: N/A instead of a made-up answer.
   • Specify the shape and the rules, and you get the report you wanted. Copy this shape.
 
-Slide 16 — Three walls, one fix: tools
-  • Put the limits together and a plain chatbot hits three walls.
-  • Frozen in time. Blind to our data. All talk, no action.
-  • Each wall falls the same way: give the model tools.
+Slide 16 — You will never be good at it unless you try
+  • One more thing before the tools: practice. You will never be good at this unless you try.
+  • We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our own setup.
+  • For daily work it is already enough: summaries, drafts, translations, explanations, ideas.
+  • Open it after this session. Try the starter prompts from today. Bookmark it: this is your training ground.
+
+Slide 17 — Three walls still stand between chat and real work
+  • Before part two, look at where we stand. Language work: strong, and you have a place to practise.
+  • But three walls keep a chatbot from real bank work. Frozen in time. Blind to our data. All talk.
+  • One fix breaks all three: give the model tools.
   • That is Part 2. Let us go.
 
-Slide 17 — Part 2 — From chatbot to coworker
+Slide 18 — Part 2 — From chatbot to coworker
   • Part two: how a text predictor starts doing real work.
   • Three ideas: tools, agents, grounding. Every demo uses them.
 
-Slide 18 — Tool calling: give the model hands
+Slide 19 — Tool calling: give the model hands
   • Give the model tools: search, calculator, database.
   • Ask for today’s rate: it calls the rate tool, then answers with the live number.
   • The model thinks and writes. Tools fetch facts and act.
   • This one idea powers all four demos.
 
-Slide 19 — An agent is a loop, not a chat
+Slide 20 — An agent is a loop, not a chat
   • An agent is an LLM in a loop: plan, act, check, repeat until done.
   • You give it a goal, not a question.
   • Screening a company for negative news is exactly this loop.
   • You will watch it live in Demo 2.
 
-Slide 20 — Ground it in your documents
+Slide 21 — Ground it in your documents
   • Fix for wall two: hand it your documents when you ask.
   • It answers only from those pages, and cites them.
   • If the answer is not there, it says so. No inventing.
   • Lumina, demo four, runs on this.
 
-Slide 21 — Part 3 — Built here
+Slide 22 — Part 3 — Built here
   • Now it gets concrete. Four tools, four videos, all built here.
   • For each: the pain, the video, the lesson. Questions after each.
 
-Slide 22 — Bank Statement Analyzer
+Slide 23 — Bank Statement Analyzer
   • The pain: statements from other banks, every format different, retyped by hand.
   • The tool: OCR reads the pages. The model builds clean tables.
   • The analyst still decides. The retyping is gone.
 
-Slide 23 — Adverse News Search · 1:45
+Slide 24 — Adverse News Search · 1:45
   • The pain: screening by hand. One name, one source, one search at a time.
   • Watch: it writes its own searches. Courts, negative news, sanction lists.
   • Verdict from credible sources only. Both names: high risk, same KPK case.
   • One click: a PDF report, ready for the KYC file.
   • The agent does the legwork. The officer makes the call.
 
-Slide 24 — MoM AI · 0:30
+Slide 25 — MoM AI · 0:30
   • The pain: someone types notes all meeting, and the minutes still come late.
   • Drop in the recording. It writes out who said what.
   • Out come minutes: summary, attendees, actions with names and dates.
   • English or Bahasa. Export to PDF or Word.
   • Thirty minutes of typing becomes five minutes of checking.
 
-Slide 25 — LuminaLM · 0:50
+Slide 26 — LuminaLM · 0:50
   • The pain: 157 documents, and the truth scattered across all of them.
   • All files become one wiki. Ask anything: the answer cites its source page.
   • If the answer is not in the files, it says so.
   • Studio drafts the weekly Word, Excel and PowerPoint packs.
   • A colleague who read every document and never forgets a page.
 
-Slide 26 — Four tools, one pattern
+Slide 27 — Four tools, one pattern
   • Same pattern four times: one model, plus tools, plus our documents.
   • The AI removes the reading, typing and searching.
   • The judgment stays human: approve, clear, sign, decide.
 
-Slide 27 — Start this week, inside the rules
+Slide 28 — Start this week, inside the rules
   • Start small: summarise, draft, translate, explain.
   • Rule one: no customer data in public AI tools. Use the bank’s own.
   • Rule two: check every fact and number.
   • Rule three: it is a draft. What you send carries your name.
 
-Slide 28 — Useful work, today. You just watched it
+Slide 29 — Useful work, today. You just watched it
   • Recap in one breath: you saw how it works, and four tools that use it.
   • Have an idea for your unit? Come talk to us.
   • Try one small task this week. Terima kasih. Questions, please.

@@ -9,7 +9,7 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (28 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (29 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
   Adverse News, MoM AI and LuminaLM videos are embedded and their
   scripts below are written against the actual footage. The Statement
@@ -26,10 +26,10 @@ using AI safely this week.
 | Act | Slides | Minutes |
 |---|---|---|
 | Opening (cover, LLM intro, on-premise, premise, agenda) | 1–5 | 8 |
-| Act 1 · What is an LLM, really? | 6–16 | 18 |
-| Act 2 · From chatbot to coworker | 17–20 | 8 |
-| Act 3 · Demo videos: AI use cases in the bank | 21–26 | 15 |
-| Close + Q&A | 27–28 | 4 + buffer |
+| Act 1 · What is an LLM, really? | 6–17 | 19 |
+| Act 2 · From chatbot to coworker | 18–21 | 8 |
+| Act 3 · Demo videos: AI use cases in the bank | 22–27 | 15 |
+| Close + Q&A | 28–29 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -305,20 +305,40 @@ kosong ditulis N/A, tidak dikarang".
 > of inventing one. Specify the shape and the rules, and you get the
 > report you wanted. Copy this shape for your own reports.
 
-## Slide 16 · Three walls, one fix: tools — 2 min
+## Slide 16 · You will never be good at it unless you try — 2 min
 
-**Layout**: three wall cards, each with a green fix chip: frozen in
-time → web search · blind to your data → your documents · all talk →
-tools that act.
+**Layout**: two-column; bullets and two check-chips left, right a
+browser mock of Chat OCBC: padlock URL bar with
+chat-ocbc.wssdx.apps.cml.ocbcnisp.com, a Bahasa greeting bubble, and a
+typed starter prompt ready to send.
 
 **Say:**
 
-> Put the limits together and a plain chatbot hits three walls. Frozen
-> in time. Blind to our data. All talk, no action. Notice each card
-> already carries its fix, and it is the same fix three times: give the
-> model tools. That is part two. Let us go.
+> One more thing before we move on: practice. You will never be good
+> at this unless you try, and you do not need to wait. We have our own
+> internal ChatGPT. It is called Chat OCBC, it runs inside the bank on
+> our own setup, and the address is on screen: bookmark it. For daily
+> work this app is already enough: summaries, drafts, translations,
+> explanations, ideas. Open it after this session and try the starter
+> prompts from today. Use COSTAR when the answer matters. Your first
+> ten prompts will be clumsy. Prompt fifty will not be.
 
-## Slide 17 · Divider — Act 2 — 30 sec
+## Slide 17 · Bridge: three walls still stand — 1 min
+
+**Layout**: dark interstitial. Centered "End of Part 1" kicker, three
+glass wall cards (Frozen in time, Blind to your data, All talk) each
+with a green fix chip, closing line "One fix breaks all three: tools.
+That is Part 2 →".
+
+**Say:**
+
+> Before part two, look at where we stand. Language work: strong, and
+> now you have a place to practise it. But three walls keep a chatbot
+> from real bank work. Frozen in time. Blind to our data. All talk.
+> Notice each wall already carries its fix, and it is the same fix
+> three times: give the model tools. That is part two. Let us go.
+
+## Slide 18 · Divider — Act 2 — 30 sec
 
 **Layout**: dark section divider.
 **On slide**: "Part 2 / From chatbot to coworker".
@@ -327,7 +347,7 @@ tools that act.
 
 > Part two. How a text predictor becomes something that does work.
 
-## Slide 18 · Tool calling: give it hands — 3 min
+## Slide 19 · Tool calling: give it hands — 3 min
 
 **Layout**: process flow, four steps with a worked example underneath.
 **On slide**: You ask → model decides it needs a tool → tool runs (search,
@@ -346,7 +366,7 @@ kurs USD hari ini?" → calls a rate lookup → answers with today's number.
 > almost every serious AI product you will touch this year, including all
 > four demos coming up.
 
-## Slide 19 · Agents: the loop — 2 min
+## Slide 20 · Agents: the loop — 2 min
 
 **Layout**: circular loop diagram: Plan → Act → Check → repeat, exit
 arrow "Done".
@@ -364,7 +384,7 @@ finished.
 > search, check the directors too, then write up findings. An agent runs
 > that same loop. You will watch one do exactly this in demo two.
 
-## Slide 20 · Ground it in your documents — 2 min
+## Slide 21 · Ground it in your documents — 2 min
 
 **Layout**: simple flow: your documents → indexed → question → answer with
 citations.
@@ -382,7 +402,7 @@ from those pages. The fix for hallucination on document work.
 > call it RAG; the name matters less than the effect. Two of the four
 > demos are built on it.
 
-## Slide 21 · Divider — Act 3 — 1 min
+## Slide 22 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider, four small chips naming the demos.
 **On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
@@ -396,7 +416,7 @@ MoM AI · Lumina.
 > pain it removes, play the video, and connect it back to the concepts.
 > Questions in the chat after each.
 
-## Slide 22 · Demo 1 — Bank Statement Analyzer — 4 min
+## Slide 23 · Demo 1 — Bank Statement Analyzer — 4 min
 
 **Layout**: demo slide. Placeholder frame for video, side rail with
 "watch for" bullets.
@@ -422,7 +442,7 @@ balances for analysis.
 > is the model's home turf, and OCR is a tool in the loop. The analyst
 > still makes the credit judgment. The retyping is gone.
 
-## Slide 23 · Demo 2 — Adverse News — 5 min (video 1:45)
+## Slide 24 · Demo 2 — Adverse News — 5 min (video 1:45)
 
 **Layout**: video slide — embedded `adverse-news.mp4` with poster frame,
 side rail of four "watch for" chips.
@@ -470,7 +490,7 @@ appendix, audit log.
 > verifies in minutes instead of searching for an hour. The agent does
 > the legwork. Clearing the name stays a human decision.
 
-## Slide 24 · Demo 3 — MoM AI — 4 min (video 0:30)
+## Slide 25 · Demo 3 — MoM AI — 4 min (video 0:30)
 
 **Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -513,7 +533,7 @@ outro: "Minutes, minus the meeting after the meeting."
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
 
-## Slide 25 · Demo 4 — LuminaLM — 4 min (video 0:50)
+## Slide 26 · Demo 4 — LuminaLM — 4 min (video 0:50)
 
 **Layout**: video slide — embedded `lumina.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -554,7 +574,7 @@ template → (0:46) outro.
 > itself. When the answer is not in the documents, it says so. That is
 > the hallucination fix you met on slide 13, on camera.
 
-## Slide 26 · The pattern behind all four — 2 min
+## Slide 27 · The pattern behind all four — 2 min
 
 **Layout**: card grid or table mapping demo → concept → human's role.
 **On slide**: Statement Analyzer = model + OCR tool · Adverse News =
@@ -572,7 +592,7 @@ people keep the judgment.
 > formatting that sat between people and their judgment. That is what AI
 > can do today. Less magic than the headlines, and more useful.
 
-## Slide 27 · Using it well, starting this week — 3 min
+## Slide 28 · Using it well, starting this week — 3 min
 
 **Layout**: two-column: "Start here" and "Rules of the road".
 **On slide**: Start here: summarise long documents · draft and polish
@@ -592,7 +612,7 @@ every fact and number · you own what you send, AI output is a draft.
 > carries your name. Treat the output the way you treat an intern's
 > draft: useful, fast, and reviewed before it leaves your desk.
 
-## Slide 28 · Close + Q&A — 1 min, then open floor
+## Slide 29 · Close + Q&A — 1 min, then open floor
 
 **Layout**: dark closing slide, recap left, next steps right.
 **On slide**: Covered: how LLMs work · tools and agents · four working
