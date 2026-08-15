@@ -65,7 +65,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <header class="bar">
   <div>
     <div class="ttl">Speaker notes</div>
-    <div class="sub">Beyond the Hype · 29 slides</div>
+    <div class="sub">Beyond the Hype · 30 slides</div>
   </div>
   <div class="right">
     <a class="btn ghost" href="index.html">&larr; Back</a>
@@ -83,7 +83,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
 <div class="banner" id="banner">✎&nbsp; Editing — your changes are saved in this browser. Use <b>Download .txt</b> to keep a copy.</div>
 <main>
   <h1 class="lead">Talk track <span class="red">&middot; every slide</span></h1>
-  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 29 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
+  <p class="intro">Speaker notes for the Learning at Lunch &mdash; Beyond the Hype deck. 30 slides, in order. Press <b>Edit</b> to tweak the wording inline (saved to this browser), or <b>Download .txt</b> for a copy.</p>
   <div id="notes">
     <article class="s">
       <div class="n">Slide 1</div>
@@ -241,7 +241,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
         <li>One more thing before the tools: practice. You will never be good at this unless you try.</li>
         <li>We have our own internal ChatGPT: Chat OCBC. It runs inside the bank, on our Qwen.</li>
         <li>For daily work it is already enough: summaries, drafts, translations, explanations, ideas.</li>
-        <li>The address is on screen. Bookmark it. Open it after this session and try today’s starter prompts. Your first ten prompts will be clumsy. Prompt fifty will not be.</li>
+        <li>Open it after this session. Try the starter prompts from today. Bookmark it: this is your training ground.</li>
       </ul>
     </article>
     <article class="s">
@@ -258,18 +258,19 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       <div class="n">Slide 18</div>
       <h2>Part 2 — From chatbot to coworker</h2>
       <ul>
-        <li>Part two: how a text predictor starts doing real work.</li>
-        <li>Three ideas: tools, agents, grounding. Every demo uses them.</li>
+        <li>Part two: the fixes we promised.</li>
+        <li>Four ideas: tools, agents, grounding, and a human in the loop.</li>
+        <li>Every use case in part three runs on them.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 19</div>
       <h2>Tool calling: give the model hands</h2>
       <ul>
-        <li>Give the model tools: search, calculator, database.</li>
-        <li>Ask for today’s rate: it calls the rate tool, then answers with the live number.</li>
+        <li>Remember the fixes we promised on the limits slide: web search, a calculator, our documents. They are all the same idea: tools.</li>
+        <li>Ask for the dollar rate. The model knows its training data is stale, so it calls the rate tool and answers with the live number.</li>
         <li>The model thinks and writes. Tools fetch facts and act.</li>
-        <li>This one idea powers all four demos.</li>
+        <li>This one idea powers every use case coming up.</li>
       </ul>
     </article>
     <article class="s">
@@ -279,7 +280,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
         <li>An agent is an LLM in a loop: plan, act, check, repeat until done.</li>
         <li>You give it a goal, not a question.</li>
         <li>Screening a company for negative news is exactly this loop.</li>
-        <li>You will watch it live in Demo 2.</li>
+        <li>You will see it in the Adverse News use case.</li>
       </ul>
     </article>
     <article class="s">
@@ -289,39 +290,52 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
         <li>Fix for wall two: hand it your documents when you ask.</li>
         <li>It answers only from those pages, and cites them.</li>
         <li>If the answer is not there, it says so. No inventing.</li>
-        <li>Lumina, demo four, runs on this.</li>
+        <li>LuminaLM, use case four, runs on this.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 22</div>
-      <h2>Part 3 — Built here</h2>
+      <h2>The machine drafts. You verify.</h2>
       <ul>
-        <li>Now it gets concrete. Four tools, four videos, all built here.</li>
-        <li>For each: the pain, the video, the lesson. Questions after each.</li>
+        <li>The fourth idea is not a technology. It is a rule: keep a human in the loop.</li>
+        <li>Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.</li>
+        <li>Before anything moves, a person double-checks the fields that matter: account number, name, amount.</li>
+        <li>AI reads fast. You confirm what moves money. This checkpoint appears in every use case next.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 23</div>
-      <h2>Bank Statement Analyzer</h2>
+      <h2>Part 3 — Built here</h2>
       <ul>
-        <li>The pain: statements from other banks, every format different, retyped by hand.</li>
-        <li>The tool: OCR reads the pages. The model builds clean tables.</li>
-        <li>The analyst still decides. The retyping is gone.</li>
+        <li>Now it gets concrete. Four use cases, all built here.</li>
+        <li>Two I will walk through step by step. Two you will watch on video.</li>
+        <li>For each: the pain, how it works, and where the human stays in the loop.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 24</div>
-      <h2>Adverse News Search · 1:45</h2>
+      <h2>Bank Statement Analyzer</h2>
       <ul>
-        <li>The pain: screening by hand. One name, one source, one search at a time.</li>
-        <li>Watch: it writes its own searches. Courts, negative news, sanction lists.</li>
-        <li>Verdict from credible sources only. Both names: high risk, same KPK case.</li>
-        <li>One click: a PDF report, ready for the KYC file.</li>
-        <li>The agent does the legwork. The officer makes the call.</li>
+        <li>Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.</li>
+        <li>Walk the flow. OCR reads every line and a fraud check flags signs of tampering.</li>
+        <li>Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.</li>
+        <li>The model categorises every transaction: who was paid, what type, business or personal.</li>
+        <li>Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 25</div>
+      <h2>Adverse News Search</h2>
+      <ul>
+        <li>Use case two: screening. Before we deal with a company or a person, we check for negative news. By hand that means dozens of searches, one source at a time.</li>
+        <li>Walk the flow. Names go in: a company and its related parties.</li>
+        <li>The agent writes its own searches: court databases like SIPP and Mahkamah Agung, negative-news keywords, sanction and PEP lists.</li>
+        <li>It reads the results and filters: credible sources only, same-name noise dropped. Then a verdict with a written narrative, every claim cited.</li>
+        <li>Last step, the checkpoint again: the officer reviews and clears the name, and a PDF report goes to the KYC file. An hour of googling becomes minutes of review.</li>
+      </ul>
+    </article>
+    <article class="s">
+      <div class="n">Slide 26</div>
       <h2>MoM AI · 0:30</h2>
       <ul>
         <li>The pain: someone types notes all meeting, and the minutes still come late.</li>
@@ -332,7 +346,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 26</div>
+      <div class="n">Slide 27</div>
       <h2>LuminaLM · 0:50</h2>
       <ul>
         <li>The pain: 157 documents, and the truth scattered across all of them.</li>
@@ -343,7 +357,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 27</div>
+      <div class="n">Slide 28</div>
       <h2>Four tools, one pattern</h2>
       <ul>
         <li>Same pattern four times: one model, plus tools, plus our documents.</li>
@@ -352,7 +366,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 28</div>
+      <div class="n">Slide 29</div>
       <h2>Start this week, inside the rules</h2>
       <ul>
         <li>Start small: summarise, draft, translate, explain.</li>
@@ -362,7 +376,7 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
       </ul>
     </article>
     <article class="s">
-      <div class="n">Slide 29</div>
+      <div class="n">Slide 30</div>
       <h2>Useful work, today. You just watched it</h2>
       <ul>
         <li>Recap in one breath: you saw how it works, and four tools that use it.</li>

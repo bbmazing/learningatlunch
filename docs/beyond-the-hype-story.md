@@ -9,11 +9,11 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (29 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (30 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
-  Adverse News, MoM AI and LuminaLM videos are embedded and their
-  scripts below are written against the actual footage. The Statement
-  Analyzer slide carries a placeholder frame until its video arrives.
+  MoM AI and LuminaLM play as embedded videos; Statement Analyzer and
+  Adverse News are five-step flow diagrams with a green
+  human-in-the-loop stage.
 
 ## Shape of the talk
 
@@ -27,9 +27,9 @@ using AI safely this week.
 |---|---|---|
 | Opening (cover, LLM intro, on-premise, premise, agenda) | 1–5 | 8 |
 | Act 1 · What is an LLM, really? | 6–17 | 19 |
-| Act 2 · From chatbot to coworker | 18–21 | 8 |
-| Act 3 · Demo videos: AI use cases in the bank | 22–27 | 15 |
-| Close + Q&A | 28–29 | 4 + buffer |
+| Act 2 · From chatbot to coworker | 18–22 | 10 |
+| Act 3 · Four AI use cases in the bank | 23–28 | 14 |
+| Close + Q&A | 29–30 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -341,7 +341,8 @@ That is Part 2 →".
 ## Slide 18 · Divider — Act 2 — 30 sec
 
 **Layout**: dark section divider.
-**On slide**: "Part 2 / From chatbot to coworker".
+**On slide**: "Part 2 / From chatbot to coworker" — four ideas: tools,
+agents, grounding, and a human in the loop.
 
 **Say:**
 
@@ -402,7 +403,23 @@ from those pages. The fix for hallucination on document work.
 > call it RAG; the name matters less than the effect. Two of the four
 > demos are built on it.
 
-## Slide 22 · Divider — Act 3 — 1 min
+## Slide 22 · Human in the loop — 2 min
+
+**Layout**: two-column; bullets left, right an OCR-result card of a
+transfer instruction with amber "double-check" flags on nama penerima,
+no. rekening and jumlah, and a green ✓ on bank tujuan.
+
+**Say:**
+
+> The fourth idea is not a technology. It is a rule: keep a human in
+> the loop. Example on screen: OCR reads a transfer instruction. Fast,
+> and usually right. But look at the flags. Before anything moves, a
+> person double-checks the fields that matter: the account number, the
+> name, the amount. AI reads fast. You confirm what moves money. Keep
+> this checkpoint in mind, because it appears in every use case you
+> are about to see.
+
+## Slide 23 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider, four small chips naming the demos.
 **On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
@@ -416,81 +433,53 @@ MoM AI · Lumina.
 > pain it removes, play the video, and connect it back to the concepts.
 > Questions in the chat after each.
 
-## Slide 23 · Demo 1 — Bank Statement Analyzer — 4 min
+## Slide 24 · Use case 1 — Bank Statement Analyzer — 3 min
 
-**Layout**: demo slide. Placeholder frame for video, side rail with
-"watch for" bullets.
-**On slide**: reads uploaded bank statements (PDF and scans) with OCR ·
-extracts every transaction into clean tables · summarises inflow, outflow,
-balances for analysis.
-**TODO**: swap in video, rewrite the walkthrough against actual footage.
+**Layout**: five-step flow diagram: bank statement (PDFs, phone scans)
+→ OCR + fraud check → human verifies (green, human-in-the-loop tag) →
+categorised (who, what type, business or personal) → dashboard.
+Caption: hours of retyping become minutes of checking.
 
-**Say (setup, before play):**
+**Say:**
 
-> Start with a pain every credit and operations person knows: bank
-> statements from other banks arrive as PDFs and phone-camera scans,
-> dozens of pages, every bank with a different format. Someone reads them
-> line by line and retypes transactions into a spreadsheet. Hours per
-> application. This tool takes the upload, runs OCR to read the pages,
-> and the model turns messy text into structured transactions, then
-> summarises the account behaviour. Watch how it handles different
-> formats without anyone configuring templates.
+> Use case one, and a pain every credit and ops person knows.
+> Statements from other banks arrive as PDFs and phone-camera scans,
+> dozens of pages, every bank a different format, and someone retypes
+> them for hours. Walk the flow with me. OCR reads every line, and a
+> fraud check flags signs of tampering on the document itself. Then
+> the checkpoint from the last slide: a person verifies the fields
+> that matter, account numbers, names, totals. Next the model
+> categorises every transaction: who was paid, what type of
+> transaction, business or personal. And everything lands in one
+> dashboard: money in, money out, account behaviour, ready for credit
+> analysis. Hours of retyping become minutes of checking, and the
+> credit judgment never leaves the analyst.
 
-**Say (after play):**
+## Slide 25 · Use case 2 — Adverse News Search — 3 min
 
-> Concepts from part one and two at work: reading and restructuring text
-> is the model's home turf, and OCR is a tool in the loop. The analyst
-> still makes the credit judgment. The retyping is gone.
+**Layout**: five-step flow diagram: names in (company + related
+parties) → AI writes the searches (SIPP, Mahkamah Agung, negative
+news, sanction and PEP lists) → reads and filters (credible sources,
+same-name noise dropped) → verdict + narrative (every claim cited) →
+human review (green, human-in-the-loop tag; PDF to the KYC file).
 
-## Slide 24 · Demo 2 — Adverse News — 5 min (video 1:45)
+**Say:**
 
-**Layout**: video slide — embedded `adverse-news.mp4` with poster frame,
-side rail of four "watch for" chips.
-**On slide chips**: queries write themselves (10 queries across courts,
-negative news, sanctions, general news) · verdict from credible sources
-only · Combined tab links entities to the same case · one-click PDF
-dossiers.
-**Video content, mapped**: (0:00) problem card "Manual. Per source. Per
-entity. Easy to miss things." → (0:10) product card: auto-generates
-queries, classifies severity, writes the risk narrative → (0:16) two
-entities entered: Maktour + related party Fuad Hasan Masyhur → (0:25)
-Search Queries Preview: 10 AI-generated queries across five categories:
-SIPP district courts, Mahkamah Agung, negative-news keywords, FCC
-sanctions/PEP lists, general news → (0:45) results stream in parallel;
-overall risk verdict HIGH for Maktour; severity + source-credibility
-donuts → (1:00) AI Risk Analysis: executive summary of the KPK
-hajj-quota corruption case, every item dated and linked → (1:12) switch
-to Fuad Hasan Masyhur: same case, also HIGH → (1:25) Combined tab
-cross-references both entities: shared case, witnesses, money trail →
-(1:36) one click, three PDF reports: cover, narrative, evidence
-appendix, audit log.
+> Use case two: screening. Before we deal with a company or a person,
+> we check for negative news. By hand that means dozens of searches,
+> one source at a time, and a same-name problem on top. Here is the
+> agent loop from part two, in production. Names go in: a company and
+> its related parties. The agent writes its own searches across court
+> databases like SIPP and Mahkamah Agung, negative-news keywords, and
+> sanction and PEP lists. It reads the results and filters: credible
+> sources only, same-name noise dropped. Then a risk verdict with a
+> written narrative, and every claim carries a link to its source. And
+> the last step is the checkpoint again: the officer reviews, clears
+> the name, and a PDF report goes to the KYC file. An hour of
+> searching becomes minutes of review. The agent does the legwork;
+> clearing the name stays human.
 
-**Say (setup, before play):**
-
-> Demo two, compliance territory. Before we deal with a company or an
-> individual, we screen for adverse news: fraud, corruption, sanctions,
-> court records. By hand that means Google, one name, one keyword, one
-> source at a time, and a same-name problem on top. This tool takes the
-> names and runs the whole loop from part two. Two things to watch. The
-> tool writes its own search queries, ten of them, across court
-> databases, negative news, sanction lists. And at the end, one click
-> produces a PDF dossier ready for the file. Sound on.
-
-**Say (during, optional pause points):**
-
-> Pause at the queries preview if the chat asks: this is the agent
-> planning. Pause at the risk verdict: computed from credible sources
-> only, the rest filtered but kept in the appendix.
-
-**Say (after play):**
-
-> That was the agent loop from part two, live: plan the searches, run
-> them, check credibility, dig into both entities, connect them, write
-> the narrative. Every claim carried a source link, so the officer
-> verifies in minutes instead of searching for an hour. The agent does
-> the legwork. Clearing the name stays a human decision.
-
-## Slide 25 · Demo 3 — MoM AI — 4 min (video 0:30)
+## Slide 26 · Use case 3 — MoM AI — 4 min (video 0:30)
 
 **Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -533,7 +522,7 @@ outro: "Minutes, minus the meeting after the meeting."
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
 
-## Slide 26 · Demo 4 — LuminaLM — 4 min (video 0:50)
+## Slide 27 · Use case 4 — LuminaLM — 4 min (video 0:50)
 
 **Layout**: video slide — embedded `lumina.mp4` with poster frame, side
 rail of four "watch for" chips.
@@ -574,7 +563,7 @@ template → (0:46) outro.
 > itself. When the answer is not in the documents, it says so. That is
 > the hallucination fix you met on slide 13, on camera.
 
-## Slide 27 · The pattern behind all four — 2 min
+## Slide 28 · The pattern behind all four — 2 min
 
 **Layout**: card grid or table mapping demo → concept → human's role.
 **On slide**: Statement Analyzer = model + OCR tool · Adverse News =
@@ -592,7 +581,7 @@ people keep the judgment.
 > formatting that sat between people and their judgment. That is what AI
 > can do today. Less magic than the headlines, and more useful.
 
-## Slide 28 · Using it well, starting this week — 3 min
+## Slide 29 · Using it well, starting this week — 3 min
 
 **Layout**: two-column: "Start here" and "Rules of the road".
 **On slide**: Start here: summarise long documents · draft and polish
@@ -612,7 +601,7 @@ every fact and number · you own what you send, AI output is a draft.
 > carries your name. Treat the output the way you treat an intern's
 > draft: useful, fast, and reviewed before it leaves your desk.
 
-## Slide 29 · Close + Q&A — 1 min, then open floor
+## Slide 30 · Close + Q&A — 1 min, then open floor
 
 **Layout**: dark closing slide, recap left, next steps right.
 **On slide**: Covered: how LLMs work · tools and agents · four working

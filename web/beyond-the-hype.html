@@ -1110,6 +1110,38 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   padding:6px 13px;font-family:var(--fHead);font-weight:800;font-size:11.5px;color:#7fe0a8}
 .bridgefoot{text-align:center;margin-top:22px;font-family:var(--fHead);font-weight:800;font-size:21px;color:#fff}
 .bridgefoot .red2{color:#ff6a6f}
+/* use-case flow diagram */
+.ucflow{display:flex;align-items:stretch;width:100%}
+.ucbox{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 12px 13px;
+  text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;
+  box-shadow:0 20px 40px -32px rgba(0,0,0,.3)}
+.ucbox .ui{width:38px;height:38px;border-radius:11px;background:#FCEEEF;color:var(--red);flex:none;
+  display:flex;align-items:center;justify-content:center}
+.ucbox .ui svg{width:19px;height:19px}
+.ucbox b{font-family:var(--fHead);font-weight:800;font-size:13.5px;color:var(--ink);line-height:1.2}
+.ucbox span{font-size:10.5px;color:var(--muted);line-height:1.45}
+.ucbox.human{background:#F4FBF6;border-color:#cdebd8}
+.ucbox.human .ui{background:#E9F7EE;color:#1E8E5A}
+.ucbox.human .htag{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:8.5px;font-weight:700;
+  letter-spacing:.07em;color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;border-radius:99px;
+  padding:2px 8px;text-transform:uppercase}
+.ucarr{display:flex;align-items:center;padding:0 6px;color:var(--faint);font-size:16px;font-weight:800;flex:none}
+/* OCR slip with double-check flags */
+.slip{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 26px 52px -34px rgba(0,0,0,.35);width:100%}
+.slip .sh{background:var(--card);border-bottom:1px solid var(--line);padding:10px 16px;
+  font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.srow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;
+  border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:none}
+.srow .k{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10.5px;color:var(--faint);
+  text-transform:uppercase;letter-spacing:.05em;flex:none}
+.srow .v{font-family:var(--fHead);font-weight:800;font-size:14px;color:var(--ink);flex:1;text-align:right}
+.srow .chk{font-family:var(--fHead);font-weight:800;font-size:10px;letter-spacing:.04em;text-transform:uppercase;
+  color:#8a5a17;background:#FFF6DF;border:1px solid #F2E2AE;border-radius:99px;padding:4px 10px;flex:none}
+.srow .oke{font-family:var(--fHead);font-weight:800;font-size:10px;color:#14663f;background:#E9F7EE;
+  border:1px solid #cdebd8;border-radius:99px;padding:4px 10px;flex:none}
 /* wall fix chips */
 .fixchip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#E9F7EE;
   border:1px solid #cdebd8;border-radius:99px;padding:5px 12px;font-family:var(--fHead);font-weight:800;
@@ -1249,7 +1281,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
       <div class="journey">
         <div class="jcard" data-r data-d="1"><div class="pn">01</div><div class="ph">What an LLM is</div><p>How LLMs work, in plain language. Their talents, and their strange failures.</p></div>
         <div class="jcard" data-r data-d="2"><div class="pn">02</div><div class="ph">Chatbot &rarr; coworker</div><p>Tools, agents, and grounding: how a text predictor starts doing work.</p></div>
-        <div class="jcard" data-r data-d="3"><div class="pn">03</div><div class="ph">Demo videos</div><p>AI use cases in the bank, on video.</p><span class="demo">▶ 4 demo videos</span></div>
+        <div class="jcard" data-r data-d="3"><div class="pn">03</div><div class="ph">Demo videos</div><p>Four AI use cases running in the bank.</p><span class="demo">▶ 4 use cases</span></div>
         <div class="jcard" data-r data-d="4"><div class="ph" style="margin-top:24px">Using it well</div><p>Where to start this week, and the rules that keep you safe.</p></div>
       </div>
     </div>
@@ -1585,17 +1617,17 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 10 · DIVIDER P2 ============================== -->
-  <section class="slide dark divider" data-notes='["Part two: how a text predictor starts doing real work.", "Three ideas: tools, agents, grounding. Every demo uses them."]'>
+  <section class="slide dark divider" data-notes='["Part two: the fixes we promised.", "Four ideas: tools, agents, grounding, and a human in the loop.", "Every use case in part three runs on them."]'>
     <div class="pillar-no">02</div>
     <div class="eyebrow"><span class="dot"></span>Part 2</div>
     <h2>From chatbot to coworker</h2>
-    <p class="lead">Three ideas turn text prediction into work: tools, agents, grounding.</p>
+    <p class="lead">Four ideas turn text prediction into work: tools, agents, grounding, and a human in the loop.</p>
     <div class="prog-rail"><span>01 · LLM basics</span><span class="on">02 · Tools &amp; agents</span><span>03 · Demos</span><span>04 · Using it well</span></div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">10</span></div>
   </section>
 
   <!-- ============================== SLIDE 11 · TOOL CALLING ============================== -->
-  <section class="slide" data-notes='["Give the model tools: search, calculator, database.", "Ask for today’s rate: it calls the rate tool, then answers with the live number.", "The model thinks and writes. Tools fetch facts and act.", "This one idea powers all four demos."]'>
+  <section class="slide" data-notes='["Remember the fixes we promised on the limits slide: web search, a calculator, our documents. They are all the same idea: tools.", "Ask for the dollar rate. The model knows its training data is stale, so it calls the rate tool and answers with the live number.", "The model thinks and writes. Tools fetch facts and act.", "This one idea powers every use case coming up."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Tools</div>
     <h2 class="slide-title" data-r data-d="1">Tool calling: give the model hands</h2>
     <div class="body-area">
@@ -1611,8 +1643,8 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
         <div class="viz" data-r data-d="3">
           <div class="chatmock">
             <div class="cm u"><span class="who">You</span>Berapa kurs USD hari ini?</div>
-            <div class="cm t">⚙ calling tool: <b>rate_lookup("USD/IDR")</b> → 16,240</div>
-            <div class="cm a"><span class="who">AI</span>Kurs USD/IDR hari ini ada di sekitar <b>Rp 16.240</b>. Ada jumlah yang mau Anda konversi?</div>
+            <div class="cm t">⚙ calling tool: <b>rate_lookup("USD/IDR")</b> → 17,820</div>
+            <div class="cm a"><span class="who">AI</span>Kurs USD/IDR hari ini ada di sekitar <b>Rp 17.820</b>. Ada jumlah yang mau Anda konversi?</div>
           </div>
         </div>
       </div>
@@ -1621,7 +1653,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 12 · AGENTS ============================== -->
-  <section class="slide" data-notes='["An agent is an LLM in a loop: plan, act, check, repeat until done.", "You give it a goal, not a question.", "Screening a company for negative news is exactly this loop.", "You will watch it live in Demo 2."]'>
+  <section class="slide" data-notes='["An agent is an LLM in a loop: plan, act, check, repeat until done.", "You give it a goal, not a question.", "Screening a company for negative news is exactly this loop.", "You will see it in the Adverse News use case."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Agents</div>
     <h2 class="slide-title" data-r data-d="1">An agent is a loop, not a chat</h2>
     <div class="body-area">
@@ -1632,7 +1664,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <li data-r data-d="3">It <b>plans</b> the next step, <b>acts</b> with a tool, <b>checks</b> the result.</li>
             <li data-r data-d="4">Then it decides: loop again, or done.</li>
             <li data-r data-d="5">Example goal: <b>“screen this company for negative news”</b>. Many searches, then a report.</li>
-            <li data-r data-d="6">You will watch an agent run this exact loop in Demo 2.</li>
+            <li data-r data-d="6">You will see an agent run this exact loop in the Adverse News use case.</li>
           </ul>
         </div>
         <div class="viz" data-r data-d="3">
@@ -1654,7 +1686,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 13 · GROUNDING ============================== -->
-  <section class="slide" data-notes='["Fix for wall two: hand it your documents when you ask.", "It answers only from those pages, and cites them.", "If the answer is not there, it says so. No inventing.", "Lumina, demo four, runs on this."]'>
+  <section class="slide" data-notes='["Fix for wall two: hand it your documents when you ask.", "It answers only from those pages, and cites them.", "If the answer is not there, it says so. No inventing.", "LuminaLM, use case four, runs on this."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Grounding</div>
     <h2 class="slide-title" data-r data-d="1">Ground it in your documents</h2>
     <div class="body-area" style="justify-content:center">
@@ -1671,62 +1703,94 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">13</span></div>
   </section>
 
+  <!-- ============================== SLIDE · HUMAN IN THE LOOP ============================== -->
+  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.","Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.","Before anything moves, a person double-checks the fields that matter: account number, name, amount.","AI reads fast. You confirm what moves money. This checkpoint appears in every use case next."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div>
+    <h2 class="slide-title" data-r data-d="1">The machine drafts. You verify.</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r" style="align-items:center">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">AI output is a <b>draft</b>, even when it comes from OCR.</li>
+            <li data-r data-d="3">Numbers and names deserve <b>human eyes</b>.</li>
+            <li data-r data-d="4">Double-check the <b>account number, name and amount</b> before anything moves.</li>
+            <li data-r data-d="5">This checkpoint appears in <b>every use case</b> next.</li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="3">
+          <div class="slip">
+            <div class="sh"><span>OCR result · transfer instruction</span><span>draft</span></div>
+            <div class="srow"><span class="k">Nama penerima</span><span class="v">PT Maju Karya</span><span class="chk">double-check</span></div>
+            <div class="srow"><span class="k">No. rekening</span><span class="v">8720 4415 9021</span><span class="chk">double-check</span></div>
+            <div class="srow"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="chk">double-check</span></div>
+            <div class="srow"><span class="k">Bank tujuan</span><span class="v">OCBC Indonesia</span><span class="oke">✓ ok</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="flow-cap" data-r data-d="6">AI reads fast. You confirm what moves money.</p>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">22</span></div>
+  </section>
+
   <!-- ============================== SLIDE 14 · DIVIDER P3 ============================== -->
-  <section class="slide dark divider" data-notes='["Now it gets concrete. Four tools, four videos, all built here.", "For each: the pain, the video, the lesson. Questions after each."]'>
+  <section class="slide dark divider" data-notes='["Now it gets concrete. Four use cases, all built here.", "Two I will walk through step by step. Two you will watch on video.", "For each: the pain, how it works, and where the human stays in the loop."]'>
     <div class="pillar-no">03</div>
     <div class="eyebrow"><span class="dot"></span>Part 3</div>
     <h2>Built here</h2>
-    <p class="lead">Four working projects: Statement Analyzer, Adverse News, MoM AI, LuminaLM.</p>
+    <p class="lead">Four AI use cases in the bank: Statement Analyzer, Adverse News, MoM AI, LuminaLM.</p>
     <div class="prog-rail"><span>01 · LLM basics</span><span>02 · Tools &amp; agents</span><span class="on">03 · Demos</span><span>04 · Using it well</span></div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
   </section>
 
-  <!-- ============================== SLIDE 15 · DEMO 1 · STATEMENT ANALYZER ============================== -->
-  <section class="slide" data-notes='["The pain: statements from other banks, every format different, retyped by hand.", "The tool: OCR reads the pages. The model builds clean tables.", "The analyst still decides. The retyping is gone."]'>
-    <div class="kicker" data-r><span class="badge"></span>Demo 1 · Credit &amp; operations</div>
-    <h2 class="slide-title" data-r data-d="1">Bank Statement Analyzer</h2>
-    <div class="body-area">
-      <div class="vwrap">
-        <div class="vph" data-r data-d="2">
-          <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <b>Demo video drops in here</b>
-          <span>OCR on real statements · transactions → clean tables · behaviour summary</span>
+  <!-- ============================== SLIDE · USE CASE 1 · STATEMENT ANALYZER ============================== -->
+  <section class="slide" data-notes='["Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.","Walk the flow. OCR reads every line and a fraud check flags signs of tampering.","Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.","The model categorises every transaction: who was paid, what type, business or personal.","Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Use case 1 · Credit &amp; operations</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Bank Statement Analyzer</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1080px;width:100%">
+        <div class="ucflow">
+          <div class="ucbox" data-r data-d="2"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/><path d="M9 13h6M9 17h6"/></svg></span><b>Bank statement</b><span>PDFs and phone scans, any bank, any format</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="3"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V5a1 1 0 011-1h2M17 4h2a1 1 0 011 1v2M20 17v2a1 1 0 01-1 1h-2M7 20H5a1 1 0 01-1-1v-2"/><path d="M4 12h16"/></svg></span><b>OCR + fraud check</b><span>reads every line, flags signs of tampering</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox human" data-r data-d="4"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a6 6 0 0112 0v1"/></svg></span><b>Human verifies</b><span>account numbers, names, totals</span><span class="htag">human in the loop</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="5"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 8l-9 9-4-4"/><path d="M4 5h9M4 10h5M4 15h3"/></svg></span><b>Categorised</b><span>who was paid, what type, business or personal</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="6"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg></span><b>Dashboard</b><span>money in, money out, behaviour, ready for credit</span></div>
         </div>
-        <div class="vrail">
-          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>The pain</b>Statements arrive as PDFs and phone scans. Someone retypes them for hours.</div>
-          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>What it does</b>OCR reads the pages. The model turns them into clean tables.</div>
-          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>The output</b>Money in, money out and balances, summed up for the analyst.</div>
-          <div class="vmeta" data-r data-d="6">video coming · placeholder</div>
-        </div>
+        <p class="flow-cap" data-r data-d="7">Hours of retyping become minutes of checking.</p>
       </div>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">15</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">24</span></div>
   </section>
 
-  <!-- ============================== SLIDE 16 · DEMO 2 · ADVERSE NEWS ============================== -->
-  <section class="slide" data-notes='["The pain: screening by hand. One name, one source, one search at a time.", "Watch: it writes its own searches. Courts, negative news, sanction lists.", "Verdict from credible sources only. Both names: high risk, same KPK case.", "One click: a PDF report, ready for the KYC file.", "The agent does the legwork. The officer makes the call."]'>
-    <div class="kicker" data-r><span class="badge"></span>Demo 2 · Screening &amp; compliance</div>
-    <h2 class="slide-title" data-r data-d="1">Adverse News Search <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 1:45</span></h2>
-    <div class="body-area">
-      <div class="vwrap">
-        <div class="vframe" data-r data-d="2">
-          <video src="assets/videos/adverse-news.mp4" poster="assets/videos/adverse-news-poster.png" controls preload="metadata"></video>
+  <!-- ============================== SLIDE · USE CASE 2 · ADVERSE NEWS ============================== -->
+  <section class="slide" data-notes='["Use case two: screening. Before we deal with a company or a person, we check for negative news. By hand that means dozens of searches, one source at a time.","Walk the flow. Names go in: a company and its related parties.","The agent writes its own searches: court databases like SIPP and Mahkamah Agung, negative-news keywords, sanction and PEP lists.","It reads the results and filters: credible sources only, same-name noise dropped. Then a verdict with a written narrative, every claim cited.","Last step, the checkpoint again: the officer reviews and clears the name, and a PDF report goes to the KYC file. An hour of googling becomes minutes of review."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Use case 2 · Screening &amp; compliance</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Adverse News Search</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1080px;width:100%">
+        <div class="ucflow">
+          <div class="ucbox" data-r data-d="2"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2"/><path d="M16 4h5v5M21 4l-6 6"/></svg></span><b>Names in</b><span>a company and its related parties</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="3"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><b>AI writes the searches</b><span>courts (SIPP, MA), negative news, sanction &amp; PEP lists</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="4"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16l-6 7v5l-4 2v-7z"/></svg></span><b>Reads &amp; filters</b><span>credible sources only, same-name noise dropped</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox" data-r data-d="5"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M18.4 5.6l-2.8 2.8M21 12h-4"/><path d="M8 20a4 4 0 118 0z"/></svg></span><b>Verdict + narrative</b><span>risk level, every claim cited to its source</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox human" data-r data-d="6"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a6 6 0 0112 0v1"/></svg></span><b>Human review</b><span>officer clears the name; PDF to the KYC file</span><span class="htag">human in the loop</span></div>
         </div>
-        <div class="vrail">
-          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>Queries write themselves</b>Two names in, ten searches out: courts, negative news, sanction lists.</div>
-          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>Verdict, not links</b>All sources checked at once. Verdict from credible sources only.</div>
-          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>Connected entities</b>The Combined tab links both names to the same KPK case.</div>
-          <div class="vchip" data-r data-d="6"><b><span class="no">4</span>Audit-ready</b>One click: PDF report with evidence and audit log.</div>
-          <div class="vmeta" data-r data-d="7">press R to restart · sound on</div>
-        </div>
+        <p class="flow-cap" data-r data-d="7">An hour of searching becomes minutes of review. The agent does the legwork; clearing the name stays human.</p>
       </div>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">16</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">25</span></div>
   </section>
 
   <!-- ============================== SLIDE 17 · DEMO 3 · MoM AI ============================== -->
   <section class="slide" data-notes='["The pain: someone types notes all meeting, and the minutes still come late.", "Drop in the recording. It writes out who said what.", "Out come minutes: summary, attendees, actions with names and dates.", "English or Bahasa. Export to PDF or Word.", "Thirty minutes of typing becomes five minutes of checking."]'>
-    <div class="kicker" data-r><span class="badge"></span>Demo 3 · Minutes that write themselves</div>
+    <div class="kicker" data-r><span class="badge"></span>Use case 3 · Minutes that write themselves</div>
     <h2 class="slide-title" data-r data-d="1">MoM AI <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 0:30</span></h2>
     <div class="body-area">
       <div class="vwrap">
@@ -1747,7 +1811,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
 
   <!-- ============================== SLIDE 18 · DEMO 4 · LUMINA ============================== -->
   <section class="slide" data-notes='["The pain: 157 documents, and the truth scattered across all of them.", "All files become one wiki. Ask anything: the answer cites its source page.", "If the answer is not in the files, it says so.", "Studio drafts the weekly Word, Excel and PowerPoint packs.", "A colleague who read every document and never forgets a page."]'>
-    <div class="kicker" data-r><span class="badge"></span>Demo 4 · Ask your project anything</div>
+    <div class="kicker" data-r><span class="badge"></span>Use case 4 · Ask your project anything</div>
     <h2 class="slide-title" data-r data-d="1">LuminaLM <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 0:50</span></h2>
     <div class="body-area">
       <div class="vwrap">
@@ -1824,7 +1888,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
           <ul>
             <li>An LLM predicts the next word. That explains everything</li>
             <li>Tools, agents and grounding turn prediction into work</li>
-            <li>Four projects running in the bank, on video</li>
+            <li>Four working use cases in the bank</li>
             <li>Safe first steps for your own desk</li>
           </ul>
         </div>
