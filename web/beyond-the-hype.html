@@ -687,6 +687,17 @@ body.static .chatanim .cm{opacity:1;transform:none;animation:none}
 body.static .chatanim .cm.typing{display:none}
 @media (prefers-reduced-motion:reduce){.chatanim .cm{opacity:1;transform:none;animation:none}
 .chatanim .cm.typing{display:none}}
+/* chat attachment card */
+.attach{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:9px 13px;margin-bottom:9px}
+.attach .pdfic{width:36px;height:36px;border-radius:9px;background:var(--red);flex:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  box-shadow:0 6px 14px -6px rgba(236,27,35,.55)}
+.attach .pdfic svg{width:15px;height:15px;stroke:#fff}
+.attach .pdfic em{font-style:normal;font-family:var(--fMono,'JetBrains Mono',monospace);
+  font-size:7.5px;font-weight:700;letter-spacing:.06em;color:#fff}
+.attach .fmeta b{display:block;font-family:var(--fHead);font-weight:700;font-size:12.5px;color:#fff;line-height:1.2}
+.attach .fmeta span{display:block;font-size:10.5px;color:rgba(255,255,255,.62);margin-top:2px}
 /* S12 agent loop ring */
 .loop{position:relative;width:330px;height:330px;margin:0 auto}
 .loop .track{position:absolute;inset:26px;border:2.5px dashed rgba(236,27,35,.35);border-radius:50%}
@@ -1253,7 +1264,12 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
         </div>
         <div class="viz" data-r data-d="2">
           <div class="chatanim">
-            <div class="cm u" style="--cd:.7s"><span class="who">You</span>Ringkas laporan 30 halaman ini.</div>
+            <div class="cm u" style="--cd:.7s"><span class="who">You</span>
+              <div class="attach">
+                <span class="pdfic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/></svg><em>PDF</em></span>
+                <span class="fmeta"><b>Laporan-Kinerja-Q2.pdf</b><span>30 halaman · 4,2 MB</span></span>
+              </div>
+              Ringkas laporan ini jadi 3 poin.</div>
             <div class="cm typing" style="--cd:1.4s;--cg:2.5s"><span class="dots2"><i></i><i></i><i></i></span></div>
             <div class="cm a" style="--cd:2.7s"><span class="who">AI</span>Beres. Tiga poin utama: penjualan naik 12%, biaya stabil, ada risiko di segmen UMKM.</div>
             <div class="cm u" style="--cd:3.7s"><span class="who">You</span>Sekarang buatkan draf email ke tim saya.</div>

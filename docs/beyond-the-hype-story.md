@@ -77,7 +77,8 @@ technology underneath · you have already used one.
 
 **Layout**: two-column; bullets left (last one marker-highlighted:
 "If you have not tried one yet, you should"), right an animated chat:
-user message → typing dots → reply → follow-up → reply, playing in
+a user message with a PDF attachment card (Laporan-Kinerja-Q2.pdf,
+30 halaman) → typing dots → reply → follow-up → reply, playing in
 sequence when the slide opens.
 
 **Say:**
