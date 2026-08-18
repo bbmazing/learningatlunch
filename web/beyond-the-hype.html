@@ -667,6 +667,26 @@ body.static .pcand .pbar i{width:var(--w);transition:none}
 .cm.a{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
 .cm .who{display:block;font-family:var(--fHead);font-weight:800;font-size:10.5px;letter-spacing:.08em;
   text-transform:uppercase;margin-bottom:4px;opacity:.55}
+/* chatbot animation */
+.chatanim{display:flex;flex-direction:column;gap:10px;width:100%}
+.chatanim .cm{opacity:0;transform:translateY(10px)}
+.slide.active .chatanim .cm{animation:cmin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:var(--cd,0s)}
+@keyframes cmin{to{opacity:1;transform:translateY(0)}}
+.chatanim .cm.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);
+  border-bottom-left-radius:4px;padding:14px 18px}
+.slide.active .chatanim .cm.typing{animation:cmin .3s ease forwards,cmgone .25s ease forwards;
+  animation-delay:var(--cd,0s),var(--cg,2s)}
+@keyframes cmgone{to{opacity:0;transform:translateY(-4px);height:0;padding-top:0;padding-bottom:0;
+  margin-top:-10px;border-width:0;overflow:hidden}}
+.chatanim .dots2{display:flex;gap:5px}
+.chatanim .dots2 i{width:7px;height:7px;border-radius:50%;background:#c4c7cd;animation:dotp 1s infinite}
+.chatanim .dots2 i:nth-child(2){animation-delay:.18s}
+.chatanim .dots2 i:nth-child(3){animation-delay:.36s}
+@keyframes dotp{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+body.static .chatanim .cm{opacity:1;transform:none;animation:none}
+body.static .chatanim .cm.typing{display:none}
+@media (prefers-reduced-motion:reduce){.chatanim .cm{opacity:1;transform:none;animation:none}
+.chatanim .cm.typing{display:none}}
 /* S12 agent loop ring */
 .loop{position:relative;width:330px;height:330px;margin:0 auto}
 .loop .track{position:absolute;inset:26px;border:2.5px dashed rgba(236,27,35,.35);border-radius:50%}
@@ -1215,6 +1235,34 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">02</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · BEST FIRST USE: CHATBOT ============================== -->
+  <section class="slide" data-notes='["One of the best uses of an LLM is also the simplest: a chatbot.","Watch the rhythm on the right. You type, it answers, you refine. A conversation, not a search box.","It lifts your productivity and work efficiency: drafts, summaries, answers in seconds instead of hours.","If you have not tried one yet, you should. Later I will show you ours."]'>
+    <div class="kicker" data-r><span class="badge"></span>The obvious first use</div>
+    <h2 class="slide-title" data-r data-d="1">The best first use case: a chatbot</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r" style="align-items:center">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">The simplest, best use of an LLM: <b>a chatbot</b>.</li>
+            <li data-r data-d="3">You type, it answers, you refine. <b>A conversation.</b></li>
+            <li data-r data-d="4">It lifts your <b>productivity</b>: drafts, summaries, answers in seconds.</li>
+            <li data-r data-d="5"><span class="hl hl-2">If you have not tried one yet, <b>you should</b>.</span></li>
+          </ul>
+        </div>
+        <div class="viz" data-r data-d="2">
+          <div class="chatanim">
+            <div class="cm u" style="--cd:.7s"><span class="who">You</span>Ringkas laporan 30 halaman ini.</div>
+            <div class="cm typing" style="--cd:1.4s;--cg:2.5s"><span class="dots2"><i></i><i></i><i></i></span></div>
+            <div class="cm a" style="--cd:2.7s"><span class="who">AI</span>Beres. Tiga poin utama: penjualan naik 12%, biaya stabil, ada risiko di segmen UMKM.</div>
+            <div class="cm u" style="--cd:3.7s"><span class="who">You</span>Sekarang buatkan draf email ke tim saya.</div>
+            <div class="cm a" style="--cd:4.6s"><span class="who">AI</span>Ini drafnya, siap Anda edit.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">03</span></div>
   </section>
 
   <!-- ============================== SLIDE 3 · OCBC ON-PREMISE (QWEN) ============================== -->
