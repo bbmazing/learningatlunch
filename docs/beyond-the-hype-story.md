@@ -27,8 +27,8 @@ using AI safely this week.
 |---|---|---|
 | Opening (cover, LLM, chatbot, on-premise, premise) | 1–5 | 9 |
 | Act 1 · What is an LLM, really? | 6–16 | 17 |
-| Act 2 · From chatbot to coworker, with Adverse News, LuminaLM and MoM AI live | 17–25 | 20 |
-| Act 3 · One more use case in the bank | 26–28 | 5 |
+| Act 2 · From chatbot to coworker, with Adverse News, LuminaLM and MoM AI live | 17–26 | 21 |
+| Act 3 · The last use case + the pattern | 27–28 | 4 |
 | Close + Q&A | 29–30 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
@@ -527,34 +527,46 @@ outro: "Minutes, minus the meeting after the meeting."
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
 
-## Slide 25 · Human in the loop — 2 min
+## Slide 25 · Most requested: OCR, reading documents — 2 min
 
-**Layout**: two-column; bullets left, right an OCR-result card of a
-transfer instruction with amber "double-check" flags on nama penerima,
-no. rekening and jumlah, and a green ✓ on bank tujuan.
-
-**Say:**
-
-> The fourth idea is not a technology. It is a rule: keep a human in
-> the loop. Example on screen: OCR reads a transfer instruction. Fast,
-> and usually right. But look at the flags. Before anything moves, a
-> person double-checks the fields that matter: the account number, the
-> name, the amount. AI reads fast. You confirm what moves money. You
-> already saw this checkpoint in Adverse News, where the officer
-> clears the name. Every use case today has one.
-
-## Slide 26 · Divider — Act 3 — 1 min
-
-**Layout**: dark section divider.
-**On slide**: "Part 3 / Built here" · One more use case: the Bank
-Statement Analyzer.
+**Layout**: two-column. Bullets left (OCR = optical character
+recognition; point it at a form, fields become data; example: transfer
+forms; messy scans and handwriting included). Right: a slightly tilted
+scanned "Form transfer" card in handwriting → red arrow → the OCR
+result card with extracted fields and confidence chips (99%, 98%, 87%
+in amber, 99%). Caption: seconds instead of minutes — but look at the
+yellow one.
 
 **Say:**
 
-> You have already watched three use cases run: Adverse News, LuminaLM
-> and MoM AI. One more, built by a team here, running on the same
-> ideas: prompting, tools, agents, grounding. For it: the pain it
-> removes, how it works, and where the human stays in the loop.
+> One of our most requested projects is OCR: optical character
+> recognition. AI that reads scans. Point it at a form and the fields
+> become data. The example here is a transfer form: name, account
+> number, amount, destination bank. With an LLM behind it, even messy
+> scans and handwriting come out as structured fields, in seconds
+> instead of minutes. But look at the confidence scores on the right,
+> especially the yellow one. Fast is not the same as right. Hold that
+> thought.
+
+## Slide 26 · But remember: double-check — 2 min
+
+**Layout**: centered title, 2×2 grid of cards, one per project shown
+today. Each card: what the AI does, then a green ✓ line for the human
+checkpoint. Adverse News (officer reviews before the KYC file) ·
+LuminaLM (you open the cited page) · MoM AI (you fix the transcript,
+sign off the minutes) · OCR (you double-check account number, name,
+amount). Caption: AI drafts. A human verifies. Every time.
+
+**Say:**
+
+> But remember: double-check. This is the rule that ties everything
+> together. Every project you just saw keeps a human in the loop after
+> the AI produces its result. Adverse News: the officer reviews the
+> report before it reaches the KYC file. LuminaLM: you open the cited
+> page before you rely on the answer. MoM AI: you fix the transcript
+> and sign off the minutes. And OCR: before anything moves, a person
+> double-checks the account number, the name, the amount. AI drafts. A
+> human verifies. Every time.
 
 ## Slide 27 · The last use case — Bank Statement Analyzer — 3 min
 
@@ -565,7 +577,7 @@ Caption: hours of retyping become minutes of checking.
 
 **Say:**
 
-> Use case one, and a pain every credit and ops person knows.
+> The last use case, and a pain every credit and ops person knows.
 > Statements from other banks arrive as PDFs and phone-camera scans,
 > dozens of pages, every bank a different format, and someone retypes
 > them for hours. Walk the flow with me. OCR reads every line, and a

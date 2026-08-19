@@ -339,28 +339,33 @@ body.editing .s h2[contenteditable],body.editing .s li[contenteditable]{outline:
     </article>
     <article class="s">
       <div class="n">Slide 25</div>
-      <h2>The machine drafts. You verify.</h2>
+      <h2>Most requested: OCR, reading documents</h2>
       <ul>
-        <li>The fourth idea is not a technology. It is a rule: keep a human in the loop.</li>
-        <li>Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.</li>
-        <li>Before anything moves, a person double-checks the fields that matter: account number, name, amount.</li>
-        <li>You saw it already: the officer clears the name in Adverse News, you fix the transcript in MoM AI. Every use case today has one.</li>
+        <li>One of our most requested projects: OCR, optical character recognition.</li>
+        <li>Point it at a scanned form and it reads the fields into data.</li>
+        <li>The example here: a transfer form. Name, account number, amount, destination bank.</li>
+        <li>With an LLM behind it, even messy scans and handwriting become structured fields.</li>
+        <li>Look at the confidence scores on the right. Fast is not the same as right. Hold that thought for the next slide.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 26</div>
-      <h2>Part 3 — Built here</h2>
+      <h2>But remember: double-check</h2>
       <ul>
-        <li>You have already watched three use cases run: Adverse News, LuminaLM and MoM AI.</li>
-        <li>One more, built here: the Bank Statement Analyzer.</li>
-        <li>The pain, how it works, and where the human stays in the loop.</li>
+        <li>But remember: double-check. This is the rule that ties every project together.</li>
+        <li>Every project you just saw keeps a human in the loop after the AI produces its result.</li>
+        <li>Adverse News: the officer reviews the report before it reaches the KYC file.</li>
+        <li>LuminaLM: you open the cited page before you rely on the answer.</li>
+        <li>MoM AI: you fix the transcript and sign off the minutes.</li>
+        <li>OCR: before anything moves, double-check the account number, the name, the amount.</li>
+        <li>AI drafts. A human verifies. Every time.</li>
       </ul>
     </article>
     <article class="s">
       <div class="n">Slide 27</div>
       <h2>Bank Statement Analyzer</h2>
       <ul>
-        <li>Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.</li>
+        <li>The last use case, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.</li>
         <li>Walk the flow. OCR reads every line and a fraud check flags signs of tampering.</li>
         <li>Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.</li>
         <li>The model categorises every transaction: who was paid, what type, business or personal.</li>

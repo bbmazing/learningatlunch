@@ -158,19 +158,24 @@ Slide 24 — MoM AI · 0:30
   • English or Bahasa. Export to PDF or Word.
   • Thirty minutes of typing becomes five minutes of checking.
 
-Slide 25 — The machine drafts. You verify.
-  • The fourth idea is not a technology. It is a rule: keep a human in the loop.
-  • Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.
-  • Before anything moves, a person double-checks the fields that matter: account number, name, amount.
-  • You saw it already: the officer clears the name in Adverse News, you fix the transcript in MoM AI. Every use case today has one.
+Slide 25 — Most requested: OCR, reading documents
+  • One of our most requested projects: OCR, optical character recognition.
+  • Point it at a scanned form and it reads the fields into data.
+  • The example here: a transfer form. Name, account number, amount, destination bank.
+  • With an LLM behind it, even messy scans and handwriting become structured fields.
+  • Look at the confidence scores on the right. Fast is not the same as right. Hold that thought for the next slide.
 
-Slide 26 — Part 3 — Built here
-  • You have already watched three use cases run: Adverse News, LuminaLM and MoM AI.
-  • One more, built here: the Bank Statement Analyzer.
-  • The pain, how it works, and where the human stays in the loop.
+Slide 26 — But remember: double-check
+  • But remember: double-check. This is the rule that ties every project together.
+  • Every project you just saw keeps a human in the loop after the AI produces its result.
+  • Adverse News: the officer reviews the report before it reaches the KYC file.
+  • LuminaLM: you open the cited page before you rely on the answer.
+  • MoM AI: you fix the transcript and sign off the minutes.
+  • OCR: before anything moves, double-check the account number, the name, the amount.
+  • AI drafts. A human verifies. Every time.
 
 Slide 27 — Bank Statement Analyzer
-  • Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.
+  • The last use case, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.
   • Walk the flow. OCR reads every line and a fraud check flags signs of tampering.
   • Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.
   • The model categorises every transaction: who was paid, what type, business or personal.

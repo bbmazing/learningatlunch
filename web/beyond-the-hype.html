@@ -6,7 +6,7 @@
 <title>Beyond the Hype · Learning at Lunch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 <style>
 /* =========================================================================
    OCBC CRAYON · Python Data Foundations
@@ -1343,6 +1343,33 @@ body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
   .onejump,.onejump .jx,.mstep,.msarr,.mcap{opacity:1;transform:none;animation:none}
   .onejump .jflow::after{transform:scaleX(1);animation:none}
 }
+/* OCR — most requested build */
+.ocrviz{display:flex;align-items:center;gap:0;width:100%}
+.formcard{flex:1;background:#FDFBF6;border:1px solid #E8E2D4;border-radius:10px;padding:13px 15px;
+  transform:rotate(-1.6deg);box-shadow:0 22px 44px -30px rgba(0,0,0,.35);min-width:0}
+.formcard .fhd{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:#9a917d;border-bottom:1px solid #E8E2D4;padding-bottom:7px;
+  margin-bottom:7px;display:flex;justify-content:space-between}
+.formcard .frow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+  padding:4px 0;border-bottom:1px dashed #EAE4D6}
+.formcard .frow:last-child{border-bottom:none}
+.formcard .fk{font-size:9px;color:#9a917d;text-transform:uppercase;letter-spacing:.05em;flex:none}
+.formcard .fv{font-family:'Caveat',cursive;font-size:19px;color:#3E3A31;white-space:nowrap}
+.ocrarr{flex:none;padding:0 13px;color:var(--red);font-size:26px;font-weight:800}
+.ocrviz .slip{flex:1.12;min-width:0}
+.ocrviz .srow{padding:8px 13px}
+.ocrviz .srow .v{font-size:12.5px}
+.srow .conf{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:10px;font-weight:700;
+  color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;border-radius:99px;padding:3px 8px;flex:none}
+.srow .conf.lo{color:#8a5a17;background:#FFF6DF;border-color:#F2E2AE}
+/* double-check recap grid */
+.hitl4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%}
+.hcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 17px 15px;
+  box-shadow:0 20px 40px -32px rgba(0,0,0,.3)}
+.hcard b{display:block;font-family:var(--fHead);font-weight:800;font-size:15px;color:var(--ink);margin-bottom:5px}
+.hcard .ai{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.hcard .hu{display:block;margin-top:9px;font-size:12px;color:#14663f;font-weight:600;background:#F4FBF6;
+  border:1px solid #cdebd8;border-radius:9px;padding:7px 11px;line-height:1.5}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -2013,47 +2040,65 @@ body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
   </section>
 
-  <!-- ============================== SLIDE · HUMAN IN THE LOOP ============================== -->
-  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.", "Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.", "Before anything moves, a person double-checks the fields that matter: account number, name, amount.", "You saw it already: the officer clears the name in Adverse News, you fix the transcript in MoM AI. Every use case today has one."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div>
-    <h2 class="slide-title" data-r data-d="1">The machine drafts. You verify.</h2>
+  <!-- ============================== SLIDE · MOST REQUESTED · OCR ============================== -->
+  <section class="slide" data-notes='["One of our most requested projects: OCR, optical character recognition.", "Point it at a scanned form and it reads the fields into data.", "The example here: a transfer form. Name, account number, amount, destination bank.", "With an LLM behind it, even messy scans and handwriting become structured fields.", "Look at the confidence scores on the right. Fast is not the same as right. Hold that thought for the next slide."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · The most requested build</div>
+    <h2 class="slide-title" data-r data-d="1">Most requested: OCR, reading documents</h2>
     <div class="body-area" style="justify-content:center">
       <div class="two wide-r" style="align-items:center">
         <div class="txt">
           <ul class="bullets">
-            <li class="strong" data-r data-d="2">AI output is a <b>draft</b>, even when it comes from OCR.</li>
-            <li data-r data-d="3">Numbers and names deserve <b>human eyes</b>.</li>
-            <li data-r data-d="4">Double-check the <b>account number, name and amount</b> before anything moves.</li>
-            <li data-r data-d="5">Every use case today has <b>this checkpoint</b>.</li>
+            <li class="strong" data-r data-d="2"><b>OCR</b> = optical character recognition: AI that reads scans.</li>
+            <li data-r data-d="3">Point it at a form. It turns the fields into <b>data</b>.</li>
+            <li data-r data-d="4">Example: <b>transfer forms</b>. Name, account number, amount.</li>
+            <li data-r data-d="5">Messy scans and <b>handwriting</b> included.</li>
           </ul>
         </div>
         <div class="viz" data-r data-d="3">
-          <div class="slip">
-            <div class="sh"><span>OCR result · transfer instruction</span><span>draft</span></div>
-            <div class="srow"><span class="k">Nama penerima</span><span class="v">PT Maju Karya</span><span class="chk">double-check</span></div>
-            <div class="srow"><span class="k">No. rekening</span><span class="v">8720 4415 9021</span><span class="chk">double-check</span></div>
-            <div class="srow"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="chk">double-check</span></div>
-            <div class="srow"><span class="k">Bank tujuan</span><span class="v">OCBC Indonesia</span><span class="oke">✓ ok</span></div>
+          <div class="ocrviz">
+            <div class="formcard">
+              <div class="fhd"><span>Form transfer</span><span>scan</span></div>
+              <div class="frow"><span class="fk">Nama penerima</span><span class="fv">PT Maju Karya</span></div>
+              <div class="frow"><span class="fk">No. rekening</span><span class="fv">8720 4415 9021</span></div>
+              <div class="frow"><span class="fk">Jumlah</span><span class="fv">Rp 175.000.000</span></div>
+              <div class="frow"><span class="fk">Bank tujuan</span><span class="fv">OCBC Indonesia</span></div>
+            </div>
+            <span class="ocrarr">→</span>
+            <div class="slip">
+              <div class="sh"><span>OCR result</span><span>fields</span></div>
+              <div class="srow"><span class="k">Nama</span><span class="v">PT Maju Karya</span><span class="conf">99%</span></div>
+              <div class="srow"><span class="k">Rekening</span><span class="v">8720 4415 9021</span><span class="conf">98%</span></div>
+              <div class="srow"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="conf lo">87%</span></div>
+              <div class="srow"><span class="k">Bank</span><span class="v">OCBC Indonesia</span><span class="conf">99%</span></div>
+            </div>
           </div>
         </div>
       </div>
-      <p class="flow-cap" data-r data-d="6">AI reads fast. You confirm what moves money.</p>
+      <p class="flow-cap" data-r data-d="6">Seconds instead of minutes, for every form. But look at the yellow one…</p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">22</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">25</span></div>
   </section>
 
-  <!-- ============================== SLIDE 14 · DIVIDER P3 ============================== -->
-  <section class="slide dark divider" data-notes='["You have already watched three use cases run: Adverse News, LuminaLM and MoM AI.", "One more, built here: the Bank Statement Analyzer.", "The pain, how it works, and where the human stays in the loop."]'>
-    <div class="pillar-no">03</div>
-    <div class="eyebrow"><span class="dot"></span>Part 3</div>
-    <h2>Built here</h2>
-    <p class="lead">One more use case: the Bank Statement Analyzer.</p>
-    <div class="prog-rail"><span>01 · LLM basics</span><span>02 · Tools &amp; agents</span><span class="on">03 · Demos</span><span>04 · Using it well</span></div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
+  <!-- ============================== SLIDE · DOUBLE-CHECK · HUMAN IN THE LOOP ============================== -->
+  <section class="slide" data-notes='["But remember: double-check. This is the rule that ties every project together.", "Every project you just saw keeps a human in the loop after the AI produces its result.", "Adverse News: the officer reviews the report before it reaches the KYC file.", "LuminaLM: you open the cited page before you rely on the answer.", "MoM AI: you fix the transcript and sign off the minutes.", "OCR: before anything moves, double-check the account number, the name, the amount.", "AI drafts. A human verifies. Every time."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">But remember: double-check</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1010px;width:100%">
+        <div class="hitl4">
+          <div class="hcard" data-r data-d="2"><b>Adverse News</b><span class="ai">AI screens the names and drafts the risk report.</span><span class="hu">✓ The officer reviews it before it reaches the KYC file.</span></div>
+          <div class="hcard" data-r data-d="3"><b>LuminaLM</b><span class="ai">AI answers from the project files, with citations.</span><span class="hu">✓ You open the cited page before you rely on it.</span></div>
+          <div class="hcard" data-r data-d="4"><b>MoM AI</b><span class="ai">AI writes the transcript and drafts the minutes.</span><span class="hu">✓ You fix the transcript and sign off the minutes.</span></div>
+          <div class="hcard" data-r data-d="5"><b>OCR</b><span class="ai">AI reads the form fields in seconds.</span><span class="hu">✓ You double-check the account number, name and amount.</span></div>
+        </div>
+        <p class="flow-cap" data-r data-d="6">AI drafts. A human verifies. <b>Every time.</b></p>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">26</span></div>
   </section>
 
   <!-- ============================== SLIDE · USE CASE 1 · STATEMENT ANALYZER ============================== -->
-  <section class="slide" data-notes='["Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.","Walk the flow. OCR reads every line and a fraud check flags signs of tampering.","Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.","The model categorises every transaction: who was paid, what type, business or personal.","Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking."]'>
+  <section class="slide" data-notes='["The last use case, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.","Walk the flow. OCR reads every line and a fraud check flags signs of tampering.","Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.","The model categorises every transaction: who was paid, what type, business or personal.","Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>The last use case · Credit &amp; operations</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Bank Statement Analyzer</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
