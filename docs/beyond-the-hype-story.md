@@ -409,7 +409,7 @@ and who is the PIC?"), a scan line reports "searching 4 files… 2 relevant
 pages found", the two matching files light up with match tags (row 18,
 p. 4), and the answer card pops in — go-live 10 July 2026, PIC Bryan,
 ADM — with a citation chip per claim. Caption: answers from your pages, "not found" instead of
-inventing; engineers call this RAG.
+inventing; engineers call this RAG / LLM Wiki.
 
 **Say:**
 
@@ -420,8 +420,8 @@ inventing; engineers call this RAG.
 > the two files that matter and ignores the rest. The answer is
 > written from those pages, and every claim carries a citation you can
 > click and check. And if the answer is not in the files, it says not
-> found. No inventing. Engineers call this RAG; the name matters less
-> than the effect. The next slide is this exact idea, live in the bank.
+> found. No inventing. Engineers call this RAG, or an LLM Wiki; the
+> name matters less than the effect. The next slide is this exact idea, live in the bank.
 
 ## Slide 22 · LuminaLM — grounding, live in the bank — 4 min (video 0:50)
 
