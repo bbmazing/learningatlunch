@@ -402,13 +402,13 @@ tool; scraping is not allowed for regulatory reasons.
 ## Slide 21 · It has never read your documents. Provide them. — 2 min
 
 **Layout**: a mini app, animated. Left: a "Project files" panel where four
-files upload one by one — PRD-Gemilang-v3.pdf, Timeline-Q3.xlsx,
+files upload one by one — PRD-Lumina-v3.pdf, Timeline-Q3.xlsx,
 SteerCo-Minutes-Jul.pdf, Project-Charter.docx. Right: a chat. A question
-about a specific project comes in ("When does Project Gemilang go live,
-and who is the PIC?"), a scan line reports "searching 4 files… 3 relevant
-pages found", the three matching files light up with match tags (p. 4,
-row 18, p. 2), and the answer card pops in with a citation chip per
-claim. Caption: answers from your pages, "not found" instead of
+about a specific project comes in ("When did Project Lumina go live,
+and who is the PIC?"), a scan line reports "searching 4 files… 2 relevant
+pages found", the two matching files light up with match tags (row 18,
+p. 4), and the answer card pops in — go-live 10 July 2026, PIC Bryan,
+ADM — with a citation chip per claim. Caption: answers from your pages, "not found" instead of
 inventing; engineers call this RAG.
 
 **Say:**
@@ -417,7 +417,7 @@ inventing; engineers call this RAG.
 > never read your documents, so provide them. Upload the project files
 > once: the PRD, the timeline, the minutes, the charter. Then ask about
 > a specific project, in plain words. Watch the left panel: it finds
-> the three files that matter and ignores the rest. The answer is
+> the two files that matter and ignores the rest. The answer is
 > written from those pages, and every claim carries a citation you can
 > click and check. And if the answer is not in the files, it says not
 > found. No inventing. Engineers call this RAG; the name matters less

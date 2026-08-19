@@ -126,7 +126,7 @@ Slide 21 — It has never read your documents. Provide them.
   • Third idea: grounding. The model has never read our documents. So we provide them.
   • Upload the project files once: the PRD, the timeline, the minutes, the charter.
   • Then ask about a specific project, in plain words.
-  • Watch the left panel: it finds the three files that matter and ignores the rest.
+  • Watch the left panel: it finds the two files that matter and ignores the rest.
   • The answer is written from those pages, and every claim carries a citation you can click and check.
   • If the answer is not in the files, it says not found. No inventing.
   • LuminaLM, on the next slide, is exactly this, live in the bank.
