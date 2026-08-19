@@ -1,5 +1,5 @@
 Learning at Lunch — Beyond the Hype: What AI Can Actually Do Today
-Speaker notes · 30 slides
+Speaker notes · 28 slides
 ================================================
 
 Slide 1 — Beyond the Hype What AI Can Do Today
@@ -161,38 +161,32 @@ Slide 24 — MoM AI · 0:30
 Slide 25 — Most requested: OCR, reading documents
   • One of our most requested projects: OCR, optical character recognition.
   • Point it at a scanned form and it reads the fields into data.
-  • The example here: a transfer form. Name, account number, amount, destination bank.
+  • The example here: a deposit form. Name, account number, amount.
   • With an LLM behind it, even messy scans and handwriting become structured fields.
-  • Look at the confidence scores on the right. Fast is not the same as right. Hold that thought for the next slide.
+  • Fast. But fast is not the same as right. Hold that thought for the next slide.
 
 Slide 26 — But remember: double-check
-  • But remember: double-check. This is the rule that ties every project together.
-  • Every project you just saw keeps a human in the loop after the AI produces its result.
+  • But remember: double-check. This is called human in the loop.
+  • AI is impressive, but trusting it one hundred percent still carries risk: it can still make things up with confidence.
+  • So solidify the workflow with a human in the loop: a person verifies and monitors the results.
+  • Every project you just saw has this checkpoint after the AI produces its result.
   • Adverse News: the officer reviews the report before it reaches the KYC file.
   • LuminaLM: you open the cited page before you rely on the answer.
   • MoM AI: you fix the transcript and sign off the minutes.
   • OCR: before anything moves, double-check the account number, the name, the amount.
   • AI drafts. A human verifies. Every time.
 
-Slide 27 — Bank Statement Analyzer
-  • The last use case, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.
-  • Walk the flow. OCR reads every line and a fraud check flags signs of tampering.
-  • Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.
-  • The model categorises every transaction: who was paid, what type, business or personal.
-  • Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking.
+Slide 27 — Key takeaways
+  • Seven things to take home. Ninety seconds.
+  • One: an LLM is not magic. It predicts the next token. That explains both the talents and the mistakes.
+  • Two: AI is not free. Tokens are the meter. That is why every project we build needs a clear benefit, and ours have one.
+  • Three: be clear when you ask. Clear prompt, clear answer. COSTAR helps.
+  • Four: on its own, an LLM has limits, like Chat OCBC. Tools and your documents give it real capabilities.
+  • Five: keep bank data inside the bank. Use the in-house apps.
+  • Six: keep a human in the loop. AI drafts, you verify.
+  • And seven, the one that matters most: you will never be good at it unless you try. Open Chat OCBC today.
 
-Slide 28 — Four tools, one pattern
-  • Same pattern four times: one model, plus tools, plus our documents.
-  • The AI removes the reading, typing and searching.
-  • The judgment stays human: approve, clear, sign, decide.
-
-Slide 29 — Start this week, inside the rules
-  • Start small: summarise, draft, translate, explain.
-  • Rule one: no customer data in public AI tools. Use the bank’s own.
-  • Rule two: check every fact and number.
-  • Rule three: it is a draft. What you send carries your name.
-
-Slide 30 — Useful work, today. You just watched it
-  • Recap in one breath: you saw how it works, and four tools that use it.
-  • Have an idea for your unit? Come talk to us.
-  • Try one small task this week. Terima kasih. Questions, please.
+Slide 28 — Thank you. Any questions?
+  • Terima kasih. That is the whole story: how an LLM works, and what it already does in this bank.
+  • Any questions? The chat is open too.
+  • And if you want to explore what AI can do for your team, reach out to me: bryan.bernardi. Always happy to talk.

@@ -1310,10 +1310,6 @@ body.static .rfile.hit{background:#FFF7F7}
 .slide.active .onejump{animation:cmin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:.4s}
 .onejump .jflow{position:relative;font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink)}
 .onejump .jflow b{color:var(--faint);font-weight:800;padding:0 6px}
-.onejump .jflow::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:2.5px;
-  background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:left center}
-.slide.active .onejump .jflow::after{animation:jstrike .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:1.5s}
-@keyframes jstrike{to{transform:scaleX(1)}}
 .onejump .jx{margin-left:auto;font-family:var(--fHead);font-weight:800;font-size:11px;color:var(--red);
   background:#FCEEEF;border:1px solid #F7C6C8;border-radius:99px;padding:5px 12px;opacity:0;
   transform:translateY(4px);white-space:nowrap}
@@ -1338,15 +1334,32 @@ body.static .rfile.hit{background:#FFF7F7}
 .slide.active .mcap{animation:cmin .45s forwards;animation-delay:4.6s}
 body.static .onejump,body.static .onejump .jx,body.static .mstep,body.static .msarr,body.static .mcap
   {opacity:1;transform:none;animation:none}
-body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
 @media (prefers-reduced-motion:reduce){
   .onejump,.onejump .jx,.mstep,.msarr,.mcap{opacity:1;transform:none;animation:none}
-  .onejump .jflow::after{transform:scaleX(1);animation:none}
 }
 /* OCR — most requested build */
 .ocrviz{display:flex;align-items:center;gap:0;width:100%}
-.formcard{flex:1;background:#FDFBF6;border:1px solid #E8E2D4;border-radius:10px;padding:13px 15px;
-  transform:rotate(-1.6deg);box-shadow:0 22px 44px -30px rgba(0,0,0,.35);min-width:0}
+.formcard{flex:1;background:#FDFBF6;border:1px solid #E8E2D4;border-radius:10px;
+  padding:11px 13px 22px 27px;transform:rotate(-1.6deg);
+  box-shadow:0 22px 44px -30px rgba(0,0,0,.35);min-width:0}
+.bfside{position:absolute;left:0;top:0;bottom:0;width:16px;background:#2b2b30;
+  display:flex;align-items:center;justify-content:center;border-radius:9px 0 0 9px}
+.bfside span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--fHead);font-weight:800;
+  font-size:6.5px;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+.bfh{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #d8d2c2;
+  padding-bottom:6px;margin-bottom:6px}
+.bfh img{height:14px;display:block}
+.bfno{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:11px;font-weight:700;color:#3E3A31;letter-spacing:.06em}
+.bfrow{display:flex;flex-direction:column;gap:0;padding:3px 0 4px;border-bottom:1px solid #E4DECE}
+.bfrow:last-of-type{border-bottom:none}
+.bfk{font-size:7.5px;color:#8d8470;text-transform:uppercase;letter-spacing:.06em}
+.bfrow .fv{font-family:'Caveat',cursive;font-size:18px;color:#2E2A22;line-height:1.1}
+.bfboxes{display:flex;gap:2px;margin-top:2px}
+.bfboxes i{width:15px;height:19px;border:1px solid #cfc8b4;border-radius:2px;display:grid;place-items:center;
+  font-style:normal;font-family:'Caveat',cursive;font-size:14px;color:#2E2A22;background:#fff}
+.bfcopy{position:absolute;right:9px;bottom:6px;font-family:var(--fMono,'JetBrains Mono',monospace);
+  font-size:6.5px;letter-spacing:.1em;color:#8d8470;border:1px solid #cfc8b4;border-radius:3px;
+  padding:2px 6px;text-transform:uppercase}
 .formcard .fhd{font-family:var(--fMono,'JetBrains Mono',monospace);font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:#9a917d;border-bottom:1px solid #E8E2D4;padding-bottom:7px;
   margin-bottom:7px;display:flex;justify-content:space-between}
@@ -1391,6 +1404,9 @@ body.static .scanbeam{display:none}
   color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;border-radius:99px;padding:3px 8px;flex:none}
 .srow .conf.lo{color:#8a5a17;background:#FFF6DF;border-color:#F2E2AE}
 /* double-check recap grid */
+.hitlsub{text-align:center;font-size:14.5px;color:var(--muted);max-width:780px;
+  margin:0 auto 18px;line-height:1.6}
+.hitlsub b{color:var(--ink)}
 .hitl4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%}
 .hcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 17px 15px;
   box-shadow:0 20px 40px -32px rgba(0,0,0,.3)}
@@ -1398,6 +1414,22 @@ body.static .scanbeam{display:none}
 .hcard .ai{display:block;font-size:12px;color:var(--muted);line-height:1.5}
 .hcard .hu{display:block;margin-top:9px;font-size:12px;color:#14663f;font-weight:600;background:#F4FBF6;
   border:1px solid #cdebd8;border-radius:9px;padding:7px 11px;line-height:1.5}
+/* key takeaways */
+.keys{display:grid;grid-template-columns:1fr 1fr;gap:11px 16px;width:100%}
+.keyrow{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:13px;padding:12px 15px;box-shadow:0 18px 36px -30px rgba(0,0,0,.28)}
+.keyrow .kn{flex:none;width:24px;height:24px;border-radius:50%;background:#FCEEEF;color:var(--red);
+  font-family:var(--fHead);font-weight:800;font-size:12px;display:grid;place-items:center;margin-top:1px}
+.keyrow .kt{min-width:0}
+.keyrow .kt b{display:block;font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink);line-height:1.25}
+.keyrow .kt span{display:block;font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.keyrow.hero{grid-column:1/-1;background:#FCEEEF;border-color:#F7C6C8}
+.keyrow.hero .kn{background:var(--red);color:#fff}
+.keyrow.hero .kt b{color:var(--red-dark,#B3141A)}
+/* thank-you reach card */
+.reachcard{margin-top:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
+  border-radius:99px;padding:13px 28px;font-size:14.5px;color:rgba(255,255,255,.8)}
+.reachcard b{color:#ff8a8e}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -2069,7 +2101,7 @@ body.static .scanbeam{display:none}
   </section>
 
   <!-- ============================== SLIDE · MOST REQUESTED · OCR ============================== -->
-  <section class="slide" data-notes='["One of our most requested projects: OCR, optical character recognition.", "Point it at a scanned form and it reads the fields into data.", "The example here: a transfer form. Name, account number, amount, destination bank.", "With an LLM behind it, even messy scans and handwriting become structured fields.", "Look at the confidence scores on the right. Fast is not the same as right. Hold that thought for the next slide."]'>
+  <section class="slide" data-notes='["One of our most requested projects: OCR, optical character recognition.", "Point it at a scanned form and it reads the fields into data.", "The example here: a deposit form. Name, account number, amount.", "With an LLM behind it, even messy scans and handwriting become structured fields.", "Fast. But fast is not the same as right. Hold that thought for the next slide."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · The most requested build</div>
     <h2 class="slide-title" data-r data-d="1">Most requested: OCR, reading documents</h2>
     <div class="body-area" style="justify-content:center">
@@ -2086,143 +2118,78 @@ body.static .scanbeam{display:none}
           <div class="ocrviz">
             <div class="formcard">
               <i class="scanbeam"></i>
-              <div class="fhd"><span>Form transfer</span><span>scan</span></div>
-              <div class="frow"><span class="fk">Nama penerima</span><span class="fv">PT Maju Karya</span></div>
-              <div class="frow"><span class="fk">No. rekening</span><span class="fv">8720 4415 9021</span></div>
-              <div class="frow"><span class="fk">Jumlah</span><span class="fv">Rp 175.000.000</span></div>
-              <div class="frow"><span class="fk">Bank tujuan</span><span class="fv">OCBC Indonesia</span></div>
+              <span class="bfside"><span>Quick deposit</span></span>
+              <div class="bfh"><img src="assets/ocbc-logo.png" alt="OCBC Bank"/><span class="bfno">№ 26362640</span></div>
+              <div class="bfrow"><span class="bfk">Tarikh 日期 / Date</span><span class="fv">19 / 08 / 2026</span></div>
+              <div class="bfrow"><span class="bfk">Nama Akaun 户口名 / Account Name</span><span class="fv">PT Maju Karya</span></div>
+              <div class="bfrow"><span class="bfk">No. Akaun / Account No.</span><span class="bfboxes"><i>8</i><i>7</i><i>2</i><i>0</i><i>4</i><i>4</i><i>1</i><i>5</i><i>9</i><i>0</i><i>2</i><i>1</i></span></div>
+              <div class="bfrow"><span class="bfk">Jumlah 总额 / Total</span><span class="fv">Rp 175.000.000</span></div>
+              <span class="bfcopy">Bank&rsquo;s copy</span>
             </div>
             <span class="ocrarr">→</span>
             <div class="slip">
               <div class="sh"><span>OCR result</span><span>fields</span></div>
-              <div class="srow" style="--cd:2.95s"><span class="k">Nama</span><span class="v">PT Maju Karya</span><span class="conf" style="--cc:3.3s">99%</span></div>
-              <div class="srow" style="--cd:3.25s"><span class="k">Rekening</span><span class="v">8720 4415 9021</span><span class="conf" style="--cc:3.6s">98%</span></div>
-              <div class="srow" style="--cd:3.55s"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="conf lo" style="--cc:4.35s">87%</span></div>
-              <div class="srow" style="--cd:3.85s"><span class="k">Bank</span><span class="v">OCBC Indonesia</span><span class="conf" style="--cc:4.1s">99%</span></div>
+              <div class="srow" style="--cd:2.95s"><span class="k">Tanggal</span><span class="v">19 / 08 / 2026</span></div>
+              <div class="srow" style="--cd:3.25s"><span class="k">Nama</span><span class="v">PT Maju Karya</span></div>
+              <div class="srow" style="--cd:3.55s"><span class="k">Rekening</span><span class="v">8720 4415 9021</span></div>
+              <div class="srow" style="--cd:3.85s"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span></div>
             </div>
           </div>
         </div>
       </div>
-      <p class="flow-cap ocrcap">Seconds instead of minutes, for every form. But look at the yellow one…</p>
+      <p class="flow-cap ocrcap">Seconds instead of minutes, for every form.</p>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">25</span></div>
   </section>
 
   <!-- ============================== SLIDE · DOUBLE-CHECK · HUMAN IN THE LOOP ============================== -->
-  <section class="slide" data-notes='["But remember: double-check. This is the rule that ties every project together.", "Every project you just saw keeps a human in the loop after the AI produces its result.", "Adverse News: the officer reviews the report before it reaches the KYC file.", "LuminaLM: you open the cited page before you rely on the answer.", "MoM AI: you fix the transcript and sign off the minutes.", "OCR: before anything moves, double-check the account number, the name, the amount.", "AI drafts. A human verifies. Every time."]'>
+  <section class="slide" data-notes='["But remember: double-check. This is called human in the loop.", "AI is impressive, but trusting it one hundred percent still carries risk: it can still make things up with confidence.", "So solidify the workflow with a human in the loop: a person verifies and monitors the results.", "Every project you just saw has this checkpoint after the AI produces its result.", "Adverse News: the officer reviews the report before it reaches the KYC file.", "LuminaLM: you open the cited page before you rely on the answer.", "MoM AI: you fix the transcript and sign off the minutes.", "OCR: before anything moves, double-check the account number, the name, the amount.", "AI drafts. A human verifies. Every time."]'>
     <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">But remember: double-check</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
       <div style="max-width:1010px;width:100%">
+        <p class="hitlsub" data-r data-d="2">This is called <b>human in the loop</b>. AI is impressive, but trusting it 100% still carries risk: it can still make things up. So solidify the workflow: a <b>human verifies and monitors the results</b>.</p>
         <div class="hitl4">
-          <div class="hcard" data-r data-d="2"><b>Adverse News</b><span class="ai">AI screens the names and drafts the risk report.</span><span class="hu">✓ The officer reviews it before it reaches the KYC file.</span></div>
-          <div class="hcard" data-r data-d="3"><b>LuminaLM</b><span class="ai">AI answers from the project files, with citations.</span><span class="hu">✓ You open the cited page before you rely on it.</span></div>
-          <div class="hcard" data-r data-d="4"><b>MoM AI</b><span class="ai">AI writes the transcript and drafts the minutes.</span><span class="hu">✓ You fix the transcript and sign off the minutes.</span></div>
-          <div class="hcard" data-r data-d="5"><b>OCR</b><span class="ai">AI reads the form fields in seconds.</span><span class="hu">✓ You double-check the account number, name and amount.</span></div>
+          <div class="hcard" data-r data-d="3"><b>Adverse News</b><span class="ai">AI screens the names and drafts the risk report.</span><span class="hu">✓ The officer reviews it before it reaches the KYC file.</span></div>
+          <div class="hcard" data-r data-d="4"><b>LuminaLM</b><span class="ai">AI answers from the project files, with citations.</span><span class="hu">✓ You open the cited page before you rely on it.</span></div>
+          <div class="hcard" data-r data-d="5"><b>MoM AI</b><span class="ai">AI writes the transcript and drafts the minutes.</span><span class="hu">✓ You fix the transcript and sign off the minutes.</span></div>
+          <div class="hcard" data-r data-d="6"><b>OCR</b><span class="ai">AI reads the form fields in seconds.</span><span class="hu">✓ You double-check the account number, name and amount.</span></div>
         </div>
-        <p class="flow-cap" data-r data-d="6">AI drafts. A human verifies. <b>Every time.</b></p>
+        <p class="flow-cap" data-r data-d="7">AI drafts. A human verifies. <b>Every time.</b></p>
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">26</span></div>
   </section>
 
-  <!-- ============================== SLIDE · USE CASE 1 · STATEMENT ANALYZER ============================== -->
-  <section class="slide" data-notes='["The last use case, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.","Walk the flow. OCR reads every line and a fraud check flags signs of tampering.","Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.","The model categorises every transaction: who was paid, what type, business or personal.","Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking."]'>
-    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>The last use case · Credit &amp; operations</div></div>
-    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Bank Statement Analyzer</h2>
+  <!-- ============================== SLIDE · KEY TAKEAWAYS ============================== -->
+  <section class="slide" data-notes='["Seven things to take home. Ninety seconds.", "One: an LLM is not magic. It predicts the next token. That explains both the talents and the mistakes.", "Two: AI is not free. Tokens are the meter. That is why every project we build needs a clear benefit, and ours have one.", "Three: be clear when you ask. Clear prompt, clear answer. COSTAR helps.", "Four: on its own, an LLM has limits, like Chat OCBC. Tools and your documents give it real capabilities.", "Five: keep bank data inside the bank. Use the in-house apps.", "Six: keep a human in the loop. AI drafts, you verify.", "And seven, the one that matters most: you will never be good at it unless you try. Open Chat OCBC today."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Wrap up</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Key takeaways</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
-      <div style="max-width:1080px;width:100%">
-        <div class="ucflow">
-          <div class="ucbox" data-r data-d="2"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/><path d="M9 13h6M9 17h6"/></svg></span><b>Bank statement</b><span>PDFs and phone scans, any bank, any format</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="3"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V5a1 1 0 011-1h2M17 4h2a1 1 0 011 1v2M20 17v2a1 1 0 01-1 1h-2M7 20H5a1 1 0 01-1-1v-2"/><path d="M4 12h16"/></svg></span><b>OCR + fraud check</b><span>reads every line, flags signs of tampering</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox human" data-r data-d="4"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a6 6 0 0112 0v1"/></svg></span><b>Human verifies</b><span>account numbers, names, totals</span><span class="htag">human in the loop</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="5"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 8l-9 9-4-4"/><path d="M4 5h9M4 10h5M4 15h3"/></svg></span><b>Categorised</b><span>who was paid, what type, business or personal</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="6"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg></span><b>Dashboard</b><span>money in, money out, behaviour, ready for credit</span></div>
-        </div>
-        <p class="flow-cap" data-r data-d="7">Hours of retyping become minutes of checking.</p>
-      </div>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">24</span></div>
-  </section>
-
-
-  <!-- ============================== SLIDE 19 · THE PATTERN ============================== -->
-  <section class="slide" data-notes='["Same pattern four times: one model, plus tools, plus our documents.", "The AI removes the reading, typing and searching.", "The judgment stays human: approve, clear, sign, decide."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 3 · What they share</div>
-    <h2 class="slide-title" data-r data-d="1">Four tools, one pattern</h2>
-    <div class="body-area" style="justify-content:center">
-      <table class="ptable" data-r data-d="2">
-        <tr><th>Project</th><th>The AI does</th><th>Tool in the loop</th><th>The human keeps</th></tr>
-        <tr><td>Statement Analyzer</td><td>reads &amp; structures messy documents</td><td><span class="tool">OCR</span></td><td>the credit judgment</td></tr>
-        <tr><td>Adverse News</td><td>searches, filters, writes the risk narrative</td><td><span class="tool">search · courts · lists</span></td><td>clearing the name</td></tr>
-        <tr><td>MoM AI</td><td>transcribes &amp; drafts the minutes</td><td><span class="tool">speech-to-text</span></td><td>the sign-off</td></tr>
-        <tr><td>LuminaLM</td><td>answers from project docs, with citations</td><td><span class="tool">document index</span></td><td>the decisions</td></tr>
-      </table>
-      <div class="pline" data-r data-d="3">Same model underneath. Tools plus your documents. <span class="red">Judgment stays human.</span></div>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">19</span></div>
-  </section>
-
-  <!-- ============================== SLIDE 20 · START SAFELY ============================== -->
-  <section class="slide" data-notes='["Start small: summarise, draft, translate, explain.", "Rule one: no customer data in public AI tools. Use the bank’s own.", "Rule two: check every fact and number.", "Rule three: it is a draft. What you send carries your name."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 4 · Using it well</div>
-    <h2 class="slide-title" data-r data-d="1">Start this week, inside the rules</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="compare">
-        <div class="comp good" data-r data-d="2">
-          <h4>Start here</h4>
-          <ul>
-            <li>Summarise a long report into one page</li>
-            <li>Draft and polish emails, then edit in your voice</li>
-            <li>Translate documents, Bahasa &harr; English</li>
-            <li>Ask it to explain a term you did not catch</li>
-          </ul>
-        </div>
-        <div class="comp warn" data-r data-d="3">
-          <h4>Rules of the road</h4>
-          <ul>
-            <li>No customer or secret data in public AI tools. Use the bank’s own</li>
-            <li>Check every fact and number before you send</li>
-            <li>AI output is a draft. What you send carries your name</li>
-          </ul>
-        </div>
-      </div>
-      <p class="flow-cap" data-r data-d="4">The intern rule: fast help, but you review before it leaves your desk.</p>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">20</span></div>
-  </section>
-
-  <!-- ============================== SLIDE 21 · CLOSING ============================== -->
-  <section class="slide dark" data-notes='["Recap in one breath: you saw how it works, and four tools that use it.", "Have an idea for your unit? Come talk to us.", "Try one small task this week. Terima kasih. Questions, please."]'>
-    <div class="body-area" style="justify-content:center">
-      <div class="kicker" data-r><span class="badge"></span>Wrap &amp; Q&amp;A</div>
-      <h2 class="slide-title" data-r data-d="1" style="font-size:44px;margin-bottom:6px">Useful work, today. You just watched it</h2>
-      <p class="slide-sub" data-r data-d="2" style="color:rgba(255,255,255,.65);margin-bottom:26px">Terima kasih. The floor is open, and the chat too.</p>
-      <div class="recap-grid" style="flex:none">
-        <div class="recap-col recap" data-r data-d="3">
-          <h4><span style="width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block"></span>What we covered</h4>
-          <ul>
-            <li>An LLM predicts the next word. That explains everything</li>
-            <li>Tools, agents and grounding turn prediction into work</li>
-            <li>Four working use cases in the bank</li>
-            <li>Safe first steps for your own desk</li>
-          </ul>
-        </div>
-        <div class="recap-col next" data-r data-d="4">
-          <h4><span style="width:8px;height:8px;border-radius:50%;background:#ff6a6f;display:inline-block"></span>What happens next</h4>
-          <ul>
-            <li><b style="color:#fff">Try one task this week</b>: a summary, a draft, a translation</li>
-            <li>Spot the pattern in your unit? Bring it to <b style="color:#fff">Analytics &amp; Decision Making</b></li>
-            <li>Slides &amp; demo videos shared after the session</li>
-          </ul>
+      <div style="max-width:1050px;width:100%">
+        <div class="keys">
+          <div class="keyrow" data-r data-d="2"><span class="kn">1</span><span class="kt"><b>An LLM is not magic.</b><span>It predicts the next token. That is all.</span></span></div>
+          <div class="keyrow" data-r data-d="3"><span class="kn">2</span><span class="kt"><b>AI is not free.</b><span>Tokens are the meter. Every build needs a clear benefit. Ours have one.</span></span></div>
+          <div class="keyrow" data-r data-d="4"><span class="kn">3</span><span class="kt"><b>Be clear when you ask.</b><span>Clear prompt, clear answer. COSTAR helps.</span></span></div>
+          <div class="keyrow" data-r data-d="5"><span class="kn">4</span><span class="kt"><b>Alone, an LLM has limits.</b><span>Like Chat OCBC. Tools and your documents give it capabilities.</span></span></div>
+          <div class="keyrow" data-r data-d="6"><span class="kn">5</span><span class="kt"><b>Keep bank data in the bank.</b><span>Use the in-house apps. Nothing confidential in public AI.</span></span></div>
+          <div class="keyrow" data-r data-d="7"><span class="kn">6</span><span class="kt"><b>Keep a human in the loop.</b><span>AI drafts. You verify before it moves.</span></span></div>
+          <div class="keyrow hero" data-r data-d="8"><span class="kn">7</span><span class="kt"><b>You will never be good at it unless you try.</b><span>Open Chat OCBC today. Start with one small task.</span></span></div>
         </div>
       </div>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch · Beyond the Hype</div><span class="pg">21</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">27</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · THANK YOU ============================== -->
+  <section class="slide dark" data-notes='["Terima kasih. That is the whole story: how an LLM works, and what it already does in this bank.", "Any questions? The chat is open too.", "And if you want to explore what AI can do for your team, reach out to me: bryan.bernardi. Always happy to talk."]'>
+    <div class="body-area" style="justify-content:center;align-items:center;text-align:center">
+      <div class="kicker" data-r style="justify-content:center"><span class="badge"></span>Terima kasih</div>
+      <h2 class="slide-title" data-r data-d="1" style="font-size:54px;text-align:center;max-width:none;margin-bottom:8px">Thank you. Any questions?</h2>
+      <p class="slide-sub" data-r data-d="2" style="color:rgba(255,255,255,.65);text-align:center;margin-bottom:0">The floor is open, and so is the chat.</p>
+      <div class="reachcard" data-r data-d="3">Want to explore what AI can do for your team? Reach out: <b>bryan.bernardi</b> · Analytics &amp; Decision Making</div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch · Beyond the Hype</div><span class="pg">28</span></div>
   </section>
 
   <!-- SLIDE-INSERT -->

@@ -9,11 +9,11 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (30 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (28 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
-  MoM AI and LuminaLM play as embedded videos; Statement Analyzer is a
-  five-step flow diagram; Adverse News is an animated agent console in
-  Part 2.
+  MoM AI and LuminaLM play as embedded videos; Adverse News is an
+  animated agent console; OCR is an animated scan demo. The deck closes
+  with key takeaways and a thank-you slide.
 
 ## Shape of the talk
 
@@ -28,8 +28,7 @@ using AI safely this week.
 | Opening (cover, LLM, chatbot, on-premise, premise) | 1–5 | 9 |
 | Act 1 · What is an LLM, really? | 6–16 | 17 |
 | Act 2 · From chatbot to coworker, with Adverse News, LuminaLM and MoM AI live | 17–26 | 21 |
-| Act 3 · The last use case + the pattern | 27–28 | 4 |
-| Close + Q&A | 29–30 | 4 + buffer |
+| Wrap · Key takeaways + thank you | 27–28 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -531,122 +530,86 @@ outro: "Minutes, minus the meeting after the meeting."
 
 **Layout**: two-column, animated. Bullets left (OCR = optical character
 recognition; point it at a form, fields become data; example: transfer
-forms; messy scans and handwriting included). Right, in sequence: the
-tilted handwritten "Form transfer" card pops in, a red scan beam sweeps
-down it, the arrow fires, the OCR result card appears and extracts
-field by field, each confidence chip popping in — the amber 87% on
-Jumlah lands last. Caption: seconds instead of minutes — but look at
-the yellow one.
+forms; messy scans and handwriting included). Right, in sequence: a
+tilted OCBC deposit-slip mock pops in (logo, № 26362640, QUICK DEPOSIT
+side strip, bilingual field labels, handwritten values, account-number
+digit boxes, BANK'S COPY tag), a red scan beam sweeps down it, the
+arrow fires, and the OCR result card extracts field by field: Tanggal,
+Nama, Rekening, Jumlah. Caption: seconds instead of minutes, for every
+form.
 
 **Say:**
 
 > One of our most requested projects is OCR: optical character
 > recognition. AI that reads scans. Point it at a form and the fields
-> become data. The example here is a transfer form: name, account
-> number, amount, destination bank. With an LLM behind it, even messy
-> scans and handwriting come out as structured fields, in seconds
-> instead of minutes. But look at the confidence scores on the right,
-> especially the yellow one. Fast is not the same as right. Hold that
-> thought.
+> become data. The example here is a deposit form: date, name, account
+> number, amount. With an LLM behind it, even messy scans and
+> handwriting come out as structured fields, in seconds instead of
+> minutes. Fast. But fast is not the same as right. Hold that thought.
 
 ## Slide 26 · But remember: double-check — 2 min
 
-**Layout**: centered title, 2×2 grid of cards, one per project shown
-today. Each card: what the AI does, then a green ✓ line for the human
-checkpoint. Adverse News (officer reviews before the KYC file) ·
-LuminaLM (you open the cited page) · MoM AI (you fix the transcript,
-sign off the minutes) · OCR (you double-check account number, name,
-amount). Caption: AI drafts. A human verifies. Every time.
+**Layout**: centered title, then a subtitle naming the concept: "This
+is called human in the loop. AI is impressive, but trusting it 100%
+still carries risk: it can still make things up. So solidify the
+workflow: a human verifies and monitors the results." Below: 2×2 grid
+of cards, one per project shown today, each with what the AI does and
+a green ✓ line for the human checkpoint. Caption: AI drafts. A human
+verifies. Every time.
 
 **Say:**
 
-> But remember: double-check. This is the rule that ties everything
-> together. Every project you just saw keeps a human in the loop after
-> the AI produces its result. Adverse News: the officer reviews the
-> report before it reaches the KYC file. LuminaLM: you open the cited
-> page before you rely on the answer. MoM AI: you fix the transcript
-> and sign off the minutes. And OCR: before anything moves, a person
-> double-checks the account number, the name, the amount. AI drafts. A
-> human verifies. Every time.
+> But remember: double-check. This is called human in the loop. AI is
+> impressive, but trusting it one hundred percent still carries risk:
+> it can still make things up, with confidence. So solidify the
+> workflow with a human in the loop, a person who verifies and
+> monitors the results. Every project you saw today has that
+> checkpoint. Adverse News: the officer reviews the report before it
+> reaches the KYC file. LuminaLM: you open the cited page before you
+> rely on the answer. MoM AI: you fix the transcript and sign off the
+> minutes. OCR: before anything moves, double-check the account
+> number, the name, the amount. AI drafts. A human verifies. Every
+> time.
 
-## Slide 27 · The last use case — Bank Statement Analyzer — 3 min
+## Slide 27 · Key takeaways — 2 min
 
-**Layout**: five-step flow diagram: bank statement (PDFs, phone scans)
-→ OCR + fraud check → human verifies (green, human-in-the-loop tag) →
-categorised (who, what type, business or personal) → dashboard.
-Caption: hours of retyping become minutes of checking.
+**Layout**: 2-column grid of seven numbered cards, the seventh a
+full-width red-tinted hero card.
 
-**Say:**
-
-> The last use case, and a pain every credit and ops person knows.
-> Statements from other banks arrive as PDFs and phone-camera scans,
-> dozens of pages, every bank a different format, and someone retypes
-> them for hours. Walk the flow with me. OCR reads every line, and a
-> fraud check flags signs of tampering on the document itself. Then
-> the checkpoint from the last slide: a person verifies the fields
-> that matter, account numbers, names, totals. Next the model
-> categorises every transaction: who was paid, what type of
-> transaction, business or personal. And everything lands in one
-> dashboard: money in, money out, account behaviour, ready for credit
-> analysis. Hours of retyping become minutes of checking, and the
-> credit judgment never leaves the analyst.
-
-## Slide 28 · The pattern behind all four — 2 min
-
-**Layout**: card grid or table mapping demo → concept → human's role.
-**On slide**: Statement Analyzer = model + OCR tool · Adverse News =
-agent loop + search · MoM AI = model + speech-to-text · Lumina =
-grounding + citations. Bottom line: AI does the reading and drafting,
-people keep the judgment.
+**On slide**: 1 An LLM is not magic (it predicts the next token) ·
+2 AI is not free (tokens are the meter; every build needs a clear
+benefit) · 3 Be clear when you ask (COSTAR helps) · 4 Alone, an LLM
+has limits, like Chat OCBC (tools and your documents give it
+capabilities) · 5 Keep bank data in the bank (in-house apps only) ·
+6 Keep a human in the loop (AI drafts, you verify) · 7 You will never
+be good at it unless you try (open Chat OCBC today).
 
 **Say:**
 
-> Look at the four side by side and one pattern emerges. Each one is the
-> same text predictor from part one, plus tools, plus your documents.
-> And in each one the person stays in charge of the judgment: the analyst
-> approves the credit, the officer clears the name, you sign off the
-> minutes. What the AI removed was the reading, retyping, searching and
-> formatting that sat between people and their judgment. That is what AI
-> can do today. Less magic than the headlines, and more useful.
+> Seven things to take home, in ninety seconds. One: an LLM is not
+> magic. It predicts the next token, and that explains both the
+> talents and the mistakes. Two: AI is not free. Tokens are the meter,
+> which is why every project we build needs a clear benefit, and ours
+> have one. Three: be clear when you ask. Clear prompt, clear answer.
+> Four: on its own an LLM has limits, like Chat OCBC. Tools and your
+> documents give it real capabilities. Five: keep bank data inside the
+> bank. Six: keep a human in the loop. And seven, the one that matters
+> most: you will never be good at it unless you try. Open Chat OCBC
+> today, start with one small task.
 
-## Slide 29 · Using it well, starting this week — 3 min
+## Slide 28 · Thank you + Q&A — open floor
 
-**Layout**: two-column: "Start here" and "Rules of the road".
-**On slide**: Start here: summarise long documents · draft and polish
-emails · translate Bahasa–English · explain unfamiliar terms. Rules:
-never paste customer or confidential data into public AI tools · verify
-every fact and number · you own what you send, AI output is a draft.
-
-**Say:**
-
-> Before we close, how to start, and how to stay safe. Start with tasks
-> where a rough draft has value: summarise a long circular, draft a reply,
-> translate a document, ask it to explain a term from a meeting you didn't
-> follow. Three rules while you do. One: customer data and confidential
-> material never go into public AI tools; use what the bank provides and
-> follow our data policy. Two: verify facts, numbers and citations before
-> they travel, you saw why in part one. Three: whatever you send still
-> carries your name. Treat the output the way you treat an intern's
-> draft: useful, fast, and reviewed before it leaves your desk.
-
-## Slide 30 · Close + Q&A — 1 min, then open floor
-
-**Layout**: dark closing slide, recap left, next steps right.
-**On slide**: Covered: how LLMs work · tools and agents · four working
-projects. Next: try one task this week · reach out to Analytics &
-Decision Making about use cases in your unit.
+**Layout**: dark closing slide. Kicker "Terima kasih", big title
+"Thank you. Any questions?", sub "The floor is open, and so is the
+chat.", and a pill card: "Want to explore what AI can do for your
+team? Reach out: bryan.bernardi · Analytics & Decision Making".
 
 **Say:**
 
-> Fifty minutes ago the question was whether AI can do useful work at a
-> bank today. You've now seen how the machine works, what its limits are,
-> and four running answers built in this building. If a task in your unit
-> looks like the pattern, lots of reading, retyping, searching or
-> summarising, come talk to us in Analytics and Decision Making. Try one
-> small task this week and see how it fits your work. Terima kasih, and
-> let's take questions.
-
----
+> Terima kasih. That is the whole story: how an LLM works, and what it
+> already does in this bank. Any questions? The chat is open too. And
+> if you want to explore what AI can do for your team or your unit,
+> reach out to me: bryan.bernardi. Always happy to talk.
 
 ## Delivery notes
 
