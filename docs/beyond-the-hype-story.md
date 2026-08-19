@@ -27,8 +27,8 @@ using AI safely this week.
 |---|---|---|
 | Opening (cover, LLM, chatbot, on-premise, premise) | 1–5 | 9 |
 | Act 1 · What is an LLM, really? | 6–16 | 17 |
-| Act 2 · From chatbot to coworker, incl. Adverse News live | 17–22 | 13 |
-| Act 3 · Three more use cases in the bank | 23–27 | 11 |
+| Act 2 · From chatbot to coworker, incl. Adverse News + LuminaLM live | 17–23 | 16 |
+| Act 3 · Two more use cases in the bank | 24–27 | 8 |
 | Close + Q&A | 28–29 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
@@ -398,25 +398,70 @@ tool; scraping is not allowed for regulatory reasons.
 > the KYC file. That is tool calling plus the loop. One goal in, one
 > report out.
 
-## Slide 21 · Ground it in your documents — 2 min
+## Slide 21 · It has never read your documents. Provide them. — 2 min
 
-**Layout**: simple flow: your documents → indexed → question → answer with
-citations.
-**On slide**: upload documents, ask questions, get answers with citations
-from those pages. The fix for hallucination on document work.
+**Layout**: a mini app, animated. Left: a "Project files" panel where four
+files upload one by one — PRD-Gemilang-v3.pdf, Timeline-Q3.xlsx,
+SteerCo-Minutes-Jul.pdf, Project-Charter.docx. Right: a chat. A question
+about a specific project comes in ("When does Project Gemilang go live,
+and who is the PIC?"), a scan line reports "searching 4 files… 3 relevant
+pages found", the three matching files light up with match tags (p. 4,
+row 18, p. 2), and the answer card pops in with a citation chip per
+claim. Caption: answers from your pages, "not found" instead of
+inventing; engineers call this RAG.
 
 **Say:**
 
-> Last concept, and it fixes the wall-two problem, the model being blind
-> to your data. Give it your documents at question time. Upload the files,
-> and when you ask something, the system finds the relevant pages and
-> instructs the model: answer from these pages, cite where you found it,
-> and say so if the answer is not there. Grounding the model this way
-> turns "confident guesser" into "fast reader of your files". Engineers
-> call it RAG; the name matters less than the effect. Two of the four
-> demos are built on it.
+> Third idea, and it fixes the blindness to our data. The model has
+> never read your documents, so provide them. Upload the project files
+> once: the PRD, the timeline, the minutes, the charter. Then ask about
+> a specific project, in plain words. Watch the left panel: it finds
+> the three files that matter and ignores the rest. The answer is
+> written from those pages, and every claim carries a citation you can
+> click and check. And if the answer is not in the files, it says not
+> found. No inventing. Engineers call this RAG; the name matters less
+> than the effect. The next slide is this exact idea, live in the bank.
 
-## Slide 22 · Human in the loop — 2 min
+## Slide 22 · LuminaLM — grounding, live in the bank — 4 min (video 0:50)
+
+**Layout**: video slide — embedded `lumina-web.mp4` with poster frame,
+side rail of four chips in plain words.
+**On slide chips**: put the project files in (157 documents become one
+place to search and ask) · ask in plain words (every answer shows the
+page it came from) · see the whole plan (one timeline, built from every
+file) · it writes documents too (drafts Word, Excel and PowerPoint).
+**Video content, mapped**: (0:00) montage: charters, playbooks, status
+packs, minutes piling up — "42 documents… 157 documents. Your
+programme's truth is scattered across all of them." → (0:10) LuminaLM
+title: "AI powered project management, without the headache" → (0:13)
+notebook "Banking M&A Integration — Project Hampton": Living Wiki,
+sources compiled into cross-linked always-current pages, knowledge graph
+(21 pages, 103 links) → (0:22) Grounded Chat: "What are the strategic
+imperatives for this programme?" → four imperatives, each with numbered
+citation chips back to source documents → (0:31) Programme Timeline:
+every workstream, dependency and tollgate in one Gantt view → (0:40)
+Studio: format catalog — Workstream Charter (Word), Risk Register
+(Excel), JESC Pack (PowerPoint), drafted from the wiki in the house
+template → (0:46) outro.
+
+**Say (setup, before play):**
+
+> And this is grounding live in the bank: LuminaLM, built here. The
+> pain: one project, 157 documents, and the answer always in a file you
+> did not open. The video opens with that number. Watch three things.
+> The files become one place you can search and ask. Every answer shows
+> the page it came from, exactly like the last slide. And at the end it
+> drafts documents for you: Word, Excel, PowerPoint. Fifty seconds.
+
+**Say (after play):**
+
+> A colleague who has read every project document and never forgets a
+> page number. New joiners ramp up in days, old decisions stop getting
+> relitigated from memory, and the Friday status pack drafts itself.
+> And when the answer is not in the files, it says so. That is the last
+> slide, on camera.
+
+## Slide 23 · Human in the loop — 2 min
 
 **Layout**: two-column; bullets left, right an OCR-result card of a
 transfer instruction with amber "double-check" flags on nama penerima,
@@ -432,21 +477,21 @@ no. rekening and jumlah, and a green ✓ on bank tujuan.
 > already saw this checkpoint in Adverse News, where the officer
 > clears the name. Every use case today has one.
 
-## Slide 23 · Divider — Act 3 — 1 min
+## Slide 24 · Divider — Act 3 — 1 min
 
-**Layout**: dark section divider, four small chips naming the demos.
-**On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
-MoM AI · Lumina.
+**Layout**: dark section divider.
+**On slide**: "Part 3 / Built here" · Two more use cases: Statement
+Analyzer, MoM AI.
 
 **Say:**
 
-> Everything so far becomes concrete now. Four projects, four videos, all
-> built by teams here, all running on the ideas you just learned:
-> prompting, tools, agents, grounding. For each one I'll tell you the
-> pain it removes, play the video, and connect it back to the concepts.
-> Questions in the chat after each.
+> You have already watched two use cases run: Adverse News and
+> LuminaLM. Two more, both built by teams here, both running on the same
+> ideas: prompting, tools, agents, grounding. One walkthrough, one
+> video. For each: the pain it removes, how it works, and where the
+> human stays in the loop. Questions in the chat after each.
 
-## Slide 24 · Use case 1 — Bank Statement Analyzer — 3 min
+## Slide 25 · Use case 1 — Bank Statement Analyzer — 3 min
 
 **Layout**: five-step flow diagram: bank statement (PDFs, phone scans)
 → OCR + fraud check → human verifies (green, human-in-the-loop tag) →
@@ -468,9 +513,9 @@ Caption: hours of retyping become minutes of checking.
 > analysis. Hours of retyping become minutes of checking, and the
 > credit judgment never leaves the analyst.
 
-## Slide 25 · Use case 3 — MoM AI — 4 min (video 0:30)
+## Slide 26 · Use case 2 — MoM AI — 4 min (video 0:30)
 
-**Layout**: video slide — embedded `mom-ai.mp4` with poster frame, side
+**Layout**: video slide — embedded `mom-ai-web.mp4` with poster frame, side
 rail of four "watch for" chips.
 **On slide chips**: drop in the recording (plus optional context PDFs) ·
 speakers detected and named · structured minutes (summary, attendees,
@@ -492,7 +537,7 @@ outro: "Minutes, minus the meeting after the meeting."
 
 **Say (setup, before play):**
 
-> Demo three touches everyone. Every meeting ends the same way: someone
+> This demo touches everyone. Every meeting ends the same way: someone
 > still has to write the minutes. So somebody half-listens while typing
 > notes, and the minutes arrive two days late anyway. Thirty seconds,
 > three things to watch. You drop in the recording and it gets
@@ -510,47 +555,6 @@ outro: "Minutes, minus the meeting after the meeting."
 > checking — and the sign-off stays yours. One note for the chat: it
 > handles a committee meeting recorded in one room as well as a Teams
 > call.
-
-## Slide 26 · Use case 4 — LuminaLM — 4 min (video 0:50)
-
-**Layout**: video slide — embedded `lumina.mp4` with poster frame, side
-rail of four "watch for" chips.
-**On slide chips**: 157 documents → one living wiki · grounded chat with
-citation chips · one programme timeline · Studio drafts Word/Excel/PPT
-packs.
-**Video content, mapped**: (0:00) montage: charters, playbooks, status
-packs, minutes piling up — "42 documents… 157 documents. Your
-programme's truth is scattered across all of them." → (0:10) LuminaLM
-title: "AI powered project management, without the headache" → (0:13)
-notebook "Banking M&A Integration — Project Hampton": Living Wiki,
-sources compiled into cross-linked always-current pages, knowledge graph
-(21 pages, 103 links) → (0:22) Grounded Chat: "What are the strategic
-imperatives for this programme?" → four imperatives, each with numbered
-citation chips back to source documents → (0:31) Programme Timeline:
-every workstream, dependency and tollgate in one Gantt view → (0:40)
-Studio: format catalog — Workstream Charter (Word), Risk Register
-(Excel), JESC Pack (PowerPoint), drafted from the wiki in the house
-template → (0:46) outro.
-
-**Say (setup, before play):**
-
-> Last demo, and it is grounding from part two in production. A
-> programme accumulates documents fast: charters, playbooks, status
-> packs, minutes. The video opens with the honest number: 157 documents,
-> and the programme's truth scattered across all of them. Watch three
-> things. The documents compile into a living wiki. The chat answers
-> with citation chips, one per claim, pointing at the exact source. And
-> Studio at the end drafts the weekly Word, Excel and PowerPoint packs
-> straight from the wiki. Fifty seconds.
-
-**Say (after play):**
-
-> A colleague who has read every project document and never forgets a
-> page number. Ask for the strategic imperatives and you get the answer
-> plus the receipts. New joiners ramp up in days, old decisions stop
-> getting relitigated from memory, and the Friday status pack drafts
-> itself. When the answer is not in the documents, it says so. That is
-> the hallucination fix you met on slide 13, on camera.
 
 ## Slide 27 · The pattern behind all four — 2 min
 

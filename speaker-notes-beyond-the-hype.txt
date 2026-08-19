@@ -101,7 +101,8 @@ Slide 16 — The limits, and their fixes
 Slide 17 — Part 2 — From chatbot to coworker
   • Part two: the fixes we promised.
   • Four ideas: tools, agents, grounding, and a human in the loop.
-  • Every use case in part three runs on them.
+  • Two of them you will watch run live in this part.
+  • Every use case in part three runs on them too.
 
 Slide 18 — Tool calling: give the model hands
   • Remember the fixes we promised on the limits slide: web search, a calculator, our documents. They are all the same idea: tools.
@@ -121,43 +122,48 @@ Slide 20 — Adverse News: an agent at work
   • And when the loop is done, out comes the report: risk verdict, narrative with citations. The officer reviews it and it goes to the KYC file.
   • That is tool calling plus the loop. One goal in, one report out.
 
-Slide 21 — Ground it in your documents
-  • Fix for wall two: hand it your documents when you ask.
-  • It answers only from those pages, and cites them.
-  • If the answer is not there, it says so. No inventing.
-  • LuminaLM, use case four, runs on this.
+Slide 21 — It has never read your documents. Provide them.
+  • Third idea: grounding. The model has never read our documents. So we provide them.
+  • Upload the project files once: the PRD, the timeline, the minutes, the charter.
+  • Then ask about a specific project, in plain words.
+  • Watch the left panel: it finds the three files that matter and ignores the rest.
+  • The answer is written from those pages, and every claim carries a citation you can click and check.
+  • If the answer is not in the files, it says not found. No inventing.
+  • LuminaLM, on the next slide, is exactly this, live in the bank.
 
-Slide 22 — The machine drafts. You verify.
+Slide 22 — LuminaLM · 0:50
+  • And this is grounding live in the bank: LuminaLM, built here.
+  • The pain: one project, 157 documents, and the answer always in a file you did not open.
+  • Put the project files in once. They become one place you can search and ask.
+  • Ask in plain words. Every answer shows the page it came from, exactly like the last slide.
+  • If the answer is not in the files, it says so.
+  • It also drafts documents for you: Word, Excel, PowerPoint.
+  • Think of it as a colleague who read every document and never forgets a page.
+
+Slide 23 — The machine drafts. You verify.
   • The fourth idea is not a technology. It is a rule: keep a human in the loop.
   • Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.
   • Before anything moves, a person double-checks the fields that matter: account number, name, amount.
   • You saw the checkpoint in Adverse News: the officer clears the name. Every use case today has one.
 
-Slide 23 — Part 3 — Built here
-  • You already watched Adverse News. Three more use cases, all built here.
-  • One walkthrough, two videos.
+Slide 24 — Part 3 — Built here
+  • You already watched Adverse News and LuminaLM. Two more use cases, both built here.
+  • One walkthrough, one video.
   • For each: the pain, how it works, and where the human stays in the loop.
 
-Slide 24 — Bank Statement Analyzer
+Slide 25 — Bank Statement Analyzer
   • Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.
   • Walk the flow. OCR reads every line and a fraud check flags signs of tampering.
   • Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.
   • The model categorises every transaction: who was paid, what type, business or personal.
   • Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking.
 
-Slide 25 — MoM AI · 0:30
+Slide 26 — MoM AI · 0:30
   • The pain: someone types notes all meeting, and the minutes still come late.
   • Drop in the recording. It writes out who said what.
   • Out come minutes: summary, attendees, actions with names and dates.
   • English or Bahasa. Export to PDF or Word.
   • Thirty minutes of typing becomes five minutes of checking.
-
-Slide 26 — LuminaLM · 0:50
-  • The pain: 157 documents, and the truth scattered across all of them.
-  • All files become one wiki. Ask anything: the answer cites its source page.
-  • If the answer is not in the files, it says so.
-  • Studio drafts the weekly Word, Excel and PowerPoint packs.
-  • A colleague who read every document and never forgets a page.
 
 Slide 27 — Four tools, one pattern
   • Same pattern four times: one model, plus tools, plus our documents.

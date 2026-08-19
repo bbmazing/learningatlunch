@@ -37,12 +37,14 @@ def embed_fonts(gf_url):
         out.append(c.strip())
     return "<style>\n" + "\n".join(out) + "\n</style>"
 
+MIME = {".png": "image/png", ".svg": "image/svg+xml", ".mp4": "video/mp4"}
+
 def inline_images(html, base_dir):
-    paths = set(re.findall(r"assets/[A-Za-z0-9_./-]+\.(?:png|svg)", html))
+    paths = set(re.findall(r"assets/[A-Za-z0-9_./-]+\.(?:png|svg|mp4)", html))
     for p in sorted(paths):
         fp = base_dir / p
         b64 = base64.b64encode(fp.read_bytes()).decode()
-        mime = "image/svg+xml" if p.endswith(".svg") else "image/png"
+        mime = MIME[fp.suffix]
         uri = f"data:{mime};base64,{b64}"
         html = html.replace(p, uri)
         print(f"  inlined {p}  ({len(b64)//1024} KB b64)")
