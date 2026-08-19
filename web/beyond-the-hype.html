@@ -1505,37 +1505,6 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">11</span></div>
   </section>
 
-  <!-- ============================== SLIDE · LIMITS AND FIXES ============================== -->
-  <section class="slide" data-notes='["Now the limits. Four big ones.","No news after its training date. Weak at exact math. Blind to our data. And it can invent facts with confidence, like citing an OJK rule that does not exist.","Key message: every limit has a fix, and most fixes are tools. Web search, a calculator, your documents.","Hold that thought. Part 2 is exactly this."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 1 · Limits</div>
-    <h2 class="slide-title" data-r data-d="1">The limits, and their fixes</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="lims">
-        <div class="limrow" data-r data-d="2">
-          <div class="lim"><span class="w">!</span><span><b>No recent news</b><span>its knowledge stops at the training date</span></span></div>
-          <span class="arr">→</span>
-          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><b>Give it web search</b><span class="p2">PART 2</span></div>
-        </div>
-        <div class="limrow" data-r data-d="3">
-          <div class="lim"><span class="w">!</span><span><b>Sloppy arithmetic</b><span>it predicts numbers instead of computing them</span></span></div>
-          <span class="arr">→</span>
-          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M13 12h.01M9 16h.01M13 16h.01"/></svg><b>Give it a calculator</b><span class="p2">PART 2</span></div>
-        </div>
-        <div class="limrow" data-r data-d="4">
-          <div class="lim"><span class="w">!</span><span><b>Blind to our data</b><span>customers, systems and files were never in training</span></span></div>
-          <span class="arr">→</span>
-          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/></svg><b>Give it our documents</b><span class="p2">PART 2</span></div>
-        </div>
-        <div class="limrow" data-r data-d="5">
-          <div class="lim"><span class="w">!</span><span><b>Invents facts</b><span>hallucination: confident, well formatted, wrong</span></span></div>
-          <span class="arr">→</span>
-          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><b>Citations, plus your review</b></div>
-        </div>
-      </div>
-      <p class="limfoot" data-r data-d="6">Every limit has a fix. <span class="red">Part 2 shows how.</span></p>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">12</span></div>
-  </section>
 
   <!-- ============================== SLIDE · PROMPTING TECHNIQUES ============================== -->
   <section class="slide" data-notes='["Before the tools: how to ask well. Clarity beats everything.","Watch the transformation. The vague prompt becomes a clear one by adding three things.","The task, exactly. The background it cannot know. The format, tone and length.","Not happy with the answer? Refine and ask again. It never gets tired."]'>
@@ -1653,31 +1622,36 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">16</span></div>
   </section>
 
-  <!-- ============================== SLIDE · BRIDGE: THREE WALLS ============================== -->
-  <section class="slide dark" data-notes='["Before part two, look at where we stand. Language work: strong, and you have a place to practise.","But three walls keep a chatbot from real bank work. Frozen in time. Blind to our data. All talk.","One fix breaks all three: give the model tools.","That is Part 2. Let us go."]'>
+  <!-- ============================== SLIDE · LIMITS AND FIXES ============================== -->
+  <section class="slide" data-notes='["Before part two, the honest part: the limits. Four big ones.", "No news after its training date. Weak at exact math. Blind to our data. And it can invent facts with confidence, like citing an OJK rule that does not exist.", "Key message: every limit has a fix, and most fixes are tools. Web search, a calculator, our documents.", "That is Part 2. Let us go."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 1 · Limits</div>
+    <h2 class="slide-title" data-r data-d="1">The limits, and their fixes</h2>
     <div class="body-area" style="justify-content:center">
-      <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>End of Part 1</div></div>
-      <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none;color:#fff;margin:0 auto 26px">Three walls still stand between chat and real work</h2>
-      <div class="walls3">
-        <div class="wallb" data-r data-d="2">
-          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h3>Frozen in time</h3><p>Its knowledge stops at the training cutoff.</p>
-          <span class="wfix">✓ fix: web search</span>
+      <div class="lims">
+        <div class="limrow" data-r data-d="2">
+          <div class="lim"><span class="w">!</span><span><b>No recent news</b><span>its knowledge stops at the training date</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><b>Give it web search</b><span class="p2">PART 2</span></div>
         </div>
-        <div class="wallb" data-r data-d="3">
-          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 102.8 2.8"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 10 8 10 8a13.16 13.16 0 01-1.67 2.68M6.61 6.61A13.5 13.5 0 002 12s3 8 10 8a9.74 9.74 0 005.39-1.61"/></svg></div>
-          <h3>Blind to your data</h3><p>Your files and systems are invisible to it.</p>
-          <span class="wfix">✓ fix: your documents</span>
+        <div class="limrow" data-r data-d="3">
+          <div class="lim"><span class="w">!</span><span><b>Sloppy arithmetic</b><span>it predicts numbers instead of computing them</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M13 12h.01M9 16h.01M13 16h.01"/></svg><b>Give it a calculator</b><span class="p2">PART 2</span></div>
         </div>
-        <div class="wallb" data-r data-d="4">
-          <div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg></div>
-          <h3>All talk</h3><p>It writes text. It cannot act on its own.</p>
-          <span class="wfix">✓ fix: tools that act</span>
+        <div class="limrow" data-r data-d="4">
+          <div class="lim"><span class="w">!</span><span><b>Blind to our data</b><span>customers, systems and files were never in training</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V9z"/><path d="M13 3v6h6"/></svg><b>Give it our documents</b><span class="p2">PART 2</span></div>
+        </div>
+        <div class="limrow" data-r data-d="5">
+          <div class="lim"><span class="w">!</span><span><b>Invents facts</b><span>hallucination: confident, well formatted, wrong</span></span></div>
+          <span class="arr">→</span>
+          <div class="fix"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><b>Citations, plus your review</b></div>
         </div>
       </div>
-      <p class="bridgefoot" data-r data-d="5">One fix breaks all three: <span class="red2">tools</span>. That is Part 2 →</p>
+      <p class="limfoot" data-r data-d="6">Every limit has a fix. <span class="red">Part 2 shows how.</span></p>
     </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">12</span></div>
   </section>
 
   <!-- ============================== SLIDE 10 · DIVIDER P2 ============================== -->
