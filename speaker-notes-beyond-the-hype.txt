@@ -116,9 +116,9 @@ Slide 19 — An agent is a loop, not a chat
 
 Slide 20 — Adverse News: an agent at work
   • Here is the agent loop for real. We added one tool: web search. A paid, licensed tool, because scraping is not allowed for regulatory reasons.
-  • We give the goal: screen this company for negative news. Watch the console. The agent calls the search tool, the court databases, the sanction lists.
-  • It reads everything, keeps credible sources only, and searches again where the signal is weak.
-  • Out comes a report: a risk verdict, a written narrative, every claim cited. The officer reviews it and it goes to the KYC file.
+  • The flow on top: names in, the agent writes its searches, reads and filters, builds a verdict, and a human reviews at the end.
+  • Now watch the console run. It calls the search tool, the court databases, the sanction lists. It reads 43 results and keeps credible sources only.
+  • And when the loop is done, out comes the report: risk verdict, narrative with citations. The officer reviews it and it goes to the KYC file.
   • That is tool calling plus the loop. One goal in, one report out.
 
 Slide 21 — Ground it in your documents

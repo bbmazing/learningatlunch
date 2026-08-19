@@ -374,12 +374,14 @@ finished.
 
 ## Slide 20 · Adverse News: an agent at work — 3 min
 
-**Layout**: two-column; bullets left with a footnote (*web search is a
-paid, licensed tool at the bank; scraping is not allowed for
-regulatory reasons), right a dark agent console that plays line by
-line: goal in → web_search, court_lookup, sanctions_check tool calls
-with result counts → reading and filtering → a red report card (risk
-HIGH, narrative with citations, officer reviews, KYC file).
+**Layout**: centered. Top: the compact five-step flow (names in → AI
+writes searches → reads & filters → verdict + narrative → human
+review, green). Below: the dark agent console playing line by line
+(goal → web_search, court_lookup, sanctions_check with result counts →
+filtering → generate_report), then a red arrow pops and the report
+card lands outside the terminal: ADVERSE NEWS REPORT, HIGH badge,
+officer review → KYC file. Footnote: *web search is a paid, licensed
+tool; scraping is not allowed for regulatory reasons.
 
 **Say:**
 
@@ -390,8 +392,9 @@ HIGH, narrative with citations, officer reviews, KYC file).
 > queries. It checks the court databases, SIPP and Mahkamah Agung. It
 > runs the sanction and PEP lists. It reads all 43 results and keeps
 > the credible sources only, searching again where the signal is weak.
-> And out comes a report: a risk verdict, a written narrative, every
-> claim cited to its source. The officer reviews it, and it goes to
+> And when the loop is done, watch the right side: out of the terminal
+> comes the report. A risk verdict, a written narrative, every claim
+> cited, an evidence appendix. The officer reviews it, and it goes to
 > the KYC file. That is tool calling plus the loop. One goal in, one
 > report out.
 

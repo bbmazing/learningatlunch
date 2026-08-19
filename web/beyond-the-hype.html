@@ -1165,6 +1165,36 @@ body.static .acl{opacity:1;transform:none;animation:none}
 @media (prefers-reduced-motion:reduce){.acl{opacity:1;transform:none;animation:none}}
 .astar{margin-top:12px;font-size:11.5px;color:var(--muted);line-height:1.5}
 .astar b{color:var(--ink)}
+/* compact flow variant + external report */
+.ucflow.sm .ucbox{padding:10px 8px 9px;gap:4px;border-radius:12px}
+.ucflow.sm .ucbox .ui{width:28px;height:28px;border-radius:8px}
+.ucflow.sm .ucbox .ui svg{width:15px;height:15px}
+.ucflow.sm .ucbox b{font-size:11.5px}
+.ucflow.sm .ucbox span{font-size:9px;line-height:1.35}
+.ucflow.sm .ucbox.human .htag{font-size:7.5px;padding:2px 7px}
+.ucflow.sm .ucarr{padding:0 4px;font-size:13px}
+.conrow{display:flex;align-items:center;gap:0;width:100%;margin-top:14px}
+.conrow .agentcon{flex:1.45;min-width:0}
+.reparrow{flex:none;padding:0 10px;font-size:30px;font-weight:800;color:var(--red);
+  opacity:0;transform:translateX(-8px)}
+.slide.active .reparrow{animation:repin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:5.3s}
+.repout{flex:.85;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 28px 56px -32px rgba(0,0,0,.4);opacity:0;transform:scale(.85)}
+.slide.active .repout{animation:repin .5s cubic-bezier(.3,1.3,.5,1) forwards;animation-delay:5.7s}
+@keyframes repin{to{opacity:1;transform:none}}
+body.static .reparrow,body.static .repout{opacity:1;transform:none;animation:none}
+@media (prefers-reduced-motion:reduce){.reparrow,.repout{opacity:1;transform:none;animation:none}}
+.repout .rh2{background:var(--red);color:#fff;padding:8px 14px;display:flex;align-items:center;
+  justify-content:space-between;gap:8px}
+.repout .rh2 b{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase}
+.repout .risk{font-family:var(--fHead);font-weight:800;font-size:10px;background:#fff;color:var(--red);
+  border-radius:99px;padding:3px 10px}
+.repout .rb2{padding:11px 14px}
+.repout .rb2 .ln{height:6px;border-radius:99px;background:var(--card);margin-bottom:6px}
+.repout .rb2 .ln.w1{width:92%}.repout .rb2 .ln.w2{width:78%}.repout .rb2 .ln.w3{width:85%}
+.repout .rb2 .rmeta{font-size:10.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.repout .rb2 .rmeta b{color:#14663f}
 /* use-case flow diagram */
 .ucflow{display:flex;align-items:stretch;width:100%}
 .ucbox{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 12px 13px;
@@ -1731,31 +1761,42 @@ body.static .acl{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · AGENTS IN ACTION · ADVERSE NEWS ============================== -->
-  <section class="slide" data-notes='["Here is the agent loop for real. We added one tool: web search. A paid, licensed tool, because scraping is not allowed for regulatory reasons.","We give the goal: screen this company for negative news. Watch the console. The agent calls the search tool, the court databases, the sanction lists.","It reads everything, keeps credible sources only, and searches again where the signal is weak.","Out comes a report: a risk verdict, a written narrative, every claim cited. The officer reviews it and it goes to the KYC file.","That is tool calling plus the loop. One goal in, one report out."]'>
-    <div class="kicker" data-r><span class="badge"></span>Part 2 · Agents in action</div>
-    <h2 class="slide-title" data-r data-d="1">Adverse News: an agent at work</h2>
-    <div class="body-area" style="justify-content:center">
-      <div class="two wide-r" style="align-items:center">
-        <div class="txt">
-          <ul class="bullets">
-            <li class="strong" data-r data-d="2">We gave the model <b>web search</b>.*</li>
-            <li data-r data-d="3">The goal: <b>screen a company for negative news</b>.</li>
-            <li data-r data-d="4">The agent loops: <b>search, read, filter, search again</b>.</li>
-            <li data-r data-d="5">Out comes a <b>report</b>: verdict, narrative, citations.</li>
-          </ul>
-          <p class="astar" data-r data-d="6">*Web search is a <b>paid, licensed tool</b> at the bank. Scraping is not allowed for regulatory reasons.</p>
+  <section class="slide" data-notes='["Here is the agent loop for real. We added one tool: web search. A paid, licensed tool, because scraping is not allowed for regulatory reasons.","The flow on top: names in, the agent writes its searches, reads and filters, builds a verdict, and a human reviews at the end.","Now watch the console run. It calls the search tool, the court databases, the sanction lists. It reads 43 results and keeps credible sources only.","And when the loop is done, out comes the report: risk verdict, narrative with citations. The officer reviews it and it goes to the KYC file.","That is tool calling plus the loop. One goal in, one report out."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 2 · Agents in action</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Adverse News: an agent at work</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1080px;width:100%">
+        <div class="ucflow sm" data-r data-d="2">
+          <div class="ucbox"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2"/><path d="M16 4h5v5M21 4l-6 6"/></svg></span><b>Names in</b><span>a company and its related parties</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><b>AI writes searches</b><span>courts, negative news, sanction lists</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16l-6 7v5l-4 2v-7z"/></svg></span><b>Reads &amp; filters</b><span>credible sources only</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M18.4 5.6l-2.8 2.8M21 12h-4"/><path d="M8 20a4 4 0 118 0z"/></svg></span><b>Verdict + narrative</b><span>every claim cited</span></div>
+          <span class="ucarr">→</span>
+          <div class="ucbox human"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a6 6 0 0112 0v1"/></svg></span><b>Human review</b><span>officer clears the name</span><span class="htag">human in the loop</span></div>
         </div>
-        <div class="viz" data-r data-d="2">
+        <div class="conrow" data-r data-d="3">
           <div class="agentcon">
             <div class="ah"><i></i><i></i><i></i><span>agent · adverse news</span></div>
-            <div class="acl" style="--cd:.6s"><span class="pfx goal">◉</span><span><b>goal:</b> screen “PT Maktour” for negative news</span></div>
-            <div class="acl" style="--cd:1.4s"><span class="pfx tool">⚙</span><span>web_search("Maktour korupsi OR fraud OR penipuan") <span class="res">· 27 hits</span></span></div>
-            <div class="acl" style="--cd:2.2s"><span class="pfx tool">⚙</span><span>court_lookup(SIPP, Mahkamah Agung) <span class="res">· 1 case</span></span></div>
-            <div class="acl" style="--cd:3.0s"><span class="pfx tool">⚙</span><span>sanctions_check(DTTOT, PEP, watchlists) <span class="res">· clear</span></span></div>
-            <div class="acl" style="--cd:3.8s"><span class="pfx okp">✔</span><span>reading 43 results · keeping credible sources only</span></div>
-            <div class="acl report" style="--cd:4.7s"><span class="pfx goal">▤</span><span><b>report:</b> risk HIGH · narrative with citations · officer reviews → KYC file</span></div>
+            <div class="acl" style="--cd:.8s"><span class="pfx goal">◉</span><span><b>goal:</b> screen “PT Maktour” for negative news</span></div>
+            <div class="acl" style="--cd:1.6s"><span class="pfx tool">⚙</span><span>web_search("Maktour korupsi OR fraud OR penipuan")* <span class="res">· 27 hits</span></span></div>
+            <div class="acl" style="--cd:2.4s"><span class="pfx tool">⚙</span><span>court_lookup(SIPP, Mahkamah Agung) <span class="res">· 1 case</span></span></div>
+            <div class="acl" style="--cd:3.2s"><span class="pfx tool">⚙</span><span>sanctions_check(DTTOT, PEP, watchlists) <span class="res">· clear</span></span></div>
+            <div class="acl" style="--cd:4.0s"><span class="pfx okp">✔</span><span>reading 43 results · keeping credible sources only</span></div>
+            <div class="acl" style="--cd:4.8s"><span class="pfx okp">▤</span><span>generate_report() <span class="res">· done</span></span></div>
+          </div>
+          <span class="reparrow">→</span>
+          <div class="repout">
+            <div class="rh2"><b>Adverse News Report</b><span class="risk">HIGH</span></div>
+            <div class="rb2">
+              <div class="ln w1"></div><div class="ln w2"></div><div class="ln w3"></div>
+              <div class="rmeta">PT Maktour · narrative with citations · evidence appendix<br/><b>✓ officer review</b> → KYC file</div>
+            </div>
           </div>
         </div>
+        <p class="astar" data-r data-d="4" style="text-align:center;margin-top:12px">*Web search is a <b>paid, licensed tool</b> at the bank. Scraping is not allowed for regulatory reasons.</p>
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">20</span></div>
