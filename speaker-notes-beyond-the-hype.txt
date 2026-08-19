@@ -168,7 +168,8 @@ Slide 25 — Most requested: OCR, reading documents
 Slide 26 — But remember: double-check
   • But remember: double-check. This is called human in the loop.
   • AI is impressive, but trusting it one hundred percent still carries risk: it can still make things up with confidence.
-  • So solidify the workflow with a human in the loop: a person verifies and monitors the results.
+  • Why it is crucial: in a bank a mistake is expensive. One wrong digit moves real money. One made-up fact can reach a customer or a regulator.
+  • So solidify the workflow with a human in the loop: a person verifies and monitors the results, and stays accountable for them.
   • Every project you just saw has this checkpoint after the AI produces its result.
   • Adverse News: the officer reviews the report before it reaches the KYC file.
   • LuminaLM: you open the cited page before you rely on the answer.

@@ -551,8 +551,10 @@ form.
 
 **Layout**: centered title, then a subtitle naming the concept: "This
 is called human in the loop. AI is impressive, but trusting it 100%
-still carries risk: it can still make things up. So solidify the
-workflow: a human verifies and monitors the results." Below: 2×2 grid
+still carries risk: it can still make things up. In a bank that is
+expensive: one wrong digit moves real money, one made-up fact can
+reach a customer or a regulator. So solidify the workflow: a human
+verifies and monitors the results, and stays accountable for them." Below: 2×2 grid
 of cards, one per project shown today, each with what the AI does and
 a green ✓ line for the human checkpoint. Caption: AI drafts. A human
 verifies. Every time.
@@ -561,9 +563,11 @@ verifies. Every time.
 
 > But remember: double-check. This is called human in the loop. AI is
 > impressive, but trusting it one hundred percent still carries risk:
-> it can still make things up, with confidence. So solidify the
-> workflow with a human in the loop, a person who verifies and
-> monitors the results. Every project you saw today has that
+> it can still make things up, with confidence. And in a bank a
+> mistake is expensive: one wrong digit moves real money, one made-up
+> fact can reach a customer or a regulator. So solidify the workflow
+> with a human in the loop, a person who verifies and monitors the
+> results and stays accountable for them. Every project you saw today has that
 > checkpoint. Adverse News: the officer reviews the report before it
 > reaches the KYC file. LuminaLM: you open the cited page before you
 > rely on the answer. MoM AI: you fix the transcript and sign off the
@@ -600,8 +604,7 @@ be good at it unless you try (open Chat OCBC today).
 ## Slide 28 · Thank you + Q&A — open floor
 
 **Layout**: dark closing slide. Kicker "Terima kasih", big title
-"Thank you. Any questions?", sub "The floor is open, and so is the
-chat.", and a pill card: "Want to explore what AI can do for your
+"Thank you. Any questions?", and a pill card: "Want to explore what AI can do for your
 team? Reach out: bryan.bernardi · Analytics & Decision Making".
 
 **Say:**
