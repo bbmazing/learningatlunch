@@ -180,7 +180,7 @@ Slide 26 — But remember: double-check
 Slide 27 — Key takeaways
   • Seven things to take home. Ninety seconds.
   • One: an LLM is not magic. It predicts the next token. That explains both the talents and the mistakes.
-  • Two: AI is not free. Tokens are the meter. That is why every project we build needs a clear benefit, and ours have one.
+  • Two: AI is not free. Tokens are the meter. That is why every project we build needs a clear benefit, and every project has one.
   • Three: be clear when you ask. Clear prompt, clear answer. COSTAR helps.
   • Four: on its own, an LLM has limits, like Chat OCBC. Tools and your documents give it real capabilities.
   • Five: keep bank data inside the bank. Use the in-house apps.

@@ -581,8 +581,8 @@ verifies. Every time.
 full-width red-tinted hero card.
 
 **On slide**: 1 An LLM is not magic (it predicts the next token) ·
-2 AI is not free (tokens are the meter; every build needs a clear
-benefit) · 3 Be clear when you ask (COSTAR helps) · 4 Alone, an LLM
+2 AI is not free (tokens are the meter; every project needs a clear
+benefit, and every project has one) · 3 Be clear when you ask (COSTAR helps) · 4 Alone, an LLM
 has limits, like Chat OCBC (tools and your documents give it
 capabilities) · 5 Keep bank data in the bank (in-house apps only) ·
 6 Keep a human in the loop (AI drafts, you verify) · 7 You will never
@@ -593,8 +593,8 @@ be good at it unless you try (open Chat OCBC today).
 > Seven things to take home, in ninety seconds. One: an LLM is not
 > magic. It predicts the next token, and that explains both the
 > talents and the mistakes. Two: AI is not free. Tokens are the meter,
-> which is why every project we build needs a clear benefit, and ours
-> have one. Three: be clear when you ask. Clear prompt, clear answer.
+> which is why every project we build needs a clear benefit, and
+> every project has one. Three: be clear when you ask. Clear prompt, clear answer.
 > Four: on its own an LLM has limits, like Chat OCBC. Tools and your
 > documents give it real capabilities. Five: keep bank data inside the
 > bank. Six: keep a human in the loop. And seven, the one that matters
