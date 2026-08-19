@@ -140,8 +140,8 @@ Slide 22 — LuminaLM · 0:50
   • It also drafts documents for you: Word, Excel, PowerPoint.
   • Think of it as a colleague who read every document and never forgets a page.
 
-Slide 23 — Be clear with agents too: one step at a time
-  • Remember slide twelve: be clear about what you want. The same rule applies to agents, doubled.
+Slide 23 — Be clear: one step at a time
+  • Remember slide twelve: be clear about what you want. The same rule applies when AI runs a whole job, doubled.
   • The tempting way is one jump: recording in, minutes out. But then misheard words and wrong names go straight into the minutes.
   • So we give the agent proper instructions, step by step.
   • Step one: transcript first. The AI writes out who said what.

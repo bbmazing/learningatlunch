@@ -462,7 +462,7 @@ template → (0:46) outro.
 > And when the answer is not in the files, it says so. That is the last
 > slide, on camera.
 
-## Slide 23 · Be clear with agents too: one step at a time — 2 min
+## Slide 23 · Be clear: one step at a time — 2 min
 
 **Layout**: two rows, animated. Top row "Asking for magic": Recording →
 AI summarizes → Minutes, which gets struck through in red with a flag
@@ -476,7 +476,7 @@ prompting; MoM AI is built this way.
 **Say:**
 
 > Remember the prompting slide: be clear about what you want. The same
-> rule applies to agents, doubled. The tempting way is one jump:
+> rule applies when AI runs a whole job, doubled. The tempting way is one jump:
 > recording in, minutes out. But then misheard words and wrong names go
 > straight into the minutes. So we give the agent proper instructions,
 > step by step. Transcript first: the AI writes out who said what. Then
