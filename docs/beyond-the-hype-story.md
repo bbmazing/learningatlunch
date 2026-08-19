@@ -529,13 +529,14 @@ outro: "Minutes, minus the meeting after the meeting."
 
 ## Slide 25 · Most requested: OCR, reading documents — 2 min
 
-**Layout**: two-column. Bullets left (OCR = optical character
+**Layout**: two-column, animated. Bullets left (OCR = optical character
 recognition; point it at a form, fields become data; example: transfer
-forms; messy scans and handwriting included). Right: a slightly tilted
-scanned "Form transfer" card in handwriting → red arrow → the OCR
-result card with extracted fields and confidence chips (99%, 98%, 87%
-in amber, 99%). Caption: seconds instead of minutes — but look at the
-yellow one.
+forms; messy scans and handwriting included). Right, in sequence: the
+tilted handwritten "Form transfer" card pops in, a red scan beam sweeps
+down it, the arrow fires, the OCR result card appears and extracts
+field by field, each confidence chip popping in — the amber 87% on
+Jumlah lands last. Caption: seconds instead of minutes — but look at
+the yellow one.
 
 **Say:**
 

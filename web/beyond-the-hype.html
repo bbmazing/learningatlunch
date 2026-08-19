@@ -1355,7 +1355,35 @@ body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
 .formcard .frow:last-child{border-bottom:none}
 .formcard .fk{font-size:9px;color:#9a917d;text-transform:uppercase;letter-spacing:.05em;flex:none}
 .formcard .fv{font-family:'Caveat',cursive;font-size:19px;color:#3E3A31;white-space:nowrap}
-.ocrarr{flex:none;padding:0 13px;color:var(--red);font-size:26px;font-weight:800}
+.ocrarr{flex:none;padding:0 13px;color:var(--red);font-size:26px;font-weight:800;
+  opacity:0;transform:translateX(-6px)}
+.slide.active .ocrarr{animation:cmin .4s forwards;animation-delay:2.5s}
+.ocrviz .formcard{position:relative;overflow:hidden;opacity:0;transform:rotate(-1.6deg) translateY(10px)}
+.slide.active .ocrviz .formcard{animation:ocrin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:.3s}
+@keyframes ocrin{to{opacity:1;transform:rotate(-1.6deg) translateY(0)}}
+.scanbeam{position:absolute;left:-5%;right:-5%;top:-46px;height:38px;pointer-events:none;opacity:0;
+  background:linear-gradient(to bottom, rgba(236,27,35,0), rgba(236,27,35,.13));
+  border-bottom:2px solid rgba(236,27,35,.75)}
+.slide.active .scanbeam{animation:scan 1.4s ease-in-out forwards;animation-delay:1.1s}
+@keyframes scan{0%{opacity:1;top:-46px}90%{opacity:1}100%{top:104%;opacity:0}}
+.ocrviz .slip{opacity:0;transform:translateY(10px)}
+.slide.active .ocrviz .slip{animation:cmin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:2.7s}
+.ocrviz .srow{opacity:0;transform:translateY(6px)}
+.slide.active .ocrviz .srow{animation:cmin .4s forwards;animation-delay:var(--cd,0s)}
+.ocrviz .conf{opacity:0;transform:scale(.6)}
+.slide.active .ocrviz .conf{animation:confpop .35s cubic-bezier(.3,1.4,.5,1) forwards;animation-delay:var(--cc,0s)}
+@keyframes confpop{to{opacity:1;transform:scale(1)}}
+.ocrcap{opacity:0;transform:translateY(6px)}
+.slide.active .ocrcap{animation:cmin .45s forwards;animation-delay:5.1s}
+body.static .ocrviz .formcard{opacity:1;transform:rotate(-1.6deg);animation:none}
+body.static .ocrarr,body.static .ocrviz .slip,body.static .ocrviz .srow,
+body.static .ocrviz .conf,body.static .ocrcap{opacity:1;transform:none;animation:none}
+body.static .scanbeam{display:none}
+@media (prefers-reduced-motion:reduce){
+  .ocrviz .formcard{opacity:1;transform:rotate(-1.6deg);animation:none}
+  .ocrarr,.ocrviz .slip,.ocrviz .srow,.ocrviz .conf,.ocrcap{opacity:1;transform:none;animation:none}
+  .scanbeam{display:none}
+}
 .ocrviz .slip{flex:1.12;min-width:0}
 .ocrviz .srow{padding:8px 13px}
 .ocrviz .srow .v{font-size:12.5px}
@@ -2054,9 +2082,10 @@ body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
             <li data-r data-d="5">Messy scans and <b>handwriting</b> included.</li>
           </ul>
         </div>
-        <div class="viz" data-r data-d="3">
+        <div class="viz">
           <div class="ocrviz">
             <div class="formcard">
+              <i class="scanbeam"></i>
               <div class="fhd"><span>Form transfer</span><span>scan</span></div>
               <div class="frow"><span class="fk">Nama penerima</span><span class="fv">PT Maju Karya</span></div>
               <div class="frow"><span class="fk">No. rekening</span><span class="fv">8720 4415 9021</span></div>
@@ -2066,15 +2095,15 @@ body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
             <span class="ocrarr">→</span>
             <div class="slip">
               <div class="sh"><span>OCR result</span><span>fields</span></div>
-              <div class="srow"><span class="k">Nama</span><span class="v">PT Maju Karya</span><span class="conf">99%</span></div>
-              <div class="srow"><span class="k">Rekening</span><span class="v">8720 4415 9021</span><span class="conf">98%</span></div>
-              <div class="srow"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="conf lo">87%</span></div>
-              <div class="srow"><span class="k">Bank</span><span class="v">OCBC Indonesia</span><span class="conf">99%</span></div>
+              <div class="srow" style="--cd:2.95s"><span class="k">Nama</span><span class="v">PT Maju Karya</span><span class="conf" style="--cc:3.3s">99%</span></div>
+              <div class="srow" style="--cd:3.25s"><span class="k">Rekening</span><span class="v">8720 4415 9021</span><span class="conf" style="--cc:3.6s">98%</span></div>
+              <div class="srow" style="--cd:3.55s"><span class="k">Jumlah</span><span class="v">Rp 175.000.000</span><span class="conf lo" style="--cc:4.35s">87%</span></div>
+              <div class="srow" style="--cd:3.85s"><span class="k">Bank</span><span class="v">OCBC Indonesia</span><span class="conf" style="--cc:4.1s">99%</span></div>
             </div>
           </div>
         </div>
       </div>
-      <p class="flow-cap" data-r data-d="6">Seconds instead of minutes, for every form. But look at the yellow one…</p>
+      <p class="flow-cap ocrcap">Seconds instead of minutes, for every form. But look at the yellow one…</p>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">25</span></div>
   </section>
