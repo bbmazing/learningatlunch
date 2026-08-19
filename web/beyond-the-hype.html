@@ -1141,6 +1141,30 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   padding:6px 13px;font-family:var(--fHead);font-weight:800;font-size:11.5px;color:#7fe0a8}
 .bridgefoot{text-align:center;margin-top:22px;font-family:var(--fHead);font-weight:800;font-size:21px;color:#fff}
 .bridgefoot .red2{color:#ff6a6f}
+/* agent console (adverse news in action) */
+.agentcon{background:#16161b;border-radius:15px;padding:16px 18px 14px;width:100%;
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.55);font-family:var(--fMono,'JetBrains Mono',monospace)}
+.agentcon .ah{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+.agentcon .ah i{width:9px;height:9px;border-radius:50%;background:#3a3a44}
+.agentcon .ah i:first-child{background:var(--red)}
+.agentcon .ah span{margin-left:6px;font-size:10px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:#8a8a96}
+.acl{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.55;color:#c9c9d4;
+  padding:5px 0;opacity:0;transform:translateY(8px)}
+.slide.active .acl{animation:cmin .4s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:var(--cd,0s)}
+.acl .pfx{flex:none;width:18px;text-align:center}
+.acl .pfx.goal{color:#ff6a6f}
+.acl .pfx.tool{color:#f2c14e}
+.acl .pfx.okp{color:#7fe0a8}
+.acl b{color:#fff;font-weight:600}
+.acl .res{color:#7fe0a8}
+.acl.report{margin-top:8px;background:rgba(236,27,35,.12);border:1px solid rgba(236,27,35,.35);
+  border-radius:10px;padding:10px 13px}
+.acl.report b{color:#ff8a8e}
+body.static .acl{opacity:1;transform:none;animation:none}
+@media (prefers-reduced-motion:reduce){.acl{opacity:1;transform:none;animation:none}}
+.astar{margin-top:12px;font-size:11.5px;color:var(--muted);line-height:1.5}
+.astar b{color:var(--ink)}
 /* use-case flow diagram */
 .ucflow{display:flex;align-items:stretch;width:100%}
 .ucbox{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 12px 13px;
@@ -1676,7 +1700,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 12 · AGENTS ============================== -->
-  <section class="slide" data-notes='["An agent is an LLM in a loop: plan, act, check, repeat until done.", "You give it a goal, not a question.", "Screening a company for negative news is exactly this loop.", "You will see it in the Adverse News use case."]'>
+  <section class="slide" data-notes='["An agent is an LLM in a loop: plan, act, check, repeat until done.", "You give it a goal, not a question.", "Watch it for real on the next slide."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Agents</div>
     <h2 class="slide-title" data-r data-d="1">An agent is a loop, not a chat</h2>
     <div class="body-area">
@@ -1686,8 +1710,6 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <li class="strong" data-r data-d="2">Give it a <b>goal</b>, not a question.</li>
             <li data-r data-d="3">It <b>plans</b> the next step, <b>acts</b> with a tool, <b>checks</b> the result.</li>
             <li data-r data-d="4">Then it decides: loop again, or done.</li>
-            <li data-r data-d="5">Example goal: <b>“screen this company for negative news”</b>. Many searches, then a report.</li>
-            <li data-r data-d="6">You will see an agent run this exact loop in the Adverse News use case.</li>
           </ul>
         </div>
         <div class="viz" data-r data-d="3">
@@ -1706,6 +1728,37 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
       </div>
     </div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">12</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · AGENTS IN ACTION · ADVERSE NEWS ============================== -->
+  <section class="slide" data-notes='["Here is the agent loop for real. We added one tool: web search. A paid, licensed tool, because scraping is not allowed for regulatory reasons.","We give the goal: screen this company for negative news. Watch the console. The agent calls the search tool, the court databases, the sanction lists.","It reads everything, keeps credible sources only, and searches again where the signal is weak.","Out comes a report: a risk verdict, a written narrative, every claim cited. The officer reviews it and it goes to the KYC file.","That is tool calling plus the loop. One goal in, one report out."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Agents in action</div>
+    <h2 class="slide-title" data-r data-d="1">Adverse News: an agent at work</h2>
+    <div class="body-area" style="justify-content:center">
+      <div class="two wide-r" style="align-items:center">
+        <div class="txt">
+          <ul class="bullets">
+            <li class="strong" data-r data-d="2">We gave the model <b>web search</b>.*</li>
+            <li data-r data-d="3">The goal: <b>screen a company for negative news</b>.</li>
+            <li data-r data-d="4">The agent loops: <b>search, read, filter, search again</b>.</li>
+            <li data-r data-d="5">Out comes a <b>report</b>: verdict, narrative, citations.</li>
+          </ul>
+          <p class="astar" data-r data-d="6">*Web search is a <b>paid, licensed tool</b> at the bank. Scraping is not allowed for regulatory reasons.</p>
+        </div>
+        <div class="viz" data-r data-d="2">
+          <div class="agentcon">
+            <div class="ah"><i></i><i></i><i></i><span>agent · adverse news</span></div>
+            <div class="acl" style="--cd:.6s"><span class="pfx goal">◉</span><span><b>goal:</b> screen “PT Maktour” for negative news</span></div>
+            <div class="acl" style="--cd:1.4s"><span class="pfx tool">⚙</span><span>web_search("Maktour korupsi OR fraud OR penipuan") <span class="res">· 27 hits</span></span></div>
+            <div class="acl" style="--cd:2.2s"><span class="pfx tool">⚙</span><span>court_lookup(SIPP, Mahkamah Agung) <span class="res">· 1 case</span></span></div>
+            <div class="acl" style="--cd:3.0s"><span class="pfx tool">⚙</span><span>sanctions_check(DTTOT, PEP, watchlists) <span class="res">· clear</span></span></div>
+            <div class="acl" style="--cd:3.8s"><span class="pfx okp">✔</span><span>reading 43 results · keeping credible sources only</span></div>
+            <div class="acl report" style="--cd:4.7s"><span class="pfx goal">▤</span><span><b>report:</b> risk HIGH · narrative with citations · officer reviews → KYC file</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">20</span></div>
   </section>
 
   <!-- ============================== SLIDE 13 · GROUNDING ============================== -->
@@ -1727,7 +1780,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE · HUMAN IN THE LOOP ============================== -->
-  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.","Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.","Before anything moves, a person double-checks the fields that matter: account number, name, amount.","AI reads fast. You confirm what moves money. This checkpoint appears in every use case next."]'>
+  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.", "Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.", "Before anything moves, a person double-checks the fields that matter: account number, name, amount.", "You saw the checkpoint in Adverse News: the officer clears the name. Every use case today has one."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div>
     <h2 class="slide-title" data-r data-d="1">The machine drafts. You verify.</h2>
     <div class="body-area" style="justify-content:center">
@@ -1737,7 +1790,7 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
             <li class="strong" data-r data-d="2">AI output is a <b>draft</b>, even when it comes from OCR.</li>
             <li data-r data-d="3">Numbers and names deserve <b>human eyes</b>.</li>
             <li data-r data-d="4">Double-check the <b>account number, name and amount</b> before anything moves.</li>
-            <li data-r data-d="5">This checkpoint appears in <b>every use case</b> next.</li>
+            <li data-r data-d="5">Every use case today has <b>this checkpoint</b>.</li>
           </ul>
         </div>
         <div class="viz" data-r data-d="3">
@@ -1756,11 +1809,11 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
   </section>
 
   <!-- ============================== SLIDE 14 · DIVIDER P3 ============================== -->
-  <section class="slide dark divider" data-notes='["Now it gets concrete. Four use cases, all built here.", "Two I will walk through step by step. Two you will watch on video.", "For each: the pain, how it works, and where the human stays in the loop."]'>
+  <section class="slide dark divider" data-notes='["You already watched Adverse News. Three more use cases, all built here.", "One walkthrough, two videos.", "For each: the pain, how it works, and where the human stays in the loop."]'>
     <div class="pillar-no">03</div>
     <div class="eyebrow"><span class="dot"></span>Part 3</div>
     <h2>Built here</h2>
-    <p class="lead">Four AI use cases in the bank: Statement Analyzer, Adverse News, MoM AI, LuminaLM.</p>
+    <p class="lead">Three more use cases: Statement Analyzer, MoM AI, LuminaLM.</p>
     <div class="prog-rail"><span>01 · LLM basics</span><span>02 · Tools &amp; agents</span><span class="on">03 · Demos</span><span>04 · Using it well</span></div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
   </section>
@@ -1788,28 +1841,6 @@ body.static .tk,.static .tk{opacity:1;transform:none;animation:none}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">24</span></div>
   </section>
 
-  <!-- ============================== SLIDE · USE CASE 2 · ADVERSE NEWS ============================== -->
-  <section class="slide" data-notes='["Use case two: screening. Before we deal with a company or a person, we check for negative news. By hand that means dozens of searches, one source at a time.","Walk the flow. Names go in: a company and its related parties.","The agent writes its own searches: court databases like SIPP and Mahkamah Agung, negative-news keywords, sanction and PEP lists.","It reads the results and filters: credible sources only, same-name noise dropped. Then a verdict with a written narrative, every claim cited.","Last step, the checkpoint again: the officer reviews and clears the name, and a PDF report goes to the KYC file. An hour of googling becomes minutes of review."]'>
-    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Use case 2 · Screening &amp; compliance</div></div>
-    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Adverse News Search</h2>
-    <div class="body-area" style="justify-content:center;align-items:center">
-      <div style="max-width:1080px;width:100%">
-        <div class="ucflow">
-          <div class="ucbox" data-r data-d="2"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2"/><path d="M16 4h5v5M21 4l-6 6"/></svg></span><b>Names in</b><span>a company and its related parties</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="3"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><b>AI writes the searches</b><span>courts (SIPP, MA), negative news, sanction &amp; PEP lists</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="4"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16l-6 7v5l-4 2v-7z"/></svg></span><b>Reads &amp; filters</b><span>credible sources only, same-name noise dropped</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox" data-r data-d="5"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M18.4 5.6l-2.8 2.8M21 12h-4"/><path d="M8 20a4 4 0 118 0z"/></svg></span><b>Verdict + narrative</b><span>risk level, every claim cited to its source</span></div>
-          <span class="ucarr">→</span>
-          <div class="ucbox human" data-r data-d="6"><span class="ui"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 21v-1a6 6 0 0112 0v1"/></svg></span><b>Human review</b><span>officer clears the name; PDF to the KYC file</span><span class="htag">human in the loop</span></div>
-        </div>
-        <p class="flow-cap" data-r data-d="7">An hour of searching becomes minutes of review. The agent does the legwork; clearing the name stays human.</p>
-      </div>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">25</span></div>
-  </section>
 
   <!-- ============================== SLIDE 17 · DEMO 3 · MoM AI ============================== -->
   <section class="slide" data-notes='["The pain: someone types notes all meeting, and the minutes still come late.", "Drop in the recording. It writes out who said what.", "Out come minutes: summary, attendees, actions with names and dates.", "English or Bahasa. Export to PDF or Word.", "Thirty minutes of typing becomes five minutes of checking."]'>

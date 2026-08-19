@@ -11,9 +11,9 @@ Working draft of the deck story and talk script.
   each demo, questions welcome in the Teams chat throughout.
 - **Status**: deck built at `web/beyond-the-hype.html` (29 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
-  MoM AI and LuminaLM play as embedded videos; Statement Analyzer and
-  Adverse News are five-step flow diagrams with a green
-  human-in-the-loop stage.
+  MoM AI and LuminaLM play as embedded videos; Statement Analyzer is a
+  five-step flow diagram; Adverse News is an animated agent console in
+  Part 2.
 
 ## Shape of the talk
 
@@ -27,8 +27,8 @@ using AI safely this week.
 |---|---|---|
 | Opening (cover, LLM, chatbot, on-premise, premise) | 1–5 | 9 |
 | Act 1 · What is an LLM, really? | 6–16 | 17 |
-| Act 2 · From chatbot to coworker | 17–21 | 10 |
-| Act 3 · Four AI use cases in the bank | 22–27 | 14 |
+| Act 2 · From chatbot to coworker, incl. Adverse News live | 17–22 | 13 |
+| Act 3 · Three more use cases in the bank | 23–27 | 11 |
 | Close + Q&A | 28–29 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
@@ -372,7 +372,30 @@ finished.
 > search, check the directors too, then write up findings. An agent runs
 > that same loop. You will watch one do exactly this in demo two.
 
-## Slide 20 · Ground it in your documents — 2 min
+## Slide 20 · Adverse News: an agent at work — 3 min
+
+**Layout**: two-column; bullets left with a footnote (*web search is a
+paid, licensed tool at the bank; scraping is not allowed for
+regulatory reasons), right a dark agent console that plays line by
+line: goal in → web_search, court_lookup, sanctions_check tool calls
+with result counts → reading and filtering → a red report card (risk
+HIGH, narrative with citations, officer reviews, KYC file).
+
+**Say:**
+
+> Here is the agent loop for real. We added one tool: web search. A
+> paid, licensed tool, because scraping is not allowed for regulatory
+> reasons. We give the goal: screen this company for negative news.
+> Now watch the console. The agent calls the search tool with its own
+> queries. It checks the court databases, SIPP and Mahkamah Agung. It
+> runs the sanction and PEP lists. It reads all 43 results and keeps
+> the credible sources only, searching again where the signal is weak.
+> And out comes a report: a risk verdict, a written narrative, every
+> claim cited to its source. The officer reviews it, and it goes to
+> the KYC file. That is tool calling plus the loop. One goal in, one
+> report out.
+
+## Slide 21 · Ground it in your documents — 2 min
 
 **Layout**: simple flow: your documents → indexed → question → answer with
 citations.
@@ -390,7 +413,7 @@ from those pages. The fix for hallucination on document work.
 > call it RAG; the name matters less than the effect. Two of the four
 > demos are built on it.
 
-## Slide 21 · Human in the loop — 2 min
+## Slide 22 · Human in the loop — 2 min
 
 **Layout**: two-column; bullets left, right an OCR-result card of a
 transfer instruction with amber "double-check" flags on nama penerima,
@@ -402,11 +425,11 @@ no. rekening and jumlah, and a green ✓ on bank tujuan.
 > the loop. Example on screen: OCR reads a transfer instruction. Fast,
 > and usually right. But look at the flags. Before anything moves, a
 > person double-checks the fields that matter: the account number, the
-> name, the amount. AI reads fast. You confirm what moves money. Keep
-> this checkpoint in mind, because it appears in every use case you
-> are about to see.
+> name, the amount. AI reads fast. You confirm what moves money. You
+> already saw this checkpoint in Adverse News, where the officer
+> clears the name. Every use case today has one.
 
-## Slide 22 · Divider — Act 3 — 1 min
+## Slide 23 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider, four small chips naming the demos.
 **On slide**: "Part 3 / Built here" · Statement Analyzer · Adverse News ·
@@ -420,7 +443,7 @@ MoM AI · Lumina.
 > pain it removes, play the video, and connect it back to the concepts.
 > Questions in the chat after each.
 
-## Slide 23 · Use case 1 — Bank Statement Analyzer — 3 min
+## Slide 24 · Use case 1 — Bank Statement Analyzer — 3 min
 
 **Layout**: five-step flow diagram: bank statement (PDFs, phone scans)
 → OCR + fraud check → human verifies (green, human-in-the-loop tag) →
@@ -441,30 +464,6 @@ Caption: hours of retyping become minutes of checking.
 > dashboard: money in, money out, account behaviour, ready for credit
 > analysis. Hours of retyping become minutes of checking, and the
 > credit judgment never leaves the analyst.
-
-## Slide 24 · Use case 2 — Adverse News Search — 3 min
-
-**Layout**: five-step flow diagram: names in (company + related
-parties) → AI writes the searches (SIPP, Mahkamah Agung, negative
-news, sanction and PEP lists) → reads and filters (credible sources,
-same-name noise dropped) → verdict + narrative (every claim cited) →
-human review (green, human-in-the-loop tag; PDF to the KYC file).
-
-**Say:**
-
-> Use case two: screening. Before we deal with a company or a person,
-> we check for negative news. By hand that means dozens of searches,
-> one source at a time, and a same-name problem on top. Here is the
-> agent loop from part two, in production. Names go in: a company and
-> its related parties. The agent writes its own searches across court
-> databases like SIPP and Mahkamah Agung, negative-news keywords, and
-> sanction and PEP lists. It reads the results and filters: credible
-> sources only, same-name noise dropped. Then a risk verdict with a
-> written narrative, and every claim carries a link to its source. And
-> the last step is the checkpoint again: the officer reviews, clears
-> the name, and a PDF report goes to the KYC file. An hour of
-> searching becomes minutes of review. The agent does the legwork;
-> clearing the name stays human.
 
 ## Slide 25 · Use case 3 — MoM AI — 4 min (video 0:30)
 
