@@ -1,5 +1,5 @@
 Learning at Lunch — Beyond the Hype: What AI Can Actually Do Today
-Speaker notes · 29 slides
+Speaker notes · 30 slides
 ================================================
 
 Slide 1 — Beyond the Hype What AI Can Do Today
@@ -140,43 +140,54 @@ Slide 22 — LuminaLM · 0:50
   • It also drafts documents for you: Word, Excel, PowerPoint.
   • Think of it as a colleague who read every document and never forgets a page.
 
-Slide 23 — The machine drafts. You verify.
+Slide 23 — Be clear with agents too: one step at a time
+  • Remember slide twelve: be clear about what you want. The same rule applies to agents, doubled.
+  • The tempting way is one jump: recording in, minutes out. But then misheard words and wrong names go straight into the minutes.
+  • So we give the agent proper instructions, step by step.
+  • Step one: transcript first. The AI writes out who said what.
+  • Step two: a human checkpoint. Fix misheard lines, confirm the speaker names.
+  • Step three: only then summarize, from the corrected transcript.
+  • That is exactly how MoM AI is built. Watch it work.
+
+Slide 24 — MoM AI · 0:30
+  • This is that pipeline for real: MoM AI, built here.
+  • Drop in the recording. It writes the transcript first: who said what.
+  • Name the speakers from a short sample.
+  • Fix the transcript where it misheard. Only then does it summarize.
+  • Out come the minutes: summary, attendees, actions with a person in charge.
+  • English or Bahasa. Export to PDF or Word.
+  • Thirty minutes of typing becomes five minutes of checking.
+
+Slide 25 — The machine drafts. You verify.
   • The fourth idea is not a technology. It is a rule: keep a human in the loop.
   • Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.
   • Before anything moves, a person double-checks the fields that matter: account number, name, amount.
-  • You saw the checkpoint in Adverse News: the officer clears the name. Every use case today has one.
+  • You saw it already: the officer clears the name in Adverse News, you fix the transcript in MoM AI. Every use case today has one.
 
-Slide 24 — Part 3 — Built here
-  • You already watched Adverse News and LuminaLM. Two more use cases, both built here.
-  • One walkthrough, one video.
-  • For each: the pain, how it works, and where the human stays in the loop.
+Slide 26 — Part 3 — Built here
+  • You have already watched three use cases run: Adverse News, LuminaLM and MoM AI.
+  • One more, built here: the Bank Statement Analyzer.
+  • The pain, how it works, and where the human stays in the loop.
 
-Slide 25 — Bank Statement Analyzer
+Slide 27 — Bank Statement Analyzer
   • Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.
   • Walk the flow. OCR reads every line and a fraud check flags signs of tampering.
   • Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.
   • The model categorises every transaction: who was paid, what type, business or personal.
   • Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking.
 
-Slide 26 — MoM AI · 0:30
-  • The pain: someone types notes all meeting, and the minutes still come late.
-  • Drop in the recording. It writes out who said what.
-  • Out come minutes: summary, attendees, actions with names and dates.
-  • English or Bahasa. Export to PDF or Word.
-  • Thirty minutes of typing becomes five minutes of checking.
-
-Slide 27 — Four tools, one pattern
+Slide 28 — Four tools, one pattern
   • Same pattern four times: one model, plus tools, plus our documents.
   • The AI removes the reading, typing and searching.
   • The judgment stays human: approve, clear, sign, decide.
 
-Slide 28 — Start this week, inside the rules
+Slide 29 — Start this week, inside the rules
   • Start small: summarise, draft, translate, explain.
   • Rule one: no customer data in public AI tools. Use the bank’s own.
   • Rule two: check every fact and number.
   • Rule three: it is a draft. What you send carries your name.
 
-Slide 29 — Useful work, today. You just watched it
+Slide 30 — Useful work, today. You just watched it
   • Recap in one breath: you saw how it works, and four tools that use it.
   • Have an idea for your unit? Come talk to us.
   • Try one small task this week. Terima kasih. Questions, please.

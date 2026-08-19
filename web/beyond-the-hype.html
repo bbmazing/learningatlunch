@@ -1302,6 +1302,47 @@ body.static .rfile.hit{background:#FFF7F7}
   .rfile,.ragq,.ragscan,.raga,.ragcap,.rfile.hit .fhit{opacity:1;transform:none;animation:none}
   .rfile.hit{background:#FFF7F7}
 }
+/* clear instructions — one jump vs step-by-step pipeline */
+.rowlab{font-family:var(--fHead);font-weight:800;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+.onejump{display:flex;align-items:center;gap:14px;background:#fff;border:1px dashed #F0B9BB;
+  border-radius:14px;padding:13px 18px;opacity:0;transform:translateY(8px)}
+.slide.active .onejump{animation:cmin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:.4s}
+.onejump .jflow{position:relative;font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink)}
+.onejump .jflow b{color:var(--faint);font-weight:800;padding:0 6px}
+.onejump .jflow::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:2.5px;
+  background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:left center}
+.slide.active .onejump .jflow::after{animation:jstrike .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:1.5s}
+@keyframes jstrike{to{transform:scaleX(1)}}
+.onejump .jx{margin-left:auto;font-family:var(--fHead);font-weight:800;font-size:11px;color:var(--red);
+  background:#FCEEEF;border:1px solid #F7C6C8;border-radius:99px;padding:5px 12px;opacity:0;
+  transform:translateY(4px);white-space:nowrap}
+.slide.active .onejump .jx{animation:cmin .35s forwards;animation-delay:1.6s}
+.msteps{display:flex;align-items:stretch;width:100%}
+.mstep{flex:1;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px 13px;
+  box-shadow:0 20px 40px -32px rgba(0,0,0,.3);opacity:0;transform:translateY(10px);min-width:0}
+.slide.active .mstep{animation:cmin .45s cubic-bezier(.2,.8,.3,1) forwards;animation-delay:var(--cd,0s)}
+.mstep .mn{display:inline-flex;width:20px;height:20px;border-radius:50%;background:#FCEEEF;color:var(--red);
+  font-family:var(--fHead);font-weight:800;font-size:11px;align-items:center;justify-content:center;margin-bottom:7px}
+.mstep b{display:block;font-family:var(--fHead);font-weight:800;font-size:14.5px;color:var(--ink);margin-bottom:4px}
+.mstep span{font-size:11.5px;color:var(--muted);line-height:1.5;display:block}
+.mstep.human{background:#F4FBF6;border-color:#cdebd8}
+.mstep.human .mn{background:#E9F7EE;color:#1E8E5A}
+.mstep .htag2{display:inline-block;font-family:var(--fMono,'JetBrains Mono',monospace);font-size:8.5px;
+  font-weight:700;letter-spacing:.07em;color:#14663f;background:#E9F7EE;border:1px solid #cdebd8;
+  border-radius:99px;padding:2px 8px;text-transform:uppercase;margin-top:8px}
+.msarr{display:flex;align-items:center;padding:0 9px;color:var(--red);font-size:20px;font-weight:800;
+  flex:none;opacity:0}
+.slide.active .msarr{animation:cmin .4s forwards;animation-delay:var(--cd,0s)}
+.mcap{opacity:0;transform:translateY(6px)}
+.slide.active .mcap{animation:cmin .45s forwards;animation-delay:4.6s}
+body.static .onejump,body.static .onejump .jx,body.static .mstep,body.static .msarr,body.static .mcap
+  {opacity:1;transform:none;animation:none}
+body.static .onejump .jflow::after{transform:scaleX(1);animation:none}
+@media (prefers-reduced-motion:reduce){
+  .onejump,.onejump .jx,.mstep,.msarr,.mcap{opacity:1;transform:none;animation:none}
+  .onejump .jflow::after{transform:scaleX(1);animation:none}
+}
 /* S19 pattern table */
 .ptable{width:100%;border-collapse:separate;border-spacing:0 9px}
 .ptable th{font-family:var(--fHead);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
@@ -1926,8 +1967,54 @@ body.static .rfile.hit{background:#FFF7F7}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">22</span></div>
   </section>
 
+  <!-- ============================== SLIDE · CLEAR INSTRUCTIONS (AGENT PIPELINE) ============================== -->
+  <section class="slide" data-notes='["Remember slide twelve: be clear about what you want. The same rule applies to agents, doubled.", "The tempting way is one jump: recording in, minutes out. But then misheard words and wrong names go straight into the minutes.", "So we give the agent proper instructions, step by step.", "Step one: transcript first. The AI writes out who said what.", "Step two: a human checkpoint. Fix misheard lines, confirm the speaker names.", "Step three: only then summarize, from the corrected transcript.", "That is exactly how MoM AI is built. Watch it work."]'>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Part 2 · Clear instructions</div></div>
+    <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Be clear with agents too: one step at a time</h2>
+    <div class="body-area" style="justify-content:center;align-items:center">
+      <div style="max-width:1010px;width:100%">
+        <div class="rowlab" data-r data-d="2">Asking for magic</div>
+        <div class="onejump">
+          <span class="jflow">Recording <b>→</b> AI summarizes <b>→</b> Minutes</span>
+          <span class="jx">✕ misheard words and names go straight in</span>
+        </div>
+        <div class="rowlab" style="margin-top:20px" data-r data-d="2">Proper instructions: step by step, with a checkpoint</div>
+        <div class="msteps">
+          <div class="mstep" style="--cd:2.3s"><span class="mn">1</span><b>Transcript first</b><span>the AI writes out who said what, word for word</span></div>
+          <span class="msarr" style="--cd:2.7s">→</span>
+          <div class="mstep human" style="--cd:3.1s"><span class="mn">2</span><b>Human edits</b><span>fix misheard lines, confirm each speaker name</span><span class="htag2">human in the loop</span></div>
+          <span class="msarr" style="--cd:3.5s">→</span>
+          <div class="mstep" style="--cd:3.9s"><span class="mn">3</span><b>Then summarize</b><span>minutes built from the corrected transcript</span></div>
+        </div>
+        <p class="flow-cap mcap">Same rule as prompting: say exactly what you want, in steps. MoM AI is built this way.</p>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">23</span></div>
+  </section>
+
+  <!-- ============================== SLIDE · CLEAR STEPS LIVE · MoM AI ============================== -->
+  <section class="slide" data-notes='["This is that pipeline for real: MoM AI, built here.", "Drop in the recording. It writes the transcript first: who said what.", "Name the speakers from a short sample.", "Fix the transcript where it misheard. Only then does it summarize.", "Out come the minutes: summary, attendees, actions with a person in charge.", "English or Bahasa. Export to PDF or Word.", "Thirty minutes of typing becomes five minutes of checking."]'>
+    <div class="kicker" data-r><span class="badge"></span>Part 2 · Clear steps, live in the bank</div>
+    <h2 class="slide-title" data-r data-d="1">MoM AI <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 0:30</span></h2>
+    <div class="body-area">
+      <div class="vwrap">
+        <div class="vframe" data-r data-d="2">
+          <video src="assets/videos/mom-ai-web.mp4" poster="assets/videos/mom-ai-poster.png" controls preload="metadata" playsinline></video>
+        </div>
+        <div class="vrail">
+          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>Drop in the recording</b>It writes the transcript: who said what.</div>
+          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>Name the speakers</b>Play a short sample, give each voice a name.</div>
+          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>Fix the transcript</b>Correct wrong words before the summary.</div>
+          <div class="vchip" data-r data-d="6"><b><span class="no">4</span>Get the minutes</b>Summary, actions, PIC. English or Bahasa, PDF or Word.</div>
+          <div class="vmeta" data-r data-d="7">press R to restart · sound on</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
+  </section>
+
   <!-- ============================== SLIDE · HUMAN IN THE LOOP ============================== -->
-  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.", "Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.", "Before anything moves, a person double-checks the fields that matter: account number, name, amount.", "You saw the checkpoint in Adverse News: the officer clears the name. Every use case today has one."]'>
+  <section class="slide" data-notes='["The fourth idea is not a technology. It is a rule: keep a human in the loop.", "Example: OCR reads a transfer instruction. Fast and usually right. But look at the flags.", "Before anything moves, a person double-checks the fields that matter: account number, name, amount.", "You saw it already: the officer clears the name in Adverse News, you fix the transcript in MoM AI. Every use case today has one."]'>
     <div class="kicker" data-r><span class="badge"></span>Part 2 · Human in the loop</div>
     <h2 class="slide-title" data-r data-d="1">The machine drafts. You verify.</h2>
     <div class="body-area" style="justify-content:center">
@@ -1956,18 +2043,18 @@ body.static .rfile.hit{background:#FFF7F7}
   </section>
 
   <!-- ============================== SLIDE 14 · DIVIDER P3 ============================== -->
-  <section class="slide dark divider" data-notes='["You already watched Adverse News and LuminaLM. Two more use cases, both built here.", "One walkthrough, one video.", "For each: the pain, how it works, and where the human stays in the loop."]'>
+  <section class="slide dark divider" data-notes='["You have already watched three use cases run: Adverse News, LuminaLM and MoM AI.", "One more, built here: the Bank Statement Analyzer.", "The pain, how it works, and where the human stays in the loop."]'>
     <div class="pillar-no">03</div>
     <div class="eyebrow"><span class="dot"></span>Part 3</div>
     <h2>Built here</h2>
-    <p class="lead">Two more use cases: Statement Analyzer, MoM AI.</p>
+    <p class="lead">One more use case: the Bank Statement Analyzer.</p>
     <div class="prog-rail"><span>01 · LLM basics</span><span>02 · Tools &amp; agents</span><span class="on">03 · Demos</span><span>04 · Using it well</span></div>
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">14</span></div>
   </section>
 
   <!-- ============================== SLIDE · USE CASE 1 · STATEMENT ANALYZER ============================== -->
   <section class="slide" data-notes='["Use case one, and a pain every credit and ops person knows: statements from other banks arrive as PDFs and phone scans, and someone retypes them for hours.","Walk the flow. OCR reads every line and a fraud check flags signs of tampering.","Then the checkpoint from the last slide: a person verifies the fields that matter. Account numbers, names, totals.","The model categorises every transaction: who was paid, what type, business or personal.","Everything lands in one dashboard: money in, money out, account behaviour. Hours of retyping become minutes of checking."]'>
-    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>Use case 1 · Credit &amp; operations</div></div>
+    <div style="text-align:center"><div class="kicker" data-r><span class="badge"></span>The last use case · Credit &amp; operations</div></div>
     <h2 class="slide-title" data-r data-d="1" style="text-align:center;max-width:none">Bank Statement Analyzer</h2>
     <div class="body-area" style="justify-content:center;align-items:center">
       <div style="max-width:1080px;width:100%">
@@ -1988,27 +2075,6 @@ body.static .rfile.hit{background:#FFF7F7}
     <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">24</span></div>
   </section>
 
-
-  <!-- ============================== SLIDE 17 · DEMO 3 · MoM AI ============================== -->
-  <section class="slide" data-notes='["The pain: someone types notes all meeting, and the minutes still come late.", "Drop in the recording. It writes out who said what.", "Out come minutes: summary, attendees, actions with names and dates.", "English or Bahasa. Export to PDF or Word.", "Thirty minutes of typing becomes five minutes of checking."]'>
-    <div class="kicker" data-r><span class="badge"></span>Use case 2 · Minutes that write themselves</div>
-    <h2 class="slide-title" data-r data-d="1">MoM AI <span style="font-size:14px;color:var(--faint);font-family:var(--fMono,monospace);font-weight:400">· 0:30</span></h2>
-    <div class="body-area">
-      <div class="vwrap">
-        <div class="vframe" data-r data-d="2">
-          <video src="assets/videos/mom-ai-web.mp4" poster="assets/videos/mom-ai-poster.png" controls preload="metadata" playsinline></video>
-        </div>
-        <div class="vrail">
-          <div class="vchip" data-r data-d="3"><b><span class="no">1</span>Drop in the recording</b>Drop in the audio. It writes out who said what.</div>
-          <div class="vchip" data-r data-d="4"><b><span class="no">2</span>Speakers, named</b>Three voices found. Play a sample, give each a name.</div>
-          <div class="vchip" data-r data-d="5"><b><span class="no">3</span>Structured minutes</b>Summary, attendees, agenda, actions and PIC per item.</div>
-          <div class="vchip" data-r data-d="6"><b><span class="no">4</span>Your language, your file</b>English or Bahasa. Export to PDF or Word.</div>
-          <div class="vmeta" data-r data-d="7">press R to restart · sound on</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div class="mark"><img src="assets/ocbc-icon.png" alt=""/>Learning at Lunch</div><span class="pg">17</span></div>
-  </section>
 
   <!-- ============================== SLIDE 19 · THE PATTERN ============================== -->
   <section class="slide" data-notes='["Same pattern four times: one model, plus tools, plus our documents.", "The AI removes the reading, typing and searching.", "The judgment stays human: approve, clear, sign, decide."]'>

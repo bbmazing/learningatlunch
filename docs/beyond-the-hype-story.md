@@ -9,7 +9,7 @@ Working draft of the deck story and talk script.
 - **Audience**: bank employees new to AI. No jargon without a plain
   explanation first. Pace stays relaxed: one idea per slide, pauses after
   each demo, questions welcome in the Teams chat throughout.
-- **Status**: deck built at `web/beyond-the-hype.html` (29 slides; slide 2 = LLM
+- **Status**: deck built at `web/beyond-the-hype.html` (30 slides; slide 2 = LLM
   intro with maker logos, slide 3 = the OCBC on-premise/Qwen setup).
   MoM AI and LuminaLM play as embedded videos; Statement Analyzer is a
   five-step flow diagram; Adverse News is an animated agent console in
@@ -27,9 +27,9 @@ using AI safely this week.
 |---|---|---|
 | Opening (cover, LLM, chatbot, on-premise, premise) | 1–5 | 9 |
 | Act 1 · What is an LLM, really? | 6–16 | 17 |
-| Act 2 · From chatbot to coworker, incl. Adverse News + LuminaLM live | 17–23 | 16 |
-| Act 3 · Two more use cases in the bank | 24–27 | 8 |
-| Close + Q&A | 28–29 | 4 + buffer |
+| Act 2 · From chatbot to coworker, with Adverse News, LuminaLM and MoM AI live | 17–25 | 20 |
+| Act 3 · One more use case in the bank | 26–28 | 5 |
+| Close + Q&A | 29–30 | 4 + buffer |
 
 Timings assume each demo video runs 2–3 minutes. Adjust after the videos
 arrive.
@@ -462,7 +462,72 @@ template → (0:46) outro.
 > And when the answer is not in the files, it says so. That is the last
 > slide, on camera.
 
-## Slide 23 · Human in the loop — 2 min
+## Slide 23 · Be clear with agents too: one step at a time — 2 min
+
+**Layout**: two rows, animated. Top row "Asking for magic": Recording →
+AI summarizes → Minutes, which gets struck through in red with a flag
+"misheard words and names go straight in". Bottom row "Proper
+instructions: step by step, with a checkpoint": 1 Transcript first (AI
+writes out who said what) → 2 Human edits (fix misheard lines, confirm
+each speaker name, green human-in-the-loop card) → 3 Then summarize
+(minutes from the corrected transcript). Caption: same rule as
+prompting; MoM AI is built this way.
+
+**Say:**
+
+> Remember the prompting slide: be clear about what you want. The same
+> rule applies to agents, doubled. The tempting way is one jump:
+> recording in, minutes out. But then misheard words and wrong names go
+> straight into the minutes. So we give the agent proper instructions,
+> step by step. Transcript first: the AI writes out who said what. Then
+> a human checkpoint: fix misheard lines, confirm the speaker names.
+> Only then summarize, from the corrected transcript. That is exactly
+> how MoM AI is built, and it is the next video.
+
+## Slide 24 · MoM AI — clear steps, live in the bank — 4 min (video 0:30)
+
+**Layout**: video slide — embedded `mom-ai-web.mp4` with poster frame, side
+rail of four "watch for" chips.
+**On slide chips**: drop in the recording (it writes the transcript:
+who said what) · name the speakers (play a short sample) · fix the
+transcript (correct wrong words before the summary) · get the minutes
+(summary, actions, PIC · English or Bahasa, PDF or Word).
+**Video content, mapped**: (0:00) problem card "Every meeting ends the
+same way. Someone still has…" with note cards piling up → (0:05) MoM AI
+logo, the ghost-with-headphones mascot, "Minutes of Meetings" → (0:08)
+upload: New session in "Bob's meeting minutes" workspace — a
+Sustainability Committee Q3 Review .wav, optional supporting PDFs the
+model uses as context, meeting title/date/type/focus → (0:14) Speakers
+step: 3 speakers detected, play a sample, name them, merge duplicates,
+ignore noise; four-step sidebar Upload → Speakers → Transcript →
+Minutes → (0:18) generating: "Identifying decisions and action items…"
+→ (0:22) the Minutes: header with date, type, focus, next meeting;
+Summary; Attendees (3) with roles; Agenda (5) with topic, discussion,
+action needed and PIC per item; English / Bahasa Indonesia toggle,
+Regenerate per section, version history, Copy / PDF / DOCX → (0:28)
+outro: "Minutes, minus the meeting after the meeting."
+
+**Say (setup, before play):**
+
+> And this is that pipeline for real: MoM AI, built here. Every meeting
+> ends the same way: someone still has to write the minutes. Thirty
+> seconds, watch the steps from the last slide. Drop in the recording
+> and it writes the transcript first: who said what. Name the speakers
+> from a short sample. Fix the transcript where it misheard. Only then
+> does it summarize: minutes with an action and a person in charge per
+> item. Sound on.
+
+**Say (after play):**
+
+> Speech-to-text is the tool in the loop; the model drafts the
+> structure. The draft is ready when the meeting ends, in English or
+> Bahasa, exportable to PDF or Word. You review it, fix what it
+> misheard, and send. Thirty minutes of typing becomes five minutes of
+> checking — and the sign-off stays yours. One note for the chat: it
+> handles a committee meeting recorded in one room as well as a Teams
+> call.
+
+## Slide 25 · Human in the loop — 2 min
 
 **Layout**: two-column; bullets left, right an OCR-result card of a
 transfer instruction with amber "double-check" flags on nama penerima,
@@ -478,21 +543,20 @@ no. rekening and jumlah, and a green ✓ on bank tujuan.
 > already saw this checkpoint in Adverse News, where the officer
 > clears the name. Every use case today has one.
 
-## Slide 24 · Divider — Act 3 — 1 min
+## Slide 26 · Divider — Act 3 — 1 min
 
 **Layout**: dark section divider.
-**On slide**: "Part 3 / Built here" · Two more use cases: Statement
-Analyzer, MoM AI.
+**On slide**: "Part 3 / Built here" · One more use case: the Bank
+Statement Analyzer.
 
 **Say:**
 
-> You have already watched two use cases run: Adverse News and
-> LuminaLM. Two more, both built by teams here, both running on the same
-> ideas: prompting, tools, agents, grounding. One walkthrough, one
-> video. For each: the pain it removes, how it works, and where the
-> human stays in the loop. Questions in the chat after each.
+> You have already watched three use cases run: Adverse News, LuminaLM
+> and MoM AI. One more, built by a team here, running on the same
+> ideas: prompting, tools, agents, grounding. For it: the pain it
+> removes, how it works, and where the human stays in the loop.
 
-## Slide 25 · Use case 1 — Bank Statement Analyzer — 3 min
+## Slide 27 · The last use case — Bank Statement Analyzer — 3 min
 
 **Layout**: five-step flow diagram: bank statement (PDFs, phone scans)
 → OCR + fraud check → human verifies (green, human-in-the-loop tag) →
@@ -514,50 +578,7 @@ Caption: hours of retyping become minutes of checking.
 > analysis. Hours of retyping become minutes of checking, and the
 > credit judgment never leaves the analyst.
 
-## Slide 26 · Use case 2 — MoM AI — 4 min (video 0:30)
-
-**Layout**: video slide — embedded `mom-ai-web.mp4` with poster frame, side
-rail of four "watch for" chips.
-**On slide chips**: drop in the recording (plus optional context PDFs) ·
-speakers detected and named · structured minutes (summary, attendees,
-agenda with actions and PIC) · English/Bahasa toggle, PDF/DOCX export.
-**Video content, mapped**: (0:00) problem card "Every meeting ends the
-same way. Someone still has…" with note cards piling up → (0:05) MoM AI
-logo, the ghost-with-headphones mascot, "Minutes of Meetings" → (0:08)
-upload: New session in "Bob's meeting minutes" workspace — a
-Sustainability Committee Q3 Review .wav, optional supporting PDFs the
-model uses as context, meeting title/date/type/focus → (0:14) Speakers
-step: 3 speakers detected, play a sample, name them, merge duplicates,
-ignore noise; four-step sidebar Upload → Speakers → Transcript →
-Minutes → (0:18) generating: "Identifying decisions and action items…"
-→ (0:22) the Minutes: header with date, type, focus, next meeting;
-Summary; Attendees (3) with roles; Agenda (5) with topic, discussion,
-action needed and PIC per item; English / Bahasa Indonesia toggle,
-Regenerate per section, version history, Copy / PDF / DOCX → (0:28)
-outro: "Minutes, minus the meeting after the meeting."
-
-**Say (setup, before play):**
-
-> This demo touches everyone. Every meeting ends the same way: someone
-> still has to write the minutes. So somebody half-listens while typing
-> notes, and the minutes arrive two days late anyway. Thirty seconds,
-> three things to watch. You drop in the recording and it gets
-> transcribed and diarized, meaning it works out who spoke. You name the
-> speakers from a short sample. And the minutes come out structured:
-> summary, attendees, agenda, with an action and a person-in-charge per
-> item. Sound on.
-
-**Say (after play):**
-
-> Speech-to-text is the tool in the loop; the model drafts the
-> structure. The draft is ready when the meeting ends, in English or
-> Bahasa, exportable to PDF or Word. You review it, fix what it
-> misheard, and send. Thirty minutes of typing becomes five minutes of
-> checking — and the sign-off stays yours. One note for the chat: it
-> handles a committee meeting recorded in one room as well as a Teams
-> call.
-
-## Slide 27 · The pattern behind all four — 2 min
+## Slide 28 · The pattern behind all four — 2 min
 
 **Layout**: card grid or table mapping demo → concept → human's role.
 **On slide**: Statement Analyzer = model + OCR tool · Adverse News =
@@ -575,7 +596,7 @@ people keep the judgment.
 > formatting that sat between people and their judgment. That is what AI
 > can do today. Less magic than the headlines, and more useful.
 
-## Slide 28 · Using it well, starting this week — 3 min
+## Slide 29 · Using it well, starting this week — 3 min
 
 **Layout**: two-column: "Start here" and "Rules of the road".
 **On slide**: Start here: summarise long documents · draft and polish
@@ -595,7 +616,7 @@ every fact and number · you own what you send, AI output is a draft.
 > carries your name. Treat the output the way you treat an intern's
 > draft: useful, fast, and reviewed before it leaves your desk.
 
-## Slide 29 · Close + Q&A — 1 min, then open floor
+## Slide 30 · Close + Q&A — 1 min, then open floor
 
 **Layout**: dark closing slide, recap left, next steps right.
 **On slide**: Covered: how LLMs work · tools and agents · four working
