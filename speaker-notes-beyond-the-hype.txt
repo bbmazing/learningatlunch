@@ -18,7 +18,7 @@ Slide 3 — The best first use case: a chatbot
   • One of the best uses of an LLM is also the simplest: a chatbot.
   • Watch the rhythm on the right. You type, it answers, you refine. A conversation, not a search box.
   • It lifts your productivity and work efficiency: drafts, summaries, answers in seconds instead of hours.
-  • If you have not tried one yet, you should. Later I will show you ours.
+  • Later in this session I will show you ours.
 
 Slide 4 — OCBC Indonesia: On-premise
   • Public AI runs in someone else’s cloud. Confidential bank data must not go there.

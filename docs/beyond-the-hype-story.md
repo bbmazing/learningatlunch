@@ -75,8 +75,7 @@ technology underneath · you have already used one.
 
 ## Slide 3 · The best first use case: a chatbot — 2 min
 
-**Layout**: two-column; bullets left (last one marker-highlighted:
-"If you have not tried one yet, you should"), right an animated chat:
+**Layout**: two-column; bullets left, right an animated chat:
 a user message with a PDF attachment card (Laporan-Kinerja-Q2.pdf,
 30 halaman) → typing dots → reply → follow-up → reply, playing in
 sequence when the slide opens.
@@ -88,8 +87,8 @@ sequence when the slide opens.
 > conversation, not a search box. Summarise a thirty-page report, then
 > turn it into an email for the team, all in one thread. It lifts your
 > productivity and work efficiency: drafts, summaries and answers in
-> seconds instead of hours. If you have not tried one yet, you should.
-> And later in this session I will show you ours.
+> seconds instead of hours. And later in this session I will show you
+> ours.
 
 ## Slide 4 · Here at OCBC Indonesia: on-premise — 2 min
 
