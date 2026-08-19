@@ -379,8 +379,9 @@ writes searches → reads & filters → verdict + narrative → human
 review, green). Below: the dark agent console playing line by line
 (goal → web_search, court_lookup, sanctions_check with result counts →
 filtering → generate_report), then a red arrow pops and the report
-card lands outside the terminal: ADVERSE NEWS REPORT, HIGH badge,
-officer review → KYC file. Footnote: *web search is a paid, licensed
+card lands outside the terminal: ADVERSE NEWS REPORT, HIGH badge, a
+red PDF file chip (AdverseNews-PT-Maktour.pdf · 12 pages · ready for
+review), officer review → KYC file. Footnote: *web search is a paid, licensed
 tool; scraping is not allowed for regulatory reasons.
 
 **Say:**

@@ -1191,6 +1191,16 @@ body.static .reparrow,body.static .repout{opacity:1;transform:none;animation:non
 .repout .risk{font-family:var(--fHead);font-weight:800;font-size:10px;background:#fff;color:var(--red);
   border-radius:99px;padding:3px 10px}
 .repout .rb2{padding:11px 14px}
+.repout .rfdoc{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.repout .rfdoc .ft{flex:none;width:34px;height:38px;position:relative;display:grid;place-items:center}
+.repout .rfdoc .ft svg{position:absolute;inset:0;width:100%;height:100%;color:var(--red)}
+.repout .rfdoc .ft i{position:relative;font-style:normal;font-family:var(--fHead);font-weight:800;
+  font-size:7.5px;letter-spacing:.04em;color:#fff;background:var(--red);border-radius:3px;
+  padding:1px 4px;margin-top:8px}
+.repout .rfdoc .fni{min-width:0}
+.repout .rfdoc .fni b{display:block;font-family:var(--fMono,'JetBrains Mono',monospace);font-weight:600;
+  font-size:10.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.repout .rfdoc .fni span{display:block;font-size:9.5px;color:var(--faint);margin-top:1px}
 .repout .rb2 .ln{height:6px;border-radius:99px;background:var(--card);margin-bottom:6px}
 .repout .rb2 .ln.w1{width:92%}.repout .rb2 .ln.w2{width:78%}.repout .rb2 .ln.w3{width:85%}
 .repout .rb2 .rmeta{font-size:10.5px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -1853,6 +1863,10 @@ body.static .rfile.hit{background:#FFF7F7}
           <div class="repout">
             <div class="rh2"><b>Adverse News Report</b><span class="risk">HIGH</span></div>
             <div class="rb2">
+              <div class="rfdoc">
+                <span class="ft"><svg viewBox="0 0 34 38" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2.5h14l8 8v25a1.5 1.5 0 01-1.5 1.5h-20A1.5 1.5 0 015 35.5v-31A1.5 1.5 0 016.5 2.5z"/><path d="M20 2.5v8h8"/></svg><i>PDF</i></span>
+                <span class="fni"><b>AdverseNews-PT-Maktour.pdf</b><span>12 pages · ready for review</span></span>
+              </div>
               <div class="ln w1"></div><div class="ln w2"></div><div class="ln w3"></div>
               <div class="rmeta">PT Maktour · narrative with citations · evidence appendix<br/><b>✓ officer review</b> → KYC file</div>
             </div>
